@@ -1,0 +1,12 @@
+{
+    "name": "debug-server",
+    "version" : "0.0.1",
+    "engines": {
+        "node": "*",
+        "npm": "*"
+    },
+    "dependencies": {
+        "express" : "*",
+        "ejs": "*"
+    }
+}
