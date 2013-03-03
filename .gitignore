@@ -1,1 +1,6 @@
 bem-bl/*
+server/node_modules/*
+
+*.swp
+*.swo
+
