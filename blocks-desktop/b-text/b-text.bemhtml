@@ -1,0 +1,3 @@
+block b-text {
+    tag: 'span'
+}

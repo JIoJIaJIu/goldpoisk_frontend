@@ -1,9 +1,10 @@
 "use strict";
 
+var extend = require('bem/lib/util').extend;
 var PATH = require('path');
 
 var PRJ_PATH = '../..';
-var BEMBL_TECHS_PATH = 'bem-bl/blocks-common/i-bem/techs';
+var BEMBL_TECH_PATH = 'bem-bl/blocks-common/i-bem/bem/techs';
 
 exports.getTechs = function () {
 
