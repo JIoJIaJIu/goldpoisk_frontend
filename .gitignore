@@ -1,10 +1,5 @@
-bem-bl/*
 server/node_modules/*
 
 *.swp
 *.swo
 *.DS_Store
-
-.bem/cache
-pages-desktop/index/*
-
