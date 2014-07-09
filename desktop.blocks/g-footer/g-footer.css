@@ -1,0 +1,15 @@
+.g-footer
+{
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 142px;
+    background-color: #ffffff;
+}
+
+.g-footer__inner
+{
+    max-width: 1494px; min-width: 990px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+}

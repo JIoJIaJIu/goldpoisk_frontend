@@ -1,0 +1,8 @@
+block('g-footer').match()(
+    content()(function() {
+        return {
+            elem: 'inner',
+            content: applyNext()
+        };
+    })
+)
