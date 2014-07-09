@@ -1,0 +1,41 @@
+@font-face
+{
+    font-family: Clear-Sans;
+    src: url(clear-sans/ClearSans-Medium.ttf);
+}
+
+@font-face
+{
+    font-family: Din-Text-Pro_Light;
+    src: url(din-text-pro/PFDinTextPro-Light.ttf);
+}
+
+@font-face
+{
+    font-family: Clear-Sans_Light;
+    src: url(clear-sans/ClearSans-Light.ttf);
+}
+
+@font-face
+{
+    font-family: Din-Text-Pro_Thin;
+    src: url(din-text-pro/PFDinTextPro-Thin.ttf);
+}
+
+html
+{
+    height: 100%;
+}
+
+.page
+{
+    position: relative;
+    width: 100%; min-height: 1000px;
+    margin-bottom: 331px;
+}
+
+.page_inner
+{
+    position: relative;
+    height: 100%;
+}
