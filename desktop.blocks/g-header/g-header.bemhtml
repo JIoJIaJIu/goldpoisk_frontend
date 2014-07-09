@@ -1,0 +1,9 @@
+block('g-header').match(!this._done)(
+    content()(function() {
+        this._done = true;
+        return {
+            block: 'g-header_inner',
+            content: applyNext()
+        };
+    })
+)
