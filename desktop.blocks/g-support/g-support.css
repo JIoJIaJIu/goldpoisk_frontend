@@ -1,0 +1,40 @@
+.g-support
+{
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px;
+}
+
+.g-support section
+{
+    width: 100%; height: 100%;
+}
+
+.g-support header h1
+{
+    font-family: Clear-Sans;
+    font-size: 13px;
+    color: #000;
+    margin: 0;
+    padding-top: 24px; padding-bottom: 3px;
+}
+
+.g-support section a
+{
+    font-family: Clear-Sans;
+    font-size: 15px;
+    color: #a07472;
+    margin: 10px 0 0 0;
+    display: inline;
+
+}
+
+.g-support section p
+{
+    font-family: Clear-Sans;
+    font-size: 13px;
+    color: #a07472;
+    margin: 3px 0 0 0;
+    border-bottom: 1px dotted;
+    display: inline-block;
+}

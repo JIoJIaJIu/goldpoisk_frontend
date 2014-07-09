@@ -1,0 +1,27 @@
+block('g-support')(
+    content()(
+        {
+            tag: 'section',
+            content: [
+                {
+                    tag: 'header',
+                    content: [
+                        {
+                            tag: 'h1',
+                            content: 'Служба поддержки'
+                        }
+                    ]
+                },
+                {
+                    tag: 'a',
+                    attrs: { href: '/' },
+                    content: 'support@goldpoisk.ru'
+                },
+                {
+                    tag: 'p',
+                    content: 'Обратная связь'
+                }
+            ]
+        }
+    )
+)
