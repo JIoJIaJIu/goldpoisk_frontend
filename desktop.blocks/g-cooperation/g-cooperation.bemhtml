@@ -1,0 +1,8 @@
+block('g-cooperation').match()(
+    content()(function() {
+        return {
+            elem: 'inner',
+            content: applyNext()
+        };
+    })
+)
