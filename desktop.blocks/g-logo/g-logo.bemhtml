@@ -1,0 +1,20 @@
+block('g-logo')(
+    tag()('div'),
+    content()(
+        [
+            {
+                elem: 'left-side',
+                tag: 'div'
+            },
+            {
+                elem: 'right-side',
+                tag: 'div'
+            },
+            {
+                elem: 'description',
+                tag: 'div',
+                content: this.ctx.description
+            }
+        ]
+    )
+)
