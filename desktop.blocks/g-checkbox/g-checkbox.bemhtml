@@ -1,0 +1,29 @@
+block('g-checkbox')(
+    tag()('div'),
+    content()(
+        [
+            {
+                tag: 'input',
+                attrs: {
+                    type: 'checkbox', 
+                    id: this.generateId() 
+                }
+            },
+            {
+                tag: 'label',
+                attrs: {
+                    for: this.generateId()
+                },
+                content: [
+                    {
+                        tag: 'span'
+                    },
+                    {
+                        tag: '',
+                        content: this.ctx.label 
+                    }
+                ]
+            }
+        ]
+    )
+)
