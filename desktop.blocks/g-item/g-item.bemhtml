@@ -1,0 +1,9 @@
+block('g-item')(
+    tag()('li'),
+    content()( 
+        {
+            tag: 'a',
+            content: this.ctx.label
+        }
+    )
+)
