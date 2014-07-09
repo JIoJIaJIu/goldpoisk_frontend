@@ -1,0 +1,10 @@
+block('g-category').match(!this._done)(
+    content()(function() {
+        this._done = true;
+        return {
+            elem: 'list',
+            tag: 'ul',
+            content: applyNext()
+        };
+    })
+)
