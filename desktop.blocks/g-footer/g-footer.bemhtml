@@ -1,8 +1,46 @@
-block('g-footer').match()(
-    content()(function() {
-        return {
-            elem: 'inner',
-            content: applyNext()
-        };
-    })
+block('g-footer')(
+    content()(
+        {
+            block: 'g-footer_inner',
+            content: [
+                {
+                    elem: 'left',
+                    content: [
+                        {
+                            tag: 'p',
+                            content: '&copy GoldPoisk, 2014'
+                        }
+                    ]
+                },
+                {
+                    elem: 'middle',
+                    content: [
+                        {
+                            tag: 'section',
+                            content: [
+                                {
+                                    tag: 'header',
+                                    content: [
+                                        {
+                                            tag: 'h1',
+                                            content: 'Мы в социальных сетях'
+                                        }
+                                    ]
+                                },
+                            ]
+                        }
+                    ]
+                },
+                {
+                    elem: 'right',
+                    content: [
+                        {
+                            tag: 'p',
+                            content: 'New Mind Inc.'
+                        }
+                    ]
+                }
+            ]
+        }
+    )
 )
