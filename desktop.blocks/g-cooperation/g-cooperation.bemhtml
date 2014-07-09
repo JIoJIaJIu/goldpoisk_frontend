@@ -1,8 +1,25 @@
-block('g-cooperation').match()(
-    content()(function() {
-        return {
-            elem: 'inner',
-            content: applyNext()
-        };
-    })
+block('g-cooperation')(
+    content()(
+        [
+            {
+                elem: 'inner',
+                tag: 'section',
+                content: [
+                    {
+                        tag: 'header',
+                        content: [
+                            {
+                                tag: 'h1',
+                                content: 'Хотите сотрудничать и стать нашим партнёром?'
+                            }
+                        ]
+                    },
+                    {
+                        tag: 'p',
+                        content: '- свяжитесь с нами по адресу support@goldpoisk.ru'
+                    }
+                ]
+            }
+        ]
+    )
 )
