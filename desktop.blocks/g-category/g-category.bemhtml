@@ -1,6 +1,5 @@
-block('g-category').match(!this._done)(
+block('g-category').match()(
     content()(function() {
-        this._done = true;
         return {
             elem: 'list',
             tag: 'ul',

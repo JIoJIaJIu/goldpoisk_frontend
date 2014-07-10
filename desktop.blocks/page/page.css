@@ -25,13 +25,14 @@
 html
 {
     height: 100%;
+    width: 100%;
+    min-width: 990px;
 }
 
 .page
 {
     position: relative;
-    width: 100%; min-height: 1000px;
-    margin-bottom: 331px;
+    width: 100%;
 }
 
 .page_inner
