@@ -1,0 +1,35 @@
+.g-pride-item
+{
+    width: 25%; height: 100%;
+    display: table-cell;
+    float: none;
+    font-family: Clear-Sans;
+    font-size: 14px;
+    color: #fff;
+}
+
+.g-pride-item p
+{
+    margin-left: 76px; margin-top: 34px;
+    width: 60%;
+}
+
+.g-pride-item_type_brown
+{
+    background-color: #3c2424;
+}
+
+.g-pride-item_type_beige
+{
+    background-color: #a07472;
+}
+
+.g-pride-item_type_gold
+{
+    background-color: #dead03;
+}
+
+.g-pride-item_type_gray
+{
+    background-color: #777;
+}

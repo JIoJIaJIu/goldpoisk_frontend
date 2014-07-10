@@ -1,0 +1,9 @@
+block('g-pride').match()(
+    content()(function() {
+        return {
+            elem: 'inner',
+            content: applyNext()
+        };
+    })
+)
+

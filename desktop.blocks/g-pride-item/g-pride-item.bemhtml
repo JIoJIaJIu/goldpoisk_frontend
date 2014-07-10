@@ -1,0 +1,9 @@
+block('g-pride-item')(
+    tag()('div'),
+    content()(
+        {
+            tag: 'p',
+            content: this.ctx.label
+        }
+    )
+)
