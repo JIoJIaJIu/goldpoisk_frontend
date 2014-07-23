@@ -56,3 +56,101 @@
     background-position: 50% 15px;
     background-repeat: no-repeat;
 }
+
+.g-item_type_necklaces
+{
+    background-image: url(nacklace.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_chains
+{
+    background-image: url(chain.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_bracelets
+{
+    background-image: url(wristlet.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_earrings
+{
+    background-image: url(clip.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_brooches
+{
+    background-image: url(clip2.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_watches
+{
+    background-image: url(watch.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_cutlery
+{
+    background-image: url(canteen.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_necklaces:hover
+{
+    background-image: url(nacklaceh.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_chains:hover
+{
+    background-image: url(chainh.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_bracelets:hover
+{
+    background-image: url(wristleth.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_earrings:hover
+{
+    background-image: url(cliph.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_brooches:hover
+{
+    background-image: url(clip2h.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_watches:hover
+{
+    background-image: url(watchh.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
+
+.g-item_type_cutlery:hover
+{
+    background-image: url(canteenh.png);
+    background-position: 50% 15px;
+    background-repeat: no-repeat;
+}
