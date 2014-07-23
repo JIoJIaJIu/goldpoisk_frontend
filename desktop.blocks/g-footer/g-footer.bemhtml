@@ -24,9 +24,25 @@ block('g-footer')(
                                         {
                                             tag: 'h1',
                                             content: 'Мы в социальных сетях'
-                                        }
+                                        },
                                     ]
                                 },
+                                {
+                                    tag: 'span',
+                                    cls: 'fb'
+                                },
+                                {
+                                    tag: 'span',
+                                    cls: 'tw'
+                                },
+                                {
+                                    tag: 'span',
+                                    cls: 'vk'
+                                },
+                                {
+                                    tag: 'span',
+                                    cls: 'ok'
+                                }
                             ]
                         }
                     ]

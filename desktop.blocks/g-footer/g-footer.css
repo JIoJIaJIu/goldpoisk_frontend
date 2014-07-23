@@ -40,6 +40,16 @@
 .g-footer_inner__middle section
 {
     display: block;
+    text-align: center;
+}
+
+.g-footer_inner__middle section span
+{
+    display: inline-block;
+    width: 36px; height: 32px;
+    margin-top: 18px;
+    margin-left: 6px; margin-right: 6px;
+    background-image: url('./socials.png');
 }
 
 .g-footer_inner__middle section header h1
@@ -49,6 +59,26 @@
     color: #564141;
     padding-top: 38px;
     margin: 0;
+}
+
+.fb
+{
+    background-image: url('./socials.png');
+}
+
+.tw
+{
+    background-position: -36px 0;
+}
+
+.vk
+{
+    background-position: -72px 0;
+}
+
+.ok
+{
+    background-position: -108px 0;
 }
 
 .g-footer_inner__right
