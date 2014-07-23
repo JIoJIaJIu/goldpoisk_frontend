@@ -1,5 +1,11 @@
 @font-face
 {
+    font-family: Clear-Sans_Light;
+    src: url(clear-sans/ClearSans-Light.ttf);
+}
+
+@font-face
+{
     font-family: Clear-Sans;
     src: url(clear-sans/ClearSans-Medium.ttf);
 }
@@ -12,14 +18,14 @@
 
 @font-face
 {
-    font-family: Clear-Sans_Light;
-    src: url(clear-sans/ClearSans-Light.ttf);
+    font-family: Din-Text-Pro_Thin;
+    src: url(din-text-pro/PFDinTextPro-Thin.ttf);
 }
 
 @font-face
 {
-    font-family: Din-Text-Pro_Thin;
-    src: url(din-text-pro/PFDinTextPro-Thin.ttf);
+    font-family: Din-Text-Pro_Regular;
+    src: url(din-text-pro/PFDinTextPro-Regular.ttf);
 }
 
 html
