@@ -1,0 +1,35 @@
+.g-slogan
+{
+    width: 100%; height: 182px;
+    background-color: #fff;
+}
+
+.g-slogan__inner
+{
+    max-width: 1494px; min-width: 990px;
+    width: 100%; height: 100%;
+    margin: 0 auto;
+    padding-left: 24px; padding-top: 0; padding-right: 0; padding-bottom: 0;
+}
+
+.g-slogan__inner header
+{
+    padding-top: 60px;
+}
+
+.g-slogan__inner header h1
+{
+    font-family: Din-Text-Pro_Thin;
+    font-size: 36px;
+    color: #3c2424;
+    margin: 0;
+}
+
+.g-slogan__inner p
+{
+    font-family: Clear-Sans;
+    font-size: 14px;
+    color: #8f8f8f;
+    margin: 0;
+    padding-top: 23px;
+}
