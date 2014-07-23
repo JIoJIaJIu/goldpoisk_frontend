@@ -1,0 +1,27 @@
+block('g-section').match()(
+    tag()('div'),
+    content()(
+        [
+            {
+                tag: 'header',
+                content: [
+                    {
+                        tag: 'h1',
+                        content: this.ctx.title
+                    }
+                ]
+            },
+            {
+                tag: 'p',
+                content: this.ctx.description
+            }
+        ],
+        function() {
+            return {
+                elem: 'inner',
+                content: applyNext()
+            };
+        }
+
+    )
+)
