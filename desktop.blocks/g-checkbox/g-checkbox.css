@@ -27,7 +27,12 @@
 
 .g-checkbox input[type="checkbox"] + label
 {
-    color: #c39801;
+    color: #777;
     font-family: Clear-Sans;
-    font-size: 12.2pt;
+    font-size: 14px;
+}
+
+.g-checkbox input[type="checkbox"]:checked + label
+{
+    color: #c39801;
 }

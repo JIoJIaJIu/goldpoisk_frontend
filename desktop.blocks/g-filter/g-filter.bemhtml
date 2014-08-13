@@ -1,0 +1,51 @@
+block('g-filter')(
+    elem('title')(
+        content()(
+            {
+                tag: 'h1',
+                content: this.ctx.title
+            }
+        )
+    ),
+
+    elem('price')(
+
+    ),
+
+    elem('part')(
+        content()(
+            [
+                {
+                    tag: 'h3',
+                    content: this.ctx.title
+                },
+                {
+                    tag: 'ul',
+                    content: this.ctx.types.map(function(type) { return { block: 'g-checkbox', label: type } })
+                },
+                {
+                    block: 'link',
+                    url: '/',
+                    content: 'Ещё 9 видов камней'
+                },
+                {
+                    tag: 'hr',
+                }
+            ]
+        )
+    ),
+    
+    elem('part').elemMod('type', 'material')(
+        content()(
+            [
+                {
+                    tag: 'h3',
+                    contetn: 'Материал'
+                },
+                applyNext()
+            ]
+        )
+    )
+)
+
+
