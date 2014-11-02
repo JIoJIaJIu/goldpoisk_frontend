@@ -1,11 +1,11 @@
 block('g-filter')(
     elem('title')(
-        content()(
-            {
+        content()(function () {
+            return {
                 tag: 'h1',
                 content: this.ctx.title
             }
-        )
+        })
     ),
 
     elem('price')(
@@ -13,8 +13,8 @@ block('g-filter')(
     ),
 
     elem('part')(
-        content()(
-            [
+        content()(function () {
+            return [
                 {
                     tag: 'h3',
                     content: this.ctx.title
@@ -29,22 +29,22 @@ block('g-filter')(
                     content: 'Ещё 9 видов камней'
                 },
                 {
-                    tag: 'hr',
+                    tag: 'hr'
                 }
             ]
-        )
+        })
     ),
     
     elem('part').elemMod('type', 'material')(
-        content()(
-            [
+        content()(function () {
+            return [
                 {
                     tag: 'h3',
                     contetn: 'Материал'
                 },
                 applyNext()
             ]
-        )
+        })
     ),
 
     content()(

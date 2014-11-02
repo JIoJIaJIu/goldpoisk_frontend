@@ -1,7 +1,7 @@
 block('g-slogan').match()(
     tag()('div'),
-    content()(
-        [
+    content()(function () {
+        return [
             {
                 tag: 'header',
                 content: [
@@ -23,5 +23,5 @@ block('g-slogan').match()(
             };
         }
 
-    )
+    })
 )

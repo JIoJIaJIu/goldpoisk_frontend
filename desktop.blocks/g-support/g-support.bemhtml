@@ -1,6 +1,6 @@
 block('g-support')(
-    content()(
-        {
+    content()(function () {
+        return {
             tag: 'section',
             content: [
                 {
@@ -23,5 +23,5 @@ block('g-support')(
                 }
             ]
         }
-    )
+    })
 )

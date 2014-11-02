@@ -22,7 +22,7 @@
 
 .g-pride-item_type_brown .img 
 {
-    background-image: url('../g-pride/diamond.png');
+    background-image: url('../g-pride/images/diamond.png');
     background-repeat: no-repeat;
     background-position: 0% 0%;
 }
@@ -34,7 +34,7 @@
 
 .g-pride-item_type_beige .img
 {
-    background-image: url('../g-pride/infinity.png');
+    background-image: url('../g-pride/images/infinity.png');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     left: 18px;
@@ -52,7 +52,7 @@
 
 .g-pride-item_type_gold .img
 {
-    background-image: url('../g-pride/crown.png');
+    background-image: url('../g-pride/images/crown.png');
     background-repeat: no-repeat;
     background-position: 0% 0%;
 }
@@ -64,7 +64,7 @@
 
 .g-pride-item_type_gray .img
 {
-    background-image: url('../g-pride/checkbox.png');
+    background-image: url('../g-pride/images/checkbox.png');
     background-repeat: no-repeat;
     background-position: 0% 0%;   
 }

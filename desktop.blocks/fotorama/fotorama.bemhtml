@@ -1,10 +1,10 @@
 block('fotorama')(
-    content()(
-        {
+    content()(function () {
+        return {
             block: 'image',
             tag: 'img',
             attrs: { src: '../../media/promotion01.png', alt: 'GoldPoisk' }
         }
-    )
+    })
 )
     

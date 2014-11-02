@@ -6,7 +6,6 @@
     ],
     scripts: [{ elem: 'js', url: '_items.js' }],
     content: [
-    /*
         {
         block: 'g-header',
         content: [
@@ -117,7 +116,7 @@
                     title: 'Кольца',
                     count: '11 253'
                 },
-               /* {
+                {
                     block: 'g-filter',
                     content: [
                         {
@@ -163,7 +162,7 @@
                             content: ""
                         }
                     ]
-                },*/
+                },
                 {
                     block: 'g-goods',
                     goods: [
@@ -238,6 +237,5 @@
 
             ]
         }
-        */
     ]
 })

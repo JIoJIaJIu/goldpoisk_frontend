@@ -1,4 +1,4 @@
-/*block('g-section').match()(
+block('g-section').match()(
     tag()('div'),
     content()(function () {
         return [
