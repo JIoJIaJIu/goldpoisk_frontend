@@ -1,9 +1,15 @@
 block('g-pride-item')(
     tag()('div'),
     content()(function () {
-        return {
-            tag: 'p',
-            content: this.ctx.label
-        }
+        return [
+            {
+                tag: 'div',
+                cls: 'img'
+            },
+            {
+                tag: 'p',
+                content: this.ctx.label
+            }
+        ]
     })
 )

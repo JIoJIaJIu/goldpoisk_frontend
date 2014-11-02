@@ -1,6 +1,6 @@
 block('g-footer')(
-    content()(
-        {
+    content()(function () {
+        return {
             block: 'g-footer_inner',
             content: [
                 {
@@ -58,5 +58,5 @@ block('g-footer')(
                 }
             ]
         }
-    )
+    })
 )

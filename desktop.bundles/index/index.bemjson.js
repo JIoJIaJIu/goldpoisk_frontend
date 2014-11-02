@@ -62,19 +62,6 @@
             ]
         },
         {
-            block: 'g-checkbox',
-            label: 'Линии любви'
-        },
-        {
-            block: 'g-checkbox',
-            label: 'Sun light'
-        },
-        {
-            block: 'g-logo',
-            mods: { color_theme: 'xmas' },
-            description: 'Крупнейший поиск ювелирных изделий'
-        },
-        {
             block: 'g-category',
             content: [
                 {
