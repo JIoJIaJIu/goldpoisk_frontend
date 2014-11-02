@@ -3,6 +3,11 @@ server/node_modules/*
 *.swp
 *.swo
 *.DS_Store
+
+images/*
+bem-core/*
+
+node_modules/**
 desktop.bundles/index/**
 !desktop.bundles/index/index.bemjson.js
 desktop.bundles/items/**
