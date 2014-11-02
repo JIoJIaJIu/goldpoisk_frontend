@@ -6,6 +6,7 @@
         "npm": "*"
     },
     "dependencies": {
-        "bem": "*"
+        "bem": "*",
+        "borschik": "*"
     }
 }
