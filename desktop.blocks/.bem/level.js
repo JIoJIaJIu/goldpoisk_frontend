@@ -1,4 +1,3 @@
-
 exports.getTechs = function() {
     var techs = {
         /*
