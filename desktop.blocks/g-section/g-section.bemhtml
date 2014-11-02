@@ -1,4 +1,4 @@
-block('g-section').match()(
+/*block('g-section').match()(
     tag()('div'),
     content()(function () {
         return [
@@ -25,3 +25,47 @@ block('g-section').match()(
 
     })
 )
+
+block g-section {
+    cls: 'g-section__inner',
+    content:
+    [
+        {
+            tag: 'header',
+            content: [
+                {
+                    tag: 'h1',
+                    content: this.ctx.title
+                }
+            ]
+        },
+        {
+            tag: 'p',
+            content: this.ctx.description
+        }
+    ]
+}
+
+block g-section, mod type subscription {
+    content:
+    [
+        applyNext(),
+        {
+            tag: 'form',
+            content: [
+                {
+                    tag: 'label',
+                    content: 'Ваш e-mail'
+                },
+                {
+                    tag: 'input',
+                    content: ''
+                },
+                {
+                    elem: 'g-button',
+                    content: 'Подписаться'
+                }
+            ]
+        }
+    ]
+}

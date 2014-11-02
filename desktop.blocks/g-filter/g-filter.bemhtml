@@ -45,6 +45,15 @@ block('g-filter')(
                 applyNext()
             ]
         )
+    ),
+
+    content()(
+        function() {
+            return {
+                elem: 'inner',
+                content: applyNext()
+            };
+        }
     )
 )
 

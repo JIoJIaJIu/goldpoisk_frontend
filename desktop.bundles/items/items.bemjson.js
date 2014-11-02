@@ -108,6 +108,16 @@
             block: 'g-content',
             content: [
                 {
+                    block: 'g-navibar',
+                    root: 'Главная',
+                    position: 'Кольца'
+                },
+                {
+                    block: 'g-category-title',
+                    title: 'Кольца',
+                    count: '11 253'
+                },
+               /* {
                     block: 'g-filter',
                     content: [
                         {
@@ -153,8 +163,74 @@
                             content: ""
                         }
                     ]
+                },*/
+                {
+                    block: 'g-goods',
+                    goods: [
+                        {
+                            title: 'Кольцо с 21 бриллиантом',
+                            image: '../../desktop.blocks/g-goods/good.png',
+                            pw: '4,5 грамм',
+                            jw: '0,07 карат',
+                            price: '3333Р',
+                            shop: 'Sunlight',
+                            action: true,
+                                                            
+                        },
+                        {
+                            hit: true,
+                            tape: 'Хит продаж'
+                        },
+                        {
+                            like: true,
+                        },
+                        {
+                        },
+                        {
+                            block: 'clear'
+                        }
+                    ]
+                },
+                {
+                    block: 'g-expanded-item',
+                    content: [
+                        {
+                            elem: 'title',
+                            title: 'Обручальное кольцо из белого золота с 21 бриллиантом'
+                        },
+                        {
+                            elem: 'close',
+                        },
+                        {
+                            block: 'g-item-galery',
+                            content: [
+                                {
+                                    elem: 'title',
+                                    title: 'Фото',
+                                    count: 8
+                                },
+                                {
+                                    elem: 'preview_images',
+                                    images: ['1.jpg',
+                                             '1.jpg',
+                                             '1.jpg',
+                                             '1.jpg']
+                                },
+                                {
+                                    elem: 'main_image',
+                                    image: '2.jpg'
+                                }
+                                
+                            ]
+                        }
+                    ]
                 }
+                
+
             ]
+        },
+        {
+            block: 'clear'
         },
         {
             block: 'g-footer',

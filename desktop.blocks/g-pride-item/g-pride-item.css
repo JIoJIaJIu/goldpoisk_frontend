@@ -6,11 +6,12 @@
     font-family: Clear-Sans;
     font-size: 14px;
     color: #fff;
+    position: relative;
 }
 
 .g-pride-item p
 {
-    margin-left: 76px; margin-top: 34px;
+    margin-left: 79px; margin-top: 39px;
     width: 60%;
 }
 
@@ -19,9 +20,29 @@
     background-color: #3c2424;
 }
 
+.g-pride-item_type_brown .img 
+{
+    background-image: url('../g-pride/diamond.png');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+}
+
 .g-pride-item_type_beige
 {
     background-color: #a07472;
+}
+
+.g-pride-item_type_beige .img
+{
+    background-image: url('../g-pride/infinity.png');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    left: 18px;
+}
+
+.g-pride-item_type_beige p
+{
+    margin-left: 83px;
 }
 
 .g-pride-item_type_gold
@@ -29,7 +50,28 @@
     background-color: #dead03;
 }
 
+.g-pride-item_type_gold .img
+{
+    background-image: url('../g-pride/crown.png');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+}
+
 .g-pride-item_type_gray
 {
     background-color: #777;
+}
+
+.g-pride-item_type_gray .img
+{
+    background-image: url('../g-pride/checkbox.png');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;   
+}
+
+.img
+{
+    position: absolute;
+    left: 24px; top: 35px;
+    width: 57px; height: 40px;
 }

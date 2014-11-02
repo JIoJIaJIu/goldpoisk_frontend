@@ -24,6 +24,12 @@
 
 @font-face
 {
+    font-family: Din-Text-Pro_ThinItalic;
+    src: url(din-text-pro/PFDinTextPro-ThinItalic.ttf);
+}
+
+@font-face
+{
     font-family: Din-Text-Pro_Regular;
     src: url(din-text-pro/PFDinTextPro-Regular.ttf);
 }
@@ -39,6 +45,7 @@ html
 {
     position: relative;
     width: 100%;
+    margin: 0;
 }
 
 .page_inner
