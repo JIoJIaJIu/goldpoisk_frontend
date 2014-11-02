@@ -26,7 +26,7 @@ block('g-goods').match()(
                             content: [
                                 {
                                     tag: 'img',
-                                    attrs: ({ width: '22px', height: '18px', src: '../../desktop.blocks/g-goods/pw.png' }),
+                                    attrs: ({ width: '22px', height: '18px', src: '../../media/pw.png' }),
                                 },
                                 {
                                     tag: 'p',
@@ -39,7 +39,7 @@ block('g-goods').match()(
                             content: [
                                 {
                                     tag: 'img',
-                                    attrs: ({ width: '22px', height: '17px', src: '../../desktop.blocks/g-goods/jw.png' }),
+                                    attrs: ({ width: '22px', height: '17px', src: '../../media/jw.png' }),
                                 },
                                 {
                                     tag: 'p',
@@ -75,7 +75,7 @@ block('g-goods').match()(
     ),
     elem('image')(
         tag()('img'),
-        attrs()({ src: this.ctx.url, width: '100%', height: '180px' })
+        attrs()(function () { return { src: this.ctx.url, width: '100%', height: '180px' } })
     ),
     elem('pw')(
         tag()('span')

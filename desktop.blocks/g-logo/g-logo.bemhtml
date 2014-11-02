@@ -1,7 +1,7 @@
 block('g-logo')(
     tag()('div'),
-    content()(
-        [
+    content()(function () {
+        return [
             {
                 elem: 'left-side',
                 tag: 'div'
@@ -16,5 +16,5 @@ block('g-logo')(
                 content: this.ctx.description
             }
         ]
-    )
+    })
 )

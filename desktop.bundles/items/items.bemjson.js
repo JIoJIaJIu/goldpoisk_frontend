@@ -6,6 +6,7 @@
     ],
     scripts: [{ elem: 'js', url: '_items.js' }],
     content: [
+    /*
         {
         block: 'g-header',
         content: [
@@ -161,5 +162,6 @@
 
             ]
         }
+        */
     ]
 })

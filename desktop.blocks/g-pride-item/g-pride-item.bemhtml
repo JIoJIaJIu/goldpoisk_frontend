@@ -1,9 +1,9 @@
 block('g-pride-item')(
     tag()('div'),
-    content()(
-        {
+    content()(function () {
+        return {
             tag: 'p',
             content: this.ctx.label
         }
-    )
+    })
 )

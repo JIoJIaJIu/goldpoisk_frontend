@@ -49,7 +49,7 @@
     width: 36px; height: 32px;
     margin-top: 18px;
     margin-left: 6px; margin-right: 6px;
-    background-image: url('./socials.png');
+    background-image: url('./images/socials.png');
 }
 
 .g-footer_inner__middle section header h1
@@ -63,7 +63,7 @@
 
 .fb
 {
-    background-image: url('./socials.png');
+    background-image: url('./images/socials.png');
 }
 
 .tw

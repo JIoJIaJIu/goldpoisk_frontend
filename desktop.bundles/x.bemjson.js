@@ -5,7 +5,7 @@
     head: [
         { elem: 'meta', attrs: { name: 'description', content: '' } },
         { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
-        { elem: 'css', url: 'index.css' },
+        { elem: 'css', url: '_index.css' },
         { elem: 'css', url: 'http://fotorama.s3.amazonaws.com/4.5.2/fotorama.css' }
     ],
     scripts: [{ elem: 'js', url: '_index.js' }],
@@ -30,7 +30,7 @@
                     content: [
                         {
                             tag: 'img',
-                            attrs: {src: '../../desktop.blocks/g-header/images/cart.png'},
+                            attrs: {src: '../../desktop.blocks/g-header/cart.png'},
                         },
                         {
                             tag: 'span',
@@ -43,7 +43,7 @@
                     content: [
                         {
                             tag: 'img',
-                            attrs: {src: '../../desktop.blocks/g-header/images/heart.png'},
+                            attrs: {src: '../../desktop.blocks/g-header/heart.png'},
                         },
                         {
                             tag: 'span',
@@ -58,9 +58,10 @@
                 },
                 {
                     elem: 'clear',
-                }
+                },
             ]
         },
+/*
         {
             block: 'g-checkbox',
             label: 'Линии любви'
@@ -71,9 +72,9 @@
         },
         {
             block: 'g-logo',
-            mods: { color_theme: 'xmas' },
+//            mods: { color_theme: 'xmas' },
             description: 'Крупнейший поиск ювелирных изделий'
-        },
+        },*/
         {
             block: 'g-category',
             content: [
@@ -177,7 +178,7 @@
                     goods: [
                         {
                             title: 'Кольцо с 21 бриллиантом',
-                            image: '../../desktop.blocks/g-goods/images/good.png',
+                            image: '../../desktop.blocks/g-goods/good.png',
                             pw: '4,5 грамм',
                             jw: '0,07 карат',
                             price: '3333Р',

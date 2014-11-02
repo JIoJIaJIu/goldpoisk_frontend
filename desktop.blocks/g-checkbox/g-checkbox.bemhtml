@@ -1,7 +1,7 @@
 block('g-checkbox')(
     tag()('div'),
-    content()(
-        [
+    content()(function () {
+        return [
             {
                 tag: 'input',
                 attrs: {
@@ -25,5 +25,5 @@ block('g-checkbox')(
                 ]
             }
         ]
-    )
+    })
 )
