@@ -5,7 +5,7 @@
     head: [
         { elem: 'meta', attrs: { name: 'description', content: '' } },
         { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
-        { elem: 'css', url: 'index.css' },
+        { elem: 'css', url: 'css/index.css' },
         { elem: 'css', url: 'http://fotorama.s3.amazonaws.com/4.5.2/fotorama.css' }
     ],
     scripts: [{ elem: 'js', url: '_index.js' }],
