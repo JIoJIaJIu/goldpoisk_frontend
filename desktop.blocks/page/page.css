@@ -1,55 +1,42 @@
-@font-face
-{
+@font-face {
     font-family: Clear-Sans_Light;
     src: url(clear-sans/ClearSans-Light.ttf);
 }
 
-@font-face
-{
+@font-face {
     font-family: Clear-Sans;
     src: url(clear-sans/ClearSans-Medium.ttf);
 }
 
-@font-face
-{
+@font-face {
     font-family: Din-Text-Pro_Light;
     src: url(din-text-pro/PFDinTextPro-Light.ttf);
 }
 
-@font-face
-{
+@font-face {
     font-family: Din-Text-Pro_Thin;
     src: url(din-text-pro/PFDinTextPro-Thin.ttf);
 }
 
-@font-face
-{
+@font-face {
     font-family: Din-Text-Pro_ThinItalic;
     src: url(din-text-pro/PFDinTextPro-ThinItalic.ttf);
 }
 
-@font-face
-{
+@font-face {
     font-family: Din-Text-Pro_Regular;
     src: url(din-text-pro/PFDinTextPro-Regular.ttf);
 }
 
-html
-{
-    height: 100%;
-    width: 100%;
+html {
     min-width: 990px;
 }
 
-.page
-{
-    position: relative;
-    width: 100%;
+.page {
     margin: 0;
 }
 
-.page_inner
-{
+.page_inner {
     position: relative;
     height: 100%;
 }

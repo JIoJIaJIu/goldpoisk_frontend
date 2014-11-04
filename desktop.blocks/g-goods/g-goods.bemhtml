@@ -8,7 +8,7 @@ block('g-goods').match()(
                     mods: { action: item.action ? 'yes' : undefined, hit: item.hit ? 'yes' : undefined, like: item.like ? 'yes' : undefined },
                     content: [
                         {
-                            elem: 'heart',
+                            elem: 'like',
                         },
                         {
                             elem: 'tape',
@@ -56,7 +56,7 @@ block('g-goods').match()(
                             content: item.price
                         },
                         {
-                            elem: 'g-button',
+                            block: 'g-button',
                             content: 'Купить'
                         }
                     ]

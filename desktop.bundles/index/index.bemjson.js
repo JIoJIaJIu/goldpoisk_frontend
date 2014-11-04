@@ -1,12 +1,11 @@
 ({
     block: 'page',
-    title: 'Title of the page',
+    title: 'GoldPoisk',
     favicon: '/favicon.ico',
     head: [
         { elem: 'meta', attrs: { name: 'description', content: '' } },
         { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
-        { elem: 'css', url: 'css/index.css' },
-        { elem: 'css', url: 'http://fotorama.s3.amazonaws.com/4.5.2/fotorama.css' }
+        { elem: 'css', url: 'css/index.css' }
     ],
     scripts: [{ elem: 'js', url: '_index.js' }],
     scripts: [{ elem: 'js-fotorama', url: 'http://fotorama.s3.amazonaws.com/4.5.2/fotorama.js' }],
@@ -24,7 +23,7 @@
                             description: 'Крупнейший поиск ювелирных изделий'
                         }
                     ]
-                },
+                },/*
                 {
                     elem: 'basket',
                     content: [
@@ -49,15 +48,12 @@
                             tag: 'span',
                             content: 'Нет товаров в списке желаний'
                         }
-                    ] 
-                },
-                {
-                    block: 'g-support',
-                    content: [
                     ]
                 },
+                */
                 {
-                    elem: 'clear',
+                    block: 'g-support',
+                    content: []
                 }
             ]
         },

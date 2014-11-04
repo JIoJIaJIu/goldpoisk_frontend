@@ -1,43 +1,42 @@
-.g-logo
-{
-    width: 240px; height: 105px;
+.g-logo {
+    width: 240px;
     margin-left: 25px;
 }
 
-.g-logo__left-side
-{
-    width: 116px; height: 70px;
+.g-logo__link {
+    overflow: hidden;
+    display: block;
+}
+
+.g-logo__gold {
+    width: 116px;
+    height: 70px;
     background-color: #deac00;
     float: left;
     -webkit-mask-image: url('./images/Gold.png');
 }
 
-.g-logo__right-side
-{
-    width: 124px; height: 70px;
+.g-logo__poisk {
+    width: 124px;
+    height: 70px;
     background-color: #777777;
-    float: right;
+    float: left;
     -webkit-mask-image: url('./images/poisk.png');
 }
 
-.g-logo__description
-{
-    clear: both;
-    width: 240px; /*height: 35px*/;
-    background-color: #ffffff;
+.g-logo__description {
+    width: 240px;
     text-align: right;
-    font-family: Din-Text-Pro_Light;
     font-size: 12.62px;
+    font-family: Din-Text-Pro_Light, sans-serif;
     color: #a2a2a2;
     padding-top: 8px;
 }
 
-.g-logo_color_theme_xmas .g-logo__left-side
-{
+.g-logo_color_theme_xmas .g-logo__left-side {
     background-color: blue;
 }
 
-.g-logo_color_theme_xmas .g-logo__right-side
-{
+.g-logo_color_theme_xmas .g-logo__right-side {
     background-color: green;
 }

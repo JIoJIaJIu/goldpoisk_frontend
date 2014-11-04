@@ -14,13 +14,13 @@ block('g-support')(
                 },
                 {
                     tag: 'a',
-                    attrs: { href: '/' },
+                    attrs: { href: 'mailto:support@goldpoisk.ru' },
                     content: 'support@goldpoisk.ru'
-                },
+                }/*,
                 {
                     tag: 'p',
                     content: 'Обратная связь'
-                }
+                }*/
             ]
         }
     })

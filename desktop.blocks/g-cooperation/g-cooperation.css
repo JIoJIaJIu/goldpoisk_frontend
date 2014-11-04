@@ -1,28 +1,23 @@
-.g-cooperation
-{
-    width: 100%; height: 189px;
+.g-cooperation {
+    height: 189px;
     background-color: #a07472;
-    position: absolute;
-    left: 0; bottom: 142px;
 }
 
-.g-cooperation__inner
-{
-    max-width: 1494px; min-width: 990px;
+.g-cooperation__inner {
+    max-width: 1494px;
+    min-width: 990px;
     height: 100%;
     margin: 0 auto;
-    font-family: Din-Text-Pro_Thin;
+    font-family: Din-Text-Pro_Thin, sans-serif;
     text-align: center;
     color: #fff;
 }
 
-.g-cooperation__inner p
-{
+.g-cooperation__inner p {
     font-size: 18px;
 }
 
-.g-cooperation__inner h1
-{
+.g-cooperation__inner h1 {
     padding-top: 56px;
     font-size: 36px;
     margin: 0;

@@ -1,0 +1,3 @@
+block('g-button')(
+    tag()('span')
+)

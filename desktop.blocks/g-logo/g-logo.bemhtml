@@ -3,12 +3,19 @@ block('g-logo')(
     content()(function () {
         return [
             {
-                elem: 'left-side',
-                tag: 'div'
-            },
-            {
-                elem: 'right-side',
-                tag: 'div'
+                tag: 'a',
+                elem: 'link',
+                attrs: { href: '/' },
+                content: [
+                    {
+                        elem: 'gold',
+                        tag: 'span'
+                    },
+                    {
+                        elem: 'poisk',
+                        tag: 'span'
+                    }
+                ]
             },
             {
                 elem: 'description',

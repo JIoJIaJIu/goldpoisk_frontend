@@ -1,19 +1,18 @@
-.g-button
-{
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb( 189, 146, 0 );
-    background-color: rgba( 222, 172, 0, 0 );
-    width: 91px;
-    height: 36px;
+.g-button {
+    font-family: Din-Text-Pro_Regular, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    color: #3c2424;
+    height: 33px;
+    line-height: 33px;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid rgb(189,146,0);
+    border-radius: 5px;
+    background: #fff;
+    padding: 0 20px;
 }
 
-.g-button:hover
-{
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb( 189, 146, 0 );
-    background-color: rgb( 222, 172, 0 );
-    width: 91px;
-    height: 36px;
+.g-button:hover {
+    background: rgb(222,172,0);
 }
