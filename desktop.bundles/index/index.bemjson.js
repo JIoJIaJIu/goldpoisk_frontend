@@ -8,8 +8,6 @@
         { elem: 'css', url: 'css/index.css' }
     ],
     scripts: [{ elem: 'js', url: '_index.js' }],
-    scripts: [{ elem: 'js-fotorama', url: 'http://fotorama.s3.amazonaws.com/4.5.2/fotorama.js' }],
-    scripts: [{ elem: 'js-jquery', url: 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'}],
     mods: { theme: 'normal' },
     content: [
         {
