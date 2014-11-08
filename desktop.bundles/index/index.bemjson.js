@@ -10,51 +10,7 @@
     scripts: [{ elem: 'js', url: '_index.js' }],
     mods: { theme: 'normal' },
     content: [
-        {
-            block: 'g-header',
-            content: [
-                {
-                    elem: 'logo',
-                    content: [
-                        {
-                            block: 'g-logo',
-                            description: 'Крупнейший поиск ювелирных изделий'
-                        }
-                    ]
-                },/*
-                {
-                    elem: 'basket',
-                    content: [
-                        {
-                            tag: 'img',
-                            attrs: {src: '../../desktop.blocks/g-header/images/cart.png'},
-                        },
-                        {
-                            tag: 'span',
-                            content: 'Карзина пуста. Ищите товары в каталоге'
-                        }
-                    ]
-                },
-                {
-                    elem: 'desire',
-                    content: [
-                        {
-                            tag: 'img',
-                            attrs: {src: '../../desktop.blocks/g-header/images/heart.png'},
-                        },
-                        {
-                            tag: 'span',
-                            content: 'Нет товаров в списке желаний'
-                        }
-                    ]
-                },
-                */
-                {
-                    block: 'g-support',
-                    content: []
-                }
-            ]
-        },
+        { block: 'g-header' },
         {
             block: 'g-category',
             content: [
