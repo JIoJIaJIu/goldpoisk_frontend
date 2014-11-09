@@ -1,5 +1,12 @@
-.g-promotion
-{
-    width: 100%; height: 498px;
+.g-promotion {
+	position: relative;
+    width: 100%; 
+    height: 498px;
     background-color: #160f10;
+}
+
+.g-promotion .g-promotion-markers-list {
+	position: absolute;
+	width: 100%;
+	bottom: 25px;
 }
