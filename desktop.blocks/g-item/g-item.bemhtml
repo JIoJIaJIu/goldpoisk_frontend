@@ -3,7 +3,20 @@ block('g-item')(
     content()(function () { 
         return {
             tag: 'a',
-            content: this.ctx.label
+            content: [ 
+            	{
+            		elem: 'logo',
+            		tag: 'span',
+            		content: ''
+            	}, {
+            		elem: 'title',
+            		tag: 'span',
+             		content: this.ctx.label
+            	}, {
+            		elem: 'arrow',
+            		tag: 'span'
+            	}
+            ]
         }
     })
 )
