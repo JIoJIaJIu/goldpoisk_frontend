@@ -1,0 +1,15 @@
+block('g-promotion-item')(
+	elem('title')(
+		tag()('p'),
+		content()(function () {
+			return this.ctx.title;
+		})
+	),
+
+	elem('price')(
+		tag()('p'),
+		content()(function () {
+			return this.ctx.price;
+		})
+	)
+)
