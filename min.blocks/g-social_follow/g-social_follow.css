@@ -1,0 +1,53 @@
+.g-social_follow .g-social_follow__vk {
+	margin-left: 19px;
+}
+
+.g-social_follow__item {
+	display: inline-block;
+	vertical-align: top;
+	height: 18px;
+	line-height: 18px;
+	margin: 0 2px;
+	padding: 0 6px 0 19px;
+	border-radius: 2px;
+	background-repeat: no-repeat;
+	font-family: MyriadPro, Arial, sans-serif;
+	font-size: 12px;
+	color: #fff;
+}
+
+.g-social_follow__item_type_vk {
+	background-color: #7f9cbb;
+	background-image: url(images/vk.png);
+	background-position: 5px 4px;
+}
+
+.g-social_follow__item_type_fb {
+	background-color: #768bb7;
+	background-image: url(images/fb.png);
+	background-position: 5px 3px;
+}
+
+.g-social_follow__item_type_twitter {
+	background-color: #4cc5f2;
+	background-image: url(images/twitter.png);
+	background-position: 3px 4px;
+}
+
+.g-social_follow__item_type_ok {
+	background-color: #ffbc82;
+	background-image: url(images/ok.png);
+	background-position: 5px 3px;
+}
+
+.g-social_follow__item_type_mail {
+	background-color: #6499cc;
+	background-image: url(images/mail.png);
+	background-position: 3px 3px;
+}
+
+.g-social_follow__item_type_gplus {
+	background-color: #d48671;
+	background-image: url(images/g+.png);
+	background-position: 0px 3px;
+}
