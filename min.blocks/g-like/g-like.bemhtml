@@ -1,0 +1,20 @@
+block('g-like')(
+	content()(function() {
+		return {
+			tag: 'span',
+			content: ''
+		}
+	}),
+
+	mod('type', 'extended')(
+		content()(function () {
+			return [
+				applyNext(),
+				{
+					tag: 'span',
+					content: 'Мне нравится!'
+				}
+			]
+		})
+	)
+)
