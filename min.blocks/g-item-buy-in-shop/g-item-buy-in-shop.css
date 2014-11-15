@@ -1,0 +1,27 @@
+.g-item-buy-in-shop {
+	padding: 25px 35px;
+	float: left;
+}
+
+.g-item-buy-in-shop__title {
+	font-family: Clear-Sans_Thin;
+	font-size: 18px;
+	color: #a07472;
+	letter-spacing: -1px;
+	text-decoration: underline;
+	margin: 0 0 10px 0;
+}
+
+.g-item-buy-in-shop__price {
+	display: inline-block;
+	font-family: Clear-Sans_Light;
+	font-size: 24px;
+	color: #3c2424;
+}
+
+.g-item-buy-in-shop .g-button {
+	margin: 0 10px;
+	display: inline-block;
+	vertical-align: top;
+
+}

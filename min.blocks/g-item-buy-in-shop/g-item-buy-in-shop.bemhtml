@@ -1,0 +1,19 @@
+block('g-item-buy-in-shop')(
+	content()(function() {
+		return [
+			{
+				elem: 'title',
+				tag: 'h3',
+				content: this.ctx.shop
+			},
+			{
+				elem: 'price',
+				content: this.ctx.price
+			},
+			{
+				block: 'g-button',
+				content: 'Купить'
+			}
+		]
+	})
+)
