@@ -1,0 +1,32 @@
+block('g-item-galery')(
+    elem('title')(
+        content()(function () {
+            return {
+                tag: 'h1',
+                content: this.ctx.title + ' ' + this.ctx.current + ' из ' + this.ctx.count
+            }
+        })
+    ),
+    elem('preview_images')(
+        content()(function () {
+            return {
+                tag: 'ul',
+                content: this.ctx.images.map(function(image) { return { block: 'image', tag: 'li', content: { tag: 'img', attrs: { src: image } } }})
+            }
+        })
+    ),
+    elem('main_image')(
+        content()(function () {
+            return [
+                {
+                    block: 'image',
+                    tag: 'img',
+                    attrs: { src: this.ctx.image }
+                },
+                {
+                    elem: 'zoom'
+                }
+            ]
+        })
+    )
+)
