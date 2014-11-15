@@ -1,0 +1,35 @@
+block('g-item-description')(
+	content()(function () {
+		return {
+			content: this.ctx.pars.map(function(
+				par) { return {
+					elem: 'par',
+					tag: 'table',
+					content: [
+						{
+							tag: 'tr',
+							content: [
+								{
+									elem: 'name',
+									tag: 'td',
+									content: par[0]
+								},
+								{
+									tag: 'td',
+									content: {
+										elem: 'dots'
+									}
+								},
+								{
+									elem: 'value',
+									tag: 'td',
+									content: par[1]
+								}
+							]
+						}
+					]
+				}
+			})
+		}
+	})
+)
