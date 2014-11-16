@@ -1,0 +1,69 @@
+.g-expanded-item {
+    position: relative;
+    width: 825px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb( 222, 172, 0 );
+    box-shadow: inset 0px 2px 4px 1px #dadada;
+    background-color: rgb( 255, 255, 255 );
+    padding-bottom: 35px;
+}
+
+.g-expanded-item .g-item-heading:first-child {
+    position: absolute;
+    top: 32px; left: 20px;
+    font-family: Din-Text-Pro_Thin;
+    font-size: 24px;
+    color: #a07472;
+    display: inline-block;
+    margin: 0;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.g-expanded-item .g-item-galery + .g-item-buy-in-shop {
+    margin: 25px 50px;
+}
+
+.g-expanded-item .g-item-galery {
+    float: left;
+    margin: 75px 0 0 17px;
+}
+
+.g-expanded-item .g-item-description {
+    display: inline-block;
+    margin: 100px 0 0 50px;
+}
+
+.g-expanded-item .g-button_type_gray {
+    margin: 10px 50px 0 50px;
+}
+
+.g-expanded-item .g-like {
+    margin: 40px 50px 0 50px;
+    display: inline-block;
+}
+
+.g-expanded-item .g-social_follow {
+    display: inline-block;
+    margin: 20px 50px 0 50px;
+}
+
+.g-expanded-item .g-item-heading_type_simple {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.g-expanded-item .g-item-buy-in-shop {
+    margin: 25px 35px 25px 40px;
+}
+
+.g-expanded-item__close {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 18px; height: 18px;
+    background-repeat: no-repeat;
+    background-image: url('close.png');
+    background-position: 50% 50%;
+    cursor: pointer;
+}

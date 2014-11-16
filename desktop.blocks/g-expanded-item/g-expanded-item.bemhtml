@@ -1,0 +1,10 @@
+block('g-expanded-item')(
+    elem('title')(
+        content()(function () {
+            return {
+                tag: 'h1',
+                content: this.ctx.title
+            }
+        })
+    )
+)
