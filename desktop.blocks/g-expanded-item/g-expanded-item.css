@@ -22,7 +22,11 @@
 }
 
 .g-expanded-item .g-item-galery + .g-item-buy-in-shop {
-    margin: 25px 50px;
+    margin: 120px 50px 35px 50px;
+}
+
+.g-expanded-item .g-item-buy-in-shop + .g-item-description {
+    margin-top: 0px;
 }
 
 .g-expanded-item .g-item-galery {
@@ -40,13 +44,11 @@
 }
 
 .g-expanded-item .g-like {
-    margin: 40px 50px 0 50px;
-    display: inline-block;
+    margin: 40px 50px 0 454px;
 }
 
 .g-expanded-item .g-social_follow {
-    display: inline-block;
-    margin: 20px 50px 0 50px;
+    margin: 20px 50px 0 454px;
 }
 
 .g-expanded-item .g-item-heading_type_simple {
