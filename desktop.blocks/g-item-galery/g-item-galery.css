@@ -1,13 +1,13 @@
 .g-item-galery
 {
-    width: 421px;
+    /*width: 421px;*/
     height: 311px;
 }
 
 .g-item-galery__title
 {
     text-align: center;
-    width: 319px;
+    /*width: 319px;*/
     padding-left: 102px;
 }
 
@@ -23,12 +23,13 @@
 
 .g-item-galery__preview_images {
     float: left;
+    padding-top: 10px;
 }
 
 .g-item-galery__preview_images ul
 {
     margin: 0;
-    padding-top: 10px;
+    padding: 0;
 }
 
 .g-item-galery__preview_images ul li {
@@ -50,7 +51,7 @@
     position: relative;
     height: 263px;
     float: right;
-    padding-top: 10px;
+    padding: 10px 0 0 25px;
 }
 
 .g-item-galery__zoom {
