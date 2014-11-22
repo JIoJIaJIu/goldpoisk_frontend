@@ -29,7 +29,8 @@ MAKE.decl('BundleNode', {
             'bemhtml',
 
             'css',
-            'html'
+            'html',
+            'priv.js'
         ];
 
     },

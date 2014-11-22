@@ -6,7 +6,8 @@ exports.getTechs = function () {
         'bemhtml': '../../bem-core/.bem/techs/bemhtml.js',
 
         'css': 'v2/css',
-        'html': '../../bem-core/.bem/techs/html.js'
+        'html': '../../bem-core/.bem/techs/html.js',
+        'priv.js': '../../.bem/techs/priv.js.js'
     }
 
     return techs;
