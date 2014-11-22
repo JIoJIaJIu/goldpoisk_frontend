@@ -1,0 +1,147 @@
+.g-product
+{
+    position: relative;
+    float: left;
+    width: 211px; height: 356px;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px 0px rgb(0, 0, 1);
+    margin-left: 35px;
+    margin-bottom: 42px;
+    list-style: none;
+}
+
+.g-product:hover
+{
+    border-radius: 2px;
+    box-shadow: 0px 0px 10px 0px rgb( 0, 0, 1 );
+    width: 211px;
+    height: 356px;
+}
+
+.g-product .g-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.g-product__image
+{
+   position: absolute;
+   top: 0; left: 0;
+   margin-bottom: 15px;
+}
+
+.g-product__image
+{
+    cursor: pointer;
+}
+
+.g-product__title
+{
+    position: absolute;
+    top: 180px; left: 0;
+    width: 100%; height: 60px;
+    font-family: Clear-Sans;
+    font-size: 14px;
+    letter-spacing: -1px;
+    color: #333;
+    text-indent: 16px;
+}
+
+.g-product__jw, .g-product__pw
+{
+    padding-left: 14px;
+}
+
+.g-product span p
+{
+    padding-left: 7px;
+}
+
+.g-product__price
+{
+   position: absolute;
+   left: 12px; bottom: 18px;
+   font-family: Clear-Sans;
+   font-size: 24px;
+   color: #cb3e3e;
+}
+
+.g-product_action_yes .g-product__tape
+{
+    position: absolute;
+    top: -1px; right: -1px;
+    width: 89px; height: 73px;
+    background-image: url('./images/redang.png');
+}
+
+.g-product__tape p
+{
+    transform: rotate(40deg);
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.g-product_hit_yes .g-product__tape
+{
+    position: absolute;
+    top: -1px; right: -1px;
+    width: 89px; height: 73px;
+    background-image: url('./images/blueang.png');
+}
+
+.g-product__pw
+{
+    position: absolute;
+    top: 237px;
+}
+
+.g-product__jw
+{
+    position: absolute;
+    top: 267px;
+}
+
+.g-product__jw, .g-product__pw
+{
+}
+
+.g-product img
+{
+    z-index: -1;
+}
+
+.g-product__shop
+{
+    position: absolute;
+    bottom: 47px; left: 13px;
+    color: #a07472;
+    font-family: Clear-Sans;
+    font-size: 14px;
+}
+
+
+.g-product__pw p, .g-product__jw p
+{
+    display: inline;
+    font-family: Clear-Sans;
+    font-size: 14px;
+    color: #8f8f8f;
+}
+
+.g-product__like {
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    width: 26px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url('./images/empty_heart.png');
+}
+
+.g-product_like_yes .g-product__like {
+    background-image: url('./images/heart.png');
+}
