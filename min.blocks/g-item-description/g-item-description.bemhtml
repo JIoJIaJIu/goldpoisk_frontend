@@ -1,35 +1,34 @@
 block('g-item-description')(
 	content()(function () {
-		return {
-			content: this.ctx.pars.map(function(
+		return this.ctx.pars.map(function(
 				par) { return {
 					elem: 'par',
-					tag: 'table',
-					content: [
+					tag: 'div',
+					content: [							{
+							elem: 'name',
+							tag: 'div',
+							content: {
+								tag: 'div',
+								content: par[0]
+							}
+						},
 						{
-							tag: 'tr',
-							content: [
-								{
-									elem: 'name',
-									tag: 'td',
-									content: par[0]
-								},
-								{
-									tag: 'td',
-									content: {
-										elem: 'dots'
-									}
-								},
-								{
-									elem: 'value',
-									tag: 'td',
-									content: par[1]
-								}
-							]
+							elem: 'dots',
+							tag: 'div',
+							content: {
+								block: 'g-dota'
+							}
+						},
+						{
+							elem: 'value',
+							tag: 'div',
+							content: {
+								tag: 'div',
+								content: par[1]
+							}
 						}
 					]
 				}
 			})
-		}
 	})
 )

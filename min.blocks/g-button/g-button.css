@@ -8,6 +8,7 @@
     cursor: pointer;
     display: inline-block;
     border: 1px solid rgb(189,146,0);
+    letter-spacing: 1.5px;
     border-radius: 5px;
     background: #fff;
     padding: 0 20px;
@@ -15,4 +16,12 @@
 
 .g-button:hover {
     background: rgb(222,172,0);
+}
+
+.g-button_type_gray {
+    border-color: #b1b1b1;
+}
+
+.g-button_type_gray:hover {
+    background: none;
 }
