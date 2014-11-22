@@ -22,7 +22,7 @@
 }
 
 .g-expanded-item .g-item-galery + .g-item-buy-in-shop {
-    margin: 120px 50px 35px 50px;
+    margin: 120px 50px 30px 50px;
 }
 
 .g-expanded-item .g-item-buy-in-shop + .g-item-description {
@@ -36,7 +36,7 @@
 
 .g-expanded-item .g-item-description {
     display: inline-block;
-    margin: 100px 0 0 50px;
+    margin: 100px 0 7.5px 50px;
 }
 
 .g-expanded-item .g-button_type_gray {
