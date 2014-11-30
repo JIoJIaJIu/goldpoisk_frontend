@@ -7,10 +7,7 @@ blocks['page'] = function (data, env) {
         head: [
             { elem: 'meta', attrs: { name: 'description', content: '' } },
             { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
-        ].concat(
-            data.css.map(function (url) {
-                return { elem: 'css', url: url }
-            })
+            { elem: 'css', url:  'css/index.css' }
         ),
         scripts: [{ elem: 'js', url: '_index.js' }],
         mods: { theme: 'normal' },
