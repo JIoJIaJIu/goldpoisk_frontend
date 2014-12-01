@@ -11,6 +11,9 @@ blocks['page'] = function (data, env) {
         ],
         scripts: [{ elem: 'js', url: '_index.js' }],
         mods: { theme: 'normal' },
-        content: []
+        content: [
+            { block: 'g-header' },
+            blocks['g-category'](data.menu, env)
+        ]
     }
 }
