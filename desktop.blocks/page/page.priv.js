@@ -9,11 +9,24 @@ blocks['page'] = function (data, env) {
             { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
             { elem: 'css', url:  'css/index.css' }
         ],
-        scripts: [{ elem: 'js', url: '_index.js' }],
         mods: { theme: 'normal' },
+
         content: [
-            { block: 'g-header' },
-            blocks['g-category'](data.menu, env)
+            blocks['g-header'](),
+            blocks['g-category'](data.menu, env), {
+                block: 'g-content',
+
+                //TODO: вынести по типу страницы
+                content: [{
+                    block: 'g-promotion',
+                    content: [
+                        {
+                            block: 'fotorama',
+                            src: data.promo[0]
+                        }
+                    ]
+                }]
+            }
         ]
     }
 }
