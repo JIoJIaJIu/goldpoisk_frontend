@@ -39,7 +39,6 @@
     color: #dead03;
     cursor: pointer;
     text-decoration: underline;
-
 }
 
 .g-item:hover .g-item__logo {
@@ -50,7 +49,6 @@
     display: block;
     padding: 7px 0 0 0;
     text-transform: uppercase;
-    color: #fff;
 }
 
 .g-item a {
