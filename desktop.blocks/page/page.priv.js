@@ -16,6 +16,9 @@ blocks['page'] = function (data, env) {
             blocks['g-category'](data.menu, env), {
                 block: 'g-content',
                 content: (data.content) ? JSON.parse(data.content) : null
+            }, {
+                block: 'g-footer',
+                content: []
             }
         ]
     }
