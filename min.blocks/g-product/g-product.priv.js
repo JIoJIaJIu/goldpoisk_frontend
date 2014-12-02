@@ -18,7 +18,7 @@ blocks['g-product'] = function (data, env) {
 			action: data.action ? 'yes' : false,
 			hit: data.hit ? 'yes' : false,
 			like: data.like ? 'yes' : false
-		}
+		},
 		title: data.title,
 		image: data.image,
 		pw: data.pw,
