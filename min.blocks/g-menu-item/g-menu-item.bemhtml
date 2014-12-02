@@ -1,0 +1,23 @@
+block('g-menu-item')(
+    tag()('li'),
+    content()(function () { 
+        return {
+            tag: 'a',
+            attrs: { href: this.ctx.href },
+            content: [ 
+            	{
+            		elem: 'logo',
+            		tag: 'span',
+            		content: ''
+            	}, {
+            		elem: 'title',
+            		tag: 'span',
+             		content: this.ctx.label
+            	}, {
+            		elem: 'arrow',
+            		tag: 'span'
+            	}
+            ]
+        }
+    })
+)
