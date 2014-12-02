@@ -15,17 +15,7 @@ blocks['page'] = function (data, env) {
             blocks['g-header'](),
             blocks['g-category'](data.menu, env), {
                 block: 'g-content',
-
-                //TODO: вынести по типу страницы
-                content: [{
-                    block: 'g-promotion',
-                    content: [
-                        {
-                            block: 'fotorama',
-                            src: data.promo[0]
-                        }
-                    ]
-                }]
+                content: (data.content) ? JSON.parse(data.content) : null
             }
         ]
     }
