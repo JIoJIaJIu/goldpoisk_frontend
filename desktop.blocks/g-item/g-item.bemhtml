@@ -3,6 +3,7 @@ block('g-item')(
     content()(function () { 
         return {
             tag: 'a',
+            attrs: { href: this.ctx.href },
             content: [ 
             	{
             		elem: 'logo',

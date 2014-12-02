@@ -50,6 +50,7 @@
     display: block;
     padding: 7px 0 0 0;
     text-transform: uppercase;
+    color: #fff;
 }
 
 .g-item a {
@@ -57,6 +58,7 @@
     font-size: 14px;
     display: block;
     text-align: center;
+    text-decoration: none;
 }
 
 .g-item .g-item__logo {
