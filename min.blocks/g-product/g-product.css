@@ -68,6 +68,10 @@
    color: #cb3e3e;
 }
 
+.g-product__tape {
+    z-index: 1;
+}
+
 .g-product_action_yes .g-product__tape
 {
     position: absolute;
@@ -110,7 +114,7 @@
 
 .g-product img
 {
-    z-index: -1;
+    z-index: 0;
 }
 
 .g-product__shop
@@ -131,8 +135,25 @@
     color: #8f8f8f;
 }
 
+.g-product__pw span {
+    display: inline-block;
+    width: 22px;
+    height: 18px;
+    background-image: url('./images/pw.png');
+}
+
+.g-product__jw span {
+    display: inline-block;
+    width: 22px;
+    height: 17px;
+    background-image: url('./images/jw.png');
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
 .g-product__like {
     display: block;
+    z-index: 1;
     position: absolute;
     top: 7px;
     left: 8px;

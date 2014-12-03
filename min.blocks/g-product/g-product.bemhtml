@@ -3,29 +3,38 @@ block('g-product')(
 	content()(function() {
 		return [
 			{
+				mods: { action: this.ctx.action ? 'yes' : undefined, hit: this.ctx.hit ? 'yes' : undefined, like: this.ctx.like ? 'yes' : undefined }
+			},
+			{
                 elem: 'like',
             },
             {
-                elem: 'tape',
-            },
-            {
-                elem: 'image',
-                url: this.ctx.item.image
-            },
-            {
-                elem: 'title',
-                content: this.ctx.item.title
+                tag: 'a',
+                attrs: { href: this.ctx.href },
+                content: [
+                    {
+                        elem: 'tape',
+                    },
+                    {
+                        elem: 'image',
+                        url: this.ctx.image
+                    },
+                    {
+                        elem: 'title',
+                        content: this.ctx.title
+                    }
+                ]
             },
             {
                 elem: 'pw',
                 content: [
                     {
-                        tag: 'img',
-                        attrs: ({ width: '22px', height: '18px', src: '../../media/pw.png' }),
+                        tag: 'span',
+                        /*attrs: ({ width: '22px', height: '18px', src: '../../media/pw.png' }),*/
                     },
                     {
                         tag: 'p',
-                        content: this.ctx.item.pw
+                        content: this.ctx.pw
                     }
                 ]
             },
@@ -33,22 +42,22 @@ block('g-product')(
                 elem: 'jw',
                 content: [
                     {
-                        tag: 'img',
-                        attrs: ({ width: '22px', height: '17px', src: '../../media/jw.png' }),
+                        tag: 'span',
+                        /*attrs: ({ width: '22px', height: '17px', src: '../../media/jw.png' }),*/
                     },
                     {
                         tag: 'p',
-                        content: this.ctx.item.jw
+                        content: this.ctx.jw
                     }
                 ]
             },
             {
                 elem: 'shop',
-                content: this.ctx.item.shop
+                content: this.ctx.shop
             },
             {
                 elem: 'price',
-                content: this.ctx.item.price
+                content: this.ctx.price
             },
             {
                 block: 'g-button',

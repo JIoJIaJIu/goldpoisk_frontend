@@ -11,6 +11,7 @@ blocks['g-product'] = function (data, env) {
 	 *		@key {bool} [hit]
 	 *		@key {string} [tape]
 	 *		@key {bool} [like]
+	 *		@key {string} href
 	 **/
 	return {
 		block: 'g-product',
@@ -25,5 +26,6 @@ blocks['g-product'] = function (data, env) {
 		jw: data.jw,
 		price: data.price,
 		shop: data.shop,
+		href: data.href
 	}
 }
