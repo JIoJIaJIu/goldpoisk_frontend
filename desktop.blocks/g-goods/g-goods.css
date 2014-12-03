@@ -1,12 +1,15 @@
 .g-goods
 {
-    height: 467px;
+    /*height: 467px;*/
     max-width: 1494px; min-width: 990px;
     width: 100%;
     margin: 0 auto;
     padding: 0;
 }
 
+.g-goods .g-product {
+    margin: 16px 0 42px 35px;
+}
 .g-goods__inner
 {
     max-width: 1494px; min-width: 990px;

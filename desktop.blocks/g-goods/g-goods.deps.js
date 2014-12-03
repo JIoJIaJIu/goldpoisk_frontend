@@ -4,5 +4,8 @@
    },
    {
    		"block": "g-product"
+   },
+   {
+   		"block": "clear"
    }
 ]

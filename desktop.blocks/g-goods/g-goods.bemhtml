@@ -1,15 +1,11 @@
 block('g-goods').match()(
     tag()('ul'),
-    content()(function() {
-        return this.ctx.goods.map(function(item) {
-            return [
-                {
-                    block: 'g-product',
-                    mods: { action: item.action ? 'yes' : undefined, hit: item.hit ? 'yes' : undefined, like: item.like ? 'yes' : undefined },
-                    item: item
-                },
-                ''
-            ];
-        });
-    })
+    content()(function () {
+		return [
+			applyNext(),
+			{
+				block: 'clear'
+			}
+		]
+	})
 )
