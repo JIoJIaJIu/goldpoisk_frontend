@@ -1,8 +1,6 @@
-.g-goods
-{
-    /*height: 467px;*/
-    max-width: 1494px; min-width: 990px;
-    width: 100%;
+.g-goods {
+    max-width: 1494px;
+    min-width: 990px;
     margin: 0 auto;
     padding: 0;
 }
@@ -10,18 +8,17 @@
 .g-goods .g-product {
     margin: 16px 0 42px 35px;
 }
-.g-goods__inner
-{
+
+.g-goods__inner {
     max-width: 1494px; min-width: 990px;
     width: 100%;
     margin: 0 auto;
     padding: 0;
 }
 
-.g-goods__item
-{
+.g-goods__item {
     position: relative;
-    float: left;
+    display: inline-block;
     width: 211px; height: 356px;
     border: 1px solid #eaeaea;
     border-radius: 2px;
@@ -31,8 +28,7 @@
     list-style: none;
 }
 
-.g-goods__item:hover
-{
+.g-goods__item:hover {
     border-radius: 2px;
     box-shadow: 0px 0px 10px 0px rgb( 0, 0, 1 );
     width: 211px;

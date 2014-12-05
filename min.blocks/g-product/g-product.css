@@ -1,7 +1,6 @@
-.g-product
-{
+.g-product {
     position: relative;
-    float: left;
+    display: inline-block;
     width: 211px; height: 356px;
     border: 1px solid #eaeaea;
     border-radius: 2px;
@@ -11,8 +10,7 @@
     list-style: none;
 }
 
-.g-product:hover
-{
+.g-product:hover {
     border-radius: 2px;
     box-shadow: 0px 0px 10px 0px rgb( 0, 0, 1 );
     width: 211px;
@@ -25,23 +23,22 @@
     bottom: 10px;
 }
 
-.g-product__image
-{
+.g-product__image {
    position: absolute;
    top: 0; left: 0;
    margin-bottom: 15px;
 }
 
-.g-product__image
-{
+.g-product__image {
     cursor: pointer;
 }
 
-.g-product__title
-{
+.g-product__title {
     position: absolute;
-    top: 180px; left: 0;
-    width: 100%; height: 60px;
+    left: 0;
+    top: 180px;
+    width: 100%;
+    height: 60px;
     font-family: Clear-Sans;
     font-size: 14px;
     letter-spacing: -1px;
@@ -49,18 +46,15 @@
     text-indent: 16px;
 }
 
-.g-product__jw, .g-product__pw
-{
+.g-product__jw, .g-product__pw {
     padding-left: 14px;
 }
 
-.g-product span p
-{
+.g-product span p {
     padding-left: 7px;
 }
 
-.g-product__price
-{
+.g-product__price {
    position: absolute;
    left: 12px; bottom: 18px;
    font-family: Clear-Sans;
@@ -72,53 +66,42 @@
     z-index: 1;
 }
 
-.g-product_action_yes .g-product__tape
-{
+.g-product_action_yes .g-product__tape {
     position: absolute;
     top: -1px; right: -1px;
     width: 89px; height: 73px;
     background-image: url('./images/redang.png');
 }
 
-.g-product__tape p
-{
+.g-product__tape p {
     transform: rotate(40deg);
     text-align: center;
     vertical-align: middle;
     margin: 0;
 }
 
-.g-product_hit_yes .g-product__tape
-{
+.g-product_hit_yes .g-product__tape {
     position: absolute;
     top: -1px; right: -1px;
     width: 89px; height: 73px;
     background-image: url('./images/blueang.png');
 }
 
-.g-product__pw
-{
+.g-product__pw {
     position: absolute;
     top: 237px;
 }
 
-.g-product__jw
-{
+.g-product__jw {
     position: absolute;
     top: 267px;
 }
 
-.g-product__jw, .g-product__pw
-{
-}
-
-.g-product img
-{
+.g-product img {
     z-index: 0;
 }
 
-.g-product__shop
-{
+.g-product__shop {
     position: absolute;
     bottom: 47px; left: 13px;
     color: #a07472;
