@@ -1,0 +1,20 @@
+block('g-category-title')(
+    content()(function () {
+        return [
+            {
+                elem: 'title',
+                content: this.ctx.title
+            },
+            {
+                elem: 'count',
+                content: '(' + this.ctx.count + ')'
+            }
+        ],
+        function() {
+            return {
+                elem: 'inner',
+                content: applyNext()
+            };
+        }
+    })
+)
