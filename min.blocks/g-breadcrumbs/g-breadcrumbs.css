@@ -1,0 +1,21 @@
+.g-breadcrumbs__root-node, .g-breadcrumbs__top-level-node {
+	font-family: Clear-Sans, Arial, Sans-serif;
+	font-size: 12px;
+}
+
+.g-breadcrumbs__root-node {
+	color: #777;
+}
+
+.g-breadcrumbs__top-level-node {
+	color: #3c2424;
+	text-decoration: none;
+}
+
+.g-breadcrumbs__arrow {
+	display: inline-block;
+	width: 6px;
+	height: 10px;
+	margin: 0 7px;
+	background-image: url(images/arrow.png);
+}

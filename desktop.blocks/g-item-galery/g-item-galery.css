@@ -1,7 +1,7 @@
 .g-item-galery
 {
     /*width: 421px;*/
-    height: 311px;
+    /*height: 311px;*/
 }
 
 .g-item-galery__title
@@ -15,7 +15,7 @@
 {
     display: inline;
     text-align: center;
-    font-family: Clear-Sans_Light;
+    font-family: Clear-Sans_Thin;
     font-size: 18px;
     color: #777;
     margin: 0;
@@ -61,4 +61,12 @@
     width: 29px;
     height: 29px;
     background-image: url(images/zoom.png);
+}
+
+.g-item-galery_type_big .g-item-galery__main_image {
+    height: 290px;
+}
+
+.g-item-galery_type_big .g-item-galery__title {
+    padding-left: 30px;
 }

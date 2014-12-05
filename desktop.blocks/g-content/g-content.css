@@ -1,2 +1,46 @@
 .g-content {
+	padding: 10px 23px;
+}
+
+.g-content .g-breadcrumbs {
+	margin: 10px 0;
+}
+
+.g-content .g-item-heading_type_main {
+	padding: 10px 0 5px 0;
+	margin: 0;
+}
+
+.g-content .g-item-heading_type_simple {
+	padding: 15px 0 5px 0;
+	margin: 0;
+}
+
+.g-content .g-item-galery {
+	display: inline-block;
+	float: left;
+	margin-top: 20px;
+}
+
+.g-content .g-right-side {
+	display: inline-block;
+	margin: 50px;
+	width: 50%;
+}
+
+.g-content .g-right-side .g-item-write-up {
+	margin: 25px 0 20px 0;
+}
+
+.g-content .g-right-side .g-like {
+	margin: 0 0 30px 0;
+}
+
+.g-content .g-item-buy-in-shop {
+	padding: 25px 65px 25px 0;
+	float: left;
+}
+
+.g-content .g-available-in-stores {
+	margin-bottom: 60px;
 }

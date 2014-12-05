@@ -1,0 +1,26 @@
+block('g-breadcrumbs')(
+	content()(function () {
+		return [
+			{
+				elem: 'root-node',
+				tag: 'a',
+				attrs: { href: this.ctx.root.url },
+				content: '&#8592; ' + this.ctx.root.title
+			},
+			this.ctx.path.map(function(part) {
+				return [
+					{
+						elem: 'arrow',
+						tag: 'span',
+					},
+					{
+						elem: 'top-level-node',
+						tag: 'a',
+						attrs: { href: part.url },
+						content: part.title
+					}
+				]
+			})
+		]
+	})
+)
