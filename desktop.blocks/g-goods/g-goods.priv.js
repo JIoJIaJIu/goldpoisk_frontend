@@ -4,5 +4,9 @@ blocks['g-goods'] = function (data, env) {
         var item = data.list[i];
         list.push(blocks['g-product'](item));
     }
-    return list;
+
+    return {
+        block: 'g-goods',
+        content: list
+    }
 }
