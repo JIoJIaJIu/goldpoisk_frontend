@@ -1,0 +1,7 @@
+/*block('g-item-write-up')(
+	content()(function () {
+		return {
+			tag: 'p'
+		}
+	})
+)*/

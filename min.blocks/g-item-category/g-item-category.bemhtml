@@ -1,0 +1,8 @@
+block('g-item-category')(
+	content()(function () {
+		return {
+			tag: 'p',
+			content: this.ctx.title
+		}
+	})
+)
