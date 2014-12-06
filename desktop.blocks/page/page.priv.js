@@ -114,7 +114,6 @@ pages['item'] = function (data, env) {
                 block: 'g-item',
                 content: [
                     blocks['g-item'](data.item, env)
-                    //blocks['g-item-galery'](data.gallery, env)
                 ]
             }
         ]
