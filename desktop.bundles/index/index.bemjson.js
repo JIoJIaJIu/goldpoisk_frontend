@@ -5,57 +5,90 @@
     head: [
         { elem: 'meta', attrs: { name: 'description', content: '' } },
         { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
-        { elem: 'css', url: 'css/index.css' }
+        { elem: 'css', url: 'index.css' }
     ],
-    scripts: [{ elem: 'js', url: '_index.js' }],
+    scripts: [{ elem: 'js', url: 'index.bemhtml.js' }],
     mods: { theme: 'normal' },
     content: [
-        { block: 'g-header' },
-        {
-            block: 'g-category',
+        { 
+            block: 'g-header',
             content: [
                 {
-                    block: 'g-item',
+                    block: 'g-logo',
+                    description: 'Крупнейший поиск ювелирных изделий'
+                }/*,
+                {
+                    block: 'g-basket',
+                    amount: 0
+                }/*,
+                {
+                    elem: 'desire',
+                    content: [
+                        {
+                            tag: 'img',
+                            attrs: {src: '../../desktop.blocks/g-header/heart.png'},
+                        },
+                        {
+                            tag: 'span',
+                            content: 'Нет товаров в списке желаний'
+                        }
+                    ] 
+                }*/,
+                {
+                    block: 'g-support',
+                    content: [
+                    ]
+                },
+                {
+                    elem: 'clear',
+                }
+            ] 
+        },
+        {
+            block: 'g-menu',
+            content: [
+                {
+                    block: 'g-menu-item',
                     mods: { type: 'necklaces' },
                     label: 'КОЛЬЕ'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'chains' },
                     label: 'ЦЕПИ'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'pendants' },
                     label: 'ПОДВЕСКИ'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'bracelets' },
                     label: 'БРАСЛЕТЫ'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'rings' },
                     label: 'КОЛЬЦА'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'earrings' },
                     label: 'СЕРЬГИ'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'brooches' },
                     label: 'БРОШИ<br>И ЗАЖИМЫ'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'watches' },
                     label: 'ЧАСЫ'
                 },
                 {
-                    block: 'g-item',
+                    block: 'g-menu-item',
                     mods: { type: 'cutlery' },
                     label: 'СТОЛОВЫЕ<br>ПРИБОРЫ'
                 }
@@ -111,7 +144,7 @@
                 },
                 {
                     block: 'g-goods',
-                    goods: [
+                    content: [
                         {
                             title: 'Кольцо с 21 бриллиантом',
                             image: '../../desktop.blocks/g-goods/images/good.png',
