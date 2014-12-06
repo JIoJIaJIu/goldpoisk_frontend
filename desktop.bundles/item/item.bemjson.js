@@ -16,7 +16,7 @@
                 {
                     block: 'g-logo',
                     description: 'Крупнейший поиск ювелирных изделий'
-                },
+                },/*
                 {
                     block: 'g-basket',
                     amount: 0
@@ -33,7 +33,7 @@
                             content: 'Нет товаров в списке желаний'
                         }
                     ] 
-                },
+                },*/
                 {
                     block: 'g-support',
                     content: [
@@ -41,7 +41,7 @@
                 },
                 {
                     elem: 'clear',
-                }*/
+                }
             ] 
         },
         {
@@ -127,7 +127,7 @@
                             title: 'Обручальные кольца'
                         },
                         {
-                            block: 'g-item-galery',
+                            block: 'g-item-gallery',
                             mods: { type: 'big' },
                             content: [
                                 {
@@ -138,15 +138,15 @@
                                 },
                                 {
                                     elem: 'preview_images',
-                                    images: ['../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg']
+                                    images: ['../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg']
                                 },
                                 {
                                     elem: 'main_image',
-                                    image: '../../desktop.blocks/g-item-galery/images/main02.jpg'
+                                    image: '../../desktop.blocks/g-item-gallery/images/main02.jpg'
                                 }
                             ]
                         },

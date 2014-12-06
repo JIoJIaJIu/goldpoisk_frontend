@@ -1,4 +1,4 @@
-blocks['g-item-galery'] = function (data, env) {
+blocks['g-item-gallery'] = function (data, env) {
 	/**
 	 *		@key {Number} [index] default = 0
 	 *		@key {Array} images
@@ -6,7 +6,7 @@ blocks['g-item-galery'] = function (data, env) {
 	 var MAX_IMG_COUNTS = 4;
      var index = data.index || 0;
 	 return [{
-	 	block: 'g-item-galery',
+	 	block: 'g-item-gallery',
 	 	content: [
 	 		{
 	 			elem: 'title',

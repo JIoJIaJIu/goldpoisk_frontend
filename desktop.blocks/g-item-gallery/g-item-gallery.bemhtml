@@ -1,4 +1,4 @@
-block('g-item-galery')(
+block('g-item-gallery')(
     elem('title')(
         content()(function () {
             return {
