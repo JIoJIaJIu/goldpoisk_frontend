@@ -1,37 +1,38 @@
 block('g-item-features')(
 	content()(function () {
-		return this.ctx.content.map(function(feature) { 
-			for (var key in feature) {
-				return {
-					elem: 'feature',
-					tag: 'div',
-					content: [
-						{
-							elem: 'name',
-							tag: 'div',
-							content: {
-								tag: 'div',
-								content: key
-							}
-						},
-						{
-							elem: 'dots',
-							tag: 'div',
-							content: {
-								block: 'g-dota'
-							}
-						},
-						{
-							elem: 'value',
-							tag: 'div',
-							content: {
-								tag: 'div',
-								content: feature[key]
-							}
-						}
-					]
-				}
-			}
-		})
+        var feature = this.ctx.content;
+        var list = []
+        for (var key in feature) {
+            list.push({
+                elem: 'feature',
+                tag: 'div',
+                content: [
+                    {
+                        elem: 'name', tag: 'div',
+                        content: {
+                            tag: 'div',
+                            content: key
+                        }
+                    },
+                    {
+                        elem: 'dots',
+                        tag: 'div',
+                        content: {
+                            block: 'g-dota'
+                        }
+                    },
+                    {
+                        elem: 'value',
+                        tag: 'div',
+                        content: {
+                            tag: 'div',
+                            content: feature[key]
+                        }
+                    }
+                ]
+            })
+        }
+
+        return list
 	})
 )
