@@ -41,8 +41,9 @@
 
 .g-item-gallery__preview_images ul li img {
     border: solid 1px #fff;
-    width: 60px;
-    height: 50px;
+    max-width: 60px;
+    max-height: 50px;
+    cursor: pointer;
 }
 
 .g-item-gallery__preview_images ul li img:hover {
@@ -57,8 +58,8 @@
 }
 
 .g-item-gallery__main_image img {
-    width: 300px;
-    height: 250px;
+    max-width: 300px;
+    max-height: 250px;
 }
 
 .g-item-gallery__zoom {
@@ -68,11 +69,12 @@
     width: 29px;
     height: 29px;
     background-image: url(images/zoom.png);
+    cursor: pointer;
 }
 
 .g-item-gallery_type_big .g-item-gallery__main_image img {
-    width: 350px;
-    height: 290px;
+    max-width: 350px;
+    max-height: 290px;
 }
 
 .g-item-gallery_type_big .g-item-gallery__title {
