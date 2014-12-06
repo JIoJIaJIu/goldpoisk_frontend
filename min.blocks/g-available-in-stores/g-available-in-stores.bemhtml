@@ -1,19 +1,19 @@
  block('g-available-in-stores')(
     content()(function() {
         return [
-        	this.ctx.stores.map(function(store) {
-	            	return [
-	                {
-	                    block: 'g-item-buy-in-shop',
-	                    shop: store.name,
-	                    price: store.price + ' &#8381;'
+            this.ctx.stores.map(function(store) {
+                    return [
+                    {
+                        block: 'g-item-buy-in-shop',
+                        shop: store.name,
+                        price: store.price + ' &#8381;'
 
-	                }
-	            ];
-        	}),
-        	{
-        		block: 'clear'
-        	}
+                    }
+                ];
+            }),
+            {
+                block: 'clear'
+            }
         ]
     })
-) 
+)
