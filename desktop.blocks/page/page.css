@@ -1,11 +1,25 @@
 @font-face {
+    font-family: Clear-Sans;
+    src: url(clear-sans/ClearSans-Regular.ttf);
+}
+@font-face {
     font-family: Clear-Sans_Light;
     src: url(clear-sans/ClearSans-Light.ttf);
 }
 
 @font-face {
-    font-family: Clear-Sans;
+    font-family: Clear-Sans_Medium;
     src: url(clear-sans/ClearSans-Medium.ttf);
+}
+
+@font-face {
+    font-family: Clear-Sans_Thin;
+    src: url(clear-sans/ClearSans-Thin.ttf);
+}
+
+@font-face {
+    font-family: Clear-Sans_Bold;
+    src: url(clear-sans/ClearSans-Bold.ttf);
 }
 
 @font-face {
