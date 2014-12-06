@@ -102,11 +102,21 @@ pages['category'] = function (data, env) {
     }, env)
 }
 
+/**
+ * data.menu
+ * data.item
+ */
 pages['item'] = function (data, env) {
     return blocks['page']({
         menu: data.menu,
         content: [
-            blocks['g-item-galery'](data.gallery, env)
+            {
+                block: 'g-item',
+                content: [
+                    blocks['g-item'](data.item, env)
+                    //blocks['g-item-galery'](data.gallery, env)
+                ]
+            }
         ]
     }, env)
 }
