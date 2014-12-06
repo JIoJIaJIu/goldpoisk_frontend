@@ -15,7 +15,11 @@ blocks['g-item'] = function (data, env) {
             }, {
                 block: 'g-item-category',
                 title: data.category
-            }, {
+            },
+
+            blocks['g-item-gallery'](data.gallery, env),
+
+            {
                 block: 'g-right-col',
                 content: [
                     {
@@ -24,10 +28,6 @@ blocks['g-item'] = function (data, env) {
                     }, {
                         block: 'g-item-description',
                         content: data.description
-                    },
-                    {
-                        block: 'g-like',
-                        mods: { type: 'extended' }
                     }
                 ]
             }, {

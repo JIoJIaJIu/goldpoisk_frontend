@@ -1,7 +1,9 @@
 blocks['g-item-gallery'] = function (data, env) {
 	/**
-	 *		@key {Number} [index] default = 0
-	 *		@key {Array} images
+     *      
+	 *  @param {Number} [index] default = 0
+	 *  @param {Array} images
+     *  @param {String} mainImg
 	 **/
 	 var MAX_IMG_COUNTS = 4;
      var index = data.index || 0;
@@ -20,7 +22,7 @@ blocks['g-item-gallery'] = function (data, env) {
 	 		},
 	 		{
 	 			elem: 'main_image',
-	 			image: data.images[index]
+	 			image: data.mainImg
 	 		}
 	 	]
 	 }]
