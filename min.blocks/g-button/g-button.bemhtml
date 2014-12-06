@@ -1,3 +1,9 @@
 block('g-button')(
-    tag()('span')
+    tag()('a'),
+    attrs()(function () {
+        return {
+            href: this.ctx.href || '#',
+            target: (this.ctx.newPage) ? '_blank' : null
+        }
+    })
 )

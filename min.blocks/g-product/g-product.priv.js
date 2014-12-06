@@ -7,6 +7,8 @@ blocks['g-product'] = function (data, env) {
 	 *		@key {string} jw
 	 *		@key {string} price
 	 *		@key {string} shop
+	 *		@key {Boolean} [newPage] open in new page or not
+	 *		@key {String} [buyUrl] buy url for item
 	 *		@key {bool} [action]
 	 *		@key {bool} [hit]
 	 *		@key {string} [tape]
@@ -15,7 +17,7 @@ blocks['g-product'] = function (data, env) {
 	 **/
 	return {
 		block: 'g-product',
-		mods: { 
+		mods: {
 			action: data.action ? 'yes' : false,
 			hit: data.hit ? 'yes' : false,
 			like: data.like ? 'yes' : false
@@ -26,6 +28,8 @@ blocks['g-product'] = function (data, env) {
 		jw: data.jw,
 		price: data.price,
 		shop: data.shop,
-		href: data.href
+		href: data.href,
+        newPage: data.newPage || false,
+        buyUrl: data.buyUrl || null
 	}
 }
