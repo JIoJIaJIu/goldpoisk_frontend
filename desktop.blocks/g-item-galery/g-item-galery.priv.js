@@ -4,23 +4,24 @@ blocks['g-item-galery'] = function (data, env) {
 	 *		@key {Array} images
 	 **/
 	 var MAX_IMG_COUNTS = 4;
-	 return [
+     var index = data.index || 0;
+	 return [{
 	 	block: 'g-item-galery',
 	 	content: [
 	 		{
 	 			elem: 'title',
 	 			title: 'Фото',
-	 			current: data.index,
-	 			count: data.images.length() > MAX_IMG_COUNTS ? MAX_IMG_COUNTS : data.images.length();
+	 			current: index,
+	 			count: (data.images.length > MAX_IMG_COUNTS) ? MAX_IMG_COUNTS : data.images.length
 	 		},
 	 		{
 	 			elem: 'preview_images',
-	 			images: data.images.length() > MAX_IMG_COUNTS ? data.images.slice(0, MAX_IMG_COUNTS) : data.images;
+	 			images: (data.images.length > MAX_IMG_COUNTS) ? data.images.slice(0, MAX_IMG_COUNTS) : data.images
 	 		},
 	 		{
 	 			elem: 'main_image',
 	 			image: data.images[index]
 	 		}
 	 	]
-	 ]
+	 }]
 }
