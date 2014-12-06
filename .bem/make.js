@@ -40,7 +40,7 @@ MAKE.decl('BundleNode', {
             desktop : [
                 'bem-core/common.blocks',
                 'bem-core/desktop.blocks',
-                'common.blocks',
+                'min.blocks',
                 'desktop.blocks'
             ]
         };

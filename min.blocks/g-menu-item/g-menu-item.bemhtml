@@ -1,10 +1,10 @@
 block('g-menu-item')(
     tag()('li'),
-    content()(function () { 
+    content()(function () {
         return {
             tag: 'a',
             attrs: { href: this.ctx.href },
-            content: [ 
+            content: [
             	{
             		elem: 'logo',
             		tag: 'span',

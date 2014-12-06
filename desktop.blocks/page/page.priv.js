@@ -1,4 +1,5 @@
-var blocks = {}
+var blocks = {};
+var pages = {};
 blocks['page'] = function (data, env) {
     return {
         block: 'page',
@@ -13,13 +14,80 @@ blocks['page'] = function (data, env) {
 
         content: [
             blocks['g-header'](),
-            blocks['g-category'](data.menu, env), {
+            blocks['g-category'](data.menu, env),
+
+            {
                 block: 'g-content',
-                content: (data.content) ? JSON.parse(data.content) : null
+                content: data.content
             }, {
                 block: 'g-footer',
                 content: []
             }
         ]
     }
+}
+
+pages['index'] = function (data, env) {
+    return blocks['page']({
+        menu: data.menu,
+        content: [
+            {
+                block: 'g-promotion',
+                content: {
+                    block: 'fotorama',
+                    src: data.promo[0]
+                }
+            }, {
+                block: 'g-pride',
+                content: [
+                    {
+                        block: 'g-pride-item',
+                        mods: { type: 'brown' },
+                        label: 'Лучшие производители ювелирных изделий'
+                    },
+                    {
+                        block: 'g-pride-item',
+                        mods: { type: 'beige' },
+                        label: 'Огромный ассортимент представлен в каталоге'
+                    },
+                    {
+                        block: 'g-pride-item',
+                        mods: { type: 'gold' },
+                        label: 'Только проверенные партнёры и предложения'
+                    },
+                    {
+                        block: 'g-pride-item',
+                        mods: { type: 'gray' },
+                        label: 'Простой и удобный поиск по параметрам'
+                    }
+                ]
+            },
+
+            blocks['g-goods']({
+                list: data.products
+            })
+        ]
+    })
+}
+/**
+ * data.menu
+ * data.products
+ */
+
+pages['category'] = function (data, env) {
+    return blocks['page']({
+        menu: data.menu,
+
+        content: [
+            {
+                block: 'g-category-title',
+                title: 'Кольца',
+                count: '11 253'
+            }, 
+
+            blocks['g-goods']({
+                list: data.products
+            })
+        ]
+    }, env)
 }
