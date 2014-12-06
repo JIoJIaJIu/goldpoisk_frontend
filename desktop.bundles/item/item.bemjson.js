@@ -115,158 +115,136 @@
                     ]
                 },
                 {
-                    block: 'g-item-heading',
-                    mods: { type: 'main' },
-                    content: 'Обручальное кольцо из белого золота с 21 бриллиантом'
-                },
-                {
-                    block: 'g-item-category',
-                    title: 'Обручальные кольца'
-                },
-                {
-                    block: 'g-item-galery',
-                    mods: { type: 'big' },
+                    block: 'g-item',
                     content: [
                         {
-                            elem: 'title',
-                            title: 'Фото',
-                            current: 2,
-                            count: 8
+                            block: 'g-item-heading',
+                            mods: { type: 'main' },
+                            content: 'Обручальное кольцо из белого золота с 21 бриллиантом'
                         },
                         {
-                            elem: 'preview_images',
-                            images: ['../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                     '../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                     '../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                     '../../desktop.blocks/g-item-galery/images/preview01.jpg',
-                                     '../../desktop.blocks/g-item-galery/images/preview01.jpg']
+                            block: 'g-item-category',
+                            title: 'Обручальные кольца'
                         },
                         {
-                            elem: 'main_image',
-                            image: '../../desktop.blocks/g-item-galery/images/main02.jpg'
-                        }
-                    ]
-                },
-                {
-                    block: 'g-right-side',
-                    content: [
-                        {
-                            block: 'g-item-description',
-                            pars: [
-                                ['Артикул', '51235654'],
-                                ['Металл', 'Белое золото'],
-                                ['Проба', '585'],
-                                ['Камень', '21 бриллиант'],
-                                ['Карат', '0,07']
-                            ]
-                        },
-                        {
-                            block: 'g-item-write-up',
-                            content: 'Стильное и изящное обручальное кольцо с дорожкой из бриллиантов и основой из белого золота 585 пробы. В продаже есть модели из желтого и розового золота. Товар в наличии и под заказ.'
-                        },
-                        {
-                            block: 'g-like',
-                            mods: { type: 'extended' }
-                        },
-                        {
-                            block: 'g-social_follow',
+                            block: 'g-item-galery',
+                            mods: { type: 'big' },
                             content: [
                                 {
-                                    elem: 'item',
-                                    mods: { type: 'vk' },
-                                    tag: 'p',
-                                    content: '2 528'
+                                    elem: 'title',
+                                    title: 'Фото',
+                                    current: 2,
+                                    count: 8
                                 },
                                 {
-                                    elem: 'item',
-                                    mods: { type: 'fb' },
-                                    content: '978'
+                                    elem: 'preview_images',
+                                    images: ['../../desktop.blocks/g-item-galery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-galery/images/preview01.jpg']
                                 },
                                 {
-                                    elem: 'item',
-                                    mods: { type: 'twitter' },
-                                    content: '641'
-                                },
-                                {
-                                    elem: 'item',
-                                    mods: { type: 'ok' },
-                                    content: '578'
-                                },
-                                {
-                                    elem: 'item',
-                                    mods: { type: 'mail' },
-                                    content: '654'
-                                },
-                                {
-                                    elem: 'item',
-                                    mods: { type: 'gplus' },
-                                    content: ''
+                                    elem: 'main_image',
+                                    image: '../../desktop.blocks/g-item-galery/images/main02.jpg'
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    block: 'g-item-heading',
-                    mods: { type: 'simple' },
-                    content: 'Купить этот товар в магазинах'
-                },
-                {
-                    block: 'g-available-in-stores',
-                    stores: [
-                        {
-                            name: 'Линии любви',
-                            price: '6 100'
                         },
                         {
-                            name: 'Линии любви',
-                            price: '6 100'
+                            block: 'g-right-col',
+                            content: [
+                                {
+                                    block: 'g-item-features',
+                                    content: [
+                                        {
+                                            'Артикул' : '51235654'
+                                        },
+                                        {
+                                            'Металл' : 'Белое золото'
+                                        },
+                                        {
+                                            'Проба' : '585'
+                                        },
+                                        {
+                                            'Камень' : '21 бриллиант'
+                                        },
+                                        {
+                                            'Карат' : '0,07'
+                                        }
+                                    ]
+                                },
+                                {
+                                    block: 'g-item-description',
+                                    content: 'Стильное и изящное обручальное кольцо с дорожкой из бриллиантов и основой из белого золота 585 пробы. В продаже есть модели из желтого и розового золота. Товар в наличии и под заказ.'
+                                },
+                                {
+                                    block: 'g-like',
+                                    mods: { type: 'extended' }
+                                },
+                                {
+                                    block: 'g-social_follow',
+                                    content: [
+                                        {
+                                            elem: 'item',
+                                            mods: { type: 'vk' },
+                                            tag: 'p',
+                                            content: '2 528'
+                                        },
+                                        {
+                                            elem: 'item',
+                                            mods: { type: 'fb' },
+                                            content: '978'
+                                        },
+                                        {
+                                            elem: 'item',
+                                            mods: { type: 'twitter' },
+                                            content: '641'
+                                        },
+                                        {
+                                            elem: 'item',
+                                            mods: { type: 'ok' },
+                                            content: '578'
+                                        },
+                                        {
+                                            elem: 'item',
+                                            mods: { type: 'mail' },
+                                            content: '654'
+                                        },
+                                        {
+                                            elem: 'item',
+                                            mods: { type: 'gplus' },
+                                            content: ''
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
-                            name: 'Линии любви',
-                            price: '6 100'
+                            block: 'g-item-heading',
+                            mods: { type: 'simple' },
+                            content: 'Купить этот товар в магазинах'
                         },
                         {
-                            name: 'Линии любви',
-                            price: '6 100'
+                            block: 'g-available-in-stores',
+                            stores: [
+                                {
+                                    name: 'Линии любви',
+                                    price: '6 100'
+                                },
+                                {
+                                    name: 'Линии любви',
+                                    price: '6 100'
+                                },
+                                {
+                                    name: 'Линии любви',
+                                    price: '6 100'
+                                },
+                                {
+                                    name: 'Линии любви',
+                                    price: '6 100'
+                                }
+                            ]
                         },
-                        {
-                            name: 'Линии любви',
-                            price: '6 100'
-                        },
-                    ]
-                },
-                {
-                    block: 'g-item-heading',
-                    mods: { type: 'simple' },
-                    content: 'Ещё 10 похожих товаров'
-                },
-                {
-                    block: 'g-goods',
-                    content: [
-                        {
-                            block: 'g-product',
-                            mods: { action: 'yes' },
-                            title: 'Кольцо с 21 бриллиантом',
-                            image: '../../desktop.blocks/g-goods/images/good.png',
-                            pw: '4,5 грамм',
-                            jw: '0,07 карат',
-                            price: '3333Р',
-                            shop: 'Sunlight',
-                            href: '/'
-                        },
-                        {
-                            block: 'g-product',
-                            mods: { hit: 'yes' }
-                        },
-                        {
-                            block: 'g-product',
-                            mods: { like: 'yes' }
-                        },
-                        {
-                            block: 'g-product',
-                            mods: {like: 'yes', action: 'yes' }
-                        }
                     ]
                 }
             ]
@@ -274,7 +252,6 @@
         {
             block: 'g-footer',
             content: [
-
             ]
         }
     ]     
