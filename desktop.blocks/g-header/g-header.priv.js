@@ -10,7 +10,7 @@ blocks['g-header'] = function () {
                         description: 'Крупнейший поиск ювелирных изделий'
                     }
                 ]
-            },
+            }, /*
             {
                 elem: 'basket',
                 content: [
@@ -36,7 +36,7 @@ blocks['g-header'] = function () {
                         content: 'Нет товаров в списке желаний'
                     }
                 ] 
-            },
+            },*/
             {
                 block: 'g-support',
                 content: [

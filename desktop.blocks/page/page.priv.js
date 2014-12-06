@@ -14,7 +14,7 @@ blocks['page'] = function (data, env) {
 
         content: [
             blocks['g-header'](),
-            blocks['g-category'](data.menu, env),
+            blocks['g-menu'](data.menu, env),
 
             {
                 block: 'g-content',
@@ -61,6 +61,16 @@ pages['index'] = function (data, env) {
                         label: 'Простой и удобный поиск по параметрам'
                     }
                 ]
+            }, {
+                block: 'g-section',
+                mods: { type: 'slogan' },
+                title: 'Goldpoisk - самый большой каталог ювелирных изделий',
+                description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
+            }, {
+                block: 'g-section',
+                mods: { type: 'subscription' },
+                title: 'Лучшие предложения от наших партнёров',
+                description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!&#8381;',
             },
 
             blocks['g-goods']({
@@ -88,6 +98,15 @@ pages['category'] = function (data, env) {
             blocks['g-goods']({
                 list: data.products
             })
+        ]
+    }, env)
+}
+
+pages['item'] = function (data, env) {
+    return blocks['page']({
+        menu: data.menu,
+        content: [
+            blocks['g-item-galery'](data.gallery, env)
         ]
     }, env)
 }
