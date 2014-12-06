@@ -5,9 +5,11 @@ block('g-product')(
 			{
 				mods: { action: this.ctx.action ? 'yes' : undefined, hit: this.ctx.hit ? 'yes' : undefined, like: this.ctx.like ? 'yes' : undefined }
 			},
+            /*
 			{
                 elem: 'like',
             },
+            */
             {
                 tag: 'a',
                 attrs: { href: this.ctx.href },
@@ -38,30 +40,32 @@ block('g-product')(
                     }
                 ]
             },
+
+            this.ctx.jw ?
             {
                 elem: 'jw',
                 content: [
                     {
                         tag: 'span',
-                        /*attrs: ({ width: '22px', height: '17px', src: '../../media/jw.png' }),*/
                     },
                     {
                         tag: 'p',
                         content: this.ctx.jw
                     }
                 ]
-            },
+            } : null,
+
             {
                 elem: 'shop',
                 content: this.ctx.shop
-            },
-            {
+            }, {
                 elem: 'price',
                 content: this.ctx.price
-            },
-            {
+            }, {
                 block: 'g-button',
-                content: 'Купить'
+                content: 'Купить',
+                href: this.ctx.buyUrl,
+                newPage: true
             }
 		]
 	}),
