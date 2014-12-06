@@ -14,7 +14,7 @@ blocks['page'] = function (data, env) {
 
         content: [
             blocks['g-header'](),
-            blocks['g-category'](data.menu, env),
+            blocks['g-menu'](data.menu, env),
 
             {
                 block: 'g-content',
@@ -88,6 +88,15 @@ pages['category'] = function (data, env) {
             blocks['g-goods']({
                 list: data.products
             })
+        ]
+    }, env)
+}
+
+pages['item'] = function (data, env) {
+    return blocks['page']({
+        menu: data.menu,
+        content: [
+            blocks['g-item-galery'](data.gallery, env)
         ]
     }, env)
 }
