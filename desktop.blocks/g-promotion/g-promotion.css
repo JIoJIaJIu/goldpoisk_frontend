@@ -10,3 +10,9 @@
 	width: 100%;
 	bottom: 25px;
 }
+
+.g-promotion .g-promotion-item {
+	position: absolute;
+	left: 40%;
+	top: 50%;
+}

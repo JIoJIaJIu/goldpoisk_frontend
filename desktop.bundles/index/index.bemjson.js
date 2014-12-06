@@ -102,6 +102,35 @@
                     content: [
                         {
                             block: 'fotorama',
+                            src: '../../media/promotion01.png'
+                        },
+                        {
+                            block: 'g-promotion-item',
+                            content: [
+                                {
+                                    elem: 'title',
+                                    title: 'Серьги'
+                                },
+                                {
+                                    elem: 'price',
+                                    price: '6000'
+                                }
+                            ]
+                        },
+                        {
+                            block: 'g-promotion-markers-list',
+                            content: [
+                                {
+                                    block: 'g-promotion-marker',
+                                    mods: { state: 'selected' }
+                                },
+                                {
+                                    block: 'g-promotion-marker'
+                                },
+                                {
+                                    block: 'g-promotion-marker'
+                                }
+                            ]
                         }
                     ]
                 },
@@ -146,6 +175,7 @@
                     block: 'g-goods',
                     content: [
                         {
+                            block: 'g-product',
                             title: 'Кольцо с 21 бриллиантом',
                             image: '../../desktop.blocks/g-goods/images/good.png',
                             pw: '4,5 грамм',
