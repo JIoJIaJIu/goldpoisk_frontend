@@ -8,7 +8,7 @@ block('g-product')(
             }, {
                 elem: 'link',
                 tag: 'a',
-                attrs: { href: this.ctx.href },
+                attrs: { href: this.ctx.url },
                 content: [
                     {
                         elem: 'marker',
