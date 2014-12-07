@@ -70,12 +70,15 @@ pages['index'] = function (data, env) {
                 block: 'g-section',
                 mods: { type: 'subscription' },
                 title: 'Лучшие предложения от наших партнёров',
-                description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!&#8381;',
+                description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!',
             },
 
             blocks['g-goods']({
                 list: data.products
-            })
+            }), {
+                block: 'g-cooperation',
+                content: []
+            }
         ]
     })
 }
@@ -91,8 +94,8 @@ pages['category'] = function (data, env) {
         content: [
             {
                 block: 'g-category-title',
-                title: 'Кольца',
-                count: '11 253'
+                title: data.category,
+                count: data.count
             }, 
 
             blocks['g-goods']({
