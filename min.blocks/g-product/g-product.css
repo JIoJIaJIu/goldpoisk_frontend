@@ -101,13 +101,16 @@
     position: absolute;
     top: -1px; 
     right: -1px;
-    width: 89px; height: 73px;
+    width: 89px; 
+    height: 73px;
     background-image: url('./images/redang.png');
 }
 
-.g-product_hit_yes .g-product__merker {
+.g-product_hit_yes .g-product__marker {
     position: absolute;
-    top: -1px; right: -1px;
-    width: 89px; height: 73px;
+    top: -1px; 
+    right: -1px;
+    width: 89px; 
+    height: 73px;
     background-image: url('./images/blueang.png');
 }
