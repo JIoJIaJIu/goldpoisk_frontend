@@ -6,4 +6,5 @@
 
 .g-price__rouble {
     font-family: ALSRubl;
+    margin-left: -5px;
 }
