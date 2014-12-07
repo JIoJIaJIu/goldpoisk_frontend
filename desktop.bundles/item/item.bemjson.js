@@ -50,7 +50,8 @@
                 {
                     block: 'g-menu-item',
                     mods: { type: 'necklaces' },
-                    label: 'Колье'
+                    label: 'Колье',
+                    href: '#'
                 },
                 {
                     block: 'g-menu-item',
@@ -187,32 +188,43 @@
                                         {
                                             elem: 'item',
                                             mods: { type: 'vk' },
-                                            tag: 'p',
+                                            tag: 'a',
+                                            attrs: { href: '#' },
                                             content: '2 528'
                                         },
                                         {
                                             elem: 'item',
                                             mods: { type: 'fb' },
+                                            tag: 'a',
+                                            attrs: { href: '#' },
                                             content: '978'
                                         },
                                         {
                                             elem: 'item',
                                             mods: { type: 'twitter' },
+                                            tag: 'a',
+                                            attrs: { href: '#' },
                                             content: '641'
                                         },
                                         {
                                             elem: 'item',
                                             mods: { type: 'ok' },
+                                            tag: 'a',
+                                            attrs: { href: '#' },
                                             content: '578'
                                         },
                                         {
                                             elem: 'item',
                                             mods: { type: 'mail' },
+                                            tag: 'a',
+                                            attrs: { href: '#' },
                                             content: '654'
                                         },
                                         {
                                             elem: 'item',
                                             mods: { type: 'gplus' },
+                                            tag: 'a',
+                                            attrs: { href: '#' },
                                             content: ''
                                         }
                                     ]
@@ -226,22 +238,22 @@
                         },
                         {
                             block: 'g-available-in-stores',
-                            stores: [
+                            content: [
                                 {
                                     name: 'Линии любви',
-                                    price: '6 100'
+                                    price: 6100
                                 },
                                 {
                                     name: 'Линии любви',
-                                    price: '6 100'
+                                    price: 6100
                                 },
                                 {
                                     name: 'Линии любви',
-                                    price: '6 100'
+                                    price: 6100
                                 },
                                 {
                                     name: 'Линии любви',
-                                    price: '6 100'
+                                    price: 6100
                                 }
                             ]
                         },
