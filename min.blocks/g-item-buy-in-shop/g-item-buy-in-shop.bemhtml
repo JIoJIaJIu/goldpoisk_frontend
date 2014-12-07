@@ -7,7 +7,7 @@ block('g-item-buy-in-shop')(
 				content: this.ctx.shop
 			},
 			{
-				elem: 'price',
+				block: 'price',
 				content: this.ctx.price
 			},
 			{

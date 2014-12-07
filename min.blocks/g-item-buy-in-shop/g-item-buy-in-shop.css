@@ -12,7 +12,7 @@
 	margin: 0 0 10px 0;
 }
 
-.g-item-buy-in-shop__price {
+.g-item-buy-in-shop .g-price {
 	display: inline-block;
 	font-family: Clear-Sans_Light;
 	font-size: 24px;

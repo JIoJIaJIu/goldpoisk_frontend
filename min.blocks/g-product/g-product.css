@@ -56,15 +56,12 @@
     padding-left: 7px;
 }
 
-.g-product__price {
+.g-product .g-price {
    position: absolute;
-   left: 12px; bottom: 8px;
-   font-family: Clear-Sans_Regular, Arial, sans-serif;
-   font-size: 24px;
-   color: #000;
+   left: 16px; bottom: 8px;
 }
 
-.g-product.g-product_action_yes .g-product__price {
+.g-product.g-product_action_yes .g-price {
     color: #cb3e3e;
 }
 
@@ -154,4 +151,12 @@
 
 .g-product_like_yes .g-product__like {
     background-image: url('./images/heart.png');
+}
+
+.g-product.g-product_button_hide .g-button {
+    display: none;
+}
+
+.g-product.g-product_button_hide .g-price {
+    left: 22px;
 }

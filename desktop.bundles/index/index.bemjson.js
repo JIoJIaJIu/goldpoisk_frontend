@@ -158,60 +158,46 @@
                             label: 'Простой и удобный поиск по параметрам'
                         }
                     ]
-                },
-                {
+                }, {
                     block: 'g-section',
                     mods: { type: 'slogan' },
                     title: 'Goldpoisk - самый большой каталог ювелирных изделий',
                     description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
-                },
-                {
+                }, {
                     block: 'g-section',
                     mods: { type: 'subscription' },
                     title: 'Лучшие предложения от наших партнёров',
                     description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!',
-                },
-                {
+                }, {
                     block: 'g-goods',
                     content: [
                         {
                             block: 'g-product',
+                            /*mods: { button: 'hide' },*/
                             title: 'Золотое Кольцо с гранатами и фианитами',
                             image: '../../desktop.blocks/g-goods/images/good.png',
                             pw: '4,5 грамм',
                             jw: '0,07 карат',
-                            price: '33 333',
+                            price: 6169,
                             shop: 'Sunlight',
                             address: '#'
 
                         }, {
                             hit: true,
                             tape: 'Хит продаж'
-                        },
-                        {
+                        }, {
                             like: true,
-                        },
-                        {
+                        }, {
                         }
                     ]
-                },
-                {
-                    block: 'g-price',
-                    content: 33000
-                },
-                {
-                    block: 'g-price',
-                    content: [1500, 3000]
                 }
             ]
-        },
-        {
+        }, {
             block: 'g-cooperation',
             content: [
 
                 ]
-        },
-        {
+        }, {
             block: 'g-footer',
             content: [
 
