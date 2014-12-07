@@ -15,11 +15,9 @@ blocks['page'] = function (data, env) {
         content: [
             blocks['g-header'](),
             blocks['g-menu'](data.menu, env),
+            data.content,
 
             {
-                block: 'g-content',
-                content: data.content
-            }, {
                 block: 'g-footer',
                 content: []
             }
@@ -62,20 +60,24 @@ pages['index'] = function (data, env) {
                     }
                 ]
             }, {
-                block: 'g-section',
-                mods: { type: 'slogan' },
-                title: 'Goldpoisk - самый большой каталог ювелирных изделий',
-                description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
-            }, {
-                block: 'g-section',
-                mods: { type: 'subscription' },
-                title: 'Лучшие предложения от наших партнёров',
-                description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!',
-            },
+                block: 'g-content',
+                content: [{
+                        block: 'g-section',
+                        mods: { type: 'slogan' },
+                        title: 'Goldpoisk - самый большой каталог ювелирных изделий',
+                        description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
+                    }, {
+                        block: 'g-section',
+                        mods: { type: 'subscription' },
+                        title: 'Лучшие предложения от наших партнёров',
+                        description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!',
+                    },
 
-            blocks['g-goods']({
-                list: data.products
-            }), {
+                    blocks['g-goods']({
+                        list: data.products
+                    })
+                ]
+            }, {
                 block: 'g-cooperation',
                 content: []
             }
@@ -91,17 +93,20 @@ pages['category'] = function (data, env) {
     return blocks['page']({
         menu: data.menu,
 
-        content: [
-            {
-                block: 'g-category-title',
-                title: data.category,
-                count: data.count
-            }, 
+        content: {
+            block: 'g-content',
+            content: [
+                {
+                    block: 'g-category-title',
+                    title: data.category,
+                    count: data.count
+                }, 
 
-            blocks['g-goods']({
-                list: data.products
-            })
-        ]
+                blocks['g-goods']({
+                    list: data.products
+                })
+            ]
+        }
     }, env)
 }
 
@@ -112,13 +117,16 @@ pages['category'] = function (data, env) {
 pages['item'] = function (data, env) {
     return blocks['page']({
         menu: data.menu,
-        content: [
-            {
-                block: 'g-item',
-                content: [
-                    blocks['g-item'](data.item, env)
-                ]
-            }
-        ]
+        content: {
+            block: 'g-content',
+            content: [
+                {
+                    block: 'g-item',
+                    content: [
+                        blocks['g-item'](data.item, env)
+                    ]
+                }
+            ]
+        }
     }, env)
 }

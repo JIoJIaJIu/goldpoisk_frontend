@@ -9,12 +9,7 @@
     height: 182px;
 }
 
-.g-section__inner
-{
-    max-width: 1494px; min-width: 990px;
-    width: 100%; height: 100%;
-    margin: 0 auto;
-    padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0;
+.g-section__inner {
     position: relative;
 }
 
@@ -32,13 +27,10 @@
     margin: 0;
 }
 
-.g-section_type_subscription
-{
+.g-section_type_subscription {
     height: 180px;
-}
-
-.g-section + .g-section_type_subscription
-{
+    min-width: 950px;
+    width: 80%;
 }
 
 .g-section + .g-section_type_subscription header

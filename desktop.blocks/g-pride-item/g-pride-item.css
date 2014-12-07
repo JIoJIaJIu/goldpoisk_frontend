@@ -1,65 +1,55 @@
-.g-pride-item
-{
-    width: 25%; height: 100%;
-    display: table-cell;
-    float: none;
-    font-family: Clear-Sans;
+.g-pride-item {
+    height: 100%;
+    width: 50%;
+    float: left;
+    font-family: Clear-Sans, Arial, sans-serif;
     font-size: 14px;
     color: #fff;
     position: relative;
 }
 
-.g-pride-item p
-{
-    margin-left: 79px; margin-top: 39px;
-    width: 60%;
+.g-pride-item p {
+    margin: 40px 0 35px 79px;
+    max-width: 210px;
 }
 
-.g-pride-item_type_brown
-{
+.g-pride-item_type_brown {
     background-color: #3c2424;
 }
 
-.g-pride-item_type_brown .img 
-{
+.g-pride-item_type_brown .img {
     background-image: url('../g-pride/images/diamond.png');
     background-repeat: no-repeat;
     background-position: 0% 0%;
 }
 
-.g-pride-item_type_beige
-{
+.g-pride-item_type_beige {
     background-color: #a07472;
 }
 
-.g-pride-item_type_beige .img
-{
+.g-pride-item_type_beige .img {
     background-image: url('../g-pride/images/infinity.png');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     left: 18px;
 }
 
-.g-pride-item_type_beige p
-{
+.g-pride-item_type_beige p {
     margin-left: 83px;
 }
 
-.g-pride-item_type_gold
-{
+.g-pride-item_type_gold {
     background-color: #dead03;
 }
 
-.g-pride-item_type_gold .img
-{
+.g-pride-item_type_gold .img {
     background-image: url('../g-pride/images/crown.png');
     background-repeat: no-repeat;
     background-position: 0% 0%;
 }
 
-.g-pride-item_type_gray
-{
-    background-color: #777;
+.g-pride-item_type_gray {
+    background: #777;
 }
 
 .g-pride-item_type_gray .img

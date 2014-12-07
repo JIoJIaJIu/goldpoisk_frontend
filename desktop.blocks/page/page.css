@@ -66,6 +66,5 @@ html, body {
 
 .page {
     margin: 0 auto;
-    min-width: 990px;
-    max-width: 1494px;
+    min-width: 1000px;
 }

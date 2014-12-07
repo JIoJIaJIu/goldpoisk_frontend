@@ -1,8 +1,4 @@
-.fotorama
-{
-    max-width: 1494px; min-width: 990px;
-    width: 100%; height: 100%;
-    margin: 0 auto;
+.fotorama {
     text-align: center;
     padding: 0;
 }

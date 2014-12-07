@@ -1,11 +1,7 @@
 .g-header {
     height: 105px;
     position: relative;
-}
-
-.g-header_inner {
-    height: 105px;
-    margin: 0 auto;
+    margin: 0 2%;
 }
 
 .g-header_inner__desire {
@@ -28,7 +24,8 @@
 
 .g-header_inner__basket {
     position: absolute;
-    left: 30%; top: 29px;
+    top: 29px;
+    left: 30%;
     text-align: center;
 }
 
@@ -40,7 +37,6 @@
 .g-header_inner__basket {
     float: left;
     width: 30%;
-
 }
 
 .g-header_inner__desire {

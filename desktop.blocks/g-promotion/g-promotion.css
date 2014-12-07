@@ -1,6 +1,6 @@
 .g-promotion {
+    overflow: hidden;
 	position: relative;
-    width: 100%; 
     height: 498px;
     background-color: #160f10;
 }

@@ -1,12 +1,9 @@
 .g-footer {
     height: 142px;
+    padding: 0 2%;
 }
 
 .g-footer_inner {
-    max-width: 1494px;
-    min-width: 990px;
-    height: 100%;
-    margin: 0 auto;
     background-color: #ffffff;
 }
 

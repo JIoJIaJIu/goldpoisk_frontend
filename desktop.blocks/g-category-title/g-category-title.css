@@ -1,11 +1,6 @@
 .g-category-title {
     margin: 13px 0 48px 23px;
 }
-.g-category-title__inner {
-    max-width: 1494px;
-    min-width: 990px;
-}
-
 .g-category-title__title {
     display: inline-block;
     font-family: Din-Text-Pro_Thin;

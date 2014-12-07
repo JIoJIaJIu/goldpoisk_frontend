@@ -1,9 +1,19 @@
 block('g-pride').match()(
     content()(function() {
-        return {
-            elem: 'inner',
-            content: applyNext()
-        };
+        var list = this.ctx.content;
+        return [{
+            elem: 'left',
+            content: [
+                list[0],
+                list[1]
+            ]
+        }, {
+            elem: 'right',
+            content: [
+                list[2],
+                list[3]
+            ]
+        }];
     })
 )
 

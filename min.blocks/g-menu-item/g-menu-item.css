@@ -48,9 +48,9 @@
 
 .g-menu-item .g-menu-item__title {
     display: block;
-    padding: 7px 0 0 0;
+    margin: 7px 0 0;
+    padding: 0 50px 0;
     text-transform: uppercase;
-    width: 100px;
     margin: 0 auto;
 }
 
