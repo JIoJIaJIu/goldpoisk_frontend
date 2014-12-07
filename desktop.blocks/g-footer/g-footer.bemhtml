@@ -29,22 +29,22 @@ block('g-footer')(
                                 },
                                 {
                                     tag: 'a',
-                                    attrs: { href: 'https://www.facebook.com/pages/GoldPoisk/316157391908401' },
+                                    attrs: { href: 'https://www.facebook.com/pages/GoldPoisk/316157391908401', target: '_blank' },
                                     cls: 'fb'
                                 },
                                 {
                                     tag: 'a',
-                                    attrs: { href: 'https://twitter.com/GoldPoisk' },
+                                    attrs: { href: 'https://twitter.com/GoldPoisk', target: '_blank' },
                                     cls: 'tw'
                                 },
                                 {
                                     tag: 'a',
-                                    attrs: { href: 'https://vk.com/goldpoisk' },
+                                    attrs: { href: 'https://vk.com/goldpoisk', target: '_blank' },
                                     cls: 'vk'
                                 },
                                 {
                                     tag: 'a',
-                                    attrs: { href: 'http://ok.ru/group/53327077638372' },
+                                    attrs: { href: 'http://ok.ru/group/53327077638372', target: '_blank' },
                                     cls: 'ok'
                                 }
                             ]
