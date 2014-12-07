@@ -28,6 +28,8 @@
    position: absolute;
    top: 0; left: 0;
    margin-bottom: 15px;
+   max-width: 210px;
+   max-height: 180px;
 }
 
 .g-product__image {
@@ -59,7 +61,11 @@
    left: 12px; bottom: 8px;
    font-family: Clear-Sans_Regular, Arial, sans-serif;
    font-size: 24px;
-   color: #cb3e3e;
+   color: #000;
+}
+
+.g-product.g-product_action_yes .g-product__price {
+    color: #cb3e3e;
 }
 
 .g-product__tape {

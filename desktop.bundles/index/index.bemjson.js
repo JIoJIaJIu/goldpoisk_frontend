@@ -182,11 +182,9 @@
                             jw: '0,07 карат',
                             price: '33 333',
                             shop: 'Sunlight',
-                            address: '#',
-                            action: true
+                            address: '#'
 
-                        },
-                        {
+                        }, {
                             hit: true,
                             tape: 'Хит продаж'
                         },
@@ -194,11 +192,16 @@
                             like: true,
                         },
                         {
-                        },
-                        {
-                            block: 'clear'
                         }
                     ]
+                },
+                {
+                    block: 'g-price',
+                    content: 33000
+                },
+                {
+                    block: 'g-price',
+                    content: [1500, 3000]
                 }
             ]
         },
