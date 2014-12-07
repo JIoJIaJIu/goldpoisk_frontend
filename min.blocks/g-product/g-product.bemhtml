@@ -1,12 +1,12 @@
 block('g-product')(
-	tag()('li'),
-	content()(function() {
-		return [
-			{
-				mods: { action: this.ctx.action ? 'yes' : undefined, hit: this.ctx.hit ? 'yes' : undefined, like: this.ctx.like ? 'yes' : undefined }
-			},
+    tag()('li'),
+    content()(function() {
+        return [
+            {
+                mods: { action: this.ctx.action ? 'yes' : undefined, hit: this.ctx.hit ? 'yes' : undefined, like: this.ctx.like ? 'yes' : undefined }
+            },
             /*
-			{
+            {
                 elem: 'like',
             },
             */
@@ -15,7 +15,7 @@ block('g-product')(
                 attrs: { href: this.ctx.href },
                 content: [
                     {
-                        elem: 'tape',
+                        elem: 'tape'
                     },
                     {
                         elem: 'image',
@@ -31,7 +31,7 @@ block('g-product')(
                 elem: 'pw',
                 content: [
                     {
-                        tag: 'span',
+                        tag: 'span'
                         /*attrs: ({ width: '22px', height: '18px', src: '../../media/pw.png' }),*/
                     },
                     {
@@ -46,7 +46,7 @@ block('g-product')(
                 elem: 'jw',
                 content: [
                     {
-                        tag: 'span',
+                        tag: 'span'
                     },
                     {
                         tag: 'p',
@@ -57,20 +57,21 @@ block('g-product')(
 
             {
                 elem: 'shop',
+                href: this.ctx.address,
                 content: this.ctx.shop
             }, {
                 elem: 'price',
-                content: this.ctx.price
+                content: this.ctx.price + ' &#8381;'
             }, {
                 block: 'g-button',
                 content: 'Купить',
                 href: this.ctx.buyUrl,
                 newPage: true
             }
-		]
-	}),
+        ]
+    }),
 
-	elem('title')(
+    elem('title')(
         tag()('h1')
     ),
     elem('image')(
@@ -82,6 +83,14 @@ block('g-product')(
     ),
     elem('jw')(
         tag()('span')
+    ),
+    elem('shop')(
+        tag()('a'),
+        attrs()(function () {
+            return {
+                href: this.ctx.href
+            }
+        })
     ),
     elem('price')(
         tag()('span')

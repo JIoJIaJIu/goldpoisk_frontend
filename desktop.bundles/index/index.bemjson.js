@@ -49,7 +49,7 @@
             content: [
                 {
                     block: 'g-menu-item',
-                    mods: { type: 'necklaces' },
+                    mods: { type: 'necklaces', state: 'active' },
                     label: 'КОЛЬЕ'
                 },
                 {
@@ -176,13 +176,15 @@
                     content: [
                         {
                             block: 'g-product',
-                            title: 'Кольцо с 21 бриллиантом',
+                            title: 'Золотое Кольцо с гранатами и фианитами',
                             image: '../../desktop.blocks/g-goods/images/good.png',
                             pw: '4,5 грамм',
                             jw: '0,07 карат',
-                            price: '3333Р',
+                            price: '33 333',
                             shop: 'Sunlight',
-                            action: true,
+                            address: '#',
+                            action: true
+
                         },
                         {
                             hit: true,

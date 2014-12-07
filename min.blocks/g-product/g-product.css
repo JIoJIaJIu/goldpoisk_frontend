@@ -4,7 +4,7 @@
     width: 211px; height: 356px;
     border: 1px solid #eaeaea;
     border-radius: 2px;
-    box-shadow: 0px 0px 3px 0px rgb(0, 0, 1);
+    /*box-shadow: 0px 0px 3px 0px rgb(0, 0, 1);*/
     margin-left: 35px;
     margin-bottom: 42px;
     list-style: none;
@@ -12,15 +12,16 @@
 
 .g-product:hover {
     border-radius: 2px;
-    box-shadow: 0px 0px 10px 0px rgb( 0, 0, 1 );
+    box-shadow: 0px 0px 10px 0px rgba( 0, 0, 1, 0.5 );
     width: 211px;
     height: 356px;
 }
 
 .g-product .g-button {
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 9px;
+    bottom: 9px;
+    width: 86px;
 }
 
 .g-product__image {
@@ -37,13 +38,12 @@
     position: absolute;
     left: 0;
     top: 180px;
-    width: 100%;
     height: 60px;
-    font-family: Clear-Sans;
-    font-size: 14px;
+    font-family: Clear-Sans_Thin, Arial, sans-serif;
+    font-size: 16px;
     letter-spacing: -1px;
     color: #333;
-    text-indent: 16px;
+    margin: 0 0 0 16px;
 }
 
 .g-product__jw, .g-product__pw {
@@ -56,8 +56,8 @@
 
 .g-product__price {
    position: absolute;
-   left: 12px; bottom: 18px;
-   font-family: Clear-Sans;
+   left: 12px; bottom: 8px;
+   font-family: Clear-Sans_Regular, Arial, sans-serif;
    font-size: 24px;
    color: #cb3e3e;
 }
@@ -105,7 +105,7 @@
     position: absolute;
     bottom: 47px; left: 13px;
     color: #a07472;
-    font-family: Clear-Sans;
+    font-family: Clear-Sans_Thin, Arial, sans-serif;
     font-size: 14px;
 }
 
@@ -113,7 +113,7 @@
 .g-product__pw p, .g-product__jw p
 {
     display: inline;
-    font-family: Clear-Sans;
+    font-family: Clear-Sans_Thin, Arial, sans-serif;
     font-size: 14px;
     color: #8f8f8f;
 }
