@@ -41,7 +41,7 @@
     font-family: Clear-Sans_Thin, Arial, sans-serif;
     font-size: 16px;
     color: #333;
-    -webkit-mask-image:-webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%);
+    -webkit-mask-image:-webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 85%,rgba(0,0,0,0) 100%);
 }
 
 .g-product__title:hover {
