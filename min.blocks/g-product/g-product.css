@@ -1,21 +1,86 @@
 .g-product {
     position: relative;
     display: inline-block;
-    width: 211px; height: 356px;
+    width: 210px; 
+    height: 355px;
     border: 1px solid #eaeaea;
     border-radius: 2px;
-    /*box-shadow: 0px 0px 3px 0px rgb(0, 0, 1);*/
-    margin-left: 35px;
-    margin-bottom: 42px;
     list-style: none;
 }
 
 .g-product:hover {
     border-radius: 2px;
     box-shadow: 0px 0px 10px 0px rgba( 0, 0, 1, 0.5 );
-    width: 211px;
-    height: 356px;
 }
+
+.g-product .g-like {
+    position: absolute;
+    left: 8px;
+    top: 9px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.g-product__image {
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    height: 180px;
+}
+
+.g-product__image img {
+    max-width: 210px;
+    max-height: 180px;
+}
+
+.g-product__title {
+    display: block;
+    height: 55px;
+    margin: 0 15px 0 15px;
+    font-family: Clear-Sans_Thin, Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    -webkit-mask-image:-webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0) 100%);
+}
+
+.g-product__title:hover {
+    text-decoration: underline;
+}
+
+.g-product__link {
+    text-decoration: none;
+}
+
+.g-product__weight, .g-product__carat, .g-product__store {
+    height: 26px;
+    line-height: 26px;
+    margin: 0;
+    font-family: Clear-Snas_Thin, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.g-product__weight, .g-product__carat {
+    padding-left: 43px;
+    color: #8f8f8f;
+}
+
+.g-product__weight {
+    background-image: url('./images/pw.png');
+    background-repeat: no-repeat;
+    background-position: 14px 0;
+}
+
+.g-product__carat {
+    background-image: url('./images/jw.png');
+    background-repeat: no-repeat;
+    background-position: 15px 4px
+}
+
+.g-product__store {
+    padding-left: 13px;
+    color: #a07472;
+}
+
 
 .g-product .g-button {
     position: absolute;
@@ -23,41 +88,6 @@
     bottom: 9px;
     width: 86px;
 }
-
-.g-product__image {
-   position: absolute;
-   top: 0; left: 0;
-   margin-bottom: 15px;
-   text-align: center;
-   vertical-align: middle;
-   max-width: 210px;
-   max-height: 180px;
-}
-
-.g-product__image {
-    cursor: pointer;
-}
-
-.g-product__title {
-    position: absolute;
-    left: 0;
-    top: 180px;
-    height: 60px;
-    font-family: Clear-Sans_Thin, Arial, sans-serif;
-    font-size: 16px;
-    letter-spacing: -1px;
-    color: #333;
-    margin: 0 0 0 16px;
-}
-
-.g-product__jw, .g-product__pw {
-    padding-left: 14px;
-}
-
-.g-product span p {
-    padding-left: 7px;
-}
-
 .g-product .g-price {
    position: absolute;
    left: 16px; bottom: 8px;
@@ -67,98 +97,17 @@
     color: #cb3e3e;
 }
 
-.g-product__tape {
-    z-index: 1;
-}
-
-.g-product_action_yes .g-product__tape {
+.g-product_action_yes .g-product__marker {
     position: absolute;
-    top: -1px; right: -1px;
+    top: -1px; 
+    right: -1px;
     width: 89px; height: 73px;
     background-image: url('./images/redang.png');
 }
 
-.g-product__tape p {
-    transform: rotate(40deg);
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
-}
-
-.g-product_hit_yes .g-product__tape {
+.g-product_hit_yes .g-product__merker {
     position: absolute;
     top: -1px; right: -1px;
     width: 89px; height: 73px;
     background-image: url('./images/blueang.png');
-}
-
-.g-product__pw {
-    position: absolute;
-    top: 237px;
-}
-
-.g-product__jw {
-    position: absolute;
-    top: 267px;
-}
-
-.g-product img {
-    z-index: 0;
-}
-
-.g-product__shop {
-    position: absolute;
-    bottom: 47px; left: 13px;
-    color: #a07472;
-    font-family: Clear-Sans_Thin, Arial, sans-serif;
-    font-size: 14px;
-}
-
-
-.g-product__pw p, .g-product__jw p
-{
-    display: inline;
-    font-family: Clear-Sans_Thin, Arial, sans-serif;
-    font-size: 14px;
-    color: #8f8f8f;
-}
-
-.g-product__pw span {
-    display: inline-block;
-    width: 22px;
-    height: 18px;
-    background-image: url('./images/pw.png');
-}
-
-.g-product__jw span {
-    display: inline-block;
-    width: 22px;
-    height: 17px;
-    background-image: url('./images/jw.png');
-    background-repeat: no-repeat;
-    background-position: 0 50%;
-}
-
-.g-product__like {
-    display: block;
-    z-index: 1;
-    position: absolute;
-    top: 7px;
-    left: 8px;
-    width: 26px;
-    height: 24px;
-    cursor: pointer;
-    background-image: url('./images/empty_heart.png');
-}
-
-.g-product_like_yes .g-product__like {
-    background-image: url('./images/heart.png');
-}
-
-.g-product.g-product_button_hide .g-button {
-    display: none;
-}
-
-.g-product.g-product_button_hide .g-price {
-    left: 22px;
 }

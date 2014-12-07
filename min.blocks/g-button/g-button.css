@@ -24,3 +24,7 @@
 .g-button_type_gray:hover {
     background: none;
 }
+
+.g-button_display_none {
+    display: none;
+}

@@ -1,16 +1,24 @@
 .g-like span:first-child {
-	background-image: url(images/empty_heart);
-	display: inline-block;
-	vertical-align: top;
-	width: 26px;
-	height: 24px;
+    background-image: url(images/empty_heart.png);
+    display: inline-block;
+    vertical-align: top;
+    width: 26px;
+    height: 24px;
 }
 
 .g-like_type_extended span:last-child {
-	font-family: Clear_Sans, Arial, sans-serif;
-	font-size: 12px;
-	color: #777;
-	padding: 0 7px 3px 7px;
-	line-height: 18px;
-	vertical-align: bottom;
+    font-family: Clear_Sans, Arial, sans-serif;
+    font-size: 12px;
+    color: #777;
+    padding: 0 7px 3px 7px;
+    line-height: 18px;
+    vertical-align: bottom;
+}
+
+.g-like_state_checked span:first-child {
+    background-image: url(images/heart.png);
+    display: inline-block;
+    vertical-align: top;
+    width: 26px;
+    height: 24px;
 }
