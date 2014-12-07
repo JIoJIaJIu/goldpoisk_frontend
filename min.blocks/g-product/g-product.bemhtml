@@ -31,7 +31,7 @@ block('g-product')(
                 tag: 'p',
                 content: this.ctx.weight
             },
-            this.ctx.carat !== '0' ?
+            this.ctx.carat ?
             {
                 elem: 'carat',
                 tag: 'p',
