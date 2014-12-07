@@ -59,15 +59,13 @@
     src: url(din-text-pro/PFDinTextPro-Regular.ttf);
 }
 
-html {
-    min-width: 990px;
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
 .page {
-    margin: 0;
-}
-
-.page_inner {
-    position: relative;
-    height: 100%;
+    margin: 0 auto;
+    min-width: 990px;
+    max-width: 1494px;
 }
