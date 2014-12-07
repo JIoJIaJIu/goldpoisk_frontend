@@ -3,96 +3,55 @@ block('g-product')(
     content()(function() {
         return [
             {
-                mods: { action: this.ctx.action ? 'yes' : undefined, hit: this.ctx.hit ? 'yes' : undefined, like: this.ctx.like ? 'yes' : undefined }
-            },
-            /*
-            {
-                elem: 'like',
-            },
-            */
-            {
+                block: 'g-like',
+                mods: {state : this.ctx.mods.like == 'yes' ? 'checked' : none }
+            }, {
+                elem: 'link',
                 tag: 'a',
                 attrs: { href: this.ctx.href },
                 content: [
                     {
-                        elem: 'tape'
-                    },
-                    {
+                        elem: 'marker',
+                        tag: 'span'
+                    }, {
                         elem: 'image',
-                        url: this.ctx.image
-                    },
-                    {
+                        tag: 'span',
+                        content: {
+                            tag: 'img',
+                            attrs: { src: this.ctx.imageUrl }
+                        }
+                    }, {
                         elem: 'title',
+                        tag: 'p',
                         content: this.ctx.title
                     }
                 ]
+            }, {
+                elem: 'weight',
+                tag: 'p',
+                content: this.ctx.weight
             },
+            this.ctx.carat ?
             {
-                elem: 'pw',
-                content: [
-                    {
-                        tag: 'span'
-                        /*attrs: ({ width: '22px', height: '18px', src: '../../media/pw.png' }),*/
-                    },
-                    {
-                        tag: 'p',
-                        content: this.ctx.pw
-                    }
-                ]
-            },
-
-            this.ctx.jw ?
-            {
-                elem: 'jw',
-                content: [
-                    {
-                        tag: 'span'
-                    },
-                    {
-                        tag: 'p',
-                        content: this.ctx.jw
-                    }
-                ]
+                elem: 'carat',
+                tag: 'p',
+                content: this.ctx.carat
             } : null,
-
             {
-                elem: 'shop',
-                href: this.ctx.address,
-                content: this.ctx.shop
+                elem: 'store',
+                tag: 'a',
+                attrs: { href: this.ctx.storeUrl },
+                content: this.ctx.store
             }, {
                 block: 'g-price',
                 content: this.ctx.price
             }, {
                 block: 'g-button',
                 content: 'Купить',
+                mods: { display: ( (typeof(this.ctx.price) == 'object') || (this.ctx.price > 9999) ) ? 'none' : null },
                 href: this.ctx.buyUrl,
                 newPage: true
             }
         ]
-    }),
-
-    elem('title')(
-        tag()('h1')
-    ),
-    elem('image')(
-        tag()('img'),
-        attrs()(function () { return { src: this.ctx.url } })
-    ),
-    elem('pw')(
-        tag()('span')
-    ),
-    elem('jw')(
-        tag()('span')
-    ),
-    elem('shop')(
-        tag()('a'),
-        attrs()(function () {
-            return {
-                href: this.ctx.href
-            }
-        })
-    ),
-    elem('price')(
-        tag()('span')
-    )
+    })
 )

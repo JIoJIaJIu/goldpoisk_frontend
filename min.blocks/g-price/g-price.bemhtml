@@ -8,6 +8,13 @@ block('g-price')(
                 return price.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + ' &#8381;'
             break;
             case 'object':
+                var temp;
+                if (this.ctx.content[1] < this.ctx.content[0]) {
+                    temp = this.ctx.content[0];
+                    this.ctx.content[0] = this.ctx.content[1];
+                    this.ctx.content[1] = temp;
+                    this.ctx.con
+                };
                 var minPrice = this.ctx.content[0].toString();
                 var maxPrice = this.ctx.content[1].toString();
                 return minPrice.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + '&#8211;' + maxPrice.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + ' &#8381;'

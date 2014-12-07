@@ -173,28 +173,22 @@
                     content: [
                         {
                             block: 'g-product',
-                            /*mods: { button: 'hide' },*/
-                            title: 'Золотое Кольцо с гранатами и фианитами',
-                            image: '../../desktop.blocks/g-goods/images/good.png',
-                            pw: '4,5 грамм',
-                            jw: '0,07 карат',
-                            price: 6169,
-                            shop: 'Sunlight',
-                            address: '#'
-
-                        }, {
-                            hit: true,
-                            tape: 'Хит продаж'
-                        }, {
-                            like: true,
-                        }, {
+                            mods: { like: 'yes', action: 'yes' },
+                            href: '#',
+                            title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                            imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                            weight: '4.5 грамм',
+                            carat: '0,07 карат',
+                            price: 1000000,
+                            store: 'Sunlight',
+                            storeUrl: '#'
                         }
                     ]
                 }
             ]
         }, {
             block: 'g-cooperation',
-            content: [
+            content: [  
 
                 ]
         }, {

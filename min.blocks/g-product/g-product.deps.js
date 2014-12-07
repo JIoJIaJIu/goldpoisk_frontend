@@ -5,6 +5,9 @@
         },
         {
         	block: 'g-price'
+        },
+        {
+        	block: 'g-like'
         }
     ]
 })
