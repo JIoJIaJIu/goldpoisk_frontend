@@ -1,5 +1,6 @@
 .g-product {
     position: relative;
+    vertical-align: top;
     display: inline-block;
     width: 210px; 
     height: 355px;
