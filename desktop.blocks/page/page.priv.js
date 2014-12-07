@@ -91,8 +91,8 @@ pages['category'] = function (data, env) {
         content: [
             {
                 block: 'g-category-title',
-                title: 'Кольца',
-                count: '11 253'
+                title: data.category,
+                count: data.count
             }, 
 
             blocks['g-goods']({
