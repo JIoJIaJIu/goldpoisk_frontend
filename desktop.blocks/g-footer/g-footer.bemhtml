@@ -28,19 +28,23 @@ block('g-footer')(
                                     ]
                                 },
                                 {
-                                    tag: 'span',
+                                    tag: 'a',
+                                    attrs: { href: 'https://www.facebook.com/pages/GoldPoisk/316157391908401' },
                                     cls: 'fb'
                                 },
                                 {
-                                    tag: 'span',
+                                    tag: 'a',
+                                    attrs: { href: 'https://twitter.com/GoldPoisk' },
                                     cls: 'tw'
                                 },
                                 {
-                                    tag: 'span',
+                                    tag: 'a',
+                                    attrs: { href: 'https://vk.com/goldpoisk' },
                                     cls: 'vk'
                                 },
                                 {
-                                    tag: 'span',
+                                    tag: 'a',
+                                    attrs: { href: 'http://ok.ru/group/53327077638372' },
                                     cls: 'ok'
                                 }
                             ]

@@ -35,7 +35,7 @@
     text-align: center;
 }
 
-.g-footer_inner__middle section span {
+.g-footer_inner__middle section a {
     display: inline-block;
     width: 36px; height: 32px;
     margin-top: 18px;

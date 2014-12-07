@@ -177,91 +177,66 @@
                                 {
                                     block: 'g-item-description',
                                     content: 'Стильное и изящное обручальное кольцо с дорожкой из бриллиантов и основой из белого золота 585 пробы. В продаже есть модели из желтого и розового золота. Товар в наличии и под заказ.'
-                                },
-                                {
+                                }, {
                                     block: 'g-like',
                                     mods: { type: 'extended' }
-                                },
-                                {
+                                }, {
                                     block: 'g-social_follow',
                                     content: [
                                         {
                                             elem: 'item',
                                             mods: { type: 'vk' },
                                             tag: 'a',
-                                            attrs: { href: '#' },
+                                            attrs: { href: 'https://vk.com/goldpoisk' },
                                             content: '2 528'
-                                        },
-                                        {
+                                        }, {
                                             elem: 'item',
                                             mods: { type: 'fb' },
                                             tag: 'a',
-                                            attrs: { href: '#' },
+                                            attrs: { href: 'https://www.facebook.com/pages/GoldPoisk/316157391908401' },
                                             content: '978'
-                                        },
-                                        {
+                                        }, {
                                             elem: 'item',
                                             mods: { type: 'twitter' },
                                             tag: 'a',
-                                            attrs: { href: '#' },
+                                            attrs: { href: 'https://twitter.com/GoldPoisk' },
                                             content: '641'
-                                        },
-                                        {
+                                        }, {
                                             elem: 'item',
                                             mods: { type: 'ok' },
                                             tag: 'a',
-                                            attrs: { href: '#' },
+                                            attrs: { href: 'http://ok.ru/group/53327077638372' },
                                             content: '578'
-                                        },
-                                        {
-                                            elem: 'item',
-                                            mods: { type: 'mail' },
-                                            tag: 'a',
-                                            attrs: { href: '#' },
-                                            content: '654'
-                                        },
-                                        {
-                                            elem: 'item',
-                                            mods: { type: 'gplus' },
-                                            tag: 'a',
-                                            attrs: { href: '#' },
-                                            content: ''
                                         }
                                     ]
                                 }
                             ]
-                        },
-                        {
+                        }, {
                             block: 'g-item-heading',
                             mods: { type: 'simple' },
                             content: 'Купить этот товар в магазинах'
-                        },
-                        {
+                        }, {
                             block: 'g-available-in-stores',
                             content: [
                                 {
                                     name: 'Линии любви',
                                     price: 6100
-                                },
-                                {
+                                }, {
                                     name: 'Линии любви',
                                     price: 6100
-                                },
-                                {
+                                }, {
                                     name: 'Линии любви',
                                     price: 6100
-                                },
-                                {
+                                }, {
                                     name: 'Линии любви',
                                     price: 6100
                                 }
                             ]
-                        },
+                        }
                     ]
                 }
             ]
-        },
-        {
+        }, {
             block: 'g-footer',
             content: [
             ]
