@@ -1,25 +1,42 @@
 @font-face {
     font-family: Clear-Sans;
-    src: url(clear-sans/ClearSans-Regular.ttf);
+    src: local("Clear Sans"),
+         local("ClearSans-Regular"),
+         url(clear-sans/ClearSans-Regular.ttf);
 }
 @font-face {
     font-family: Clear-Sans_Light;
-    src: url(clear-sans/ClearSans-Light.ttf);
+    src: local("Clear Sans Light"),
+         local("ClearSans-Light"),
+         url(clear-sans/ClearSans-Light.ttf);
 }
 
 @font-face {
     font-family: Clear-Sans_Medium;
-    src: url(clear-sans/ClearSans-Medium.ttf);
+    src: local("Clear Sans Medium"),
+         local("ClearSans-Medium"),
+         url(clear-sans/ClearSans-Medium.ttf);
 }
 
 @font-face {
     font-family: Clear-Sans_Thin;
-    src: url(clear-sans/ClearSans-Thin.ttf);
+    src: local("Clear Sans Thin"),
+         local("ClearSans-Thin"),
+         url(clear-sans/ClearSans-Thin.ttf);
 }
 
 @font-face {
     font-family: Clear-Sans_Bold;
-    src: url(clear-sans/ClearSans-Bold.ttf);
+    src: local("Clear Sans Bold"),
+         local("ClearSans-Bold"),
+         url(clear-sans/ClearSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: ALSRubl;
+    src: local("ALS Rubl"),
+         local("ALS Rubl Regular"),
+         url(fonts/rouble.otf) format('opentype');
 }
 
 @font-face {
