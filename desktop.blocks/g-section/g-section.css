@@ -1,91 +1,41 @@
-.g-section-wrapp/*.g-section-wrapper*/
-{
-    width: 100%;
-    background-color: #fff;
-}
-
-.g-section_type_slogan
-{
-    height: 182px;
-}
-
-.g-section__inner {
-    position: relative;
-}
-
-.g-section__inner header
-{
-    padding-top: 60px;
-    padding-left: 24px;
-}
-
-.g-section__inner header h1
+.g-section__title h1
 {
     font-family: Din-Text-Pro_Thin;
-    font-size: 36px;
     color: #3c2424;
     margin: 0;
 }
 
-.g-section_type_subscription {
-    height: 180px;
-    min-width: 950px;
-    width: 80%;
+.g-section.g-section_type_slogan .g-section__title h1 {
+    font-size: 36px;    
+}
+.g-section.g-section_type_slogan .g-section__title {
+    margin-bottom: 4px; 
 }
 
-.g-section + .g-section_type_subscription header
-{
-    padding-top: 18px;
+.g-section.g-section_With_subscription .g-section__title h1 {
+    font-size: 30px;
 }
 
-.g-section__inner p
+.g-section.g-section_With_subscription .g-section__title {
+    margin-bottom: 15px;
+}
+
+.g-section.g-section_With_subscription .g-section__description {
+    display: inline-block;
+    float: left;  
+}
+
+.g-section__description
 {
+
     font-family: Clear-Sans;
     font-size: 14px;
     color: #8f8f8f;
     margin: 0;
-    padding-top: 23px;
-    padding-left: 24px;
 }
 
-.g-section form
-{
-    position: absolute;
-    bottom: 44px; right: 25px;
-}
-
-.g-section label
-{
-    display: block;
-    color: #3c2424;
-    font-family: Din-Text-Pro_Regular;
-    font-size: 16px;
-}
-
-.g-section input
-{
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb( 172, 172, 172 );
-    background-color: rgb( 255, 255, 255 );
-    width: 243px;
-    height: 38px;
-    margin-right: 20px;
-}
-
-.g-section__g-button
-{
+.g-section .g-subscribe {
     display: inline-block;
-    font-family: Din-Text-Pro_Regular;
-    font-size: 18px;
-    text-align: center;
-    color: #3c2424; 
-    line-height: 33px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb( 189, 146, 0 );
-    border-radius: 5px;
-    background-color: rgba( 222, 172, 0, 0 );
-    width: 120px;
-    height: 33px;
+    float: left;
+    margin: 5px 0 0 40px;
 }

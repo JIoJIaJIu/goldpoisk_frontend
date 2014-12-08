@@ -1,10 +1,9 @@
 ({
     shouldDeps: [
         {
+            block: 'g-input'
+        }, {
             block: 'g-button'
-        },
-        {
-            block: 'g-price'
         }
     ]
 })

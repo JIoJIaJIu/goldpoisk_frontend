@@ -1,0 +1,9 @@
+block('g-more-bids')(
+    content()(function () {
+        return {
+            tag: 'a',
+            attrs: { href : this.ctx.url, target : '_blank' }, 
+            content: 'Ещё ' + this.ctx.content + ' предложений &#8594;'
+        }
+    })
+)

@@ -1,8 +1,9 @@
-block('g-section').match()(
+block('g-section')(
     tag()('div'),
     content()(function () {
         return [
             {
+                elem: 'title',
                 tag: 'header',
                 content: [
                     {
@@ -10,62 +11,24 @@ block('g-section').match()(
                         content: this.ctx.title
                     }
                 ]
-            },
-            {
+            }, {
+                elem: 'description',
                 tag: 'p',
                 content: this.ctx.description
             }
-        ],
-        function() {
-            return {
-                elem: 'inner',
-                content: applyNext()
-            };
-        }
-
+        ]
     })
 )
 
-block g-section {
-    cls: 'g-section__inner',
-    content:
-    [
-        {
-            tag: 'header',
-            content: [
-                {
-                    tag: 'h1',
-                    content: this.ctx.title
-                }
-            ]
-        },
-        {
-            tag: 'p',
-            content: this.ctx.description
-        }
-    ]
-}
-
-block g-section, mod type subscription {
-    content:
-    [
-        applyNext(),
-        {
-            tag: 'form',
-            content: [
-                {
-                    tag: 'label',
-                    content: 'Ваш e-mail'
-                },
-                {
-                    tag: 'input',
-                    content: ''
-                },
-                {
-                    elem: 'g-button',
-                    content: 'Подписаться'
-                }
-            ]
-        }
-    ]
-}
+block('g-section').mod('With', 'subscription')(
+    content()(function () {
+        return [
+            applyNext(),
+            {
+                block: 'g-subscribe'
+            }, {
+                block: 'clear'
+            }
+        ]
+    })
+)

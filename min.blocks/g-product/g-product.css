@@ -2,7 +2,7 @@
     position: relative;
     vertical-align: top;
     display: inline-block;
-    width: 210px; 
+    width: 210px;
     height: 355px;
     border: 1px solid #eaeaea;
     border-radius: 2px;
@@ -66,7 +66,7 @@
 
 .g-product__weight, .g-product__carat {
     padding-left: 43px;
-    color: #8f8f8f;
+        color: #8f8f8f;
 }
 
 .g-product__weight {
@@ -104,18 +104,18 @@
 
 .g-product_action_yes .g-product__marker {
     position: absolute;
-    top: -1px; 
+    top: -1px;
     right: -1px;
-    width: 89px; 
+    width: 89px;
     height: 73px;
     background-image: url('./images/redang.png');
 }
 
 .g-product_hit_yes .g-product__marker {
     position: absolute;
-    top: -1px; 
+    top: -1px;
     right: -1px;
-    width: 89px; 
+    width: 89px;
     height: 73px;
     background-image: url('./images/blueang.png');
 }

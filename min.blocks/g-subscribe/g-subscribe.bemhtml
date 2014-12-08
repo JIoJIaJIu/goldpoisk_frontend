@@ -1,0 +1,15 @@
+block('g-subscribe')(
+    tag()('form'),
+    content()(function () {
+        return [
+            {
+                block: 'g-input',
+                label: 'Ваш e-mail',
+                content: 'support@goldpoisk.ru'
+            }, {
+                block: 'g-button',
+                content: 'Подписаться'
+            }
+        ]
+    })
+)

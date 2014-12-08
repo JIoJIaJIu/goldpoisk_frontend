@@ -10,7 +10,7 @@
     scripts: [{ elem: 'js', url: 'index.bemhtml.js' }],
     mods: { theme: 'normal' },
     content: [
-        { 
+        {
             block: 'g-header',
             content: [
                 {
@@ -93,95 +93,137 @@
                     label: 'СТОЛОВЫЕ<br>ПРИБОРЫ'
                 }
             ]
-        },
-        {
-            block: 'g-content',
+        },{
+            block: 'g-promotion',
             content: [
                 {
-                    block: 'g-promotion',
+                    block: 'fotorama',
+                    src: '../../media/promotion01.png'
+                },
+                {
+                    block: 'g-promotion-item',
                     content: [
                         {
-                            block: 'fotorama',
-                            src: '../../media/promotion01.png'
+                            elem: 'title',
+                            title: 'Серьги'
                         },
                         {
-                            block: 'g-promotion-item',
-                            content: [
-                                {
-                                    elem: 'title',
-                                    title: 'Серьги'
-                                },
-                                {
-                                    elem: 'price',
-                                    price: '6000'
-                                }
-                            ]
-                        },
-                        {
-                            block: 'g-promotion-markers-list',
-                            content: [
-                                {
-                                    block: 'g-promotion-marker',
-                                    mods: { state: 'selected' }
-                                },
-                                {
-                                    block: 'g-promotion-marker'
-                                },
-                                {
-                                    block: 'g-promotion-marker'
-                                }
-                            ]
+                            elem: 'price',
+                            price: '6000'
                         }
                     ]
                 },
                 {
-                    block: 'g-pride',
+                    block: 'g-promotion-markers-list',
                     content: [
                         {
-                            block: 'g-pride-item',
-                            mods: { type: 'brown' },
-                            label: 'Лучшие производители ювелирных изделий'
+                            block: 'g-promotion-marker',
+                            mods: { state: 'selected' }
                         },
                         {
-                            block: 'g-pride-item',
-                            mods: { type: 'beige' },
-                            label: 'Огромный ассортимент представлен в каталоге'
+                            block: 'g-promotion-marker'
                         },
                         {
-                            block: 'g-pride-item',
-                            mods: { type: 'gold' },
-                            label: 'Только проверенные партнёры и предложения'
-                        },
-                        {
-                            block: 'g-pride-item',
-                            mods: { type: 'gray' },
-                            label: 'Простой и удобный поиск по параметрам'
+                            block: 'g-promotion-marker'
                         }
                     ]
-                }, {
+                }
+            ]
+        },
+        {
+            block: 'g-pride',
+            content: [
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'brown' },
+                    label: 'Лучшие производители ювелирных изделий'
+                },
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'beige' },
+                    label: 'Огромный ассортимент представлен в каталоге'
+                },
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'gold' },
+                    label: 'Только проверенные партнёры и предложения'
+                },
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'gray' },
+                    label: 'Простой и удобный поиск по параметрам'
+                }
+            ]
+        },
+        {
+            block: 'g-content',
+            content: [
+                 {
                     block: 'g-section',
                     mods: { type: 'slogan' },
                     title: 'Goldpoisk - самый большой каталог ювелирных изделий',
                     description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
                 }, {
-                    block: 'g-section',
-                    mods: { type: 'subscription' },
-                    title: 'Лучшие предложения от наших партнёров',
-                    description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!',
-                }, {
-                    block: 'g-goods',
+                    block: 'g-bids',
                     content: [
                         {
-                            block: 'g-product',
-                            mods: { like: 'yes', action: 'yes' },
-                            href: '#',
-                            title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
-                            imageUrl: '../../desktop.blocks/g-goods/images/good.png',
-                            weight: '4.5 грамм',
-                            carat: '0,07 карат',
-                            price: 1000000,
-                            store: 'Sunlight',
-                            storeUrl: '#'
+                            block: 'g-section',
+                            mods: { With: 'subscription' },
+                            title: 'Лучшие предложения от наших партнёров',
+                            description: 'Хотите первыми узнавать об акциях и получать самые выгодне предложения?<br>Подпишитесь на нашу рассылку. Никакой лишней информации,<br>только самые свежие и лучшие предложения от наших партнёров!',
+                        }, {
+                            block: 'g-goods',
+                            content: [
+                                {
+                                    block: 'g-product',
+                                    mods: { like: 'yes', action: 'yes' },
+                                    url: '#',
+                                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                                    weight: '4.5 грамм',
+                                    carat: '0,07 карат',
+                                    price: 1000000,
+                                    store: 'Sunlight',
+                                    storeUrl: '#'
+                                }, {
+                                    block: 'g-product',
+                                    mods: { like: 'yes', action: 'yes' },
+                                    url: '#',
+                                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                                    weight: '4.5 грамм',
+                                    carat: '0,07 карат',
+                                    price: 1000000,
+                                    store: 'Sunlight',
+                                    storeUrl: '#'
+                                }, {
+                                    block: 'g-product',
+                                    mods: { like: 'yes', action: 'yes' },
+                                    url: '#',
+                                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                                    weight: '4.5 грамм',
+                                    carat: '0,07 карат',
+                                    price: 1000000,
+                                    store: 'Sunlight',
+                                    storeUrl: '#'
+                                }, {
+                                    block: 'g-product',
+                                    mods: { like: 'yes', action: 'yes' },
+                                    url: '#',
+                                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                                    weight: '4.5 грамм',
+                                    carat: '0,07 карат',
+                                    price: 1000000,
+                                    store: 'Sunlight',
+                                    storeUrl: '#'
+                                }
+                            ]
+                        }, {
+                            block: 'g-more-bids',
+                            url: '#',
+                            content: 18
                         }
                     ]
                 }

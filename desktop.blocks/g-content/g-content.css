@@ -5,3 +5,19 @@
 .g-content .g-breadcrumbs {
     margin: 10px 23px;
 }
+
+.g-content .g-section.g-section_type_slogan {
+    margin: 47px 0 57px 0;
+}
+
+.g-content .g-section.g-section_With_subscription {
+    margin: 0 0 44px 0;
+}
+
+.g-content .g-goods .g-product {
+    margin: 16px 35px 42px 0;
+}
+
+.g-bids {
+    margin-bottom: 94px;
+}
