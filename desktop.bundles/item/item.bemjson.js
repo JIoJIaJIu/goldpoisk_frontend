@@ -155,6 +155,10 @@
                             block: 'g-right-col',
                             content: [
                                 {
+                                    block: 'g-item-buy-in-shop',
+                                    shop: 'Центрювелирторг',
+                                    price: 6169
+                                }, {
                                     block: 'g-item-features',
                                     content: [
                                         {

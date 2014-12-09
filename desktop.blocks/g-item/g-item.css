@@ -1,5 +1,5 @@
 .g-item {
-    padding: 10px 23px;
+    padding: 10px 0;
 }
 
 .g-item .g-item-heading_type_main {
@@ -44,8 +44,7 @@
 }
 
 .g-item .g-item-buy-in-shop {
-    padding: 25px 65px 25px 0;
-    float: left;
+    margin: 0 0 25px 0;
 }
 
 .g-item .g-available-in-stores {
