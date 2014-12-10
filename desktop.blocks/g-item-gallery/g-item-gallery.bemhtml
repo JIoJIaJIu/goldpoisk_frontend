@@ -1,9 +1,11 @@
+var currIndex;
 block('g-item-gallery')(
     elem('title')(
         content()(function () {
+            currIndex = this.ctx.current;
             return {
                 tag: 'h1',
-                content: this.ctx.title + ' ' + this.ctx.current + ' из ' + this.ctx.count
+                content: this.ctx.title + ' ' + (this.ctx.current + 1) + ' из ' + (this.ctx.count + 1)
             }
         })
     ),
@@ -11,7 +13,17 @@ block('g-item-gallery')(
         content()(function () {
             return {
                 tag: 'ul',
-                content: this.ctx.images.map(function(image) { return { block: 'image', tag: 'li', content: { tag: 'img', attrs: { src: image } } }})
+                content: this.ctx.images.map(function(image, index) {
+                    return {
+                        block: 'image',
+                        tag: 'li',
+                        mods: index == currIndex ? { state: 'active' } : null,
+                        content: {
+                            tag: 'img',
+                            attrs: { src: image }
+                        }
+                    }
+                })
             }
         })
     ),
@@ -22,8 +34,7 @@ block('g-item-gallery')(
                     block: 'image',
                     tag: 'img',
                     attrs: { src: this.ctx.image }
-                },
-                {
+                }, {
                     elem: 'zoom'
                 }
             ]
