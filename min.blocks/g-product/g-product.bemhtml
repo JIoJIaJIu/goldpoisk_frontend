@@ -23,7 +23,12 @@ block('g-product')(
                     }, {
                         elem: 'title',
                         tag: 'p',
-                        content: this.ctx.title
+                        content: [
+                            this.ctx.title, {
+                                elem: 'title-gradient',
+                                tag: 'span'
+                            }
+                        ]
                     }
                 ]
             }, {
