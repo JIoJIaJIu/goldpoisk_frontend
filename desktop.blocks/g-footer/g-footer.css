@@ -1,19 +1,17 @@
 .g-footer {
+    width: 100%;
     height: 142px;
-    padding: 0 2%;
-}
-
-.g-footer_inner {
+    /*padding: 0 2%;*/
     background-color: #ffffff;
 }
 
-.g-footer_inner__left {
+.g-footer__left {
     width: 25%;
     float: left;
     text-align: left;
 }
 
-.g-footer_inner__left p {
+.g-footer__left p {
     font-size: 14px;
     font-family: Din-Text-Pro_Thin, sans-serif;
     color: #564141;
@@ -21,18 +19,18 @@
     margin: 0;
 }
 
-.g-footer_inner__middle {
+.g-footer__middle {
     width: 50%;
     float: left;
     text-align: center;
 }
 
-.g-footer_inner__middle section {
+.g-footer__middle section {
     display: block;
     text-align: center;
 }
 
-.g-footer_inner__middle section a {
+.g-footer__middle section a {
     display: inline-block;
     width: 36px; height: 32px;
     margin-top: 18px;
@@ -40,7 +38,7 @@
     background-image: url('./images/socials.png');
 }
 
-.g-footer_inner__middle section header h1 {
+.g-footer__middle section header h1 {
     font-family: Din-Text-Pro_Thin;
     font-size: 18px;
     color: #564141;
@@ -64,13 +62,13 @@
     background-position: -108px 0;
 }
 
-.g-footer_inner__right {
+.g-footer__right {
     width: 25%;
     float: left;
     text-align: right;
 }
 
-.g-footer_inner__right p {
+.g-footer__right p {
     font-family: Din-Text-Pro_Thin, sans-serif;
     font-size: 14px;
     color: #564141;

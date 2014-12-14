@@ -1,18 +1,23 @@
+
 @font-face {
     font-family: Clear-Sans;
+    src: url(clear-sans/ClearSans-Regular.eot);
     src: local("Clear Sans"),
          local("ClearSans-Regular"),
          url(clear-sans/ClearSans-Regular.ttf);
 }
-@font-face {
+
+@font-face { 
     font-family: Clear-Sans_Light;
-    src: local("Clear Sans Light"),
-         local("ClearSans-Light"),
+    src: url(clear-sans/ClearSans-Light.eot);
+    src: local('Clear Sans Light'),
+         local('ClearSans-Light'), 
          url(clear-sans/ClearSans-Light.ttf);
-}
+} 
 
 @font-face {
     font-family: Clear-Sans_Medium;
+    src: url(clear-sans/ClearSans-Medium.eot);
     src: local("Clear Sans Medium"),
          local("ClearSans-Medium"),
          url(clear-sans/ClearSans-Medium.ttf);
@@ -20,6 +25,7 @@
 
 @font-face {
     font-family: Clear-Sans_Thin;
+    src: url(clear-sans/ClearSans-Thin.eot);
     src: local("Clear Sans Thin"),
          local("ClearSans-Thin"),
          url(clear-sans/ClearSans-Thin.ttf);
@@ -27,6 +33,7 @@
 
 @font-face {
     font-family: Clear-Sans_Bold;
+    src: url(clear-sans/ClearSans-Bold.eot);
     src: local("Clear Sans Bold"),
          local("ClearSans-Bold"),
          url(clear-sans/ClearSans-Bold.ttf);
@@ -34,6 +41,7 @@
 
 @font-face {
     font-family: ALSRubl;
+    src: url(fonts/rouble.eot);
     src: local("ALS Rubl"),
          local("ALS Rubl Regular"),
          url(fonts/rouble.otf) format('opentype');
@@ -41,30 +49,60 @@
 
 @font-face {
     font-family: Din-Text-Pro_Light;
-    src: url(din-text-pro/PFDinTextPro-Light.ttf);
+    src: url(din-text-pro/file.eot);
+    src: local("PFDinTextPro Light"),
+         local("PFDinTextPro-Light"),
+         url(din-text-pro/PFDinTextPro-Light.ttf);
 }
 
 @font-face {
     font-family: Din-Text-Pro_Thin;
-    src: url(din-text-pro/PFDinTextPro-Thin.ttf);
+    src: url(fonts/pfdintextpro-thin-webfont.eot);
+    src: local("PFDinTextPro Thin"),
+         local("PFDinTextPro-Thin"),
+         url(din-text-pro/PFDinTextPro-Thin.ttf);
 }
 
 @font-face {
     font-family: Din-Text-Pro_ThinItalic;
-    src: url(din-text-pro/PFDinTextPro-ThinItalic.ttf);
+    src: url(din-text-pro/PFDinTextPro-ThinItalic.eot);
+    src: local("PFDinTextPro ThinItalic"),
+         local("PFDinTextPro-ThinItalic"),
+         url(din-text-pro/PFDinTextPro-ThinItalic.ttf);
 }
 
 @font-face {
     font-family: Din-Text-Pro_Regular;
-    src: url(din-text-pro/PFDinTextPro-Regular.ttf);
+    src: url(din-text-pro/PFDinTextPro-Regular.eot);
+    src: local("PFDinTextPro Regular"),
+         local("PFDinTextPro-Regular"),
+         url(din-text-pro/PFDinTextPro-Regular.ttf);
 }
 
+html {
+    height: 100%;
+}
 html, body {
     margin: 0;
     padding: 0;
 }
 
+body {
+    min-height: 100%;
+}
+
 .page {
+    position: relative;
     margin: 0 auto;
     min-width: 1000px;
+}
+
+.page__wrapper {
+    height: 100%;
+    padding-bottom: 142px;
+}
+
+.page__wrapper .g-footer {
+    position: absolute;
+    bottom: 0;
 }

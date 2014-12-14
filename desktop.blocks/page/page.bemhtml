@@ -1,0 +1,9 @@
+block('page').match(!this._done)(
+    content()(function() {
+        this._done = true;
+        return {
+            elem: 'wrapper',
+            content: applyNext()
+        };
+    })
+)
