@@ -1,5 +1,5 @@
 .g-item-features {
-	width: 220px;
+	width: 400px;
 	font-size: 14px;
 }
 
@@ -37,7 +37,8 @@
 	font-family: Clear-Sans;
 	font-size: 14px;
 	color: #777;
-	width: 100px;
+	width: 250px;
 	float: right;
 	line-height: 23px;
+	overflow: hidden;
 }
