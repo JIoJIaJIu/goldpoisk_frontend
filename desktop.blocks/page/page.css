@@ -57,7 +57,7 @@
 
 @font-face {
     font-family: Din-Text-Pro_Thin;
-    src: url(fonts/pfdintextpro-thin-webfont.eot);
+    src: url(din-text-pro/PFDinTextPro-Thin.eot.eot);
     src: local("PFDinTextPro Thin"),
          local("PFDinTextPro-Thin"),
          url(din-text-pro/PFDinTextPro-Thin.ttf);
