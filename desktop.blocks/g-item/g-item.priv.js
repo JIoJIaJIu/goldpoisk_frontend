@@ -23,6 +23,12 @@ blocks['g-item'] = function (data, env) {
                 block: 'g-right-col',
                 content: [
                     {
+                        block: 'g-item-buy-in-shop',
+                        shop: data.shop,
+                        shopUrl: data.buyUrl,
+                        price: data.price,
+                        buyUrl: data.buyUrl
+                    }, {
                         block: 'g-item-features',
                         content: data.features
                     }, {

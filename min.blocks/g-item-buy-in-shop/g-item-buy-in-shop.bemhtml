@@ -4,7 +4,11 @@ block('g-item-buy-in-shop')(
             {
                 elem: 'title',
                 tag: 'h3',
-                content: this.ctx.shop
+                content: {
+                    tag: 'a',
+                    attrs: {href: this.ctx.shopUrl, target: '_blank'},
+                    content: this.ctx.shop
+                }
             },
             {
                 block: 'g-price',
@@ -12,7 +16,9 @@ block('g-item-buy-in-shop')(
             },
             {
                 block: 'g-button',
-                content: 'Купить'
+                content: 'Купить',
+                newPage: 'true',
+                href: this.ctx.buyUrl
             }
         ]
     })
