@@ -10,17 +10,21 @@
 .g-logo__gold {
     width: 116px;
     height: 70px;
-    background-color: #deac00;
+    /*background-color: #deac00;*/
     float: left;
-    -webkit-mask-image: url('./images/Gold.png');
+    background-image: url('/images/sprite.png');
+    background-position: -290px 0;
+    /*-webkit-mask-image: url('./images/Gold.png');*/
 }
 
 .g-logo__poisk {
     width: 124px;
     height: 70px;
-    background-color: #777777;
+    /*background-color: #777777;*/
     float: left;
-    -webkit-mask-image: url('./images/poisk.png');
+    background-image: url('/images/sprite.png');
+    background-position: -406px 0;
+    /*-webkit-mask-image: url('./images/poisk.png');*/
 }
 
 .g-logo__description {
