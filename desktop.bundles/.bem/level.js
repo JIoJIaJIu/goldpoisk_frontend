@@ -7,7 +7,12 @@ exports.getTechs = function () {
 
         'css': 'v2/css',
         'html': '../../bem-core/.bem/techs/html.js',
-        'priv.js': '../../.bem/techs/priv.js.js'
+        'priv.js': '../../.bem/techs/priv.js.js',
+
+        //js
+        'vanilla.js': '../../bem-core/.bem/techs/vanilla.js.js',
+        'browser.js': '../../bem-core/.bem/techs/browser.js.js',
+        'browser.js+bemhtml': '../../bem-core/.bem/techs/browser.js+bemhtml.js'
     }
 
     return techs;

@@ -9,7 +9,7 @@ MAKE.decl('Arch', {
         return {
             'bem-core': {
                 type: 'git',
-                url: 'git@github.com:bem/bem-core.git',
+                url: 'git@github.com:JIoJIaJIu/bem-core.git',
                 treeish: 'v2'
             }
         }
@@ -30,7 +30,11 @@ MAKE.decl('BundleNode', {
 
             'css',
             'html',
-            'priv.js'
+            'priv.js',
+
+            'vanilla.js',
+            'browser.js',
+            'browser.js+bemhtml'
         ];
 
     },
@@ -45,5 +49,4 @@ MAKE.decl('BundleNode', {
             ]
         };
     }
-
 });
