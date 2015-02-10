@@ -1,12 +1,13 @@
 {
-    "name": "frontend",
-    "version" : "0.0.1",
-    "engines": {
-        "node": "*",
-        "npm": "*"
-    },
-    "dependencies": {
-        "bem": "*",
-        "borschik": "*"
-    }
+  "name": "frontend",
+  "version": "0.0.1",
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  },
+  "dependencies": {
+    "bem": "*",
+    "borschik": "*",
+    "q": "^1.1.2"
+  }
 }
