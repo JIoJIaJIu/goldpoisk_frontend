@@ -10,6 +10,7 @@ exports.getTechs = function () {
         'priv.js': '../../.bem/techs/priv.js.js',
 
         //js
+        'js': 'v2/js',
         'vanilla.js': '../../bem-core/.bem/techs/vanilla.js.js',
         'browser.js': '../../bem-core/.bem/techs/browser.js.js',
         'browser.js+bemhtml': '../../bem-core/.bem/techs/browser.js+bemhtml.js'
