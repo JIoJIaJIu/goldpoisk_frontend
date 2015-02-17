@@ -1,0 +1,33 @@
+block('g-promotion')(
+    content()(function () {
+        var ctx = this.ctx;
+        var images = [];
+
+        for (var i = 0, length = ctx.images.length; i < length; i++) {
+            var src = ctx.images[i];
+            images.push({
+                tag: 'div',
+                content: {
+                    block: 'image',
+                    tag: 'img',
+                    attrs: {
+                        src: src,
+                        alt: 'GoldPoisk Promo #' + i,
+                        u: 'image'
+                    }
+                }
+            })
+        }
+
+        return {
+            tag: 'div',
+            elem: 'fotorama',
+            content: [{
+                tag: 'div',
+                attrs: { u: 'slides' },
+                elem: 'fotorama-inner',
+                content: images
+            }]
+        }
+    })
+)
