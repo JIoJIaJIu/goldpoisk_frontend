@@ -32,9 +32,10 @@ MAKE.decl('BundleNode', {
             'html',
             'priv.js',
 
+            'js',
             'vanilla.js',
             'browser.js',
-            'browser.js+bemhtml'
+            'browser.js+bemhtml.js'
         ];
 
     },
@@ -44,6 +45,7 @@ MAKE.decl('BundleNode', {
             desktop : [
                 'bem-core/common.blocks',
                 'bem-core/desktop.blocks',
+                'lib.blocks',
                 'min.blocks',
                 'desktop.blocks'
             ]
