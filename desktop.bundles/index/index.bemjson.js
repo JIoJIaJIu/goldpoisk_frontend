@@ -95,11 +95,12 @@
             ]
         },{
             block: 'g-promotion',
+            images: [
+                '/media/promotion/promotion01.png',
+                '/media/promotion/promotion02.png',
+                '/media/promotion/promotion03.png'
+            ],
             content: [
-                {
-                    block: 'fotorama',
-                    src: '../../media/promotion01.png'
-                },
                 {
                     block: 'g-promotion-item',
                     content: [
