@@ -1,0 +1,79 @@
+ block('g-social-like-item')(
+    js()(true),
+    tag()('li'),
+    content()(
+        function () {
+            return [
+                {
+                    elem: 'icon',
+                    tag: 'span'
+                }, {
+                    elem: 'count',
+                    tag: 'span'
+                }
+            ]
+        }),
+
+    mod('type', 'twitter')(
+        content()(function () {
+            return [
+                {
+                    tag: 'a',
+                    attrs: { 'href': 'https://twitter.com/share' },
+                    cls: 'twitter-share-button',
+                    content: 'Это здорово'
+                }
+            ]
+        })
+    ),
+
+    mod('type', 'vk')(
+        content()(function () {
+            return [
+                {
+                    tag: 'div',
+                    attrs: { 'id': 'vk_like' },
+                    content: 'v'
+                }
+            ]
+        })
+    ),
+
+    mod('type', 'fb')(
+        content()(function () {
+            return [
+                {
+                    tag: 'div',
+                    attrs: { 'id': 'fb-root' }
+                }, {
+                    tag: 'div',
+                    cls: 'fb-like',
+                    attrs: {
+                        'data-href': 'https://goldpoisk.ru',
+                        'data-layout': 'button_count',
+                        'data-action': 'like',
+                        'data-show-faces': 'true',
+                        'data-share': 'false'
+                    },
+                    content: 'fb'
+                }
+            ]
+        })
+    ),
+
+    mod('type', 'ok')(
+        content()(function () {
+            return [
+                {
+                    tag: 'div',
+                    attrs: {
+                        id: 'ok_shareWidget'
+                    }
+                }
+            ]
+        })
+    )
+)
+
+
+

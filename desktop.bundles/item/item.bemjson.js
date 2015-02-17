@@ -7,7 +7,14 @@
         { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
         { elem: 'css', url: './item.css' }
     ],
-    scripts: [{ elem: 'js', url: 'item.bemhtml.js' }, { elem: 'js', url: 'item.priv.js' }],
+    scripts: [
+                { elem: 'js', url: 'item.bemhtml.js' },
+                { elem: 'js', url: 'item.priv.js' },
+                { elem: 'js', url: '/js/social-likes/social-likes.min.js' },
+                { elem: 'js', url: '//vk.com/js/api/openapi.js?105' },
+                { elem: 'js', url: 'item.js' },
+                { elem: 'js', url: 'item.vanilla.js' }
+            ],
     mods: { theme: 'normal' },
     content: [
         { 
@@ -185,35 +192,36 @@
                                     block: 'g-like',
                                     mods: { type: 'extended' }
                                 }, {
-                                    block: 'g-social_follow',
+                                    block: 'g-social-likes',
                                     content: [
+                                        'vk'
+                                        ,'fb'
+                                        ,'twitter'
+                                        ,'ok'
+                                        /*
+                                        ,'mail'
+                                        ,'g+'
+                                        */
+                                    ]
+                                }
+                                    /*
                                         {
                                             elem: 'item',
                                             mods: { type: 'vk' },
-                                            tag: 'a',
-                                            attrs: { href: 'https://vk.com/goldpoisk' },
-                                            content: '2 528'
                                         }, {
                                             elem: 'item',
                                             mods: { type: 'fb' },
-                                            tag: 'a',
-                                            attrs: { href: 'https://www.facebook.com/pages/GoldPoisk/316157391908401' },
-                                            content: '978'
                                         }, {
                                             elem: 'item',
                                             mods: { type: 'twitter' },
-                                            tag: 'a',
-                                            attrs: { href: 'https://twitter.com/GoldPoisk' },
-                                            content: '641'
                                         }, {
                                             elem: 'item',
                                             mods: { type: 'ok' },
-                                            tag: 'a',
-                                            attrs: { href: 'http://ok.ru/group/53327077638372' },
-                                            content: '578'
                                         }
                                     ]
+                                    *
                                 }
+                                */
                             ]
                         }, {
                             block: 'g-item-heading',

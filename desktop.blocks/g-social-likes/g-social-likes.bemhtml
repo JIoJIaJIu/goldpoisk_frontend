@@ -1,0 +1,13 @@
+block('g-social-likes')(
+	tag()('ul'),
+	content()(function () {
+		return [
+			this.ctx.content.map(function(item) {
+				return {
+					block: 'g-social-like-item',
+					mods: { type : item }
+				}
+			})
+		]
+	})
+)
