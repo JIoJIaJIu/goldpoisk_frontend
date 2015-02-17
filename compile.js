@@ -7,6 +7,7 @@ var BEM = B.api;
 var levels = [
     'bem-core/common.blocks',
     'bem-core/desktop.blocks',
+    'lib.blocks',
     'min.blocks',
     'desktop.blocks',
 ];
@@ -15,7 +16,9 @@ var techs = [
     'node_modules/bem/lib/techs/v2/css.js',
     '.bem/techs/priv.js.js',
     './bem-core/.bem/techs/bemhtml.js',
-    './bem-core/.bem/techs/browser.js+bemhtml.js'
+    'bem-core/.bem/techs/vanilla.js.js',
+    'bem-core/.bem/techs/browser.js.js',
+    'bem-core/.bem/techs/browser.js+bemhtml.js'
 ];
 
 console.log('tech:', techs.join('\ntech: '));
