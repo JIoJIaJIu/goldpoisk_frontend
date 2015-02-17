@@ -10,6 +10,9 @@ blocks['page'] = function (data, env) {
             { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
             { elem: 'css', url:  'css/index.css' }
         ],
+        scripts: [
+            { elem: 'js', url: 'js/index.js' }
+        ],
         mods: { theme: 'normal' },
 
         content: [
@@ -31,6 +34,7 @@ pages['index'] = function (data, env) {
         content: [
             {
                 block: 'g-promotion',
+                js: 'true',
                 content: {
                     block: 'fotorama',
                     src: data.promo[0]
@@ -100,7 +104,7 @@ pages['category'] = function (data, env) {
                     block: 'g-category-title',
                     title: data.category,
                     count: data.count
-                }, 
+                },
 
                 blocks['g-goods']({
                     list: data.products
