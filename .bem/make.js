@@ -6,25 +6,21 @@ MAKE.decl('Arch', {
     blocksLevelsRegexp : /^.+?\.blocks/,
     bundlesLevelsRegexp : /^.+?\.bundles$/,
     getLibraries: function () {
-        return [
-            {
-                'bem-core': {
-                    type: 'git',
-                    url: 'git@github.com:JIoJIaJIu/bem-core.git',
-                    treeish: 'v2'
-                }
-            }, {
-                'bem-social': {
-                    type: 'git',
-                    url: 'git@github.com:YLeight/bem-social.git',
-                    treeish: 'master'
-                }
+        return {
+            'bem-core': {
+                type: 'git',
+                url: 'git@github.com:JIoJIaJIu/bem-core.git',
+                treeish: 'v2'
+            },
+            'bem-social': {
+                type: 'git',
+                url: 'git@github.com:YLeight/bem-social.git',
+                treeish: 'master'
             }
-        ]
+        }
     }
 
 });
-
 
 MAKE.decl('BundleNode', {
 
@@ -40,10 +36,9 @@ MAKE.decl('BundleNode', {
             'html',
             'priv.js',
 
-            'js',
             'vanilla.js',
             'browser.js',
-            'browser.js+bemhtml.js'
+            'browser.js+bemhtml'
         ];
 
     },
@@ -53,7 +48,8 @@ MAKE.decl('BundleNode', {
             desktop : [
                 'bem-core/common.blocks',
                 'bem-core/desktop.blocks',
-                'lib.blocks',
+                'bem-social/common.blocks',
+                'bem-social/desktop.blocks',
                 'min.blocks',
                 'desktop.blocks'
             ]
