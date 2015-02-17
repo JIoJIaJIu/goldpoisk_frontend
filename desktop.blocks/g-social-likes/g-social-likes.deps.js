@@ -1,7 +1,7 @@
 ({
-	shouldDeps: [
-		{
-			block: 'g-social-like-item'
-		}
-	]
+    shouldDeps: [
+        {
+            block: 'g-social-like-item'
+        }
+    ]
 })
