@@ -10,7 +10,6 @@
     scripts: [
                 { elem: 'js', url: 'item.bemhtml.js' },
                 { elem: 'js', url: 'item.priv.js' },
-                { elem: 'js', url: '/js/social-likes/social-likes.min.js' },
                 { elem: 'js', url: '//vk.com/js/api/openapi.js?105' },
                 { elem: 'js', url: 'item.js' },
                 { elem: 'js', url: 'item.vanilla.js' }
