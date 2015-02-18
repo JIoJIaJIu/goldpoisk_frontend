@@ -2,7 +2,8 @@
 {
     position: absolute;
     top: 0; right: 0;
-    width: 200px;
+    margin-right: 2%;
+    /*width: 200px;*/
 }
 
 .g-support section

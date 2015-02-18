@@ -1,4 +1,4 @@
-block('g-header').match(!this._done)(
+block('g-header')(
     content()(function() {
         this._done = true;
         return {

@@ -8,6 +8,7 @@
     content: [
         {
             block: 'g-header',
+            mods: { state: 'flow' },
             content: [
                 {
                     block: 'g-logo',
