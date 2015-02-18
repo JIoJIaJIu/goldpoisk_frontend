@@ -11,8 +11,7 @@
                 { elem: 'js', url: 'item.bemhtml.js' },
                 { elem: 'js', url: 'item.priv.js' },
                 { elem: 'js', url: '//vk.com/js/api/openapi.js?105' },
-                { elem: 'js', url: 'item.js' },
-                { elem: 'js', url: 'item.vanilla.js' }
+                { elem: 'js', url: 'item.js' }
             ],
     mods: { theme: 'normal' },
     content: [
@@ -191,6 +190,21 @@
                                     block: 'g-like',
                                     mods: { type: 'extended' }
                                 }, {
+                                    block : 'yashare',
+                                    quickServices : [
+                                        'vkontakte',
+                                        'facebook',
+                                        'twitter',
+                                        'odnoklassniki'
+                                    ],
+                                    theme : 'counter',
+                                    l10n : 'ru',
+                                    url : 'localhost:8080/desctop.bundles/item/item.html',
+                                    title : 'BEM Social Components Library',
+                                    description : 'Fork me on GitHub',
+                                    image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
+                                            'master/desktop.bundles/index/blocks/page/image/bem.png'
+                                },/*{
                                     block: 'g-social-likes',
                                     content: [
                                         'vk'
@@ -200,10 +214,10 @@
                                         /*
                                         ,'mail'
                                         ,'g+'
-                                        */
+                                        
                                     ]
                                 }
-                                    /*
+                                    
                                         {
                                             elem: 'item',
                                             mods: { type: 'vk' },
