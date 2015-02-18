@@ -1,8 +1,13 @@
 .g-promotion {
-    overflow: hidden;
 	position: relative;
     height: 498px;
     background-color: #160f10;
+}
+
+.g-promotion__inner {
+    overflow: hidden;
+	position: relative;
+    height: 100%;
 }
 
 .g-promotion .g-promotion-markers-list {

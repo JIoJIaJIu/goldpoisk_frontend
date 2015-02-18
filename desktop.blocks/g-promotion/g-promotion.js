@@ -24,7 +24,7 @@ BEMDOM.decl('g-promotion', {
                 }
             }];
 
-            var slider = new $JssorSlider$(this.domElem[0], {
+            var slider = this.slider = new $JssorSlider$(this.elem('inner')[0], {
                 $AutoPlay: true,
                 $ArrowKeyNavigation: true,
                 $SlideshowOptions: {
@@ -34,10 +34,23 @@ BEMDOM.decl('g-promotion', {
                     $ShowLink: true
                 }
             });
+
+            var markers = this.findBlocksInside('g-promotion-marker');
+            slider.$On($JssorSlider$.$EVT_PARK, function (to, from) {
+                if (~from)
+                    markers[from].delMod('state');
+                markers[to].setMod('state', 'selected');
+            });
         }
+    },
+
+    deselectMarkers: function () {
+        var markers = this.findBlocksInside('g-promotion-marker');
+        _.forEach(markers, function (marker) {
+            marker.delMod('state');
+        });
     }
-}, {
-});
+}, {});
 
 provide(BEMDOM);
 
