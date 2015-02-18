@@ -7,6 +7,10 @@
     margin: 0 0 10px 0;
 }
 
+.g-item-buy-in-shop__title a {
+    color: #a07472;
+}
+
 .g-item-buy-in-shop .g-price {
     display: inline-block;
     font-family: Clear-Sans_Light;

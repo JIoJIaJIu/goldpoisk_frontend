@@ -162,6 +162,7 @@
                                 {
                                     block: 'g-item-buy-in-shop',
                                     shop: 'Центрювелирторг',
+                                    url: '#',
                                     price: 6169
                                 }, {
                                     block: 'g-item-features',
@@ -245,15 +246,19 @@
                             content: [
                                 {
                                     name: 'Линии любви',
+                                    url: '#',
                                     price: 6100
                                 }, {
                                     name: 'Линии любви',
+                                    url: '#',
                                     price: 6100
                                 }, {
                                     name: 'Линии любви',
+                                    url: '#',
                                     price: 6100
                                 }, {
                                     name: 'Линии любви',
+                                    url: '#',
                                     price: 6100
                                 }
                             ]

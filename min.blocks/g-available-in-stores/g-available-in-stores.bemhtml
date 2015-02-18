@@ -6,6 +6,7 @@
                     {
                         block: 'g-item-buy-in-shop',
                         shop: store.name,
+                        url: store.url,
                         price: store.price
                     }
                 ];
