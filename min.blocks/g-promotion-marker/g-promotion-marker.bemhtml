@@ -1,8 +1,7 @@
-/*block('g-promotion-marker')(
-	tag()('span'),
-	content()(funtion() {
-		return {
-			content: ''
-		}
-	})
-)*/
+block('g-promotion-marker')(
+    js()(function () {
+        return {
+            index: this.ctx.index
+        }
+    })
+)

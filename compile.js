@@ -7,9 +7,10 @@ var BEM = B.api;
 var levels = [
     'bem-core/common.blocks',
     'bem-core/desktop.blocks',
+    'common.blocks',
     'lib.blocks',
     'min.blocks',
-    'desktop.blocks',
+    'desktop.blocks'
 ];
 
 var techs = [

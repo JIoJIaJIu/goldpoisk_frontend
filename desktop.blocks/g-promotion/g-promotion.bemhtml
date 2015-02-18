@@ -2,6 +2,7 @@ block('g-promotion')(
     content()(function () {
         var ctx = this.ctx;
         var images = [];
+        var markers = [];
 
         for (var i = 0, length = ctx.images.length; i < length; i++) {
             var src = ctx.images[i];
@@ -17,17 +18,29 @@ block('g-promotion')(
                     }
                 }
             })
+
+            markers.push({
+                block: 'g-promotion-marker',
+                index: i
+            });
         }
 
         return {
             tag: 'div',
-            elem: 'fotorama',
+            elem: 'inner',
             content: [{
                 tag: 'div',
-                attrs: { u: 'slides' },
-                elem: 'fotorama-inner',
-                content: images
-            }]
+                elem: 'fotorama',
+                content: [{
+                    tag: 'div',
+                    attrs: { u: 'slides' },
+                    elem: 'fotorama-inner',
+                    content: images
+                }]
+            }, {
+                block: 'g-promotion-markers-list',
+                content: markers
+            }, applyNext()]
         }
     })
 )
