@@ -35,10 +35,11 @@ pages['index'] = function (data, env) {
             {
                 block: 'g-promotion',
                 js: 'true',
-                content: {
-                    block: 'fotorama',
-                    src: data.promo[0]
-                }
+                images: [
+                    '/media/promotion/promotion_01.jpg',
+                    '/media/promotion/promotion_02.jpg',
+                    '/media/promotion/promotion_03.jpg'
+                ]
             }, {
                 block: 'g-pride',
                 content: [

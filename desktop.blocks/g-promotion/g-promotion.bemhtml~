@@ -1,6 +1,11 @@
-block('fotorama')(
+block('g-promotion')(
     content()(function () {
         var ctx = this.ctx;
+        return {
+            tag: 'ul',
+            content: _.forEach(function(this.ctx.images, function (img) {
+            });
+        }
         return {
             block: 'image',
             tag: 'img',
@@ -8,4 +13,3 @@ block('fotorama')(
         }
     })
 )
-    

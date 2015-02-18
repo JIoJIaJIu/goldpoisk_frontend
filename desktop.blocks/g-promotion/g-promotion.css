@@ -16,3 +16,17 @@
 	left: 40%;
 	top: 50%;
 }
+
+.g-promotion__fotorama {
+    position: relative;
+    height: 100%;
+    width: 990px;
+    margin: 0 auto;
+}
+
+.g-promotion__fotorama-inner {
+    list-style: none;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
