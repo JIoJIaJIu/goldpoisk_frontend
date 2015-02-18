@@ -12,6 +12,7 @@
     border-radius: 5px;
     background: #fff;
     text-decoration: none;
+    padding: 0 13px;
 }
 
 .g-button:hover {
