@@ -205,37 +205,7 @@
                                     description : 'Fork me on GitHub',
                                     image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
                                             'master/desktop.bundles/index/blocks/page/image/bem.png'
-                                },/*{
-                                    block: 'g-social-likes',
-                                    content: [
-                                        'vk'
-                                        ,'fb'
-                                        ,'twitter'
-                                        ,'ok'
-                                        /*
-                                        ,'mail'
-                                        ,'g+'
-                                        
-                                    ]
-                                }
-                                    
-                                        {
-                                            elem: 'item',
-                                            mods: { type: 'vk' },
-                                        }, {
-                                            elem: 'item',
-                                            mods: { type: 'fb' },
-                                        }, {
-                                            elem: 'item',
-                                            mods: { type: 'twitter' },
-                                        }, {
-                                            elem: 'item',
-                                            mods: { type: 'ok' },
-                                        }
-                                    ]
-                                    *
-                                }
-                                */
+                                },
                             ]
                         }, {
                             block: 'g-item-heading',

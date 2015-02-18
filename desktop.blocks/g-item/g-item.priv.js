@@ -34,6 +34,21 @@ blocks['g-item'] = function (data, env) {
                     }, {
                         block: 'g-item-description',
                         content: data.description
+                    }, {
+                        block : 'yashare',
+                        quickServices : data.quickServices || [
+                            'vkontakte',
+                            'facebook',
+                            'twitter',
+                            'odnoklassniki'
+                        ],
+                        theme : data.theme || 'counter',
+                        l10n : data.l10n || 'ru',
+                        url : data.url,
+                        title : data.likesTitle,
+                        description : data.likesDescription,
+                        image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
+                                'master/desktop.bundles/index/blocks/page/image/bem.png'
                     }
                 ]
             }, {
