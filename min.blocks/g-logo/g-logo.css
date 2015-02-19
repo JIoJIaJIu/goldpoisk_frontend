@@ -10,31 +10,30 @@
 
 .g-logo__gold {
     width: 116px;
-    height: 70px;
+    height: 58px;
     /*background-color: #deac00;*/
     float: left;
     background-image: url('/images/sprite.png');
-    background-position: -290px 0;
+    background-position: 0 0;
     /*-webkit-mask-image: url('./images/Gold.png');*/
 }
 
 .g-logo__poisk {
     width: 124px;
-    height: 70px;
+    height: 58px;
     /*background-color: #777777;*/
     float: left;
     background-image: url('/images/sprite.png');
-    background-position: -406px 0;
+    background-position: -116px 0;
     /*-webkit-mask-image: url('./images/poisk.png');*/
 }
 
 .g-logo__description {
-    width: 240px;
     text-align: right;
-    font-size: 12.62px;
-    font-family: Din-Text-Pro_Light, sans-serif;
+    font-size: 13.2px;
+    font-family: "Din-Text-Pro_Light", Arial, sans-serif;
     color: #a2a2a2;
-    padding-top: 8px;
+    padding-top: 6px;
 }
 
 .g-logo_color_theme_xmas .g-logo__left-side {

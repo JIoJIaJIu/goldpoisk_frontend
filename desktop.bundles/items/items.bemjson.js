@@ -11,8 +11,8 @@
             mods: { state: 'flow' },
             content: [
                 {
-                    block: 'g-logo',
-                    description: 'Крупнейший поиск ювелирных изделий'
+                    block: 'g-logo'/*,
+                    description: 'Крупнейший поиск ювелирных изделий'*/
                 }/*,
                 {
                     block: 'g-basket',
@@ -33,10 +33,9 @@
                 }*/,
                 {
                     block: 'g-support',
+                    mods: { color: 'dark' },
                     content: [
                     ]
-                }, {
-                    elem: 'clear',
                 }
             ] 
         }, {

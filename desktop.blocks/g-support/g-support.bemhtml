@@ -1,27 +1,23 @@
 block('g-support')(
+    tag()('section'),
     content()(function () {
-        return {
-            tag: 'section',
-            content: [
-                {
-                    tag: 'header',
-                    content: [
-                        {
-                            tag: 'h1',
-                            content: 'Служба поддержки'
-                        }
-                    ]
-                },
-                {
-                    tag: 'a',
-                    attrs: { href: 'mailto:support@goldpoisk.ru' },
-                    content: 'support@goldpoisk.ru'
-                }/*,
-                {
-                    tag: 'p',
-                    content: 'Обратная связь'
-                }*/
-            ]
-        }
+        return [
+            {
+                elem: 'title',
+                tag: 'h1',
+                content: 'Служба поддержки'
+            }, {
+                elem: 'link',
+                tag: 'a',
+                attrs: { href: 'mailto:support@goldpoisk.ru' },
+                content: 'support@goldpoisk.ru'
+            }
+            /*
+            ,{
+                tag: 'p',
+                content: 'Обратная связь'
+            }
+            */
+        ]
     })
 )

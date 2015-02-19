@@ -43,9 +43,6 @@
                     block: 'g-support',
                     content: [
                     ]
-                },
-                {
-                    elem: 'clear',
                 }
             ] 
         },

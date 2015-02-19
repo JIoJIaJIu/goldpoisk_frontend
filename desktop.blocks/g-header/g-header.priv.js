@@ -3,13 +3,8 @@ blocks['g-header'] = function () {
         block: 'g-header',
         content: [
             {
-                elem: 'logo',
-                content: [
-                    {
-                        block: 'g-logo',
-                        description: 'Крупнейший поиск ювелирных изделий'
-                    }
-                ]
+                block: 'g-logo',
+                description: 'Крупнейший поиск ювелирных изделий'
             }, /*
             {
                 elem: 'basket',
@@ -39,11 +34,7 @@ blocks['g-header'] = function () {
             },*/
             {
                 block: 'g-support',
-                content: [
-                ]
-            },
-            {
-                elem: 'clear',
+                content: []
             }
         ]
     })
