@@ -34,6 +34,12 @@
     font-family: "Din-Text-Pro_Light", Arial, sans-serif;
     color: #a2a2a2;
     padding-top: 6px;
+    overflow: hidden;
+    height: 16px;
+    opacity: 1;
+    transition: height 0.5s, opacity 1.5s;
+    -moz-transition: height 0.5s, opacity 1.5s;
+    -webkit-transition: height 0.5s, opacity 1.5s;
 }
 
 .g-logo_color_theme_xmas .g-logo__left-side {

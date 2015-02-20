@@ -8,8 +8,6 @@
     content: [
         {
             block: 'g-header',
-            js: true,
-            //mods: { state: 'flow' },
             content: [
                 {
                     block: 'g-logo',
@@ -34,7 +32,6 @@
                 }*/,
                 {
                     block: 'g-support',
-                    //mods: { color: 'dark' },
                     content: [
                     ]
                 }
