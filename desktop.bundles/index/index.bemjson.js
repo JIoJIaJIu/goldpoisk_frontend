@@ -156,7 +156,7 @@
         {
             block: 'g-content',
             content: [
-                 {
+                {
                     block: 'g-section',
                     mods: { type: 'slogan' },
                     title: 'Goldpoisk - самый большой каталог ювелирных изделий',
