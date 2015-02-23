@@ -250,7 +250,12 @@
                             storeUrl: '#'
                         }
                     ]
-                }, 
+                }, {
+                    block: 'g-pagination',
+                    totalPages: 7,
+                    currentPage: 1,
+                    url: '#'
+                }
             ]
         },
         {

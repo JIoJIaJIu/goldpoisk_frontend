@@ -1,0 +1,21 @@
+block('g-pagination')(
+    content()(function () {
+        var totalPages = this.ctx.totalPages;
+        var currentPage = this.ctx.currentPage;
+        var url = this.ctx.url;
+        var list = new Array(totalPages);
+        var i = 0;
+        for (i; i < totalPages; i++) {
+            list[i] = i + 1;
+        }
+        return list.map(function(l, i) {
+            return {
+                elem: 'page-item',
+                mods: i + 1 == currentPage ? { current: true } : null,
+                tag: 'a',
+                attrs: { href: url + '?page=' + l },
+                content: l
+            }
+        })
+    })
+)
