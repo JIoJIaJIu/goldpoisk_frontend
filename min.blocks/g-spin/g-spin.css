@@ -1,0 +1,76 @@
+@keyframes 'g-spin_theme_islands' {
+    from {
+        color: #dead03;
+        opacity: 1;
+        transform: rotate(0);
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        color: #dead03;
+        opacity: 0;
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes 'g-spin_theme_islands' {
+    from {
+        color: #dead03;
+        -webkit-transform: rotate(0);
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        color: #dead03;
+        -webkit-transform: rotate(360deg);
+        opacity: 0.2;
+    }
+}
+
+.g-spin_theme_islands {
+    position: absolute;
+    display: inline-block;
+    visibility: hidden;
+    color: transparent;
+}
+
+.g-spin_theme_islands:before {
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    content: '';
+    border: 2px solid;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+}
+
+.g-spin_theme_islands:after {
+    content: '\00A0';
+}
+
+.g-spin_theme_islands.g-spin_visible {
+    position: relative;
+    visibility: visible;
+    -webkit-animation: 'g-spin_theme_islands' 1.5s infinite linear;
+    animation: g-spin_theme_islands 1.5s infinite linear;
+    background: url("/images/spin.gif") no-repeat;
+    background: linear-gradient(1deg,rgba(0,0,0,0),rgba(0,0,0,0));
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.g-spin_theme_islands.g-spin_size_xl {
+    line-height: 75px;
+    width: 75px;
+    height: 75px;
+    background-position: 0 -104px;
+}
+
+.g-spin_theme_islands.g-spin_size_xl:before {
+    height: 75px;
+}

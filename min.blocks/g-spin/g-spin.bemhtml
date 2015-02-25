@@ -1,0 +1,10 @@
+block('g-spin')(
+    def().match(!this.ctx._wrapped)(function() {
+        var ctx = this.ctx;
+        ctx._wrapped = true;
+        applyCtx({
+            block: 'g-wrapper', content: ctx
+        })
+    }),
+    tag()('span')
+)
