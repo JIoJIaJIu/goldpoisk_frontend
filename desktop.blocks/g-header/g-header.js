@@ -2,7 +2,7 @@ modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
     BEMDOM.decl('g-header', {
         onSetMod: {
             'js': function () {
-                self = this;
+                var self = this;
                 var support = this.findBlockInside('g-support');
                 var desc = $('.g-logo__description');
 
@@ -15,11 +15,11 @@ modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
                         if ($(window).scrollTop() > 0) {
                             self.setMod('state', 'flow');
                             support.setMod('dark', true);
-                            desc.css('display', 'none');
+                            //desc.css('display', 'none');
                         } else {
                             self.delMod('state');
                             support.delMod('dark');
-                            desc.css('display', 'block');
+                            //desc.css('display', 'block');
                         }
                     });
                 }
