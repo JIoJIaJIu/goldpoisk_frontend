@@ -4,7 +4,13 @@
     head: [
         { elem: 'css', url: '_items.css' },
     ],
-    scripts: [{ elem: 'js', url: '_items.js' }],
+    scripts: [{
+        elem: 'js',
+        url: '_items.bemhtml.js'
+    }, { 
+        elem: 'js', 
+        url: '_items.js' 
+    }],
     content: [
         {
             block: 'g-header',
@@ -101,6 +107,7 @@
                     count: '11 253'
                 }, {
                     block: 'g-goods',
+                    js: true,
                     content: [
                         {
                             block: 'g-product',
@@ -260,8 +267,10 @@
         },
         {
             block: 'clear'
-        },
-        {
+        }, {
+            block : 'g-spin',
+            mods : { theme : 'islands', size : 'xl', visible : true }
+        }, {
             block: 'g-footer',
             content: [
 
