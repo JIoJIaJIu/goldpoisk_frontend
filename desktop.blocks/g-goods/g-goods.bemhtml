@@ -1,8 +1,0 @@
-block('g-goods').match()(
-    tag()('ul'),
-    content()(function () {
-		return [
-			applyNext()
-		]
-	})
-)
