@@ -1,5 +1,4 @@
 block('g-product')(
-    tag()('li'),
     content()(function() {
         return [
             {

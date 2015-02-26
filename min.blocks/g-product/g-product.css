@@ -7,6 +7,7 @@
     border: 1px solid #eaeaea;
     border-radius: 2px;
     list-style: none;
+    text-align: left;
 }
 
 .g-product:hover {
@@ -42,7 +43,7 @@
     display: block;
     height: 55px;
     margin: 0 15px 0 15px;
-    font-family: Clear-Sans_Thin, Arial, sans-serif;
+    font-family: 'Clear-Sans_Thin', Arial, sans-serif;
     font-size: 16px;
     color: #333;
     overflow: hidden;
@@ -71,13 +72,13 @@
     height: 26px;
     line-height: 26px;
     margin: 0;
-    font-family: Clear-Snas_Thin, Arial, sans-serif;
+    font-family: 'Clear-Snas_Thin', Arial, sans-serif;
     font-size: 14px;
 }
 
 .g-product__weight, .g-product__carat {
     padding-left: 43px;
-        color: #8f8f8f;
+    color: #8f8f8f;
 }
 
 .g-product__weight {
