@@ -147,7 +147,7 @@
                             price: 1000000,
                             store: 'Sunlight',
                             storeUrl: '#'
-                        }, {
+                        },/* {
                             block: 'g-expanded-item',
                             content: [
                                 {
@@ -249,7 +249,7 @@
                                     ]
                                 }
                             ]
-                        }, {
+                        }, */{
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
                             url: '#',

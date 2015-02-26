@@ -6,13 +6,18 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                 var totalPages = that.params.totalPages;
                 var currentPage = that.params.currentPage;
                 var body = document.body;
+                var pending = false;
                 $(window).scroll(function(e) {
                     if (body.scrollHeight - body.scrollTop - $(window).height() <= 0) {
+                        if (pending == true) {
+                            return;
+                        }
+                        pending = true;
                         if (totalPages == currentPage + 1)
                             return;
                         that._request(currentPage, function (products) {
-                            that.append(products);
-                        })
+                            setTimeout(function () { that.append(products); pending = false; }, 3000);
+                        });
                     }
                 });
             }
@@ -25,7 +30,7 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
         },
         _request: function (currentPage, cb) {
             var list = [];
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 8; i++) {
                 list.push({
                     block: 'g-product',
                     mods: { like: 'yes', action: 'yes' },
