@@ -107,14 +107,19 @@
                     count: '11 253'
                 }, {
                     block: 'g-goods',
-                    js: true,
+                    totalPages: 34,
+                    currentPage: 23,
+                    js: {
+                        totalPages: this.totalPages,
+                        currentPage: this.currentPage
+                    },
                     content: [
                         {
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
                             url: '#',
                             title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
-                            imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                            imageUrl: '/images/good.png',
                             weight: '4.5 грамм',
                             carat: '0,07 карат',
                             price: 1000000,
@@ -125,7 +130,7 @@
                             mods: { like: 'yes', action: 'yes' },
                             url: '#',
                             title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
-                            imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                            imageUrl: '/images/good.png',
                             weight: '4.5 грамм',
                             carat: '0,07 карат',
                             price: 1000000,
@@ -136,7 +141,7 @@
                             mods: { like: 'yes', action: 'yes' },
                             url: '#',
                             title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
-                            imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                            imageUrl: '/images/good.png',
                             weight: '4.5 грамм',
                             carat: '0,07 карат',
                             price: 1000000,
@@ -249,7 +254,7 @@
                             mods: { like: 'yes', action: 'yes' },
                             url: '#',
                             title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
-                            imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                            imageUrl: '/images/good.png',
                             weight: '4.5 грамм',
                             carat: '0,07 карат',
                             price: 1000000,
