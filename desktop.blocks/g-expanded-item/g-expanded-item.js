@@ -3,6 +3,7 @@ modules.define('g-expanded-item', ['i-bem__dom'], function (provide, BEMDOM) {
 BEMDOM.decl('g-expanded-item', {
     onSetMod: {
         js: function () {
+            this._root = null;
         },
 
         showed: function (mod, value) {}
@@ -12,6 +13,16 @@ BEMDOM.decl('g-expanded-item', {
         var offset = node.offset(); 
         this._moveArrayAt(offset.left + node.width() / 2);
         this.setMod('showed', true);
+        this._root = node;
+    },
+
+    hide: function () {
+        this.setMod('showed', false);
+        this._root = null;
+    },
+
+    openedOn: function (node) {
+        return this._root === node
     },
 
     _moveArrayAt: function (x) {
