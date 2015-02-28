@@ -5,23 +5,38 @@ BEMDOM.decl('g-product', {
         js: function () {
             var expanded = this.__self.getExpanded(this);
             var that = this;
-            var params = this.params;
-            var elem = this.domElem;
 
             this.bindTo('click', function (e) {
                 e.preventDefault();
-                expanded.show(that.domElem);
-                var html = blocks['g-item']({
-                    title: params.title,
-                    features: params.features,
-                    gallery: {
-                        images: params.images,
-                        mainImg: params.images[0]
-                    }
-                });
-                //BEMDOM.update(expanded.domElem, BEMHTML.apply(html));
+                if (expanded.hasMod('showed')) {
+                    that._hideExpanded(expanded);
+                    return;
+                }
+
+                that._showExpanded(expanded);
             });
         }
+    },
+
+    //TODO: move to static
+    _showExpanded: function (expanded) {
+        var params = this.params;
+        expanded.show(this.domElem);
+        var html = blocks['g-item']({
+            title: params.title,
+            features: params.features,
+            item: params.item,
+            gallery: {
+                images: params.images,
+                mainImg: params.images[0]
+            }
+        });
+        BEMDOM.update(expanded.domElem, BEMHTML.apply(html));
+    },
+
+    //TODO: move to static
+    _hideExpanded: function (expanded) {
+        expanded.setMod('showed', false);
     }
 }, {
     getExpanded: function (obj) {

@@ -8,15 +8,18 @@ blocks['g-product'] = function (data, env) {
 	 *		@key {Array} images
 	 *		@key {string} weight
 	 *		@key {string} carat
-	 *		@key {integer} price
-	 *		@key {string} store
-	 *		@key {string} storeUrl
 	 *		@key {Boolean} [newPage] open in new page or not
-	 *		@key {String} [buyUrl] buy url for item
+     *		
 	 *		@key {bool} [action]
 	 *		@key {bool} [hit]
 	 *		@key {string} [tape]
 	 *		@key {bool} [like]
+     *
+     *		@key {Object} [item]
+	 *		    @key {integer} price
+	 *		    @key {string} store
+	 *		    @key {string} storeUrl
+	 *		    @key {String} buyUrl buy url for item
 	 **/
 	var block = {
 		block: 'g-product',
@@ -30,19 +33,25 @@ blocks['g-product'] = function (data, env) {
 		imageUrl: data.imageUrl,
 		weight: data.weight,
 		carat: data.carat,
-		price: data.price,
-		store: data.store,
-		storeUrl: data.storeUrl,
-        newPage: data.newPage || false,
-        buyUrl: data.buyUrl || null
+        newPage: data.newPage || false
 	}
+
+    if (data.item) {
+        block.item = {
+            price: data.price,
+            store: data.store,
+            storeUrl: data.storeUrl,
+            buyUrl: data.buyUrl || null
+        }
+    }
 
     if (env.js) {
         var features = [];
         block.js = {
             title: data.title,
             features: features,
-            images: data.images
+            images: data.images,
+            item: data.item
         }
 
         features.push({
