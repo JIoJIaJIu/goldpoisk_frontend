@@ -2,8 +2,10 @@ blocks['g-product'] = function (data, env) {
 	/**
 	 *		@param
 	 *		@key {string} url
-	 *		@key {string} title
+	 *		@key {String} title
+	 *		@key {Number} number
 	 *		@key {string} imageUrl
+	 *		@key {Array} images
 	 *		@key {string} weight
 	 *		@key {string} carat
 	 *		@key {integer} price
@@ -16,7 +18,7 @@ blocks['g-product'] = function (data, env) {
 	 *		@key {string} [tape]
 	 *		@key {bool} [like]
 	 **/
-	return {
+	var block = {
 		block: 'g-product',
 		mods: {
 			action: data.action ? 'yes' : false,
@@ -34,4 +36,29 @@ blocks['g-product'] = function (data, env) {
         newPage: data.newPage || false,
         buyUrl: data.buyUrl || null
 	}
+
+    if (env.js) {
+        var features = [];
+        block.js = {
+            title: data.title,
+            features: features,
+            images: data.images
+        }
+
+        features.push({
+            'Артикул': data.number
+        });
+
+        if (data.weight)
+            features.push({
+                'Вес': data.weight
+            });
+
+        if (data.carat)
+            features.push({
+                'Карат': data.carat
+            })
+    }
+
+    return block;
 }

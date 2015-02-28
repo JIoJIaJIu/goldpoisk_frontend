@@ -11,6 +11,8 @@ blocks['page'] = function (data, env) {
             { elem: 'css', url:  'css/index.css' }
         ],
         scripts: [
+            { elem: 'js', url: 'js/index.bemhtml.js' },
+            { elem: 'js', url: 'js/index.priv.js' },
             { elem: 'js', url: 'js/index.js' }
         ],
         mods: { theme: 'normal' },
@@ -109,7 +111,7 @@ pages['category'] = function (data, env) {
 
                 blocks['g-goods']({
                     list: data.products
-                })
+                }, {js: true})
             ]
         }
     }, env)

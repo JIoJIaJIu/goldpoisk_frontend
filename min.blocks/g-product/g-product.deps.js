@@ -8,6 +8,9 @@
         },
         {
         	block: 'g-like'
+        },
+        {
+            block: 'g-expanded-item'
         }
     ]
 })
