@@ -3,7 +3,9 @@ modules.define('g-expanded-item', ['i-bem__dom'], function (provide, BEMDOM) {
 BEMDOM.decl('g-expanded-item', {
     onSetMod: {
         js: function () {
-        }
+        },
+
+        showed: function (mod, value) {}
     },
 
     show: function (node) {
