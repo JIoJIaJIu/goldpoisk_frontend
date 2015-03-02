@@ -1,0 +1,24 @@
+.g-heading {
+    display: inline-block;
+    font-family: 'Din-Text-Pro_Thin', 'Arial', sans-serif;
+    font-size: 24px;
+    color: #a07472;
+    line-height: 22px;
+    border-bottom: 1px solid #e2d5d4;
+}
+
+.g-heading a {
+    text-decoration: none;
+    color: #a07472;;
+}
+
+.g-heading_type_simple {
+    color: #3c2424;
+    text-decoration: none;
+}
+
+.g-heading_type_main {
+    color: #3c2424;
+    font-size: 36px;
+    text-decoration: none;
+}

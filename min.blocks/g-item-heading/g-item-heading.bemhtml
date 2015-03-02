@@ -1,3 +1,0 @@
-block('g-item-heading')(
-	tag()('h2')
-)
