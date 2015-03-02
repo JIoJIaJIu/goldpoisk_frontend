@@ -1,6 +1,6 @@
-modules.define('g-expanded-item', ['i-bem__dom'], function (provide, BEMDOM) {
+modules.define('g-frame', ['i-bem__dom'], function (provide, BEMDOM) {
 
-BEMDOM.decl('g-expanded-item', {
+BEMDOM.decl('g-frame', {
     onSetMod: {
         js: function () {
             this._root = null;

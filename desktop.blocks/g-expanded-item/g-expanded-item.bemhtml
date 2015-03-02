@@ -1,7 +1,0 @@
-block('g-expanded-item')(
-    content()(function() {
-        return {
-            elem: 'arrow'
-        }
-    })
-)

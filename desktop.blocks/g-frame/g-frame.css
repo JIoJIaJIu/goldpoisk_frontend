@@ -1,0 +1,78 @@
+.g-frame {
+    position: relative;
+    width: 850px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb( 222, 172, 0 );
+    box-shadow: inset 0px 2px 4px 1px #dadada;
+    background-color: rgb( 255, 255, 255 );
+    transition: max-height 1s;
+    overflow: hidden;
+    display: none;
+    text-align: left;
+}
+
+.g-frame_showed {
+    display: block;
+}
+
+.g-frame__close {
+    position: absolute;
+    top: 14px; 
+    right: 14px;
+    width: 18px; 
+    height: 18px;
+    background-repeat: no-repeat;
+    background-image: url('/images/sprite.png');
+    background-position: -41px -194px;
+    cursor: pointer;
+}
+
+.g-frame__arrow {
+    position: absolute;
+    top: -29px;
+    left: 80px;
+    width: 38px;
+    height: 36px;
+    background-image: url('/images/sprite.png');
+    background-position: -179px -244px;
+}
+
+.g-frame__content {
+    padding: 32.5px 17.5px 42.5px;
+}
+
+.g-frame .g-item {
+    padding: 0;
+}
+
+.g-frame .g-item .g-right-col {
+    float: left;
+    padding: 35px 0 0 50px;
+    width: 300px;
+}
+
+.g-frame .g-item .g-heading {
+    margin-bottom: 15px;
+}
+
+.g-frame .g-heading_type_main {
+    font-size: 24px;
+    font-weight: 100;
+    color: #a07472;
+    text-decoration: underline;
+}
+
+.g-frame .g-item .g-heading_type_simple {
+    margin-left: 21px;
+    padding-top: 40px;
+}
+
+.g-frame .g-item .g-available-in-stores {
+    margin-left: 21px;
+    margin-bottom: 0;
+}
+
+.g-frame .g-button {
+    margin-bottom: 35px;
+}
