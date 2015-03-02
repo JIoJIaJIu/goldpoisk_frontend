@@ -10,7 +10,7 @@
         	block: 'g-like'
         },
         {
-            block: 'g-expanded-item'
+            block: 'g-frame'
         }
     ]
 })

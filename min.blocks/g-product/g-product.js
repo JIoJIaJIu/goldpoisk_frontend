@@ -80,11 +80,11 @@ BEMDOM.decl('g-product', {
             return this.__self.expanded;
 
         var html = BEMHTML.apply({
-            block: 'g-expanded-item'
+            block: 'g-frame'
         });
 
         var dom = BEMDOM.after(this.domElem, html);
-        this.__self.expanded = this.findBlockOn(dom, 'g-expanded-item');
+        this.__self.expanded = this.findBlockOn(dom, 'g-frame');
         return this.__self.expanded;
     },
 
@@ -94,6 +94,7 @@ BEMDOM.decl('g-product', {
 
         var params = this.params;
         expanded.show(this.domElem);
+        console.log(params.features);
         var html = blocks['g-item']({
             title: params.title,
             features: params.features,
