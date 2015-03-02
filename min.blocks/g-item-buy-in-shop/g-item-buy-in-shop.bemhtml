@@ -7,7 +7,7 @@ block('g-item-buy-in-shop')(
                 content: {
                     tag: 'a',
                     attrs: {href: this.ctx.url, target: '_blank'},
-                    content: this.ctx.shop
+                    content: this.ctx.store
                 }
             },
             {

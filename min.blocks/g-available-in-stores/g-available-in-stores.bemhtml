@@ -5,7 +5,7 @@
                     return [
                     {
                         block: 'g-item-buy-in-shop',
-                        shop: store.name,
+                        store: store.name,
                         url: store.url,
                         price: store.price
                     }
