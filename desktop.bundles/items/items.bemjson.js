@@ -10,6 +10,9 @@
     }, { 
         elem: 'js', 
         url: '_items.js' 
+    }, {
+        elem: 'js',
+        url: '_items.priv.js'
     }],
     content: [
         {
@@ -139,6 +142,11 @@
                         }, {
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
+                            js: { images: ['../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                     '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                     '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                     '../../desktop.blocks/g-item-gallery/images/preview01.jpg'],
+                                  features: {} },
                             url: '#',
                             title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                             imageUrl: '/images/good.png',
@@ -148,16 +156,13 @@
                             store: 'Sunlight',
                             storeUrl: '#'
                         },/* {
-                            block: 'g-expanded-item',
+                            block: 'g-frame',
                             content: [
                                 {
-                                    elem: 'arrow',
-                                }, {
                                     block: 'g-item',
                                     content: [
                                         {
-                                            block: 'g-item-heading',
-                                            mods: { type: 'main' },
+                                            block: 'g-heading',
                                             content: 'Обручальное кольцо из белого золота с 21 бриллиантом'
                                         }, {
                                             block: 'g-item-gallery',
@@ -182,20 +187,19 @@
                                             block: 'g-right-col',
                                             content: [
                                                 {
+                                                    block: 'g-item-buy-in-shop',
+                                                    store: 'Центрювелирторг',
+                                                    url: '#',
+                                                    price: 6169
+                                                }, {
                                                     block: 'g-item-features',
-                                                    content: [
-                                                        {
-                                                            'Артикул' : '51235654'
-                                                        }, {
-                                                            'Металл' : 'Белое золото'
-                                                        }, {
-                                                            'Проба' : '585'
-                                                        }, {
-                                                            'Камень' : '21 бриллиант'
-                                                        }, {
-                                                            'Карат' : '0,07'
-                                                        }
-                                                    ]
+                                                    content: {
+                                                        'Артикул': '51235654',
+                                                        'Металл': 'Белое золото',
+                                                        'Проба': '585',
+                                                        'Камень': '21 бриллиант',
+                                                        'Карат': '0,07'
+                                                    }
                                                 }, {
                                                     block: 'g-button',
                                                     mods: { type: 'gray' },
@@ -221,7 +225,7 @@
                                                 }
                                             ]
                                         }, {
-                                            block: 'g-item-heading',
+                                            block: 'g-heading',
                                             mods: { type: 'simple' },
                                             content: 'Купить этот товар в магазинах'
                                         }, {
@@ -249,7 +253,7 @@
                                     ]
                                 }
                             ]
-                        }, */{
+                        },*/ {
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
                             url: '#',

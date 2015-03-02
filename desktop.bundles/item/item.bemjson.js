@@ -153,7 +153,7 @@
                             content: [
                                 {
                                     block: 'g-item-buy-in-shop',
-                                    shop: 'Центрювелирторг',
+                                    store: 'Центрювелирторг',
                                     url: '#',
                                     price: 6169
                                 }, {
@@ -192,7 +192,7 @@
                                     ],
                                     theme : 'counter',
                                     l10n : 'ru',
-                                    url : 'localhost:8080/desctop.bundles/item/item.html',
+                                    url : 'localhost:8080/desktop.bundles/item/item.html',
                                     title : 'BEM Social Components Library',
                                     description : 'Fork me on GitHub',
                                     image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
