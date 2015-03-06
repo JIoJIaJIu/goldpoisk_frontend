@@ -16,6 +16,11 @@ MAKE.decl('Arch', {
                 type: 'git',
                 url: 'git@github.com:YLeight/bem-social.git',
                 treeish: 'master'
+            },
+            'bem-history': {
+                type: 'git',
+                url: 'git@github.com:bem/bem-history.git',
+                treeish: 'v2'
             }
         }
     }
@@ -50,6 +55,7 @@ MAKE.decl('BundleNode', {
                 'bem-core/desktop.blocks',
                 'bem-social/common.blocks',
                 'bem-social/desktop.blocks',
+                'bem-history/common.blocks',
                 'common.blocks',
                 'lib.blocks',
                 'min.blocks',
