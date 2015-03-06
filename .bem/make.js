@@ -14,7 +14,7 @@ MAKE.decl('Arch', {
             },
             'bem-social': {
                 type: 'git',
-                url: 'git@github.com:YLeight/bem-social.git',
+                url: 'git@github.com:voischev/bem-social.git',
                 treeish: 'master'
             },
             'bem-history': {
