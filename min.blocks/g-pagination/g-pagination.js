@@ -1,7 +1,8 @@
-modules.define('g-pagination', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
+modules.define('g-pagination', ['i-bem__dom', 'jquery', 'location'], function(provide, BEMDOM, $, location) {
     BEMDOM.decl('g-pagination', {
         onSetMod: {
             'js': function () {
+                var that = this;
                 var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                 var body = document.body;
                 var spin = $(".g-spin");
@@ -19,6 +20,8 @@ modules.define('g-pagination', ['i-bem__dom', 'jquery'], function(provide, BEMDO
                                 pending = false;
                                 spin.css("display", "none");
                             }, 3000);
+                            location.change({ params: { page: that.params.currentPage } });
+                            window.location.href;
                         });
                     }
                 });

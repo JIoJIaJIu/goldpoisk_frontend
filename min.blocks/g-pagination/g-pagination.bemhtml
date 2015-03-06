@@ -1,5 +1,10 @@
 block('g-pagination')(
-    js()('true'),
+    js()(function () {
+        return {
+            totalPages: this.ctx.totalPages,
+            currentPage: this.ctx.currentPage
+        };
+    }),
     content()(function () {
         var totalPages = this.ctx.totalPages;
         var currentPage = this.ctx.currentPage;
