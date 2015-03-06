@@ -15,6 +15,12 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                 BEMHTML.apply(products)
             );
         },
+        prepend: function (products) {
+            BEMDOM.prepend(
+                this.domElem,
+                BEMHTML.apply(products)
+            );
+        },
         _request: function (currentPage, cb) {
             var list = [];
             for (var i = 0; i < 8; i++) {
