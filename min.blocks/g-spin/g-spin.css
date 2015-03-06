@@ -32,7 +32,7 @@
 
 .g-spin_theme_islands {
     position: absolute;
-    display: inline-block;
+    display: none;
     visibility: hidden;
     color: transparent;
 }

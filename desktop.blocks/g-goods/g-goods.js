@@ -15,8 +15,9 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                         pending = true;
                         if (totalPages == currentPage + 1)
                             return;
+                        var spin = $(".g-spin");
                         that._request(currentPage, function (products) {
-                            setTimeout(function () { that.append(products); pending = false; }, 3000);
+                            setTimeout(function () { that.append(products); pending = false; spin.css("display", "none"); }, 3000);
                         });
                     }
                 });

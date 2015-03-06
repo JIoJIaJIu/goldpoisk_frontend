@@ -1,4 +1,5 @@
 block('g-pagination')(
+    js()('true'),
     content()(function () {
         var totalPages = this.ctx.totalPages;
         var currentPage = this.ctx.currentPage;
