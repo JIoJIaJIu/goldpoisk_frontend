@@ -109,6 +109,10 @@
                     title: 'Кольца',
                     count: '11 253'
                 }, {
+                    block : 'g-spin',
+                    mods : { theme : 'islands', size : 'xl', visible : true },
+                    attrs: { id: 'up' }
+                }, {
                     block: 'g-goods',
                     totalPages: 34,
                     currentPage: 23,
@@ -269,7 +273,7 @@
                 }, {
                     block: 'g-pagination',
                     totalPages: 7,
-                    currentPage: 1,
+                    currentPage: 2,
                     url: '#'
                 }
             ]
@@ -278,7 +282,8 @@
             block: 'clear'
         }, {
             block : 'g-spin',
-            mods : { theme : 'islands', size : 'xl', visible : true }
+            mods : { theme : 'islands', size : 'xl', visible : true },
+            attrs: { id: 'down' }
         }, {
             block: 'g-footer',
             content: [
