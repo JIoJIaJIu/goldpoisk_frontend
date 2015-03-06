@@ -7,20 +7,6 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                 var currentPage = that.params.currentPage;
                 var body = document.body;
                 var pending = false;
-                $(window).scroll(function(e) {
-                    if (body.scrollHeight - body.scrollTop - $(window).height() <= 0) {
-                        if (pending == true) {
-                            return;
-                        }
-                        pending = true;
-                        if (totalPages == currentPage + 1)
-                            return;
-                        var spin = $(".g-spin");
-                        that._request(currentPage, function (products) {
-                            setTimeout(function () { that.append(products); pending = false; spin.css("display", "none"); }, 3000);
-                        });
-                    }
-                });
             }
         },
         append: function (products) {
