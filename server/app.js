@@ -17,6 +17,10 @@ app.get('/success', function (req, res) {
     res.json(product);
 });
 
+app.get('/sortparam', function (req, res) {
+    res.json(product);
+});
+
 app.use( express.static('../') );
 
 var server = app.listen(3000, function () {
