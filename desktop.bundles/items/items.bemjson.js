@@ -114,6 +114,8 @@
                     attrs: { id: 'up' }
                 }, {
                     block: 'g-goods',
+                    mods: { "sorting": true },
+                    sortParams: ['Сначала дорогие', 'Сначала дешёвые', 'По алфавиту'],
                     totalPages: 34,
                     currentPage: 23,
                     js: {
