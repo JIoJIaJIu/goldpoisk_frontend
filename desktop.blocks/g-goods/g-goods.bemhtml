@@ -1,0 +1,15 @@
+block('g-goods')(
+    mod('sorting', true)(
+        content()(function () {
+            return [
+                {
+                    block: 'g-sorting-goods',
+                    content: this.ctx.sortParams
+                }, {
+                    elem: 'content',
+                    content: applyNext()
+                }
+            ]
+        })
+    )
+)
