@@ -15,9 +15,9 @@ modules.define('g-pagination', ['i-bem__dom', 'jquery', 'location'], function(pr
                             return;
                         }
                         pending = true;
-                        goods._request(goods.params.currentPage, function (products) {
+                        $.getJSON('http://localhost:3000/success', function success(data) {
                             setTimeout(function () {
-                                goods.append(products);
+                                goods.append(data);
                                 pending = false;
                                 spin_down.css("display", "none");
                             }, 3000);
@@ -30,9 +30,9 @@ modules.define('g-pagination', ['i-bem__dom', 'jquery', 'location'], function(pr
                             return;
                         }
                         pending = true;
-                        goods._request(goods.params.currentPage, function (products) {
+                        $.getJSON('http://localhost:3000/success', function success (data) {
                             setTimeout(function () {
-                                goods.prepend(products);
+                                goods.prepend(data);
                                 pending = false;
                                 spin_up.css("display", "none");
                             }, 3000);
