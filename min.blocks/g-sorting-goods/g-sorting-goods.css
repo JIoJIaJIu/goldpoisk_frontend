@@ -1,0 +1,27 @@
+.g-sorting-goods {
+    font-family: 'Clear-Sans', Arial, sans-serif;
+    font-size: 14px;
+    color: #777;
+    text-align: left;
+}
+
+.g-sorting-goods__params {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.g-sorting-goods__param {
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;
+    color: #a07472;
+    border-bottom: 1px dotted;
+    cursor: pointer;
+}
+
+.g-sorting-goods__param_selected {
+    font-family: 'Clear-Sans_Medium', Arial, sans-serif;
+    color: #c39800;
+    border-bottom: none;
+}

@@ -1,0 +1,19 @@
+block('g-sorting-goods')(
+    js()(true),
+    content()(function () {
+        return [
+            'Сортировка:',
+            {
+                elem: 'params',
+                tag: 'ul',
+                content: this.ctx.content.map(function (param, i) {
+                    return {
+                        elem: 'param',
+                        tag: 'li',
+                        content: param
+                    };
+                })
+            }
+        ];
+    })
+);
