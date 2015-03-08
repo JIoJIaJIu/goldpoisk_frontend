@@ -6,8 +6,12 @@ block('g-goods')(
                     block: 'g-sorting-goods',
                     content: this.ctx.sortParams
                 }, {
+                    elem: 'up-spin',
+                }, {
                     elem: 'content',
                     content: applyNext()
+                }, {
+                    elem: 'down-spin',
                 }
             ]
         })
