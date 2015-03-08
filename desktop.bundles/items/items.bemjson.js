@@ -109,10 +109,6 @@
                     title: 'Кольца',
                     count: '11 253'
                 }, {
-                    block : 'g-spin',
-                    mods : { theme : 'islands', size : 'xl', visible : true },
-                    attrs: { id: 'up' }
-                }, {
                     block: 'g-goods',
                     mods: { "sorting": true },
                     sortParams: ['Сначала дорогие', 'Сначала дешёвые', 'По алфавиту'],
@@ -282,10 +278,6 @@
         },
         {
             block: 'clear'
-        }, {
-            block : 'g-spin',
-            mods : { theme : 'islands', size : 'xl', visible : true },
-            attrs: { id: 'down' }
         }, {
             block: 'g-footer',
             content: [
