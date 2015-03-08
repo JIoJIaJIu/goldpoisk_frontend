@@ -8,7 +8,7 @@ var product = {
     imageUrl: '../../desktop.blocks/g-goods/images/good.png',
     weight: '5.9 грамм',
     carat: '0,14 карат',
-    price: 500,
+    price: 5000,
     store: 'GoldPoisk',
     storeUrl: '#'
 }
