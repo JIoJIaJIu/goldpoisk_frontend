@@ -272,6 +272,7 @@
                     block: 'g-paginator',
                     totalPages: 7,
                     currentPage: 2,
+                    type: 'rings',
                     url: '#'
                 }
             ]

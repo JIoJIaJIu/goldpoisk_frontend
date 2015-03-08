@@ -1,13 +1,14 @@
-modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location'], function(provide, BEMDOM, $, location) {
+modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], function(provide, BEMDOM, $, location) {
     BEMDOM.decl('g-paginator', {
         onSetMod: {
             'js': function () {
                 var that = this;
                 var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                 var body = document.body;
-                var spin_down = $("#down");
-                var spin_up = $("#up");
                 var pending = false;
+
+                this.REST = config.REST[type];
+
                 $(window).scroll(function(e) {
                     if (body.scrollHeight - body.scrollTop - $(window).height() <= 0) {
                         BEMDOM.append(
@@ -23,7 +24,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location'], function(pro
                             return;
                         }
                         pending = true;
-                        $.getJSON('http://localhost:3000/success', function success(data) {
+                        $.getJSON(this.REST.list, {
+                            page: that.params.currentPage + 1;
+                        }, function success(data) {
                             setTimeout(function () {
                                 goods.append(data);
                                 pending = false;
@@ -46,7 +49,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location'], function(pro
                             return;
                         }
                         pending = true;
-                        $.getJSON('http://localhost:3000/success', function success (data) {
+                        $.getJSON(this.REST.list, {
+                            page: that.params.currentPage - 1
+                        }, function success (data) {
                             setTimeout(function () {
                                 goods.prepend(data);
                                 pending = false;
@@ -57,7 +62,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location'], function(pro
                     }
                 });
             }
-        }
+        },
+
+        REST: null
     }, {});
     provide(BEMDOM);
 })
