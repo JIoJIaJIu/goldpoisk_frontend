@@ -7,17 +7,25 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                 var currentPage = that.params.currentPage;
                 var body = document.body;
                 var pending = false;
+            },
+            'loading': {
+                true: function () {
+                    console.log('loading start');
+                },
+                '': function () {
+                    console.log('loading end');
+                }
             }
         },
         append: function (products) {
             BEMDOM.append(
-                this.domElem,
+                this.elem('content'),
                 BEMHTML.apply(products)
             );
         },
         prepend: function (products) {
             BEMDOM.prepend(
-                this.domElem,
+                this.elem('content'),
                 BEMHTML.apply(products)
             );
         },
