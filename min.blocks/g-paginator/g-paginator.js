@@ -1,5 +1,5 @@
-modules.define('g-pagination', ['i-bem__dom', 'jquery', 'location'], function(provide, BEMDOM, $, location) {
-    BEMDOM.decl('g-pagination', {
+modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location'], function(provide, BEMDOM, $, location) {
+    BEMDOM.decl('g-paginator', {
         onSetMod: {
             'js': function () {
                 var that = this;
@@ -10,7 +10,15 @@ modules.define('g-pagination', ['i-bem__dom', 'jquery', 'location'], function(pr
                 var pending = false;
                 $(window).scroll(function(e) {
                     if (body.scrollHeight - body.scrollTop - $(window).height() <= 0) {
-                        spin_down.css("display", "inline-block");
+                        BEMDOM.append(
+                            goods.elem('down-spin'),
+                            BEMHTML.apply({
+                                block: 'g-spin',
+                                mods: { theme : 'islands', size : 'xl', visible : true },
+                                attrs: { id: 'down' }
+                            })
+                        );
+                        $('#down').css("display", "inline-block");
                         if (pending) {
                             return;
                         }
@@ -19,13 +27,21 @@ modules.define('g-pagination', ['i-bem__dom', 'jquery', 'location'], function(pr
                             setTimeout(function () {
                                 goods.append(data);
                                 pending = false;
-                                spin_down.css("display", "none");
+                                $('#down').css("display", "none");
                             }, 3000);
                             location.change({ params: { page: that.params.currentPage + 1 } });
                             window.location.href;
                         });
                     } else if (body.scrollTop <= 0) {
-                        spin_up.css("display", "inline-block");
+                        BEMDOM.append(
+                            goods.elem('up-spin'),
+                            BEMHTML.apply({
+                                block: 'g-spin',
+                                mods: { theme : 'islands', size : 'xl', visible : true },
+                                attrs: { id: 'up' }
+                            })
+                        );
+                        $('#up').css("display", "inline-block");
                         if (pending) {
                             return;
                         }
@@ -34,7 +50,7 @@ modules.define('g-pagination', ['i-bem__dom', 'jquery', 'location'], function(pr
                             setTimeout(function () {
                                 goods.prepend(data);
                                 pending = false;
-                                spin_up.css("display", "none");
+                                $('#up').css("display", "none");
                             }, 3000);
                             location.change({ params: { page: that.params.currnetPage - 1 }});
                         });

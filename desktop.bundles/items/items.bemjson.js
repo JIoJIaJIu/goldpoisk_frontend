@@ -269,7 +269,7 @@
                         }
                     ]
                 }, {
-                    block: 'g-pagination',
+                    block: 'g-paginator',
                     totalPages: 7,
                     currentPage: 2,
                     url: '#'

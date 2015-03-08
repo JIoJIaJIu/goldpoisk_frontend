@@ -1,4 +1,4 @@
-block('g-pagination')(
+block('g-paginator')(
     js()(function () {
         return {
             totalPages: this.ctx.totalPages,
