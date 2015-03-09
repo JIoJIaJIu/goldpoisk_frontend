@@ -93,7 +93,7 @@ pages['index'] = function (data, env) {
 }
 /**
  * data.menu
- * data.products
+ * {String} !data.products
  */
 
 pages['category'] = function (data, env) {
@@ -110,8 +110,10 @@ pages['category'] = function (data, env) {
                 },
 
                 blocks['g-goods']({
-                    list: data.products
-                }, {js: true})
+                    list: JSON.parse(data.products)
+                }, {js: true}),
+
+                blocks['g-pagination'](data.paginator)
             ]
         }
     }, env)
@@ -136,4 +138,9 @@ pages['item'] = function (data, env) {
             ]
         }
     }, env)
+}
+
+function assertHas (obj, key, message) {
+    if (!obj[key])
+        throw new Error(message);
 }
