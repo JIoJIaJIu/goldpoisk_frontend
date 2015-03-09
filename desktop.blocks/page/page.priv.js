@@ -111,7 +111,7 @@ pages['category'] = function (data, env) {
 
                 blocks['g-goods']({
                     list: JSON.parse(data.products)
-                }, {js: true}),
+                }, {js: true, sorting: true}),
 
                 blocks['g-paginator'](data.paginator)
             ]
