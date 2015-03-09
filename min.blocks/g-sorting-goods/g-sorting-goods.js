@@ -6,7 +6,8 @@ modules.define('g-sorting-goods', ['i-bem__dom', 'jquery'], function(provide, BE
             this.setMod(this.elem('param'), 'selected', false);
             this.setMod(_target, 'selected', true);
             goods.setMod('loading', true);
-            $.getJSON('http://localhost:3000/sortparam', function sort (data) {
+            var url = this.elemParams('param').url
+            $.getJSON(url, function sort (data) {
                 setTimeout(function () {
                     goods.update(data);
                     goods.setMod('loading', false);

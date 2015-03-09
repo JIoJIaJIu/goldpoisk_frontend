@@ -7,11 +7,12 @@ blocks['g-goods'] = function (data, env) {
 
     var block = {
         block: 'g-goods',
-        content: list
+        content: list,
     }
 
-    if (env && env.sorting)
+    if (data.sortParams)
         block.mods = { 'sorting': true }
+        block.sortParams = data.sortParams
 
     return block
 }

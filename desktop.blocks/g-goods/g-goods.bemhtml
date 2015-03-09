@@ -4,7 +4,7 @@ block('g-goods')(
             return [
                 {
                     block: 'g-sorting-goods',
-                    content: this.ctx.sortParams || ['Сначала дорогие', 'Сначала дешёвые', 'По алфавиту']
+                    content: this.ctx.sortParams
                 }, {
                     elem: 'up-spin',
                 }, {
