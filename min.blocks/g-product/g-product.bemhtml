@@ -44,7 +44,7 @@ block('g-product')(
             {
                 elem: 'store',
                 tag: 'a',
-                attrs: { href: this.ctx.storeUrl },
+                attrs: { "href": this.ctx.storeUrl, "target": "_blank" },
                 content: this.ctx.store
             }, {
                 block: 'g-price',
