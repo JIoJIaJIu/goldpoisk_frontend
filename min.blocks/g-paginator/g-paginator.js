@@ -1,4 +1,4 @@
-modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], function(provide, BEMDOM, $, location) {
+modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], function(provide, BEMDOM, $, location, config) {
     BEMDOM.decl('g-paginator', {
         onSetMod: {
             'js': function () {
@@ -7,7 +7,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                 var body = document.body;
                 var pending = false;
 
-                this.REST = config.REST[type];
+                this.REST = config.REST.rings;
 
                 $(window).scroll(function(e) {
                     if (body.scrollHeight - body.scrollTop - $(window).height() <= 0) {
@@ -24,8 +24,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                             return;
                         }
                         pending = true;
-                        $.getJSON(this.REST.list, {
-                            page: that.params.currentPage + 1;
+                        $.getJSON(that.REST.list, {
+                            page: that.params.currentPage + 1
                         }, function success(data) {
                             setTimeout(function () {
                                 goods.append(data);
@@ -48,7 +48,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                             return;
                         }
                         pending = true;
-                        $.getJSON(this.REST.list, {
+                        $.getJSON(that.REST.list, {
                             page: that.params.currentPage - 1
                         }, function success (data) {
                             setTimeout(function () {
