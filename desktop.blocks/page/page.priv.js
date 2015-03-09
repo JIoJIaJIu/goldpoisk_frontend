@@ -113,7 +113,7 @@ pages['category'] = function (data, env) {
                     list: JSON.parse(data.products)
                 }, {js: true}),
 
-                blocks['g-pagination'](data.paginator)
+                blocks['g-paginator'](data.paginator)
             ]
         }
     }, env)
