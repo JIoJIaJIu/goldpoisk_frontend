@@ -7,6 +7,7 @@ var BEM = B.api;
 var levels = [
     'bem-core/common.blocks',
     'bem-core/desktop.blocks',
+    'bem-history/common.blocks',
     'common.blocks',
     'lib.blocks',
     'min.blocks',
