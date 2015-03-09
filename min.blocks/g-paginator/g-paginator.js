@@ -33,7 +33,6 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                                 $('#down').css("display", "none");
                             }, 3000);
                             location.change({ params: { page: that.params.currentPage + 1 } });
-                            window.location.href;
                         });
                     } else if (body.scrollTop <= 0) {
                         BEMDOM.append(

@@ -11,16 +11,14 @@ block('g-paginator')(
         var url = this.ctx.url;
         var list = new Array(totalPages);
         for (var i = 1, length = totalPages; i <= length; i++) {
-            list[i] = i;
-        }
-        return list.map(function(item, i) {
-            return {
+            list[i] = {
                 elem: 'page-item',
-                mods: i + 1 == currentPage ? { current: true } : null,
+                mods: i == currentPage ? { current: true } : null,
                 tag: 'a',
-                attrs: { href: url + '?page=' + item },
-                content: item
-            }
-        })
+                attrs: { "href": url + '?page=' + i },
+                content: i
+            };
+        }
+        return list;
     })
 )
