@@ -37,11 +37,7 @@ pages['index'] = function (data, env) {
             {
                 block: 'g-promotion',
                 js: 'true',
-                images: [
-                    '/media/promotion/promotion_01.jpg',
-                    '/media/promotion/promotion_02.jpg',
-                    '/media/promotion/promotion_03.jpg'
-                ]
+                images: data.promo
             }, {
                 block: 'g-pride',
                 content: [
