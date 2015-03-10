@@ -35,6 +35,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                                 currentPage = nextPage;
                         });
                     } else if (body.scrollTop <= 0) {
+                        //TODO:
+                        return;
                         BEMDOM.append(
                             goods.elem('up-spin'),
                             BEMHTML.apply({
