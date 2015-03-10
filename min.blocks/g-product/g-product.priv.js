@@ -24,9 +24,9 @@ blocks['g-product'] = function (data, env) {
 	var block = {
 		block: 'g-product',
 		mods: {
-			action: data.action ? 'yes' : false,
-			hit: data.hit ? 'yes' : false,
-			like: data.like ? 'yes' : false
+			action: data.action ? true : false,
+			hit: data.hit ? true : false,
+			like: data.like ? true : false
 		},
 		url: data.url,
 		title: data.title,

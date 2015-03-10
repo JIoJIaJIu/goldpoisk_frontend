@@ -52,7 +52,7 @@
 }
 
 .g-product__title:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .g-product__title-gradient {
@@ -110,11 +110,11 @@
    left: 16px; bottom: 8px;
 }
 
-.g-product.g-product_action_yes .g-price {
+.g-product.g-product_action .g-price {
     color: #cb3e3e;
 }
 
-.g-product_action_yes .g-product__marker {
+.g-product_action .g-product__marker {
     position: absolute;
     top: -1px;
     right: -1px;
@@ -123,7 +123,7 @@
     background-image: url('./images/redang.png');
 }
 
-.g-product_hit_yes .g-product__marker {
+.g-product_hit .g-product__marker {
     position: absolute;
     top: -1px;
     right: -1px;

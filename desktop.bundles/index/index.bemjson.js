@@ -174,7 +174,7 @@
                             content: [
                                 {
                                     block: 'g-product',
-                                    mods: { like: 'yes', action: 'yes' },
+                                    mods: { like: true, action: true },
                                     url: '#',
                                     title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                                     imageUrl: '../../desktop.blocks/g-goods/images/good.png',
@@ -185,7 +185,7 @@
                                     storeUrl: '#'
                                 }, {
                                     block: 'g-product',
-                                    mods: { like: 'yes', action: 'yes' },
+                                    mods: { like: true, hit: true },
                                     url: '#',
                                     title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                                     imageUrl: '../../desktop.blocks/g-goods/images/good.png',
@@ -196,7 +196,6 @@
                                     storeUrl: '#'
                                 }, {
                                     block: 'g-product',
-                                    mods: { like: 'yes', action: 'yes' },
                                     url: '#',
                                     title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                                     imageUrl: '../../desktop.blocks/g-goods/images/good.png',
@@ -207,7 +206,7 @@
                                     storeUrl: '#'
                                 }, {
                                     block: 'g-product',
-                                    mods: { like: 'yes', action: 'yes' },
+                                    mods: { like: false, action: true },
                                     url: '#',
                                     title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                                     imageUrl: '../../desktop.blocks/g-goods/images/good.png',

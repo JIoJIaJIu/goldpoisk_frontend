@@ -3,7 +3,7 @@ block('g-product')(
         return [
             {
                 block: 'g-like',
-                mods: {state : this.ctx.mods.like == 'yes' ? 'checked' : null }
+                mods: {state : this.ctx.mods.like ? 'checked' : null }
             }, {
                 elem: 'link',
                 tag: 'a',
