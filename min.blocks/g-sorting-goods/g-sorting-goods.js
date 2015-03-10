@@ -6,13 +6,16 @@ modules.define('g-sorting-goods', ['i-bem__dom', 'jquery'], function(provide, BE
             this.setMod(this.elem('param'), 'selected', false);
             this.setMod(_target, 'selected', true);
             goods.setMod('loading', true);
-            $.getJSON('http://localhost:3000/sortparam', function sort (data) {
+            //TODO:
+            var url = $(e.target).data('bem')['g-sorting-goods__param'].url;
+
+            $.getJSON(url, function sort (data) {
                 setTimeout(function () {
                     goods.update(data);
                     goods.setMod('loading', false);
                 }, 3000);
             })
-        }       
+        }
     }, {
         live: function () {
             this.liveBindTo('param', 'click', function(e) {

@@ -1,3 +1,8 @@
 .g-paginator_js_inited {
     display: none;
 }
+
+.g-paginator__page-item {
+    display: inline-block;
+    margin: 0 3px;
+}

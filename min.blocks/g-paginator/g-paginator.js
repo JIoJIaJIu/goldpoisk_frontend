@@ -6,8 +6,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                 var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                 var body = document.body;
                 var pending = false;
-
-                this.REST = config.REST.rings;
+                var config = this.params.config;
+                var currentPage = parseInt(this.params.currentPage, 10);
 
                 $(window).scroll(function(e) {
                     if (body.scrollHeight - body.scrollTop - $(window).height() <= 0) {
@@ -24,17 +24,19 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                             return;
                         }
                         pending = true;
-                        $.getJSON(that.REST.list, {
-                            page: that.params.currentPage + 1
+                        var nextPage = currentPage + 1;
+                        $.getJSON(config.HTTP.list, {
+                            page: nextPage
                         }, function success(data) {
-                            setTimeout(function () {
                                 goods.append(data);
                                 pending = false;
                                 $('#down').css("display", "none");
-                            }, 3000);
-                            location.change({ params: { page: that.params.currentPage + 1 } });
+                                location.change({ params: { page: nextPage } });
+                                currentPage = nextPage;
                         });
                     } else if (body.scrollTop <= 0) {
+                        //TODO:
+                        return;
                         BEMDOM.append(
                             goods.elem('up-spin'),
                             BEMHTML.apply({
@@ -48,15 +50,15 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                             return;
                         }
                         pending = true;
-                        $.getJSON(that.REST.list, {
-                            page: that.params.currentPage - 1
+                        var prevPage = currentPage - 1 || 1;
+                        $.getJSON(config.HTTP.list, {
+                            page: prevPage
                         }, function success (data) {
-                            setTimeout(function () {
                                 goods.prepend(data);
                                 pending = false;
                                 $('#up').css("display", "none");
-                            }, 3000);
-                            location.change({ params: { page: that.params.currnetPage - 1 }});
+                                location.change({ params: { page: prevPage }});
+                                currentPage = prevPage;
                         });
                     }
                 });

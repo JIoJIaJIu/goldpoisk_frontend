@@ -2,7 +2,8 @@ block('g-paginator')(
     js()(function () {
         return {
             totalPages: this.ctx.totalPages,
-            currentPage: this.ctx.currentPage
+            currentPage: this.ctx.currentPage,
+            config: this.ctx.config
         };
     }),
     content()(function () {

@@ -37,11 +37,7 @@ pages['index'] = function (data, env) {
             {
                 block: 'g-promotion',
                 js: 'true',
-                images: [
-                    '/media/promotion/promotion_01.jpg',
-                    '/media/promotion/promotion_02.jpg',
-                    '/media/promotion/promotion_03.jpg'
-                ]
+                images: data.promo
             }, {
                 block: 'g-pride',
                 content: [
@@ -93,7 +89,7 @@ pages['index'] = function (data, env) {
 }
 /**
  * data.menu
- * data.products
+ * {String} !data.products
  */
 
 pages['category'] = function (data, env) {
@@ -110,8 +106,11 @@ pages['category'] = function (data, env) {
                 },
 
                 blocks['g-goods']({
-                    list: data.products
-                }, {js: true})
+                    list: JSON.parse(data.products),
+                    sortParams: data.sortParams
+                }, {js: true}),
+
+                blocks['g-paginator'](data.paginator)
             ]
         }
     }, env)
@@ -136,4 +135,9 @@ pages['item'] = function (data, env) {
             ]
         }
     }, env)
+}
+
+function assertHas (obj, key, message) {
+    if (!obj[key])
+        throw new Error(message);
 }
