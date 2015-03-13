@@ -1,0 +1,24 @@
+block('g-store-info')(
+    content()(function () {
+        return [
+            {
+                block: 'g-store-info-item',
+                mods: { 'type': 'website' },
+                url: this.ctx.content.url,
+                content: this.ctx.content.website
+            }, {
+                block: 'g-store-info-item',
+                mods: { 'type': 'address' },
+                content: this.ctx.content.address
+            }, {
+                block: 'g-store-info-item',
+                mods: { 'type': 'phone' },
+                content: this.ctx.content.phone
+            }, {
+                block: 'g-store-info-item',
+                mods: { 'type': 'opening-hours' },
+                content: this.ctx.content.openingHours
+            }
+        ]
+    })
+)
