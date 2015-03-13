@@ -1,0 +1,50 @@
+.g-button {
+    display: inline-block;
+    font-family: 'Din-Text-Pro_Regular', 'Arial', sans-serif;
+    font-size: 18px;
+    color: #3c2424;
+    line-height: 31px;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 1.5px;
+    height: 31px;
+    border: 1px solid #bd9200;
+    border-radius: 5px;
+    background: #fff;
+    padding: 0 13px;
+    cursor: pointer;
+}
+
+.g-button:hover {
+    background-color: #deac00;
+}
+
+.g-button_display_none {
+    display: none;
+}
+
+.g-button_type_gray {
+    border-color: #b1b1b1;
+}
+
+.g-button_type_gray:hover {
+    background: none;
+}
+
+.g-button_close {
+    position: absolute;
+    width: 16px; 
+    height: 16px;
+    background: url('/images/sprite.png') -41px -194px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+.g-button_close:hover {
+    background: url('/images/sprite.png') -41px -194px;
+}
+
+.g-button_close:focus {
+    outline: 1px dotted #aaa;
+}

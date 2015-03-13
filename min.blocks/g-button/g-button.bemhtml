@@ -1,9 +1,0 @@
-block('g-button')(
-    tag()('a'),
-    attrs()(function () {
-        return {
-            href: this.ctx.href || '#',
-            target: (this.ctx.newPage) ? '_blank' : null
-        }
-    })
-)
