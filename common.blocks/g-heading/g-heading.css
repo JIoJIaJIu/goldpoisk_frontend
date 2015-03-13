@@ -21,4 +21,12 @@
     color: #3c2424;
     font-size: 36px;
     text-decoration: none;
+    border-bottom: none;
+}
+
+.g-heading_size_m {
+    font-size: 30px;
+    text-decoration: none;
+    border-bottom: none;
+    color: #3c2424;
 }
