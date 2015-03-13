@@ -88,6 +88,10 @@
                 }
             ]
         }, {
+            block: 'g-button',
+            mods: { prev: true },
+            content: 150
+        }, {
             block: 'g-content',
             content: [
                 {

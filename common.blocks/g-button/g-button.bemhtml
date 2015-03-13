@@ -8,5 +8,15 @@ block('g-button')(
                 target: (this.ctx.newPage) ? '_blank' : null
             }
         })
+    ),
+    mod('prev', true)(
+        content()(function () {
+            var count = this.ctx.content.toString();
+            var last = count[count.length - 1];
+            return {
+                tag: 'p',
+                content: (last == '1' ? 'Предыдущий ' : 'Предыдущие ') + count + (last == '1' ? ' товар' : last == '2' || last == '3' || last == '4' ? ' товара' : ' товаров')
+            };
+        })
     )
 )
