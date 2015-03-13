@@ -3,7 +3,11 @@
 }
 
 .g-content .g-breadcrumbs {
-    margin: 17px 0 17px 0;
+    margin: 17px 0;
+}
+
+.g-content_wide .g-breadcrumbs {
+    margin: 17px 2%;
 }
 
 .g-content .g-section.g-section_type_slogan {
@@ -24,4 +28,8 @@
 
 .g-content .g-category-title {
     margin: 17px 0 20px 0;
+}
+
+.g-content_wide {
+    margin: 0;
 }
