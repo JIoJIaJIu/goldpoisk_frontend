@@ -1,0 +1,78 @@
+block('g-store-info-item')(
+    tag()('section'),
+    content()(function () {
+        return [
+            {
+                tag: 'header',
+                content: [
+                    {
+                        elem: 'icon',
+                        tag: 'span'
+                    }, {
+                        elem: 'title',
+                        tag: 'h1'
+                    }
+                ]
+            }, {
+                elem: 'content',
+                url: this.ctx.url,
+                content: this.ctx.content
+            }
+        ];
+    }),
+    mod('type', 'website')(
+        elem('title')(
+            content()(function () {
+                return 'Официальный магазин';
+            })
+        ),
+        elem('content')(
+            tag()('a'),
+            attrs()(function () {
+                return { href: this.ctx.url };
+            }),
+            content()(function () {
+                return this.ctx.content;
+            })
+        )
+    ),
+    mod('type', 'address')(
+        elem('title')(
+            content()(function () {
+                return 'Центральный магазин';
+            })
+        ),
+        elem('content')(
+            tag()('a'),
+            attrs()(function () {
+                return { href: this.ctx.content.url };
+            }),
+            content()(function () {
+                return 'г. ' + this.ctx.content.city + ', ' + this.ctx.content.street + ', ' + this.ctx.content.center + ', ' + this.ctx.content.underground;
+            })
+        )
+    ),
+    mod('type', 'phone')(
+        elem('title')(
+            content()(function () {
+                return 'Телефон';
+            })
+        ),
+        elem('content')(
+            tag()('p')
+        )
+    ),
+    mod('type', 'opening-hours')(
+        elem('title')(
+            content()(function () {
+                return 'Часы работы магазина'
+            })
+        ),
+        elem('content')(
+            tag()('p'),
+            content()(function () {
+                return this.ctx.content.workdays + ' с ' + this.ctx.content.from + ' до ' + this.ctx.content.to + '<br/>' + this.ctx.content.holidays + ' - выходной';
+            })
+        )
+    )
+)

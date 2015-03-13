@@ -1,0 +1,71 @@
+.g-store-info-item {
+    display: table-cell;
+    width: 25%;
+}
+
+.g-store-info-item__icon {
+    display: inline-block;
+    background-image: url('/images/sprite.png');
+    vertical-align: top;
+}
+
+.g-store-info-item__title {
+    display: inline-block;
+    font-family: 'Din-Text-Pro_Thin', 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+    color: #3c2424;
+    margin: 0 0 0 15px;
+    vertical-align: bottom;
+}
+
+.g-store-info-item__content {
+    padding: 5px 50px 24px 25px;
+    font-family: 'Clear-Sans_Light', 'Arial', sans-serif;
+    font-size: 14px;
+}
+
+.g-store-info-item_type_website .g-store-info-item__content {
+    display: inline-block;
+    color: #a07472;
+    margin-left: 17.5px;
+}
+
+.g-store-info-item_type_address .g-store-info-item__content {
+    display: inline-block;
+    color: #ca9f9f;
+    text-decoration: underline;
+}
+
+.g-store-info-item_type_phone .g-store-info-item__content {
+    font-size: 16px;
+    color: #3c2424;
+}
+
+.g-store-info-item_type_opening-hours .g-store-info-item__content {
+    margin-left: 15px;
+}
+
+.g-store-info-item_type_website .g-store-info-item__icon {
+    width: 24px;
+    height: 21px;
+    background-position: -78px -170px;
+}
+
+.g-store-info-item_type_address .g-store-info-item__icon {
+    width: 14px;
+    height: 21px;
+    background-position: -102px -170px;
+}
+
+.g-store-info-item_type_phone .g-store-info-item__icon {
+    width: 19px;
+    height: 19px;
+    background-position: -116px -170px;
+}
+
+.g-store-info-item_type_opening-hours .g-store-info-item__icon {
+    width: 21px;
+    height: 21px;
+    background-position: -135px -170px;
+}
