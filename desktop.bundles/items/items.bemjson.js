@@ -17,6 +17,7 @@
     content: [
         {
             block: 'g-header',
+            js: true,
             content: [
                 {
                     block: 'g-logo',
