@@ -18,3 +18,5 @@ desktop.bundles/items/**
 desktop.bundles/item/**
 !desktop.bundles/item/item.bemjson.js
 desktop.bundles/merge/**
+desktop.bundles/store/**
+!desktop.bundles/store/store.bemjson.js
