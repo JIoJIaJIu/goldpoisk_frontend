@@ -10,18 +10,27 @@ block('g-logo')(
                     {
                         elem: 'gold',
                         tag: 'span'
-                    },
-                    {
+                    }, {
                         elem: 'poisk',
                         tag: 'span'
                     }
                 ]
-            },
-            {
+            }, {
                 elem: 'description',
                 tag: 'div',
                 content: this.ctx.description
             }
         ]
-    })
+    }),
+    mod('store', true)(
+        tag()('a'),
+        attrs()(function () {
+            return {
+                href: '/'
+            };
+        }),
+        content()(function () {
+            return null;
+        })
+    )
 )

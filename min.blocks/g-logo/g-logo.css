@@ -49,3 +49,15 @@
 .g-logo_color_theme_xmas .g-logo__right-side {
     background-color: green;
 }
+
+.g-logo_store {
+    display: inline-block;
+    margin: 0;
+}
+
+.g-logo_store-name_sunlight {
+    display: inline-block;
+    width: 133px;
+    height: 30px;
+    background: url('images/sunlight.png');
+}
