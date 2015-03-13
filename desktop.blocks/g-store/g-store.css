@@ -1,0 +1,66 @@
+.g-store__header {
+    padding: 20px 2%;
+}
+
+.g-store__header .g-logo {
+    vertical-align: middle;
+}
+
+.g-store__header .g-heading {
+    margin-left: 30px;
+}
+
+.g-store__description {
+    font-family: 'Clear-Sans_Light', 'Arial', sans-serif;
+    font-size: 14px;
+    color: #777;
+    width: 700px;
+    padding: 0 2% 40px;
+}
+
+.g-store__map #map {
+    height: 415px;
+    background-color: #777;
+    margin: 15px 0 50px;
+}
+
+.g-store__map .g-heading, .g-store__branch .g-heading, .g-store .g-bids {
+    padding: 0 2%;
+}
+
+.g-store__branch {
+    padding-bottom: 50px;
+}
+
+.g-store__branch div{
+    height: 260px;
+    background-color: #aaa;
+    margin: 15px 0 50px;
+}
+
+.g-store .g-store-info {
+    padding: 20px 2%;
+}
+
+.g-store__catalog-marker {
+    position: relative;
+    background-color: #e4e4e4;
+    padding: 17px 2% 14px;
+}
+
+.g-store__catalog-marker .g-logo {
+    vertical-align: middle;
+}
+
+.g-store__catalog-marker .g-heading {
+    color: #3c2424;
+    vertical-align: bottom;
+    line-height: 30px;
+    border: none;
+    margin-left: 25px;
+}
+
+.g-store .g-button_close {
+    top: 22.5px;
+    right: 25px;
+}
