@@ -1,27 +1,31 @@
+/**
+ *  @param {Object} data
+ *    @key {String} title
+ *    @key {Number} number, article of item
+ *    @key {String} url
+ *    @key {String} [jsonUrl], json data about item, required with js=true
+ *    @key {String} image, url to main image
+ *    @key {String} weight
+ *    @key {String} carat
+ *    @key {Number} count, count of items
+ *    @key {Boolean} [newPage] open in new page or not, default: true
+ *
+ *    @key {Boolean} [action]
+ *    @key {Boolean} [hit]
+ *    @key {String} [tape]
+ *    @key {Boolean} [like]
+ *
+ *    @key {Array} items
+ *      @of {Object} item
+ *        @key {Integer} price
+ *		  @key {String} store
+ *		  @key {String} storeUrl
+ *		  @key {String} buyUrl buy url for item
+ *
+ *	@param {Object} env
+ *	  @key {Boolean} js, enable javascript on this node or not
+ **/
 blocks['g-product'] = function (data, env) {
-	/**
-	 *		@param
-	 *		@key {String} title
-	 *		@key {Number} number, article of item
-	 *		@key {String} url
-	 *		@key {String} image, url to main image
-	 *		@key {String} weight
-	 *		@key {String} carat
-     *		@key {Number} count, count of items
-	 *		@key {Boolean} [newPage] open in new page or not, default: true
-     *		
-	 *		@key {bool} [action]
-	 *		@key {bool} [hit]
-	 *		@key {string} [tape]
-	 *		@key {bool} [like]
-     *
-     *      @key {Array} items
-     *		    @of {Object} item
-	 *		        @key {integer} price
-	 *		        @key {string} store
-	 *		        @key {string} storeUrl
-	 *		        @key {String} buyUrl buy url for item
-	 **/
     assertHas(data, 'title', 'Should be pointed title');
     assertHas(data, 'number', 'Should be pointed number');
     assertHas(data, 'url', 'Should be pointed url');
@@ -50,31 +54,12 @@ blocks['g-product'] = function (data, env) {
         block.store = data.shopName;
         block.buyUrl = data.buyUrl;
     }
-    /*
+
     if (env.js) {
-        var features = [];
-        block.js = {
-            title: data.title,
-            features: features,
-            images: data.images,
-            item: data.item
-        }
-
-        features.push({
-            'Артикул': data.number
-        });
-
-        if (data.weight)
-            features.push({
-                'Вес': data.weight
-            });
-
-        if (data.carat)
-            features.push({
-                'Карат': data.carat
-            })
+        assertHas(data, 'jsonUrl', 'Should be pointed json url');
+        block.js = true;
+        block.jsonUrl = data.jsonUrl;
     }
-    */
 
     return block;
 }

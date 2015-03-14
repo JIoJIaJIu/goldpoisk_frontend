@@ -1,4 +1,12 @@
 block('g-product')(
+    js()(function () {
+        if (!this.ctx.js)
+            return false;
+
+        return {
+            url: this.ctx.jsonUrl
+        }
+    }),
     content()(function() {
         return [
             {

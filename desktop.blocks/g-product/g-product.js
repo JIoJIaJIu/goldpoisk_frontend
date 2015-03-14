@@ -1,4 +1,4 @@
-modules.define('g-product', ['i-bem__dom'], function (provide, BEMDOM) {
+modules.define('g-product', ['i-bem__dom', 'jquery'], function (provide, BEMDOM, $) {
 
 BEMDOM.decl('g-product', {
     onSetMod: {
@@ -13,9 +13,24 @@ BEMDOM.decl('g-product', {
                     return;
                 }
 
-                that.__self.showExpanded.call(this);
+                that._getData(function (data) {
+                    that.__self.showExpanded.call(that, data);
+                });
             });
         }
+    },
+
+    _getData: function (cb) {
+        var that = this;
+
+        if (this.data)
+            return cb(null, data);
+
+        $.getJSON(this.params.url, function (json) {
+            console.log('data', json);
+            that.data = json;
+            cb(null, json);
+        })
     },
 
     /**
@@ -88,9 +103,10 @@ BEMDOM.decl('g-product', {
         return this.__self.expanded;
     },
 
-    showExpanded: function () {
+    showExpanded: function (data) {
         var expanded = this.__self.getExpanded.call(this);
         this._reposition(expanded);
+        return;
 
         var params = this.params;
         expanded.show(this.domElem);
