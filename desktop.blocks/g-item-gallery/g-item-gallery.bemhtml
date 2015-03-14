@@ -1,11 +1,14 @@
 var currIndex;
 block('g-item-gallery')(
+    js()(function () {
+        return true;
+    }),
     elem('title')(
         content()(function () {
             currIndex = this.ctx.current;
             return {
                 tag: 'h1',
-                content: this.ctx.title + ' ' + (this.ctx.current + 1) + ' из ' + (this.ctx.count + 1)
+                content: this.ctx.title + ' ' + (this.ctx.current + 1) + ' из ' + (this.ctx.count)
             }
         })
     ),
@@ -33,11 +36,18 @@ block('g-item-gallery')(
                 {
                     block: 'image',
                     tag: 'img',
-                    attrs: { src: this.ctx.image }
+                    attrs: { src: this.ctx.image, u: 'image' }
                 }, {
                     elem: 'zoom'
                 }
             ]
         })
-    )
+    ),
+    content()(function () {
+        return {
+            elem: 'inner',
+            attrs: {u: 'slides'},
+            content: this.ctx.content
+        }
+    })
 )
