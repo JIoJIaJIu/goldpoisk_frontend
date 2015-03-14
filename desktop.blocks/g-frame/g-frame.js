@@ -1,4 +1,6 @@
-modules.define('g-frame', ['i-bem__dom'], function (provide, BEMDOM) {
+modules.define('g-frame', ['i-bem__dom', 'jquery'], function (provide, BEMDOM, $) {
+
+var ARROW_WIDTH = 38;
 
 BEMDOM.decl('g-frame', {
     onSetMod: {
@@ -11,8 +13,8 @@ BEMDOM.decl('g-frame', {
 
     show: function (node) {
         var offset = node.offset(); 
-        this._moveArrayAt(offset.left + node.width() / 2);
         this.setMod('showed', true);
+        this._moveArrayAt(offset.left + node.width() / 2 - this.domElem.offset().left - ARROW_WIDTH / 2);
         this._root = node;
     },
 
