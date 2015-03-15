@@ -1,14 +1,12 @@
 block('g-frame')(
     content()(function () {
-        return [
-            {
+        return [{
                 elem: 'arrow'
             }, {
                 elem: 'content',
                 content: applyNext()
             }, {
                 elem: 'close'
-            }
-        ]
+        }];
     })
 )

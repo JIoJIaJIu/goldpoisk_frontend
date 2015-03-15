@@ -5,7 +5,11 @@ var ARROW_WIDTH = 38;
 BEMDOM.decl('g-frame', {
     onSetMod: {
         js: function () {
+            var that = this;
             this._root = null;
+            this.bindTo('close', 'click', function () {
+                that.hide();
+            })
         },
 
         showed: function (mod, value) {}
@@ -13,6 +17,7 @@ BEMDOM.decl('g-frame', {
 
     show: function (node) {
         var offset = node.offset(); 
+        this._reposition(offset);
         this.setMod('showed', true);
         this._moveArrayAt(offset.left + node.width() / 2 - this.domElem.offset().left - ARROW_WIDTH / 2);
         this._root = node;
@@ -27,12 +32,27 @@ BEMDOM.decl('g-frame', {
         return this._root === node
     },
 
-    _moveArrayAt: function (x) {
-        this.elem('arrow').css('left', x + 'px');
+    _reposition: function (offset) {
+        var width = this.domElem.width();
+        var SHIFT = 200;
+
+        if (offset.left + SHIFT > width ) {
+            // need shift
+            parentWidth = this.domElem.parent().width();
+            if (parentWidth - width < offset.left) {
+                // move to right
+                this.domElem.css('left', (parentWidth - width) + 'px');
+            } else {
+                // move to mid
+                this.domElem.css('left', (offset.left - width / 2) + 'px');
+            }
+        } else {
+            this.domElem.css('left', 0);
+        }
     },
 
-    // move after node
-    _reposition: function (node) {
+    _moveArrayAt: function (x) {
+        this.elem('arrow').css('left', x + 'px');
     }
 }, {});
 

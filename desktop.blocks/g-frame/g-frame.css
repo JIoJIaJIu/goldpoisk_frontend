@@ -1,18 +1,20 @@
 .g-frame {
     position: relative;
+    display: none;
+}
+
+.g-frame_showed {
+    display: block;
+}
+
+.g-frame__inner {
     width: 850px;
     border-style: solid;
     border-width: 1px;
     border-color: rgb( 222, 172, 0 );
     box-shadow: inset 0px 2px 4px 1px #dadada;
     background-color: rgb( 255, 255, 255 );
-    transition: max-height 1s;
-    display: none;
     text-align: left;
-}
-
-.g-frame_showed {
-    display: block;
 }
 
 .g-frame__close {
