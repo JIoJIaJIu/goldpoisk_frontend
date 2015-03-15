@@ -55,7 +55,7 @@ blocks['g-product'] = function (data, env) {
         block.buyUrl = data.buyUrl;
     }
 
-    if (env.js) {
+    if (env && env.js) {
         assertHas(data, 'jsonUrl', 'Should be pointed json url');
         block.js = true;
         block.jsonUrl = data.jsonUrl;
