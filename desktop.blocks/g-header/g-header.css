@@ -35,6 +35,23 @@
 
 /*--- revolution of dictator ---*/
 
+.g-header_inner__up {
+    font-family: 'Din-Text-Pro_Thin', 'Arial', sans-serif;
+    font-size: 18px;
+    color: gray;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -11.5px;
+    right: 200px;
+}
+
+.g-header_inner__up:hover {
+    text-decoration: underline;
+    color: white;
+}
+
 .g-header_inner__desire {
     position: absolute;
     right: 20%;

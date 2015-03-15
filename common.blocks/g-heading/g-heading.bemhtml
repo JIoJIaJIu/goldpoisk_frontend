@@ -1,5 +1,5 @@
 block('g-heading')(
-	tag()('h2'),
+    tag()('h2'),
     match(this.ctx.url)(
         tag()('h2'),
         content()(function () {
