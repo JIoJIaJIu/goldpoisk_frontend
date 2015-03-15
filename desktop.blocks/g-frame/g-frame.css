@@ -1,13 +1,6 @@
 .g-frame {
     position: relative;
     display: none;
-}
-
-.g-frame_showed {
-    display: block;
-}
-
-.g-frame__inner {
     width: 850px;
     border-style: solid;
     border-width: 1px;
@@ -15,6 +8,10 @@
     box-shadow: inset 0px 2px 4px 1px #dadada;
     background-color: rgb( 255, 255, 255 );
     text-align: left;
+}
+
+.g-frame_showed {
+    display: block;
 }
 
 .g-frame__close {
