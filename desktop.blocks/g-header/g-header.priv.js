@@ -1,5 +1,5 @@
-blocks['g-header'] = function () {
-    return ({
+blocks['g-header'] = function (data, env) {
+    var block = {
         block: 'g-header',
         content: [
             {
@@ -37,5 +37,10 @@ blocks['g-header'] = function () {
                 content: []
             }
         ]
-    })
+    }
+
+    if (env && env.headerJs)
+        block.js = true;
+
+    return block;
 }

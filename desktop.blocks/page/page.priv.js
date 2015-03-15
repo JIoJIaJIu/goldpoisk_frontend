@@ -18,7 +18,7 @@ blocks['page'] = function (data, env) {
         mods: { theme: 'normal' },
 
         content: [
-            blocks['g-header'](),
+            blocks['g-header'](null, env),
             blocks['g-menu'](data.menu, env),
             data.content,
 
@@ -93,6 +93,9 @@ pages['index'] = function (data, env) {
  */
 
 pages['category'] = function (data, env) {
+    env = env || {};
+    env.headerJs = true;
+
     return blocks['page']({
         menu: data.menu,
 
@@ -113,7 +116,7 @@ pages['category'] = function (data, env) {
                 blocks['g-paginator'](data.paginator)
             ]
         }
-    }, env)
+    }, env);
 }
 
 /**
