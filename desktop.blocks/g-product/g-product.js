@@ -6,7 +6,18 @@ BEMDOM.decl('g-product', {
             var expanded = this.__self.getExpanded.call(this);
             var that = this;
 
+            var button = this.findBlockInside('g-button').domElem.get(0);
+            var store = this.elem('store').get(0);
+
+            //TODO: memory leaks
             this.bindTo('click', function (e) {
+                //TODO: improve
+                if (e.target === button)
+                    return;
+
+                if (e.target === store)
+                    return;
+
                 e.preventDefault();
                 if (expanded.openedOn(that.domElem)) {
                     that.__self.hideExpanded.call(that);
