@@ -21,6 +21,9 @@ block('g-item-gallery')(
                         block: 'image',
                         tag: 'li',
                         mods: index == currIndex ? { state: 'active' } : null,
+                        js: {
+                            src: image
+                        },
                         content: {
                             tag: 'img',
                             attrs: { src: image }
