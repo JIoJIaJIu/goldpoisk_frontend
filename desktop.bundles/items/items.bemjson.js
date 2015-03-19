@@ -39,8 +39,12 @@
                             content: 'Нет товаров в списке желаний'
                         }
                     ] 
-                }*/,
-                {
+                }*/, {
+                    elem: 'up',
+                    js: true,
+                    tag: 'p',
+                    content: 'В начало'
+                }, {
                     block: 'g-support',
                     content: [
                     ]
@@ -149,11 +153,6 @@
                         }, {
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
-                            js: { images: ['../../desktop.blocks/g-item-gallery/images/preview01.jpg',
-                                     '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
-                                     '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
-                                     '../../desktop.blocks/g-item-gallery/images/preview01.jpg'],
-                                  features: {} },
                             url: '#',
                             title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                             imageUrl: '/images/good.png',
