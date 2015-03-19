@@ -1,6 +1,5 @@
 ({
-    shouldDeps: [
-        {
+    shouldDeps: [{
             block: 'g-item'
         }, {
             block: 'g-heading'
@@ -12,6 +11,7 @@
             block: 'g-item-buy-in-shop'
         }, {
             block: 'yashare'
-        }
-    ]
+        }, {
+            block: 'g-dimmer'
+    }]
 })
