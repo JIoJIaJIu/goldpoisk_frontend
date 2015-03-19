@@ -8,7 +8,10 @@ block('g-frame')(
             }, {
                 elem: 'close'
             }, {
-                block: 'g-dimmer'
+                block: 'g-dimmer',
+                mods: {
+                    show: true
+                }
         }];
     })
 )
