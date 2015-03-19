@@ -54,9 +54,15 @@ app.get('/product/item', function (req, res) {
                 'storeUrl': '#'
             }
         ],
-    }
-    res.json(item);
-})
+    };
+    fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
+        if (err) throw err;
+        var privContext = vm.createContext();
+        vm.runInContext(data.toString(), privContext);
+        var bemjson = privContext.blocks['g-item'](item);
+        res.json(bemjson);
+    })
+});
 
 var server = app.listen(3000, function () {
     var host = server.address().address;
