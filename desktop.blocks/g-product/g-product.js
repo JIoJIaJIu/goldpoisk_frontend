@@ -41,6 +41,12 @@ BEMDOM.decl('g-product', {
             that.data = json;
             cb(null, json);
         })
+        .done(function () {
+            console.log('success');
+            var expanded = that.__self.getExpanded.call(that);
+            var dimmer = expanded.findBlockInside('g-dimmer');
+            setTimeout(function () {dimmer.delMod('show')}, 3000);
+        })
     },
 
     /**
@@ -114,9 +120,11 @@ BEMDOM.decl('g-product', {
     },
 
     showExpanded: function (data) {
+        console.log(data);
         var expanded = this.__self.getExpanded.call(this);
         this._reposition(expanded);
         expanded.show(this.domElem);
+        console.log(expanded);
         BEMDOM.update(expanded.elem('content'), BEMHTML.apply(data));
     },
 
