@@ -1,3 +1,11 @@
+/**
+ *  @param {Array} data
+ *    @of {Object} item
+ *      @key {String} href
+ *      @key {String} label
+ *      @key {String} type
+ *      @kye {Bool} [isActive]
+ **/
 blocks['g-menu'] = function (data, env) {
     return {
         block: 'g-menu',
