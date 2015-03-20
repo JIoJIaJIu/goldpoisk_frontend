@@ -42,6 +42,7 @@
 
 .g-item-gallery__main_image {
     position: relative;
+    width: 275px;
     height: 263px;
     float: right;
     padding: 10px 0 0 25px;
