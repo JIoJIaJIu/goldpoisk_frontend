@@ -33,6 +33,11 @@ blocks['g-header'] = function (data, env) {
                 ] 
             },*/
             {
+                elem: 'up',
+                js: true,
+                tag: 'p',
+                content: 'В начало'
+            }, {
                 block: 'g-support',
                 content: []
             }
