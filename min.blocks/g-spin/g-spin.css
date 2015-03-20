@@ -30,6 +30,22 @@
     }
 }
 
+@-moz-keyframes g-spin_theme_islands {
+    from {
+        color: #dead03;
+        -moz-transform: rotate(0);
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        color: #dead03;
+        -moz-transform: rotate(360deg);
+        opacity: 0.2;
+    }
+}
+
 .g-spin_theme_islands {
     position: absolute;
     display: none;
@@ -57,6 +73,7 @@
     position: relative;
     visibility: visible;
     -webkit-animation: 'g-spin_theme_islands' 1.5s infinite linear;
+    -moz-animation: g-spin_theme_islands 1.5s infinite linear;
     animation: g-spin_theme_islands 1.5s infinite linear;
     background: url("/images/spin.gif") no-repeat;
     background: linear-gradient(1deg,rgba(0,0,0,0),rgba(0,0,0,0));
