@@ -12,22 +12,22 @@ BEMDOM.decl('g-product', {
             //TODO: memory leaks
             this.bindTo('click', function (e) {
                 //TODO: improve
-                var dimmer = expanded.findBlockInside('g-dimmer');
-                $(".g-dimmer").addClass('g-dimmer_show');
-                    if (e.target === button)
+                if (e.target === button)
                     return;
 
                 if (e.target === store)
                     return;
-
                 e.preventDefault();
                 if (expanded.openedOn(that.domElem)) {
                     that.__self.hideExpanded.call(that);
                     return;
+                } else {
+                    $(".g-dimmer").addClass('g-dimmer_show');
+                    that.__self.showExpanded.call(that);
                 }
 
                 that._getData(function (err, data) {
-                    that.__self.showExpanded.call(that, data);
+                    that.__self.insertData.call(that, data);
                 });
             });
         }
@@ -68,7 +68,7 @@ BEMDOM.decl('g-product', {
         var index = Math.round(restWidth / boxWidth)
         var productBlocks = this._getProductBlocksToRight();
         var lastBlock;
-        if (index > productBlocks.length) {
+        if (index >= productBlocks.length) {
             lastBlock = productBlocks[productBlocks.length - 1];
         } else {
             lastBlock = productBlocks[index];
@@ -116,13 +116,15 @@ BEMDOM.decl('g-product', {
     },
 
     showExpanded: function (data) {
-        console.log(data);
         var expanded = this.__self.getExpanded.call(this);
         this._reposition(expanded);
         expanded.show(this.domElem);
-        console.log(expanded);
+    },
+
+    insertData: function (data) {
+        var expanded = this.__self.getExpanded.call(this);
         BEMDOM.update(expanded.elem('content'), BEMHTML.apply(data));
-        setTimeout(function () {$(".g-dimmer").removeClass('g-dimmer_show')}, 3000);
+        $(".g-dimmer").removeClass('g-dimmer_show');
     },
 
     hideExpanded: function (expanded) {

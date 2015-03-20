@@ -1,7 +1,7 @@
 .g-header {
     min-height: 104px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     transition: min-height 0.5s;
     -moz-transition: min-height 0.5s;
     -webkit-transition: min-height 0.5s;

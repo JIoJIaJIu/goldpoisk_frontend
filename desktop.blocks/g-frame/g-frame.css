@@ -8,6 +8,7 @@
     box-shadow: inset 0px 2px 4px 1px #dadada;
     background-color: rgb( 255, 255, 255 );
     text-align: left;
+    min-height: 400px;
 }
 
 .g-frame_showed {
@@ -24,6 +25,7 @@
     background-image: url('/images/sprite.png');
     background-position: -41px -194px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .g-frame__arrow {
