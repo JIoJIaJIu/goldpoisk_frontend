@@ -2,6 +2,7 @@ block('page').match(!this._done)(
     content()(function() {
         this._done = true;
         return [
+            this.ctx.scripts,
             {
                 elem: 'wrapper',
                 content: applyNext()
