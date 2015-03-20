@@ -8,9 +8,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                 var pending = false;
                 var config = this.params.config;
                 var currentPage = parseInt(this.params.currentPage, 10);
-
                 $(window).scroll(function(e) {
-                    if (body.scrollHeight - body.scrollTop - $(window).height() <= 0) {
+                    var bodyScrollTop = $(document).scrollTop();
+                    if (body.scrollHeight - bodyScrollTop - $(window).height() <= 0) {
                         BEMDOM.append(
                             goods.elem('down-spin'),
                             BEMHTML.apply({
@@ -28,11 +28,11 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                         $.getJSON(config.HTTP.list, {
                             page: nextPage
                         }, function success(data) {
-                                goods.append(data);
-                                pending = false;
-                                $('#down').css("display", "none");
-                                location.change({ params: { page: nextPage } });
-                                currentPage = nextPage;
+                            goods.append(data);
+                            pending = false;
+                            $('#down').css("display", "none");
+                            location.change({ params: { page: nextPage } });
+                            currentPage = nextPage;
                         });
                     } else if (body.scrollTop <= 0) {
                         //TODO:
