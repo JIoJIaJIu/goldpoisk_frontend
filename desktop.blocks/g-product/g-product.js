@@ -12,7 +12,9 @@ BEMDOM.decl('g-product', {
             //TODO: memory leaks
             this.bindTo('click', function (e) {
                 //TODO: improve
-                if (e.target === button)
+                var dimmer = expanded.findBlockInside('g-dimmer');
+                $(".g-dimmer").addClass('g-dimmer_show');
+                    if (e.target === button)
                     return;
 
                 if (e.target === store)
@@ -40,12 +42,6 @@ BEMDOM.decl('g-product', {
         $.getJSON(this.params.url, function (json) {
             that.data = json;
             cb(null, json);
-        })
-        .done(function () {
-            console.log('success');
-            var expanded = that.__self.getExpanded.call(that);
-            var dimmer = expanded.findBlockInside('g-dimmer');
-            setTimeout(function () {dimmer.delMod('show')}, 3000);
         })
     },
 
@@ -126,6 +122,7 @@ BEMDOM.decl('g-product', {
         expanded.show(this.domElem);
         console.log(expanded);
         BEMDOM.update(expanded.elem('content'), BEMHTML.apply(data));
+        setTimeout(function () {$(".g-dimmer").removeClass('g-dimmer_show')}, 3000);
     },
 
     hideExpanded: function (expanded) {

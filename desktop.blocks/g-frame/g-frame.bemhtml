@@ -9,9 +9,6 @@ block('g-frame')(
                 elem: 'close'
             }, {
                 block: 'g-dimmer',
-                mods: {
-                    show: true
-                }
         }];
     })
 )
