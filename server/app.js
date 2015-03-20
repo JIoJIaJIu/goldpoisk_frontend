@@ -22,8 +22,19 @@ app.get('/items', function (req, res) {
 })
 
 app.get('/success', function (req, res) {
-    var product = getProduct();
-    res.json(product);
+    var productJSON = getProduct();
+    fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
+        if (err) throw err;
+        var privContext = vm.createContext();
+        vm.runInContext(data.toString(), privContext);
+        bemjson = [];
+        console.log(productJSON);
+        for (var i = 0, length = productJSON.length; i < length; i++) {
+            console.log(productJSON[i]);
+            bemjson[i] = ( privContext.blocks['g-product'](productJSON[i]) );
+        }
+        res.json(bemjson);
+    })
 });
 
 app.get('/sortparam', function (req, res) {
@@ -60,7 +71,9 @@ app.get('/product/item', function (req, res) {
         var privContext = vm.createContext();
         vm.runInContext(data.toString(), privContext);
         var bemjson = privContext.blocks['g-item'](item);
-        res.json(bemjson);
+        setTimeout(function () {
+            res.json(bemjson);
+        }, 5000);
     })
 });
 
@@ -140,5 +153,5 @@ function renderItems (cb) {
 }
 
 function getProduct() {
-    return JSON.parse(fs.readFileSync('data/products.json'))[0]
+    return JSON.parse(fs.readFileSync('data/products.json'));//[0]
 }

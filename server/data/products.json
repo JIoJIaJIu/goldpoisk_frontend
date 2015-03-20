@@ -8,4 +8,14 @@
     "count": 1,
     "buyUrl": "#",
     "jsonUrl": "/product/item"
+}, {
+    "title": "Silver Lips",
+    "number": 4352,
+    "url": "#",
+    "image": "../../desktop.blocks/g-goods/images/good.png",
+    "weight": "0.55 грамм",
+    "carat": "0.15 карат",
+    "count": 1,
+    "buyUrl": "#",
+    "jsonUrl": "/product/item"
 }]
