@@ -2,11 +2,13 @@ modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
     BEMDOM.decl('g-header', {
         onSetMod: {
             'js': function () {
-
+                $.easing["easeOutCirc"] = function (x, t, b, c, d) {
+                    return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+                }
                 var inner = this.findBlockInside('g-header_inner');
                 inner.bindTo('up', 'click', function(e) {
                     console.log('click');
-                    window.scrollTo(0, 0);
+                    $("body").animate({scrollTop: 0}, '10000', 'easeOutCirc');
                 });
 
                 var self = this;
