@@ -12,6 +12,8 @@ BEMDOM.decl('g-product', {
             //TODO: memory leaks
             this.bindTo('click', function (e) {
                 //TODO: improve
+                var isRequested;
+
                 if (e.target === button)
                     return;
 
@@ -22,27 +24,40 @@ BEMDOM.decl('g-product', {
                     that.__self.hideExpanded.call(that);
                     return;
                 } else {
-                    $(".g-dimmer").addClass('g-dimmer_show');
                     that.__self.showExpanded.call(that);
                 }
 
-                that._getData(function (err, data) {
+                isRequested = that._getData(function (err, data) {
                     that.__self.insertData.call(that, data);
+                    $(".g-dimmer").removeClass('g-dimmer_show');
                 });
+
+                if (isRequested) {
+                    $(".g-dimmer").addClass('g-dimmer_show');
+                }
             });
         }
     },
 
     _getData: function (cb) {
+        /**
+         *  @param {Function} cb
+         *
+         *  @return {Boolean} requested
+         **/
         var that = this;
 
-        if (this.data)
-            return cb(null, this.data);
+        if (this.data) {
+            cb(null, this.data);
+            return false;
+        }
 
         $.getJSON(this.params.url, function (json) {
             that.data = json;
             cb(null, json);
         })
+
+        return true;
     },
 
     /**
@@ -124,7 +139,6 @@ BEMDOM.decl('g-product', {
     insertData: function (data) {
         var expanded = this.__self.getExpanded.call(this);
         BEMDOM.update(expanded.elem('content'), BEMHTML.apply(data));
-        $(".g-dimmer").removeClass('g-dimmer_show');
     },
 
     hideExpanded: function (expanded) {
