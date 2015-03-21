@@ -11,6 +11,9 @@ blocks['page'] = function (data, env) {
             { elem: 'css', url:  'css/index.css' }
         ],
         scripts: [
+            { elem: 'js', url: 'http://yastatic.net/jquery/2.1.3/jquery.min.js' },
+            { elem: 'js', url: 'http://goldpoisk.ru/js/third-parties/jssor.slider.min.js' },
+            { elem: 'js', url: 'http://goldpoisk.ru/js/third-parties/lodash.min.js' },
             { elem: 'js', url: 'js/index.bemhtml.js' },
             { elem: 'js', url: 'js/index.priv.js' },
             { elem: 'js', url: 'js/index.js' }
