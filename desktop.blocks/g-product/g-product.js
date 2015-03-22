@@ -12,8 +12,6 @@ BEMDOM.decl('g-product', {
             //TODO: memory leaks
             this.bindTo('click', function (e) {
                 //TODO: improve
-                var isRequested;
-
                 if (e.target === button)
                     return;
 
@@ -27,12 +25,12 @@ BEMDOM.decl('g-product', {
                     that.__self.showExpanded.call(that);
                 }
 
-                isRequested = that._getData(function (err, data) {
+                var requested = that._getData(function (err, data) {
                     that.__self.insertData.call(that, data);
                     $(".g-dimmer").removeClass('g-dimmer_show');
                 });
 
-                if (isRequested) {
+                if (requested) {
                     $(".g-dimmer").addClass('g-dimmer_show');
                 }
             });
@@ -88,7 +86,22 @@ BEMDOM.decl('g-product', {
         } else {
             lastBlock = productBlocks[index];
         }
+
+        // TODO: move to g-frame
+        // TODO: via ClientBoundingRect
+        var paddingTop = parseInt(this.domElem.css('paddingTop'), 10) || 0;
+        var paddingBottom = parseInt(this.domElem.css('paddingBottom'), 10) || 0;
+        var marginTop = parseInt(this.domElem.css('marginTop'), 10) || 0;
+        var marginBottom = parseInt(this.domElem.css('marginBottom'), 10) || 0;
+
+        var experimentallyCalculatedValue = 39;
+        var height = this.domElem.height() + paddingBottom + paddingTop + marginTop + marginBottom + experimentallyCalculatedValue;
+        var oldTop = this.domElem.offset().top;
+
         BEMDOM.after(lastBlock.domElem, expanded.domElem);
+
+        var offset = oldTop == this.domElem.offset().top ? 0 : -height;
+        this._offsetScroll(offset);
     },
 
     /**
@@ -114,6 +127,15 @@ BEMDOM.decl('g-product', {
             list.push(block);
         }
         return list;
+    },
+    /**
+     * TODO: refactoring
+     * Comment this
+     **/
+    _offsetScroll: function (offset) {
+        var difference = $("body").scrollTop() + offset;
+        if (offset != 0)
+            $("body").scrollTop(difference);
     }
 
 }, {
