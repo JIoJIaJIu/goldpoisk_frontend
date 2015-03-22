@@ -1,0 +1,72 @@
+.g-filter-param {
+    width: 166px;
+    padding: 18px 0 10px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.g-filter-param:last-child {
+    border-bottom: none;
+}
+
+.g-filter-param__title {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.g-filter-param__title_text {
+    font-family: 'Din-Text-Pro_Regular', 'Arial', sans-serif;
+    font-size: 16px;
+    color: #3c2424;
+    text-decoration: none;
+    border-bottom: 2px dotted #3c2424;
+    margin-left: 23px;
+    cursor: pointer;
+}
+
+.g-filter-param__title_arrow {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.g-filter-param .g-filter-param__title_arrow {
+    background: none;
+}
+
+.g-filter-param_state_open .g-filter-param__title_arrow, .g-filter-param_state_closed .g-filter-param__title_arrow {
+    background-image: url('/images/sprite.png');
+}
+
+.g-filter-param_state_closed .g-filter-param__title_arrow {
+    top: 5px;
+    left: 15px;
+    width: 4px;
+    height: 6px;
+    background-position: -58px -198px;
+}
+
+.g-filter-param_state_open .g-filter-param__title_arrow {
+    top: 7px;
+    left: 13px;
+    width: 6px;
+    height: 4px;
+    background-position: -57px -194px;
+}
+
+.g-filter-param_list.g-filter-param_state_closed .g-filter-param__content {
+    display: none;
+}
+
+.g-filter-param_list.g-filter-param_state_open .g-filter-param__content {
+    display: block;
+}
+
+.g-filter-param__content_more {
+    display: inline-block;
+    font-family: 'Clear-Sans', 'Arial', sans-serif;
+    font-size: 14px;
+    color: #a07472;
+    border-bottom: 2px dotted #a07472;
+    margin: 11px 0 14px 23px;
+    cursor: pointer;
+}

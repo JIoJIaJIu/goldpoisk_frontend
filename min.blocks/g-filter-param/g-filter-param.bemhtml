@@ -1,0 +1,58 @@
+block('g-filter-param')(
+    tag()('section'),
+    content()(function () {
+        return [
+            {
+                elem: 'title',
+                tag: 'h1',
+                content: [
+                    {
+                        elem: 'title_text',
+                        tag: 'span',
+                        content: this.ctx.title
+                    }
+                ]
+            }, {
+                elem: 'content',
+                content: 'Здесь всё что угодно кроме списков'
+            }
+        ]
+    }),
+    mod('list', true)(
+        content()(function () {
+            return [
+                {
+                    elem: 'title',
+                    tag: 'h1',
+                    content: [
+                        {
+                            elem: 'title_arrow',
+                            tag: 'span'
+                        }, {
+                            elem: 'title_text',
+                            tag: 'span',
+                            content: this.ctx.title
+                        }
+                    ]
+                }, {
+                    elem: 'content',
+                    content: [
+                        this.ctx.content instanceof Array ? this.ctx.content.map(function (item) {
+                            return {
+                                block: 'g-checkbox',
+                                label: item
+                            }
+                        }) : {
+                            elem: 'price',
+                            content: 'здесь цена'
+                        }, {
+                            elem: 'content_more',
+                            tag: 'span',
+                            content: this.ctx.more
+                        }
+                    ]
+                }
+            ]
+        })
+    )
+)
