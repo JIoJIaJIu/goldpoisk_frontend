@@ -8,7 +8,7 @@ modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
                 var inner = this.findBlockInside('g-header_inner');
                 inner.bindTo('up', 'click', function(e) {
                     console.log('click');
-                    $("body").animate({scrollTop: 0}, 10000, 'easeOutCirc');
+                    $("body").animate({scrollTop: 0}, 1000, 'easeOutCirc');
                 });
 
                 var self = this;
