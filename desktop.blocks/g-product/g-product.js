@@ -89,13 +89,16 @@ BEMDOM.decl('g-product', {
 
         // TODO: move to g-frame
         // TODO: via ClientBoundingRect
-        var paddingTop = parseInt(this.domElem.css('paddingTop'), 10) || 0;
-        var paddingBottom = parseInt(this.domElem.css('paddingBottom'), 10) || 0;
-        var marginTop = parseInt(this.domElem.css('marginTop'), 10) || 0;
-        var marginBottom = parseInt(this.domElem.css('marginBottom'), 10) || 0;
+        var frame = this.__self.getExpanded.call(this).domElem;
+        var paddingTop = parseInt(frame.css('paddingTop'), 10) || 0;
+        var paddingBottom = parseInt(frame.css('paddingBottom'), 10) || 0;
+        var marginTop = parseInt(frame.css('marginTop'), 10) || 0;
+        var marginBottom = parseInt(frame.css('marginBottom'), 10) || 0;
+        var borderTop = parseInt(frame.css('borderTop'), 10) || 0;
+        var borderBottom = parseInt(frame.css('borderBottom'), 10) || 0;
 
-        var experimentallyCalculatedValue = 39;
-        var height = this.domElem.height() + paddingBottom + paddingTop + marginTop + marginBottom + experimentallyCalculatedValue;
+        var height = frame.height() + paddingBottom + paddingTop + marginTop + marginBottom
+                        + borderTop + borderBottom;
         var oldTop = this.domElem.offset().top;
 
         BEMDOM.after(lastBlock.domElem, expanded.domElem);

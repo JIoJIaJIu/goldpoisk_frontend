@@ -1,5 +1,10 @@
-alljewel_frontend
-=================
+#Goldpoisk frontend
 
-`npm install`
-`./compile.sh`
+## Компиляция
+* `npm install`
+* `./compile.sh` или `node compile.js` (только для js techs)
+
+## Сервер
+* cd server
+* `npm install`
+* `node apps.js`
