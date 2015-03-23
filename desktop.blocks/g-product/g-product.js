@@ -22,6 +22,7 @@ BEMDOM.decl('g-product', {
                     that.__self.hideExpanded.call(that);
                     return;
                 } else {
+                    BEMDOM.destruct(expanded.elem('content'), true);
                     that.__self.showExpanded.call(that);
                 }
 
