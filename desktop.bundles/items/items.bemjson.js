@@ -118,6 +118,80 @@
                     title: 'Кольца',
                     count: '11 253'
                 }, {
+                    block: 'g-filter',
+                    tag: 'section',
+                    content: [{
+                            elem: 'title',
+                            tag: 'h1',
+                            content: 'Поиск по параметрам'
+                        }, {
+                            elem: 'list',
+                            content: [
+                                {
+                                    block: 'g-filter-param',
+                                    title: 'Цена',
+                                    content: 'some content'
+                                }, {
+                                    block: 'g-filter-param',
+                                    mods: { 'list': true, 'state': 'open' },
+                                    title: 'Материал',
+                                    more: 'Еще 5 материалов',
+                                    content: [
+                                        'Золото',
+                                        'Серебро',
+                                        'Платина',
+                                        'Бижутерия'
+                                    ]
+                                }, {
+                                    block: 'g-filter-param',
+                                    mods: { 'list': true, 'state': 'open' },
+                                    title: 'Камни',
+                                    more: 'Еще 9 видов камней',
+                                    content: [
+                                        'С бриллиантами',
+                                        'С сапфирами',
+                                        'С рубинами',
+                                        'С изумрудами'
+                                    ]
+                                }, {
+                                    block: 'g-filter-param',
+                                    mods: { 'list': true, 'state': 'closed' },
+                                    title: 'Размер',
+                                    content: [
+                                        's',
+                                        'm',
+                                        'l',
+                                        'xl'
+                                    ]
+                                }, {
+                                    block: 'g-filter-param',
+                                    mods: { 'list': true, 'state': 'closed' },
+                                    title: 'Вес',
+                                    content: [
+                                        '0г. - 50г.',
+                                        '50г. - 100г.',
+                                        '100г. - 150г.',
+                                        '150г. - 200г.'
+                                    ]
+                                }, {
+                                    block: 'g-filter-param',
+                                    mods: { 'list': true, 'state': 'open' },
+                                    title: 'Магазин',
+                                    more: 'Еще 12 магазинов',
+                                    content: [
+                                        'Центрювелирторг',
+                                        'ЯкутАлмазЗолото',
+                                        'Адамант',
+                                        'Линии любви',
+                                        'Sun light',
+                                        'Русское золото',
+                                        'Изумруд'
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }, {
                     block: 'g-goods',
                     mods: { "sorting": true },
                     sortParams: ['Сначала дорогие', 'Сначала дешёвые', 'По алфавиту'],
@@ -136,9 +210,10 @@
                             imageUrl: '/images/good.png',
                             weight: '4.5 грамм',
                             carat: '0,07 карат',
-                            price: 1000000,
+                            price: 12543,
                             store: 'Sunlight',
-                            storeUrl: '#'
+                            storeUrl: '#',
+                            buyUrl: '#'
                         }, {
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
@@ -147,9 +222,10 @@
                             imageUrl: '/images/good.png',
                             weight: '4.5 грамм',
                             carat: '0,07 карат',
-                            price: 1000000,
+                            price: 15000,
                             store: 'Sunlight',
-                            storeUrl: '#'
+                            storeUrl: '#',
+                            buyUrl: '#'
                         }, {
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
@@ -158,9 +234,10 @@
                             imageUrl: '/images/good.png',
                             weight: '4.5 грамм',
                             carat: '0,07 карат',
-                            price: 1000000,
+                            price: 23945,
                             store: 'Sunlight',
-                            storeUrl: '#'
+                            storeUrl: '#',
+                            buyUrl: '#'
                         },/* {
                             block: 'g-frame',
                             content: [
@@ -269,7 +346,8 @@
                             carat: '0,07 карат',
                             price: 1000000,
                             store: 'Sunlight',
-                            storeUrl: '#'
+                            storeUrl: '#',
+                            buyUrl: '#'
                         }
                     ]
                 }, {
