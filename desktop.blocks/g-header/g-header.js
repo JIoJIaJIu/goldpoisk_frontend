@@ -2,13 +2,13 @@ modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
     BEMDOM.decl('g-header', {
         onSetMod: {
             'js': function () {
-                $.easing["easeOutCirc"] = function (x, t, b, c, d) {
-                    return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+                $.easing["easeInExpo"] = function (x, t, b, c, d) {
+                    return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
                 }
                 var inner = this.findBlockInside('g-header_inner');
                 inner.bindTo('up', 'click', function(e) {
                     console.log('click');
-                    $("body").animate({scrollTop: 0}, 1000, 'easeOutCirc');
+                    $("body").animate({scrollTop: 0}, 750, 'easeInExpo');
                 });
 
                 var self = this;
