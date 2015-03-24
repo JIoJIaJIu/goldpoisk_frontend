@@ -9,6 +9,7 @@ BEMDOM.decl('g-product', {
             var button = this.findBlockInside('g-button').domElem.get(0);
             var store = this.elem('store').get(0);
             var spin = expanded.findBlockInside('g-spin');
+            var dimmer = expanded.findBlockInside('g-dimmer');
 
             //TODO: memory leaks
             this.bindTo('click', function (e) {
@@ -31,11 +32,11 @@ BEMDOM.decl('g-product', {
                 var requested = that._getData(function (err, data) {
                     that.__self.insertData.call(that, data);
                     spin.setMod('visible', false);
-                    $('.g-dimmer').removeClass('g-dimmer_show');
+                    dimmer.setMod('show', false);
                 });
 
                 if (requested) {
-                    $('.g-dimmer').addClass('g-dimmer_show');
+                    dimmer.setMod('show', true);
                 }
             });
         }
