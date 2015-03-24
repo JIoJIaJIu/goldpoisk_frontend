@@ -1,9 +1,0 @@
-block('g-dimmer')(
-    tag()('div'),
-    content()(function () {
-        return {
-            block: 'g-spin',
-            mods: { theme : 'islands', size : 'xl', visible : true }
-        }
-    })
-)

@@ -8,6 +8,7 @@ BEMDOM.decl('g-product', {
 
             var button = this.findBlockInside('g-button').domElem.get(0);
             var store = this.elem('store').get(0);
+            var spin = expanded.findBlockInside('g-spin');
 
             //TODO: memory leaks
             this.bindTo('click', function (e) {
@@ -23,16 +24,18 @@ BEMDOM.decl('g-product', {
                     return;
                 } else {
                     BEMDOM.destruct(expanded.elem('content'), true);
+                    spin.setMod('visible', true);
                     that.__self.showExpanded.call(that);
                 }
 
                 var requested = that._getData(function (err, data) {
                     that.__self.insertData.call(that, data);
-                    $(".g-dimmer").removeClass('g-dimmer_show');
+                    spin.setMod('visible', false);
+                    $('.g-dimmer').removeClass('g-dimmer_show');
                 });
 
                 if (requested) {
-                    $(".g-dimmer").addClass('g-dimmer_show');
+                    $('.g-dimmer').addClass('g-dimmer_show');
                 }
             });
         }

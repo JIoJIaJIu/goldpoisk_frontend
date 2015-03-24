@@ -13,5 +13,7 @@
             block: 'yashare'
         }, {
             block: 'g-dimmer'
+        }, {
+            block: 'g-spin'
     }]
 })

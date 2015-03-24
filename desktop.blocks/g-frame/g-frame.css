@@ -77,3 +77,13 @@
 .g-frame .g-button {
     margin-bottom: 35px;
 }
+
+.g-frame .g-spin {
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -37.5px;
+    left: 50%;
+    margin-left: -37.5px;
+    z-index: 2;
+}

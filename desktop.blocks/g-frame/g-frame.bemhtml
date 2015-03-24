@@ -9,6 +9,9 @@ block('g-frame')(
                 elem: 'close'
             }, {
                 block: 'g-dimmer',
+            },{
+                block: 'g-spin',
+                mods: { theme : 'islands', size : 'xl' }
         }];
     })
 )
