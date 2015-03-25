@@ -1,22 +1,12 @@
 .g-cooperation {
-    height: 189px;
+    padding: 35px 0;
     background-color: #a07472;
-}
-
-.g-cooperation__inner {
-    height: 100%;
-    margin: 0 auto;
-    font-family: Din-Text-Pro_Thin, sans-serif;
+    font-family: 'Din-Text-Pro_Thin', 'Arial', sans-serif;
     text-align: center;
     color: #fff;
 }
 
-.g-cooperation__inner p {
+.g-cooperation p {
+    margin: 25px 0;
     font-size: 18px;
-}
-
-.g-cooperation__inner h1 {
-    padding-top: 56px;
-    font-size: 36px;
-    margin: 0;
 }

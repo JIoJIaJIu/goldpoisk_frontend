@@ -1,22 +1,20 @@
 block('g-cooperation')(
+    tag()('section'),
     content()(function () {
         return [
             {
-                elem: 'inner',
-                tag: 'section',
+                block: 'g-heading',
+                mods: { 'size': 'l', 'light': true },
+                content: 'Хотите сотрудничать и стать нашим партнёром?'
+            }, {
+                tag: 'p',
                 content: [
+                    '- свяжитесь с нами по адресу ',
                     {
-                        tag: 'header',
-                        content: [
-                            {
-                                tag: 'h1',
-                                content: 'Хотите сотрудничать и стать нашим партнёром?'
-                            }
-                        ]
-                    },
-                    {
-                        tag: 'p',
-                        content: '- свяжитесь с нами по адресу support@goldpoisk.ru'
+                        block: 'g-link',
+                        mods: { 'light': true },
+                        url: 'mailto:support@goldpoisk.ru',
+                        content: 'support@goldpoisk.ru'
                     }
                 ]
             }
