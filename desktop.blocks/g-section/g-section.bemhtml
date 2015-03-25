@@ -1,5 +1,4 @@
 block('g-section')(
-    tag()('div'),
     content()(function () {
         return [
             {
@@ -15,19 +14,6 @@ block('g-section')(
                 elem: 'description',
                 tag: 'p',
                 content: this.ctx.description
-            }
-        ]
-    })
-)
-
-block('g-section').mod('With', 'subscription')(
-    content()(function () {
-        return [
-            applyNext(),
-            {
-                block: 'g-subscribe'
-            }, {
-                block: 'clear'
             }
         ]
     })
