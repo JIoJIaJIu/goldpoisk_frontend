@@ -1,0 +1,31 @@
+block('g-gallery')(
+    js()(function () {
+        return {
+            index: this.ctx.index || 0
+        }
+    }),
+    content()(function () {
+        return [{
+            elem: 'inner',
+            content: {
+                elem: 'jssor-container',
+                content: {
+                    elem: 'jssor-slides',
+                    attrs: {u: 'slides'},
+                    content: this.ctx.images.map(function (image) {
+                        return {
+                            tag: 'div',
+                            content: {
+                                elem: 'image',
+                                tag: 'image',
+                                attrs: {u: 'image', src: image}
+                            }
+                        }
+                    })
+                }
+            },
+        }, {
+            elem: 'dimmer'
+        }]
+    })
+)

@@ -8,6 +8,7 @@ blocks['g-item-gallery'] = function (data, env) {
      var index = data.index || 0;
 	 return [{
 	 	block: 'g-item-gallery',
+        images: data.images,
 	 	content: [{
 	 			elem: 'title',
 	 			title: 'Фото',

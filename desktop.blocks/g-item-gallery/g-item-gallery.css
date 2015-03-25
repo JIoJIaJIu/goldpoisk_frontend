@@ -54,7 +54,6 @@
 }
 
 .g-item-gallery__zoom {
-    display: none;
     position: absolute;
     right: 0;
     bottom: 0;

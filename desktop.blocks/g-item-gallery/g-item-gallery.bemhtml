@@ -1,7 +1,9 @@
 var currIndex;
 block('g-item-gallery')(
     js()(function () {
-        return true;
+        return {
+            images: this.ctx.images
+        }
     }),
     elem('title')(
         content()(function () {
