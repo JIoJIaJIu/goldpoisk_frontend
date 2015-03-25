@@ -74,7 +74,7 @@ pages['index'] = function (data, env) {
                         description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
                     },
                     blocks['g-bids']({
-                        count: data.count,
+                        count: data.count || 0, //TODO:
                         products: data.products,
                         url: '#'
                     })
