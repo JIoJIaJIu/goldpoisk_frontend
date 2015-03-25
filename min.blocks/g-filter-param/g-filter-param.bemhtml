@@ -14,7 +14,32 @@ block('g-filter-param')(
                 ]
             }, {
                 elem: 'content',
-                content: 'Здесь всё что угодно кроме списков'
+                content: [
+                    {
+                        block: 'g-price-control',
+                        content: [
+                            {
+                                elem: 'input',
+                                content: [
+                                    {
+                                        block: 'g-input',
+                                        value: '2000'
+                                    },
+                                    '&#8212;',
+                                    {
+                                        block: 'g-input',
+                                        value: '322 000'
+                                    }, {
+                                        block: 'g-price',
+                                        content: ''
+                                    }
+                                ]
+                            }, {
+                                elem: 'range'
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }),
@@ -48,6 +73,8 @@ block('g-filter-param')(
                             content: this.ctx.more
                         }
                     ]
+                }, {
+                    tag: 'hr'
                 }
             ]
         })

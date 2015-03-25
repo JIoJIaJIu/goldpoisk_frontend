@@ -1,7 +1,5 @@
 .g-filter-param {
-    width: 166px;
-    padding: 18px 0 10px;
-    border-bottom: 1px solid #d3d3d3;
+    padding: 18px 0 0;
 }
 
 .g-filter-param:last-child {
@@ -69,4 +67,19 @@
     border-bottom: 2px dotted #a07472;
     margin: 11px 0 14px 23px;
     cursor: pointer;
+}
+
+.g-filter-param hr {
+    margin-top: 18px;
+    margin-left: 19px;
+    width: 147px;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.g-filter-param .g-price__rouble {
+    display: inline;
+    color: #3c2424;
 }
