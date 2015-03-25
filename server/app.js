@@ -94,7 +94,8 @@ function renderIndex (cb) {
         var data = {
             'menu': [{href: '#', label: 'Кольца', type: 'rings'}, {href: '#', label: 'Серьги', type: 'earrings'}],
             'promo': ['/media/promotion/promotion01.png', '/media/promotion/promotion02.png'],
-            'products': products
+            'products': products,
+            'count': 134
         }
         var bemjson = privContext.pages['index'](data);
         fs.readFile('../desktop.bundles/merge/index.bemhtml.js', function (err, data) {
