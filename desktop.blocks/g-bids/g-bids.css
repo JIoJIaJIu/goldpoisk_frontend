@@ -1,9 +1,13 @@
-.g-bids .g-heading {
-    margin-bottom: 35px;
+.g-bids {
+    overflow: hidden;
 }
 
-.g-bids .g-more-bids {
-    margin-top: 42px;
+.g-bids .g-goods {
+    margin: 40px 0;
+}
+
+.g-bids .g-link_more {
+    float: right;
 }
 
 .g-bids .g-goods .g-product {
