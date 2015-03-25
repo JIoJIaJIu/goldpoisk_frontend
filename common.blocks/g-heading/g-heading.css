@@ -2,6 +2,7 @@
     display: inline-block;
     font-family: 'Din-Text-Pro_Thin', 'Arial', sans-serif;
     font-size: 24px;
+    font-weight: 100;
     color: #a07472;
     border-bottom: 1px solid #e2d5d4;
 }
@@ -34,4 +35,8 @@
     font-size: 36px;
     border-bottom: none;
     color: #3c2424;
+}
+
+.g-heading_light {
+    color: #fff;
 }
