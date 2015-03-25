@@ -141,9 +141,9 @@ BEMDOM.decl('g-product', {
      * Comment this
      **/
     _offsetScroll: function (offset) {
-        var difference = $("body").scrollTop() + offset;
+        var difference = $(window).scrollTop() + offset;
         if (offset != 0)
-            $("body").scrollTop(difference);
+            $(window).scrollTop(difference);
     }
 
 }, {
