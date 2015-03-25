@@ -33,6 +33,10 @@ block('g-price')(
                 ]
                 break;
             default:
+                return {
+                    elem: 'rouble',
+                    content: ' i'
+                }
                 break;
         }
     })
