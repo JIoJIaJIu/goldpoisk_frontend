@@ -25,5 +25,11 @@
 
 .g-goods__up-spin, .g-goods__down-spin {
     text-align: center;
+    padding: 10px;
     height: 75px;
+    padding: 10px;
+}
+
+.g-goods .g-frame {
+    margin-bottom: 26px;
 }
