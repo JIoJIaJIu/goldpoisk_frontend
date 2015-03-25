@@ -5,6 +5,8 @@
  *      @key {Integer} count
  **/
 blocks['g-bids'] = function (data, env) {
+    var MIN_DIFF = 5;
+    var diff = data.count - data.products.length;
     return {
         block: 'g-bids',
         content: [
@@ -15,12 +17,13 @@ blocks['g-bids'] = function (data, env) {
             },
             blocks['g-goods']({
                 list: data.products
-            }), {
+            }),
+            diff != 0 ? {
                 block: 'g-link',
                 mods: { 'more': true },
                 url: '#',
-                content: 'Ещё ' + declension(data.count, 'предложение')
-            }
+                content: diff < MIN_DIFF ? 'Все предложения' : 'Ещё ' + declension(data.count, 'предложение')
+            } : null
         ]
     }
 }
@@ -32,7 +35,7 @@ function declension(count, word) {
      *  @return {String} result = count + word
      **/
     count = count.toString();
-    var basis = word.substr(0, word.length - 3);
+    var basis = word.substr(0, word.length - 2);
     var ending = word.substr(-2);
     var lastLetters = count.substr(-2);
     if (["11", "12", "13", "14"].indexOf(lastLetters) != -1) {
