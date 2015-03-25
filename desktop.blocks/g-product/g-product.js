@@ -6,6 +6,7 @@ BEMDOM.decl('g-product', {
             var expanded = this.__self.getExpanded.call(this);
             var that = this;
 
+            var goods = this.findBlockOutside('g-goods');
             var button = this.findBlockInside('g-button').domElem.get(0);
             var store = this.elem('store').get(0);
             var spin = expanded.findBlockInside('g-spin');
@@ -20,6 +21,7 @@ BEMDOM.decl('g-product', {
                 if (e.target === store)
                     return;
                 e.preventDefault();
+                goods.selectProduct(that);
                 if (expanded.openedOn(that.domElem)) {
                     that.__self.hideExpanded.call(that);
                     return;

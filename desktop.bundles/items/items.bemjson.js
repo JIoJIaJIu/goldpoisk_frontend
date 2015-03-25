@@ -204,7 +204,7 @@
                     content: [
                         {
                             block: 'g-product',
-                            mods: { like: 'yes', action: 'yes' },
+                            mods: { like: 'yes', action: 'yes', active: true },
                             url: '#',
                             title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                             imageUrl: '/images/good.png',

@@ -2,6 +2,7 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
     BEMDOM.decl('g-goods', {
         onSetMod: {
             'js': function () {
+                this._selected = null;
                 var that = this;
                 var totalPages = that.params.totalPages;
                 var currentPage = that.params.currentPage;
@@ -34,6 +35,20 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                 this.elem('content'),
                 BEMHTML.apply(products)
             );
+        },
+        selectProduct: function (product) {
+            if (this._selected == product) {
+                product.toggleMod('active');
+                return;
+            }
+            var oldProduct = this._selected;
+            this._selected = product;
+            if (oldProduct) {
+                product.setMod('active', true);
+                oldProduct.delMod('active');
+            } else {
+                product.setMod('active', true);
+            }
         },
         _request: function (currentPage, cb) {
             var list = [];
