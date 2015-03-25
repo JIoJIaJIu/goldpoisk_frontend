@@ -3,7 +3,6 @@
     font-family: 'Din-Text-Pro_Thin', 'Arial', sans-serif;
     font-size: 24px;
     color: #a07472;
-    line-height: 22px;
     border-bottom: 1px solid #e2d5d4;
 }
 
@@ -27,6 +26,12 @@
 .g-heading_size_m {
     font-size: 30px;
     text-decoration: none;
+    border-bottom: none;
+    color: #3c2424;
+}
+
+.g-heading_size_l {
+    font-size: 36px;
     border-bottom: none;
     color: #3c2424;
 }
