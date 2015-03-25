@@ -1,0 +1,17 @@
+.g-input {
+    height: 30px;
+    border: 1px solid #fff;
+    box-shadow: inset 0px 3px 10px -5px #B9B9B9;
+    padding: 0 5px;
+    font-family: 'Clear-Sans', 'Arial', sans-serif;
+    font-size: 14px;
+    color: #999;
+}
+
+.g-input:focus {
+    outline: 1px solid #deac00;
+}
+
+.g-input:hover {
+    border: 1px solid #deac00;
+}

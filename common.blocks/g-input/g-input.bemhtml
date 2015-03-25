@@ -1,0 +1,9 @@
+block('g-input')(
+    tag()('input'),
+    attrs()(function () {
+        return {
+            type: 'text',
+            placeholder: this.ctx.value
+        };
+    })
+)
