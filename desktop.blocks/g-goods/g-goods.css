@@ -24,5 +24,6 @@
 }
 
 .g-goods__up-spin, .g-goods__down-spin {
+    text-align: center;
     height: 75px;
 }

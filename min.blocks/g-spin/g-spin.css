@@ -46,6 +46,10 @@
     }
 }
 
+.g-spin {
+    display: inline-block;
+}
+
 .g-spin_theme_islands {
     position: absolute;
     display: none;
