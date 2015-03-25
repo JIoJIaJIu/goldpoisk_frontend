@@ -19,20 +19,26 @@ blocks['g-bids'] = function (data, env) {
                 block: 'g-link',
                 mods: { 'more': true },
                 url: '#',
-                content: 'Ещё ' + localization(data.count, 'предложение')
+                content: 'Ещё ' + declension(data.count, 'предложение')
             }
         ]
     }
 }
 
-function localization(count, word) {
-    var sCount = count.toString();
-    var lastLetters = sCount.substr(sCount.length - 2);
-    if (lastLetters.length == 2)
-        if (lastLetters[0] != "1")
-            lastLetters = lastLetters[lastLetters.length - 1];
+function declension(count, word) {
+    /**
+     *  @param {Integer} count
+     *  @param {String} word
+     *  @return {String} result = count + word
+     **/
+    count = count.toString();
     var basis = word.substr(0, word.length - 3);
-    var ending = word.substr(word.length - 2);
+    var ending = word.substr(-2);
+    var lastLetters = count.substr(-2);
+    if (["11", "12", "13", "14"].indexOf(lastLetters) != -1) {
+        return count + " " + basis + 'ий';
+    }
+    lastLetters = lastLetters.substr(-1);
     if (ending == 'ие') {
         switch (lastLetters) {
             case '1':
@@ -49,14 +55,9 @@ function localization(count, word) {
             case '8':
             case '9':
             case '0':
-            case '11':
-            case '12':
-            case '13':
-            case '14':
                 return count + " " + basis + 'ий';
                 break;
             default:
-                return 
                 break;
         }
     } else {
