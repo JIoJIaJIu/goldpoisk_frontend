@@ -1,0 +1,37 @@
+[{
+    "label": "КОЛЬЕ",
+    "type": "necklaces",
+    "href": "/necklaces"
+}, {
+    "label": "ЦЕПИ",
+    "type": "chains",
+    "href": "/chains"
+}, {
+    "label": "ПОДВЕСКИ",
+    "type": "pendants",
+    "href": "/pendants"
+}, {
+    "label": "БРАСЛЕТЫ",
+    "type": "bracelets",
+    "href": "/bracelets"
+}, {
+    "label": "КОЛЬЦА",
+    "type": "rings",
+    "href": "/rings"
+}, {
+    "label": "СЕРЬГИ",
+    "type": "earrings",
+    "href": "/earrings"
+}, {
+    "label": "БРОШИ<br>И ЗАЖИМЫ",
+    "type": "brooches",
+    "href": "/brooches"
+}, {
+    "label": "ЧАСЫ",
+    "type": "watches",
+    "href": "/watches"
+}, {
+    "label": "СТОЛОВЫЕ<br>ПРИБОРЫ",
+    "type": "cutlery",
+    "href": "/cutlery"
+}]

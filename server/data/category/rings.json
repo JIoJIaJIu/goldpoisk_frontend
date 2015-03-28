@@ -1,0 +1,45 @@
+{
+    "category": "Кольца",
+    "count": "2003",
+    "products": [{
+        "title": "Golden Earring",
+        "number": "143532",
+        "url": "#",
+        "image": "../../desktop.blocks/g-goods/images/good.png",
+        "weight": "0.35 грамм",
+        "carat": "0.05 карат",
+        "count": "1",
+        "buyUrl": "#",
+        "jsonUrl": "/product/item"
+    }, {
+        "title": "Silver Lips",
+        "number": "4352",
+        "url": "#",
+        "image": "../../desktop.blocks/g-goods/images/good.png",
+        "weight": "0.55 грамм",
+        "carat": "0.15 карат",
+        "count": "1",
+        "buyUrl": "#",
+        "jsonUrl": "/product/item"
+    }],
+    "sortParams": [{
+        "name": "По алфавиту",
+        "url": "#"
+    }, {
+        "name": "Сначала дорогие",
+        "url": "#"
+    }, {
+        "name": "Сначала дешёвые",
+        "url": "#"
+    }],
+    "paginator": {
+        "totalPages": "8",
+        "currentPage": "1",
+        "url": "#",
+        "config": {
+            "HTTP": {
+                "list": "/success"
+            }
+        }
+    }
+}

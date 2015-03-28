@@ -3,16 +3,22 @@ var app = express();
 var path = require('path');
 var fs = require('fs');
 var vm = require('vm');
+var logger = require('morgan');
 
+app.use(logger());
 app.use( express.static('../desktop.bundles/merge') );
 app.use( express.static('../') );
 app.use( express.static(path.join(__dirname, 'static/')) );
-
 
 app.get('/', function (req, res) {
     renderIndex(function (html) {
         res.send(html);
     })
+})
+
+app.get('/root', function (req, res) {
+    var data = fs.readFileSync('data/index/content.json');
+    res.json( JSON.parse(data) );
 })
 
 app.get('/items', function (req, res) {
@@ -21,6 +27,12 @@ app.get('/items', function (req, res) {
     })
 })
 
+app.get('/rings', function (req, res) {
+    var data = fs.readFileSync('data/category/rings.json');
+    res.json( JSON.parse(data) );
+})
+
+
 app.get('/success', function (req, res) {
     var productJSON = getProduct();
     fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
@@ -28,9 +40,7 @@ app.get('/success', function (req, res) {
         var privContext = vm.createContext();
         vm.runInContext(data.toString(), privContext);
         bemjson = [];
-        console.log(productJSON);
         for (var i = 0, length = productJSON.length; i < length; i++) {
-            console.log(productJSON[i]);
             bemjson[i] = ( privContext.blocks['g-product'](productJSON[i]) );
         }
         res.json(bemjson);
@@ -90,9 +100,9 @@ function renderIndex (cb) {
         var privContext = vm.createContext();
         vm.runInContext(data.toString(), privContext);
         products = JSON.parse(fs.readFileSync('data/products.json'));
-        console.log(products)
+        menu = JSON.parse(fs.readFileSync('data/menu.json'));
         var data = {
-            'menu': [{href: '#', label: 'Кольца', type: 'rings'}, {href: '#', label: 'Серьги', type: 'earrings'}],
+            'menu': menu,
             'promo': ['/media/promotion/promotion01.png', '/media/promotion/promotion02.png'],
             'products': products,
             'count': 212
@@ -114,12 +124,13 @@ function renderItems (cb) {
         var privContext = vm.createContext();
         vm.runInContext(data.toString(), privContext);
         products = fs.readFileSync('data/products.json');
+        console.log(products);
         var data = {
             'menu': [{href: '#', label: 'Кольца', type: 'rings'}, {href: '#', label: 'Серьги', type: 'earrings'}],
             //
             'category': 'Кольца',
             'count': 15535,
-            'products': products,
+            'products': JSON.parse(products),
             'sortParams': [{
                 'name': 'По алфавиту',
                 'url': '#?sort=name',
