@@ -2,7 +2,7 @@
     mustDeps: [],
     shouldDeps: [
         {
-            block: 'g-content'
+            block: 'router'
         }
     ]
 })

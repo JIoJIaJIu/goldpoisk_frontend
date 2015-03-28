@@ -1,17 +1,17 @@
-.g-content {
-    margin: 0 2%;
-}
-
 .g-content .g-breadcrumbs {
-    margin: 17px 0;
+    margin: 17px 2%;
 }
 
 .g-content_wide .g-breadcrumbs {
     margin: 17px 2%;
 }
 
+.g-content .g-goods {
+    margin: 0 2%;
+}
+
 .g-content .g-section.g-section_type_slogan {
-    margin: 47px 0 57px 0;
+    margin: 47px 2% 57px;
 }
 
 .g-content .g-section.g-section_With_subscription {
@@ -23,11 +23,11 @@
 }
 
 .g-content .g-bids {
-    margin-bottom: 30px;
+    margin: 0 2% 30px;
 }
 
 .g-content .g-category-title {
-    margin: 17px 0 20px 0;
+    margin: 17px 2% 20px;
 }
 
 .g-content_wide {
