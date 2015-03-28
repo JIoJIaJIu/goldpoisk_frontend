@@ -38,6 +38,62 @@ pages['index'] = function (data, env) {
         menu: data.menu,
         content: [
             {
+                block: 'g-content',
+                content: [
+                    {
+                        block: 'g-promotion',
+                        js: 'true',
+                        images: data.promo
+                    }, {
+                        block: 'g-pride',
+                        content: [
+                            {
+                                block: 'g-pride-item',
+                                mods: { type: 'brown' },
+                                label: 'Лучшие производители ювелирных изделий'
+                            },
+                            {
+                                block: 'g-pride-item',
+                                mods: { type: 'beige' },
+                                label: 'Огромный ассортимент представлен в каталоге'
+                            },
+                            {
+                                block: 'g-pride-item',
+                                mods: { type: 'gold' },
+                                label: 'Только проверенные партнёры и предложения'
+                            },
+                            {
+                                block: 'g-pride-item',
+                                mods: { type: 'gray' },
+                                label: 'Простой и удобный поиск по параметрам'
+                            }
+                        ]
+                    }, {
+                        block: 'g-section',
+                        mods: { type: 'slogan' },
+                        title: 'Goldpoisk - самый большой каталог ювелирных изделий',
+                        description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
+                    },
+                    blocks['g-bids']({
+                        count: data.count || 0, //TODO:
+                        products: data.products,
+                        url: '#'
+                    }),
+                    {
+                        block: 'g-cooperation',
+                        content: []
+                    }
+                ]
+            }
+        ]
+    })
+}
+
+pages['index.content'] = function (data, env) {
+    return {
+        block: 'g-content',
+        content: [
+            {
                 block: 'g-promotion',
                 js: 'true',
                 images: data.promo
@@ -66,26 +122,24 @@ pages['index'] = function (data, env) {
                     }
                 ]
             }, {
-                block: 'g-content',
-                content: [{
-                        block: 'g-section',
-                        mods: { type: 'slogan' },
-                        title: 'Goldpoisk - самый большой каталог ювелирных изделий',
-                        description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
-                    },
-                    blocks['g-bids']({
-                        count: data.count || 0, //TODO:
-                        products: data.products,
-                        url: '#'
-                    })
-                ]
-            }, {
+                block: 'g-section',
+                mods: { type: 'slogan' },
+                title: 'Goldpoisk - самый большой каталог ювелирных изделий',
+                description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
+            },
+            blocks['g-bids']({
+                count: data.count || 0, //TODO:
+                products: data.products,
+                url: '#'
+            }),
+            {
                 block: 'g-cooperation',
                 content: []
             }
         ]
-    })
+    }
 }
+
 /**
  * data.menu
  * {String} !data.products
@@ -97,25 +151,26 @@ pages['category'] = function (data, env) {
 
     return blocks['page']({
         menu: data.menu,
-
-        content: {
-            block: 'g-content',
-            content: [
-                {
-                    block: 'g-category-title',
-                    title: data.category,
-                    count: data.count
-                },
-
-                blocks['g-goods']({
-                    list: JSON.parse(data.products),
-                    sortParams: data.sortParams
-                }, {js: true}),
-
-                blocks['g-paginator'](data.paginator)
-            ]
-        }
+        content: pages['category.content'](data, env)
     }, env);
+}
+
+pages['category.content'] = function (data, env) {
+    return {
+        block: 'g-content',
+        content: [
+            {
+                block: 'g-category-title',
+                title: data.category,
+                count: data.count
+            },
+            blocks['g-goods']({
+                list: data.products,
+                sortParams: data.sortParams
+            }, {js: true}),
+            blocks['g-paginator'](data.paginator)
+        ]
+    }
 }
 
 /**
