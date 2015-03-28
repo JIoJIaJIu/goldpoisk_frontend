@@ -1,3 +1,8 @@
+/**
+ * @params {Object} data
+ *  @key {Array} list
+ *  @key {Array} sortParams
+ **/
 blocks['g-goods'] = function (data, env) {
     var list = [];
     for (var i = 0, length = data.list.length; i < length; i++) {
@@ -10,11 +15,12 @@ blocks['g-goods'] = function (data, env) {
         content: list,
     }
 
-    if (data.sortParams)
-        block.mods = { 'sorting': true }
-        block.sortParams = data.sortParams
+    if (data.sortParams) {
+        block.mods = { 'sorting': true };
+        block.sortParams = data.sortParams;
+    }
 
-    return block
+    return block;
 }
 
 //TODO;
