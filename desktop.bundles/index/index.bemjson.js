@@ -43,6 +43,7 @@
         },
         {
             block: 'g-menu',
+            js: true,
             content: [
                 {
                     block: 'g-menu-item',
@@ -67,7 +68,8 @@
                 {
                     block: 'g-menu-item',
                     mods: { type: 'rings' },
-                    label: 'КОЛЬЦА'
+                    label: 'КОЛЬЦА',
+                    url: '/rings'
                 },
                 {
                     block: 'g-menu-item',
