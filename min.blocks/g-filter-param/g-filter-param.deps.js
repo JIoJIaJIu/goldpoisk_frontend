@@ -5,5 +5,7 @@
         block: 'g-input'
     }, {
         block: 'g-price-control'
+    }, {
+        block: 'g-range'
     }]
 })

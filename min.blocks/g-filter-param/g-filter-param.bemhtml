@@ -35,7 +35,9 @@ block('g-filter-param')(
                                     }
                                 ]
                             }, {
-                                elem: 'range'
+                                block: 'g-range',
+                                min: 2100,
+                                max: 12000
                             }
                         ]
                     }
