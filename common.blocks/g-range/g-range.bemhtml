@@ -1,0 +1,27 @@
+block('g-range')(
+    /*tag()('input'),
+    attrs()(function () {
+        return {
+            type: 'range',
+            min: this.ctx.min,
+            max: this.ctx.max
+        }
+    })*/
+    content()(function () {
+        return [
+            {
+                elem: 'ticks',
+                content: [
+
+                ]
+            }, {
+                elem: 'handlebar',
+                content: [{
+                        elem: 'thumb'
+                    }, {
+                        elem: 'fill'
+                }]
+            }
+        ]
+    })
+)
