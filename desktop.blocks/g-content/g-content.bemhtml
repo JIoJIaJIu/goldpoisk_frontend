@@ -1,0 +1,6 @@
+block('g-content')(
+    js()(true),
+    content()(function () {
+        return applyNext();
+    })
+)
