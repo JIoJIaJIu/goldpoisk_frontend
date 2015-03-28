@@ -14,7 +14,8 @@ blocks['g-menu'] = function (data, env) {
                 block: 'g-menu-item',
                 mods: { type: item.type, state: (item.isActive) ? 'active' : null },
                 href: item.href,
-                label: item.label
+                label: item.label,
+                url: item.url
             }
         })
     }

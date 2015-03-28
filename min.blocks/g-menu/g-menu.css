@@ -1,4 +1,5 @@
 .g-menu {
+    width: 100%;
     list-style: none;
     display: table;
 	border-bottom: solid 1px rgb(186,186,186);

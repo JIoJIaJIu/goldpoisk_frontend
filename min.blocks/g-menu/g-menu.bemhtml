@@ -1,4 +1,5 @@
-block('g-category').match()(
+block('g-menu').match()(
+    js()(true),
     content()(function() {
         return {
             elem: 'list',
