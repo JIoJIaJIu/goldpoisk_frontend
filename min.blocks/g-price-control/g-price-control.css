@@ -2,15 +2,9 @@
     width: 55px;
 }
 
-.g-price-control .g-range .g-range__ticks {
-    width: 160px;
-    height: 14px;
-    margin-left: 20px;
-}
-
-.g-price-control .g-range .g-range__handlebar {
-    width: 160px;
-    margin-left: 20px;
+.g-price-control .g-range {
+    width: 162px;
+    margin: 10px 0 30px 20px;
 }
 
 .g-price-control__input {
