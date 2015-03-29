@@ -13,7 +13,8 @@ modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'],
         if (!config)
             throw new Error('There is no such page configuration for ' + type);
 
-        return function () {
+        return function controller () {
+            router.activeController = controller;
             console.log('Controller:', type);
             var items = router.menu.findBlocksInside('g-menu-item');
             _.forEach(items, function (item) {
@@ -23,12 +24,16 @@ modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'],
                     item.delMod('state');
                 }
             });
+            router.content.setMod('loading', true);
             $.getJSON(config.url, function success(data) {
+                if (router.activeController != controller)
+                    return;
                 var bemjson = pages[config.priv](data);
                 BEMDOM.update(
                     router.content.domElem,
                     BEMHTML.apply(bemjson)
                 );
+                router.content.delMod('loading');
             });
         }
     }
@@ -38,6 +43,7 @@ modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'],
             this.content = content;
             this.page = content.findBlockOutside('page');
             this.menu = this.page.findBlockInside('g-menu');
+            this.activeController = null;
         },
         route: function (url) {
             location.change({ url: url });
