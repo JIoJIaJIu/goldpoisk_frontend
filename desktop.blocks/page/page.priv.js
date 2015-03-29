@@ -90,54 +90,51 @@ pages['index'] = function (data, env) {
 }
 
 pages['index.content'] = function (data, env) {
-    return {
-        block: 'g-content',
-        content: [
-            {
-                block: 'g-promotion',
-                js: 'true',
-                images: data.promo
-            }, {
-                block: 'g-pride',
-                content: [
-                    {
-                        block: 'g-pride-item',
-                        mods: { type: 'brown' },
-                        label: 'Лучшие производители ювелирных изделий'
-                    },
-                    {
-                        block: 'g-pride-item',
-                        mods: { type: 'beige' },
-                        label: 'Огромный ассортимент представлен в каталоге'
-                    },
-                    {
-                        block: 'g-pride-item',
-                        mods: { type: 'gold' },
-                        label: 'Только проверенные партнёры и предложения'
-                    },
-                    {
-                        block: 'g-pride-item',
-                        mods: { type: 'gray' },
-                        label: 'Простой и удобный поиск по параметрам'
-                    }
-                ]
-            }, {
-                block: 'g-section',
-                mods: { type: 'slogan' },
-                title: 'Goldpoisk - самый большой каталог ювелирных изделий',
-                description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
-            },
-            blocks['g-bids']({
-                count: data.count || 0, //TODO:
-                products: data.products,
-                url: '#'
-            }),
-            {
-                block: 'g-cooperation',
-                content: []
-            }
-        ]
-    }
+    return [
+        {
+            block: 'g-promotion',
+            js: 'true',
+            images: data.promo
+        }, {
+            block: 'g-pride',
+            content: [
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'brown' },
+                    label: 'Лучшие производители ювелирных изделий'
+                },
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'beige' },
+                    label: 'Огромный ассортимент представлен в каталоге'
+                },
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'gold' },
+                    label: 'Только проверенные партнёры и предложения'
+                },
+                {
+                    block: 'g-pride-item',
+                    mods: { type: 'gray' },
+                    label: 'Простой и удобный поиск по параметрам'
+                }
+            ]
+        }, {
+            block: 'g-section',
+            mods: { type: 'slogan' },
+            title: 'Goldpoisk - самый большой каталог ювелирных изделий',
+            description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
+        },
+        blocks['g-bids']({
+            count: data.count || 0, //TODO:
+            products: data.products,
+            url: '#'
+        }),
+        {
+            block: 'g-cooperation',
+            content: []
+        }
+    ]
 }
 
 /**
@@ -156,21 +153,18 @@ pages['category'] = function (data, env) {
 }
 
 pages['category.content'] = function (data, env) {
-    return {
-        block: 'g-content',
-        content: [
-            {
-                block: 'g-category-title',
-                title: data.category,
-                count: data.count
-            },
-            blocks['g-goods']({
-                list: data.products,
-                sortParams: data.sortParams
-            }, {js: true}),
-            blocks['g-paginator'](data.paginator)
-        ]
-    }
+    return [
+        {
+            block: 'g-category-title',
+            title: data.category,
+            count: data.count
+        },
+        blocks['g-goods']({
+            list: data.products,
+            sortParams: data.sortParams
+        }, {js: true}),
+        blocks['g-paginator'](data.paginator)
+    ]
 }
 
 /**
