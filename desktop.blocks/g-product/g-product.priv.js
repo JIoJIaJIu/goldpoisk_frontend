@@ -2,25 +2,20 @@
  *  @param {Object} data
  *    @key {String} title
  *    @key {Number} number, article of item
+ *    @key {Number} count, count of items
  *    @key {String} url
+ *    @key {Number} minPrice, min price
+ *    @key {Number} [maxPrice], max price
  *    @key {String} [jsonUrl], json data about item, required with js=true
  *    @key {String} image, url to main image
  *    @key {String} weight
  *    @key {String} carat
- *    @key {Number} count, count of items
  *    @key {Boolean} [newPage] open in new page or not, default: true
  *
  *    @key {Boolean} [action]
  *    @key {Boolean} [hit]
  *    @key {String} [tape]
  *    @key {Boolean} [like]
- *
- *    @key {Array} items
- *      @of {Object} item
- *        @key {Integer} price
- *		  @key {String} store
- *		  @key {String} storeUrl
- *		  @key {String} buyUrl buy url for item
  *
  *	@param {Object} env
  *	  @key {Boolean} js, enable javascript on this node or not
