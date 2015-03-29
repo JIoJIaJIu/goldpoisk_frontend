@@ -1,18 +1,60 @@
 block('g-range')(
     content()(function () {
+        var ctx = this.ctx;
         return [
             {
-                elem: 'ticks',
+                elem: 'left',
                 content: [
-
+                    '<',
+                    {
+                        tag: 'span'
+                    }
                 ]
             }, {
-                elem: 'handlebar',
-                content: [{
-                        elem: 'thumb'
-                    }, {
-                        elem: 'fill'
-                }]
+                elem: 'content',
+                content: [
+                    {
+                        elem: 'ticks',
+                        attrs: { style: 'width: ' + ctx.width + 'px;' },
+                        content: [
+                            ctx.ticks.map(function (tick) {
+                                return {
+                                    elem: 'tick',
+                                    attrs: { style: 'left: ' + (tick * 100 / ctx.max) * ctx.width / 100 + 'px;'},
+                                    content: [
+                                        tick,
+                                        {
+                                            tag: 'span'
+                                        }
+                                    ]
+                                }
+                            }),
+                            {
+                                elem: 'handlebar',
+                                content: {
+                                    elem: 'fill',
+                                    content: [
+                                        {
+                                            elem: 'thumb',
+                                            mods: { 'right': true }
+                                        }, {
+                                            elem: 'thumb',
+                                            mods: { 'left': true }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                elem: 'right',
+                content: [
+                    '>',
+                    {
+                        tag: 'span'
+                    }
+                ]
             }
         ]
     })
