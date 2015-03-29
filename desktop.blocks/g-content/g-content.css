@@ -23,7 +23,8 @@
 }
 
 .g-content .g-bids {
-    margin: 0 2% 30px;
+    margin: 0 0 30px;
+    padding: 0 2%;
 }
 
 .g-content .g-category-title {
