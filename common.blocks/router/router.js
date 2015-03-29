@@ -54,6 +54,7 @@ modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'], f
             return controller;
         }
     }
+
     location.on('change', function (e, data) {
         var prevUri = new Uri(data.referer);
         var uri = location.getUri();
@@ -63,5 +64,6 @@ modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'], f
         var path = uri.getPath();
         router._getController(path)();
     })
+
     provide(router);
 });

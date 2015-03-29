@@ -1,12 +1,4 @@
 block('g-range')(
-    /*tag()('input'),
-    attrs()(function () {
-        return {
-            type: 'range',
-            min: this.ctx.min,
-            max: this.ctx.max
-        }
-    })*/
     content()(function () {
         return [
             {

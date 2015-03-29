@@ -41,9 +41,8 @@ function declension(count, word) {
     if (["11", "12", "13", "14"].indexOf(lastLetters) != -1) {
         return count + " " + basis + 'ий';
     }
-    lastLetters = lastLetters.substr(-1);
     if (ending == 'ие') {
-        switch (lastLetters) {
+        switch (lastLetters.substr(-1)) {
             case '1':
                 return count + " " + basis + ending;
                 break;
