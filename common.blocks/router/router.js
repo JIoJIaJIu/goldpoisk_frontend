@@ -1,4 +1,6 @@
-modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'], function(provide, BEM, location, BEMDOM, Uri, CONFIG) {
+modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'],
+               function(provide, BEM, location, BEMDOM, Uri, CONFIG) {
+
     var config = {};
 
     for (key in CONFIG.page) {
