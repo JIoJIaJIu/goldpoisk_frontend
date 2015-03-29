@@ -36,8 +36,15 @@ block('g-filter-param')(
                                 ]
                             }, {
                                 block: 'g-range',
-                                min: 2100,
-                                max: 12000
+                                width: 162,
+                                max: 15000,
+                                ticks: [
+                                    2100,
+                                    5300,
+                                    12000
+                                ]
+                            }, {
+                                tag: 'hr'
                             }
                         ]
                     }

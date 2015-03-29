@@ -8,10 +8,7 @@
     color: #999;
 }
 
-.g-input:focus {
-    outline: 1px solid #deac00;
-}
-
-.g-input:hover {
+.g-input:hover, .g-input:focus {
     border: 1px solid #deac00;
+    outline: none;
 }
