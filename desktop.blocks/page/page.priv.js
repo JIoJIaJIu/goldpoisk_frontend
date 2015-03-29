@@ -148,7 +148,10 @@ pages['category'] = function (data, env) {
 
     return blocks['page']({
         menu: data.menu,
-        content: pages['category.content'](data, env)
+        content: {
+            block: 'g-content',
+            content: pages['category.content'](data, env)
+        }
     }, env);
 }
 

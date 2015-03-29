@@ -24,10 +24,17 @@ var urls = [
 
 urls.forEach(function (url) {
     app.get(url, function (req, res) {
+        var data = fs.readFileSync(path.join('data/category', url + '.json'));
         if (!req.xhr) {
-            res.send('Выдача html ещё не прописана в сервере');
+            var priv = initPriv();
+            var json = JSON.parse(data);
+            json.menu = getMenu();
+            var bemjson = priv.pages["category"](json);
+            var bemhtml = initBemhtml();
+            var html = bemhtml.BEMHTML.apply(bemjson);
+
+            res.send(html);
         } else {
-            var data = fs.readFileSync(path.join('data/category', url + '.json'));
             res.json( JSON.parse(data) );
         }
     });
@@ -129,49 +136,22 @@ function renderIndex (cb) {
     });
 }
 
-function renderItems (cb) {
-    fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
-        if (err) throw err;
-        var privContext = vm.createContext();
-        vm.runInContext(data.toString(), privContext);
-        products = fs.readFileSync('data/products.json');
-        console.log(products);
-        var data = {
-            'menu': [{href: '#', label: 'Кольца', type: 'rings'}, {href: '#', label: 'Серьги', type: 'earrings'}],
-            'category': 'Кольца',
-            'count': 15535,
-            'products': JSON.parse(products),
-            'sortParams': [{
-                'name': 'По алфавиту',
-                'url': '#?sort=name',
-            }, {
-                'name': 'Сначала дорогие',
-                'url': '#?sort=tprice',
-            }, {
-                'name': 'Сначала дешёвые',
-                'url': '#?sort=price',
-            }],
-            'paginator': {
-                'totalPages': 10,
-                'currentPage': 5,
-                'url': '#',
-                'config': {
-                    'HTTP': {
-                        'list': 'http://localhost:3000/success'
-                    }
-                }
-            }
-            //
-        };
-        var bemjson = privContext.pages['category'](data);
-        fs.readFile('../desktop.bundles/merge/index.bemhtml.js', function (err, data) {
-            if (err) throw err;
-            var bemhtmlContext = vm.createContext();
-            vm.runInContext(data.toString(), bemhtmlContext);
-            var html = bemhtmlContext.BEMHTML.apply(bemjson);
-            cb(html);
-        })
-    });
+function initPriv() {
+    var priv = fs.readFileSync('../desktop.bundles/merge/index.priv.js').toString();
+    var context = vm.createContext();
+    vm.runInContext(priv, context);
+    return context;
+}
+
+function initBemhtml() {
+    var bemhtml = fs.readFileSync('../desktop.bundles/merge/index.bemhtml.js').toString();
+    var context = vm.createContext();
+    vm.runInContext(bemhtml, context);
+    return context;
+}
+
+function getMenu() {
+    return JSON.parse(fs.readFileSync('data/menu.json'));
 }
 
 function getProduct() {
