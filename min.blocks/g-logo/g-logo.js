@@ -1,14 +1,14 @@
-/*modules.define('i-bem__dom', function(provide, DOM) {
-    DOM.decl('g-logo', {
+modules.define('g-logo', ['i-bem__dom', 'router'], function(provide, BEMDOM, router) {
+    BEMDOM.decl('g-logo', {
         onSetMod: {
-            'color-theme' : {
-                'xmas' : function() {
-                   alert('xmas');            
-                },
-                '' : function() {
-
-                }
-            }
+           'js': function () {
+                this.bindTo('link', 'click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    router.route('/');
+                })
+           }
         }
-    })
-}*/
+    }, {});
+    provide(BEMDOM);
+});

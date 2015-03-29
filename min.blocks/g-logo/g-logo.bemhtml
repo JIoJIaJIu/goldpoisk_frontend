@@ -1,4 +1,5 @@
 block('g-logo')(
+    js()(true),
     tag()('div'),
     content()(function () {
         return [
