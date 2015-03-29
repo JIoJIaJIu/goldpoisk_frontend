@@ -1,13 +1,16 @@
 .g-goods {
     margin: 0 auto;
     padding: 0;
+}
+
+.g-goods__content {
     opacity: 1;
     transition: opacity 1s;
     -moz-transition: opacity 1s;
     -webkit-transition: opacity 1s;
 }
 
-.g-goods_loading {
+.g-goods__content_loading {
     opacity: 0.1;
     transition: opacity 1s;
     -moz-transition: opacity 1s;

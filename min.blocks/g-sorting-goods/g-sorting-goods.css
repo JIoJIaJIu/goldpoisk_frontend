@@ -5,6 +5,10 @@
     text-align: left;
 }
 
+.g-sorting-goods_loading {
+    pointer-events: none;
+}
+
 .g-sorting-goods__params {
     display: inline-block;
     margin: 0;
