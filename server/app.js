@@ -3,12 +3,13 @@ var app = express();
 var path = require('path');
 var fs = require('fs');
 var vm = require('vm');
-var logger = require('morgan');
 
-app.use(logger());
 app.use( express.static('../desktop.bundles/merge') );
 app.use( express.static('../') );
 app.use( express.static(path.join(__dirname, 'static/')) );
+app.use(function (req, res, next) {
+    setTimeout(next, 3000)
+})
 
 var urls = [
     '/necklaces',
@@ -35,7 +36,7 @@ urls.forEach(function (url) {
 
             res.send(html);
         } else {
-            res.json( JSON.parse(data) );
+            res.json(JSON.parse(data));
         }
     });
 })
