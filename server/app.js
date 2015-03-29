@@ -10,28 +10,39 @@ app.use( express.static('../desktop.bundles/merge') );
 app.use( express.static('../') );
 app.use( express.static(path.join(__dirname, 'static/')) );
 
+var urls = [
+    '/necklaces',
+    '/chains',
+    '/pendants',
+    '/bracelets',
+    '/rings',
+    '/earrings',
+    '/brooches',
+    '/watches',
+    '/cutlery'
+]
+
+urls.forEach(function (url) {
+    app.get(url, function (req, res) {
+        if (!req.xhr) {
+            res.send('Выдача html ещё не прописана в сервере');
+        } else {
+            var data = fs.readFileSync(path.join('data/category', url + '.json'));
+            res.json( JSON.parse(data) );
+        }
+    });
+})
+
 app.get('/', function (req, res) {
-    renderIndex(function (html) {
-        res.send(html);
-    })
-})
-
-app.get('/root', function (req, res) {
-    var data = fs.readFileSync('data/index/content.json');
-    res.json( JSON.parse(data) );
-})
-
-app.get('/items', function (req, res) {
-    renderItems(function (html) {
-        res.send(html);
-    })
-})
-
-app.get('/rings', function (req, res) {
-    var data = fs.readFileSync('data/category/rings.json');
-    res.json( JSON.parse(data) );
-})
-
+    if (!req.xhr) {
+        renderIndex(function (html) {
+            res.send(html);
+        });
+    } else {
+        var data = fs.readFileSync('data/index/content.json');
+        res.json( JSON.parse(data) );
+    }
+});
 
 app.get('/success', function (req, res) {
     var productJSON = getProduct();
@@ -127,7 +138,6 @@ function renderItems (cb) {
         console.log(products);
         var data = {
             'menu': [{href: '#', label: 'Кольца', type: 'rings'}, {href: '#', label: 'Серьги', type: 'earrings'}],
-            //
             'category': 'Кольца',
             'count': 15535,
             'products': JSON.parse(products),
