@@ -16,7 +16,14 @@
  *        @key {String} buyUrl
  *        @key {String} storeName
  *        @key {String} storeUrl
- *
+ * @key {Object} yashare
+ *  @key {String} url
+ *  @key {String} likesTitle
+ *  @key {String} description
+ *  @key {Array} [quickServices] by default ['vkontakte', 'facebook', 'twitter', 'odnoklassniki']
+ *   @of {String} service
+ *  @key {String} [theme] by default 'counter'
+ *  @key {String} [l10n] by default 'ru'
  */
 blocks['g-item'] = function (data, env) {
     assertHas(data, 'title', 'Should point title');
@@ -99,20 +106,20 @@ blocks['g-item'] = function (data, env) {
                 block: 'g-item-features',
                 content: features
             }, {
-                block : 'yashare',
-                quickServices : data.quickServices || [
+                block: 'yashare',
+                quickServices : data.yashare.quickServices || [
                     'vkontakte',
                     'facebook',
                     'twitter',
                     'odnoklassniki'
                 ],
-                theme : 'counter',
-                l10n : 'ru',
-                url : data.url,
-                title : data.likesTitle,
-                description : data.likesDescription,
-                image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
-                        'master/desktop.bundles/index/blocks/page/image/bem.png'
+                theme: data.yashare.theme || 'counter',
+                l10n: data.yashare.l10n || 'ru',
+                url: data.yashare.url,
+                title: data.yashare.likesTitle,
+                description: data.yashare.likesDescription,
+                image: 'https://raw.githubusercontent.com/voischev/bem-social/' +
+                       'master/desktop.bundles/index/blocks/page/image/bem.png'
             }]
         };
     }
