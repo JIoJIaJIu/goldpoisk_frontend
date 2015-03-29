@@ -1,32 +1,41 @@
-modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri'], function(provide, BEM, location, BEMDOM, Uri) {
-    var config = {
-        '/': function () {
-            console.log('Controller: root');
-            $.getJSON('/root', function success(data) {
-                var bemjson = pages['index.content'](data);
-                var page = router.content.findBlockOutside('page');
-                BEMDOM.replace(
-                    router.content.domElem,
-                    BEMHTML.apply(bemjson)
-                )
+modules.define('router', ['i-bem', 'location', 'i-bem__dom', 'uri', 'config'], function(provide, BEM, location, BEMDOM, Uri, CONFIG) {
+    var config = {};
+
+    for (key in CONFIG.page) {
+        config[CONFIG.page[key].url] = createController(key);
+    }
+
+    function createController(type) {
+        console.log('Create controller', type);
+        var config = CONFIG.page[type];
+        if (!config)
+            throw new Error('There is no such page configuration for ' + type);
+
+        return function () {
+            console.log('Controller:', type);
+            var items = router.menu.findBlocksInside('g-menu-item');
+            _.forEach(items, function (item) {
+                if (item.params.href == config.url) {
+                    item.setMod('state', 'active');
+                } else {
+                    item.delMod('state');
+                }
             });
-        },
-        '/rings': function () {
-            console.log('Controller: rings');
-            $.getJSON('/rings', function success(data) {
-                var bemjson = pages['category.content'](data);
-                var page = router.content.findBlockOutside('page');
-                BEMDOM.replace(
+            $.getJSON(config.url, function success(data) {
+                var bemjson = pages[config.priv](data);
+                BEMDOM.update(
                     router.content.domElem,
                     BEMHTML.apply(bemjson)
-                )
-            })
+                );
+            });
         }
     }
 
     var router = {
         init: function (content) {
             this.content = content;
+            this.page = content.findBlockOutside('page');
+            this.menu = this.page.findBlockInside('g-menu');
         },
         route: function (url) {
             location.change({ url: url });
