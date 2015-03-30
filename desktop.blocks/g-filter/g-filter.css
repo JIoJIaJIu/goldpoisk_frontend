@@ -1,7 +1,28 @@
 .g-filter {
-    width: 255px;
+    display: inline-block;
+    position: relative;
+    left: -8px;
+    width: 292px;
     margin: 0;
-    padding: 0;
+    padding: 10px 0 30px 10px;
+    background: url('./images/top.png') 0 0 no-repeat, url('./images/bottom.png') 0 100% no-repeat, url('./images/arrow-left.png') 92% 50% no-repeat, url('./images/left.png') repeat-y;
+    transition: left 1s;
+    -moz-transition: left 1s;
+    -webkit-transition: left 1s;
+}
+
+.g-filter__list {
+    width: 253px;
+    display: inline-block;
+    cursor: auto;
+}
+
+.g-filter_hidden {
+    left: -262px;
+    background: url('./images/top.png') 0 0 no-repeat, url('./images/bottom.png') 0 100% no-repeat, url('./images/arrow-right.png') 92% 50% no-repeat, url('./images/left.png') repeat-y;
+    transition: left 1s;
+    -moz-transition: left 1s;
+    -webkit-transition: left 1s;
 }
 
 .g-filter__title {
@@ -12,4 +33,13 @@
     font-weight: 100;
     font-size: 18px;
     color: #3c2424;
+}
+
+.g-filter__button {
+    position: absolute;
+    right: 17px;
+    top: 0;
+    height: 100%;
+    width:  23px;
+    cursor: pointer;
 }
