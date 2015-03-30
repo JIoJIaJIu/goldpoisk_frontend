@@ -119,6 +119,7 @@
                     count: '11 253'
                 }, {
                     block: 'g-filter',
+                    mods: { 'hidden': false, },
                     tag: 'section',
                     content: [{
                             elem: 'title',
@@ -130,7 +131,6 @@
                                 {
                                     block: 'g-filter-param',
                                     title: 'Цена',
-                                    content: 'some content'
                                 }, {
                                     block: 'g-filter-param',
                                     mods: { 'list': true, 'state': 'open' },
@@ -189,6 +189,8 @@
                                     ]
                                 }
                             ]
+                        }, {
+                            elem: 'button'
                         }
                     ]
                 }, {
