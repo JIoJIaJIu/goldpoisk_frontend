@@ -2,7 +2,8 @@
     padding: 18px 0 0;
 }
 
-.g-filter-param:last-child {
+.g-filter-param:last-child hr{
+    display: none;
     border-bottom: none;
 }
 

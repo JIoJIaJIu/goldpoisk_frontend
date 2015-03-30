@@ -1,4 +1,5 @@
 block('g-filter-param')(
+    js()(true),
     tag()('section'),
     content()(function () {
         return [
