@@ -6,6 +6,8 @@
             block: 'link'
         }, {
             block: 'g-filter-param'
+        }, {
+            block: 'logger'
         }
     ],
     shouldDeps: []
