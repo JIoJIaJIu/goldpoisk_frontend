@@ -3,7 +3,7 @@ modules.define('g-product', ['i-bem__dom', 'jquery'], function (provide, BEMDOM,
 BEMDOM.decl('g-product', {
     onSetMod: {
         js: function () {
-            var expanded = this.__self.getExpanded.call(this);
+            var expanded = this.__self.getFrame.call(this);
             var that = this;
 
             var goods = this.findBlockOutside('g-goods');
@@ -77,15 +77,17 @@ BEMDOM.decl('g-product', {
         var paddingRight = parseInt(this.domElem.css('paddingRight'), 10) || 0;
         var marginLeft = parseInt(this.domElem.css('marginLeft'), 10) || 0;
         var marginRight = parseInt(this.domElem.css('marginRight'), 10) || 0;
+        var borderLeft = parseInt(this.domElem.css('borderLeft'), 10) || 0;
+        var borderRight = parseInt(this.domElem.css('borderRight'), 10) || 0;
 
-        var boxWidth = width + paddingLeft + paddingRight + marginLeft + marginRight;
-        var containerWidth = this.domElem.parent().width()
+        var boxWidth = width + paddingLeft + paddingRight + marginLeft + marginRight + borderLeft + borderRight;
+        var containerWidth = this.domElem.parent().width();
         var position = this.domElem.position();
 
-        var right = position.left + width + paddingRight + marginRight;
+        var right = position.left + width + paddingRight + marginRight + borderRight;
         var restWidth = containerWidth - right;
 
-        var index = Math.round(restWidth / boxWidth)
+        var index = Math.floor(restWidth / boxWidth)
         var productBlocks = this._getProductBlocksToRight();
         var lastBlock;
         if (index >= productBlocks.length) {
@@ -96,7 +98,7 @@ BEMDOM.decl('g-product', {
 
         // TODO: move to g-frame
         // TODO: via ClientBoundingRect
-        var frame = this.__self.getExpanded.call(this).domElem;
+        var frame = this.__self.getFrame.call(this).domElem;
         var paddingTop = parseInt(frame.css('paddingTop'), 10) || 0;
         var paddingBottom = parseInt(frame.css('paddingBottom'), 10) || 0;
         var marginTop = parseInt(frame.css('marginTop'), 10) || 0;
@@ -149,7 +151,7 @@ BEMDOM.decl('g-product', {
     }
 
 }, {
-    getExpanded: function () {
+    getFrame: function () {
         if (this.__self.expanded)
             return this.__self.expanded;
 
@@ -163,18 +165,18 @@ BEMDOM.decl('g-product', {
     },
 
     showExpanded: function (data) {
-        var expanded = this.__self.getExpanded.call(this);
+        var expanded = this.__self.getFrame.call(this);
         this._reposition(expanded);
         expanded.show(this.domElem);
     },
 
     insertData: function (data) {
-        var expanded = this.__self.getExpanded.call(this);
+        var expanded = this.__self.getFrame.call(this);
         BEMDOM.update(expanded.elem('content'), BEMHTML.apply(data));
     },
 
     hideExpanded: function (expanded) {
-        var expanded = this.__self.getExpanded.call(this);
+        var expanded = this.__self.getFrame.call(this);
         expanded.hide();
     }
 });
