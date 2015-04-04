@@ -6,7 +6,9 @@
  *  @key {String} more like 'Ещё 5 материалов'
  *  @key {String} state open || closed
  *  @key {Array} values
- *   @of {String} value like 'Золото'
+ *   @of {Object} item
+ *     @key {Number} id
+ *     @key {String} name
  * if type == price
  *  @key {Integer} min
  *  @key {Integer} max

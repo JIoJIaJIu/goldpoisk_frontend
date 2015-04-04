@@ -57,3 +57,7 @@
     width:  23px;
     cursor: pointer;
 }
+
+.g-filter .g-button {
+    margin-left: 23px;
+}
