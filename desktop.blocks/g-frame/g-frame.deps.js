@@ -15,5 +15,7 @@
             block: 'g-dimmer'
         }, {
             block: 'g-spin'
+        }, {
+            block: 'clear'
     }]
 })

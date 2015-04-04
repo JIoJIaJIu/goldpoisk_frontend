@@ -35,6 +35,7 @@
     float: left;
     padding: 35px 50px;
     width: 50%;
+    min-height: 267px;
 }
 
 .g-item .g-item-heading_type_simple {

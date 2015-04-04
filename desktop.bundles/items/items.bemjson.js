@@ -248,7 +248,7 @@
                             store: 'Sunlight',
                             storeUrl: '#',
                             buyUrl: '#'
-                        },/* {
+                        }, {
                             block: 'g-frame',
                             content: [
                                 {
@@ -280,10 +280,9 @@
                                             block: 'g-right-col',
                                             content: [
                                                 {
-                                                    block: 'g-item-buy-in-shop',
-                                                    store: 'Центрювелирторг',
-                                                    url: '#',
-                                                    price: 6169
+                                                    block: 'g-button',
+                                                    mods: { type: 'gray' },
+                                                    content: 'Подробнее'
                                                 }, {
                                                     block: 'g-item-features',
                                                     content: {
@@ -293,10 +292,6 @@
                                                         'Камень': '21 бриллиант',
                                                         'Карат': '0,07'
                                                     }
-                                                }, {
-                                                    block: 'g-button',
-                                                    mods: { type: 'gray' },
-                                                    content: 'Подробнее'
                                                 }, {
                                                     block: 'g-like',
                                                     mods: { type: 'extended' }
@@ -346,7 +341,7 @@
                                     ]
                                 }
                             ]
-                        },*/ {
+                        }, {
                             block: 'g-product',
                             mods: { like: 'yes', action: 'yes' },
                             url: '#',
@@ -358,6 +353,81 @@
                             store: 'Sunlight',
                             storeUrl: '#',
                             buyUrl: '#'
+                        }, {
+                            block: 'g-frame',
+                            content: [
+                                {
+                                    block: 'g-item',
+                                    content: [
+                                        {
+                                            block: 'g-heading',
+                                            content: 'Обручальное кольцо из белого золота с 21 бриллиантом'
+                                        }, {
+                                            block: 'g-item-gallery',
+                                            content: [
+                                                {
+                                                    elem: 'title',
+                                                    title: 'Фото',
+                                                    current: 2,
+                                                    count: 8
+                                                }, {
+                                                    elem: 'preview_images',
+                                                    images: ['../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg']
+                                                }, {
+                                                    elem: 'main_image',
+                                                    image: '../../desktop.blocks/g-item-gallery/images/main02.jpg'
+                                                }
+                                            ]
+                                        }, {
+                                            block: 'g-right-col',
+                                            content: [
+                                                {
+                                                    block: 'g-item-buy-in-shop',
+                                                    store: 'Центрювелирторг',
+                                                    url: '#',
+                                                    price: 6169
+                                                }, {
+                                                    block: 'g-button',
+                                                    mods: { type: 'gray' },
+                                                    content: 'Подробнее'
+                                                }, {
+                                                    block: 'g-item-features',
+                                                    content: {
+                                                        'Артикул': '51235654',
+                                                        'Металл': 'Белое золото',
+                                                        'Проба': '585',
+                                                        'Камень': '21 бриллиант',
+                                                        'Карат': '0,07'
+                                                    }
+                                                }, {
+                                                    block: 'g-like',
+                                                    mods: { type: 'extended' }
+                                                }, {
+                                                    block: 'yashare',
+                                                    quickServices : [
+                                                        'vkontakte',
+                                                        'facebook',
+                                                        'twitter',
+                                                        'odnoklassniki'
+                                                    ],
+                                                    theme : 'counter',
+                                                    l10n : 'ru',
+                                                    url : 'localhost:8080/desctop.bundles/item/item.html',
+                                                    title : 'BEM Social Components Library',
+                                                    description : 'Fork me on GitHub',
+                                                    image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
+                                                            'master/desktop.bundles/index/blocks/page/image/bem.png'
+                                                }
+                                            ]
+                                        }, {
+                                            block: 'clear'
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }, {
