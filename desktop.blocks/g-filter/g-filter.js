@@ -1,9 +1,9 @@
-modules.define('g-filter', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
+modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger'], function(provide, BEMDOM, $, logger) {
     BEMDOM.decl('g-filter', {
         onSetMod: {
             'js': function () {
                 this.bindTo(this.elem('button'), 'click', function (e) {
-                    console.log('click button');
+                    logger.debug('click button');
                     this.toggleMod('hidden');
                 });
             }

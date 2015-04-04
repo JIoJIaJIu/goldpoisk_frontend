@@ -184,7 +184,25 @@ pages['item'] = function (data, env) {
                 {
                     block: 'g-item',
                     content: [
-                        blocks['g-item'](data.item, env)
+                        blocks['g-item'](data.item, {big: true})
+                    ]
+                }
+            ]
+        }
+    }, env)
+}
+
+//TODO:
+pages['item.json'] = function (data, env) {
+    return blocks['page']({
+        menu: data.menu,
+        content: {
+            block: 'g-content',
+            content: [
+                {
+                    block: 'g-item',
+                    content: [
+                        blocks['g-item'](JSON.parse(data.item), {big: true})
                     ]
                 }
             ]

@@ -3,6 +3,7 @@
  *    @key {String} title
  *    @key {String} number
  *    @key {String} weight
+ *    @key {String} url
  *    @key {String} [description]
  *    @key {Array} images
  *      @of {String} url
@@ -16,14 +17,13 @@
  *        @key {String} buyUrl
  *        @key {String} storeName
  *        @key {String} storeUrl
- * @key {Object} yashare
- *  @key {String} url
- *  @key {String} likesTitle
- *  @key {String} description
- *  @key {Array} [quickServices] by default ['vkontakte', 'facebook', 'twitter', 'odnoklassniki']
- *   @of {String} service
- *  @key {String} [theme] by default 'counter'
- *  @key {String} [l10n] by default 'ru'
+ *     @key {Object} [yashare]
+ *       @key {String} likesTitle
+ *       @key {String} description
+ *       @key {Array} [quickServices] by default ['vkontakte', 'facebook', 'twitter', 'odnoklassniki']
+ *         @of {String} service
+ *       @key {String} [theme] by default 'counter'
+ *       @key {String} [l10n] by default 'ru'
  */
 blocks['g-item'] = function (data, env) {
     assertHas(data, 'title', 'Should point title');
@@ -31,18 +31,26 @@ blocks['g-item'] = function (data, env) {
     assertHas(data, 'images', 'Should point images');
     assertHas(data, 'weight', 'Should point weight');
     assertHas(data, 'items', 'Should point items');
+    assertHas(data, 'url', 'Should point url');
+
+    env = env || {};
+    if (!data.yashare) {
+        data.yashare = {};
+    }
 
     var block = {
         block: 'g-item',
         content: [{
             block: 'g-heading',
-            content: data.title
+            content: data.title,
+            url: data.url
         }, {
             block: 'g-item-category',
             title: data.category
         },
         blocks['g-item-gallery']({ images: data.images }, env),
-        collumn(), {
+        collumn(),
+        {
             block: 'clear'
         }]
     };
@@ -91,21 +99,34 @@ blocks['g-item'] = function (data, env) {
             features['Металл'] = materials.join(', ');
         }
 
+        var more = {
+            block: 'g-button',
+            mods: { type: 'gray' },
+            href: data.url,
+            content: 'Подробнее'
+        };
+
+        var description = {
+            block: 'g-item-description',
+            content: data.description
+        };
+
         return {
             block: 'g-right-col',
             content: [{
-                block: 'g-item-description',
-                content: data.description
-            }, {
                 block: 'g-item-buy-in-shop',
                 store: item.storeName,
                 url: item.storeUrl,
                 buyUrl: item.buyUrl,
                 price: item.price
-            }, {
+            },
+            !env.big ? more : null,
+            {
                 block: 'g-item-features',
                 content: features
-            }, {
+            },
+            env.big ? description : null,
+            {
                 block: 'yashare',
                 quickServices : data.yashare.quickServices || [
                     'vkontakte',
@@ -115,7 +136,7 @@ blocks['g-item'] = function (data, env) {
                 ],
                 theme: data.yashare.theme || 'counter',
                 l10n: data.yashare.l10n || 'ru',
-                url: data.yashare.url,
+                url: data.url,
                 title: data.yashare.likesTitle,
                 description: data.yashare.likesDescription,
                 image: 'https://raw.githubusercontent.com/voischev/bem-social/' +

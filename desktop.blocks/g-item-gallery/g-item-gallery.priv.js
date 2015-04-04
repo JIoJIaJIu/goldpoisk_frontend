@@ -1,12 +1,17 @@
 blocks['g-item-gallery'] = function (data, env) {
 	/**
-     *      
-	 *  @param {Array} images
-	 *  @param {Number} [index] default = 0
+     *  @param {Object} data
+	 *    @key {Array} images
+	 *    @key {Number} [index] default = 0
+     *
+     *  @param {Object} [env]
+     *    @key {Boolean} big, set modificator 'big'
 	 **/
+     env = env || {};
+
 	 var MAX_IMG_COUNTS = 4;
      var index = data.index || 0;
-	 return [{
+	 var block = {
 	 	block: 'g-item-gallery',
         images: data.images,
 	 	content: [{
@@ -22,5 +27,10 @@ blocks['g-item-gallery'] = function (data, env) {
 	 			image: data.images[index]
 	 		}
 	 	]
-	 }]
+	 }
+
+     if (env.big) {
+        block.mods = { type: 'big' };
+     }
+     return block;
 }
