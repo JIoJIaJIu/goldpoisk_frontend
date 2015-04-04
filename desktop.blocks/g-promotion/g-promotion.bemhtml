@@ -1,4 +1,5 @@
 block('g-promotion')(
+    js()(true),
     content()(function () {
         var ctx = this.ctx;
         var images = [];
