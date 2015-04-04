@@ -192,6 +192,12 @@ pages['item'] = function (data, env) {
     }, env)
 }
 
+pages['item.content'] = function (data, env) {
+    return [
+        blocks['g-item'](data, {big: true, independent: true})
+    ]
+}
+
 //TODO:
 pages['item.json'] = function (data, env) {
     return blocks['page']({

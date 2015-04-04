@@ -1,22 +1,22 @@
 /**
  *  @param {Object} data
- *    @key {String} title
- *    @key {String} number
- *    @key {String} weight
- *    @key {String} url
- *    @key {String} [description]
+ *    @key {String} title - Название товара
+ *    @key {String} number - Артикул товара
+ *    @key {String} weight - Вес товара
+ *    @key {String} [url] - Ссылка на расширенную страницу товара
+ *    @key {String} [description] - Описание товара
  *    @key {Array} images
  *      @of {String} url
  *    @key {Array} [gems]
  *      @of {Object} gem
- *        @key {String} name
- *        @key {String} carat
+ *        @key {String} name - Название камня входящего в состав товара
+ *        @key {String} carat - Караты камня
  *    @key {Array} items
  *      @of {Object} item
- *        @key {Number} price
- *        @key {String} buyUrl
- *        @key {String} storeName
- *        @key {String} storeUrl
+ *        @key {Number} price - Цена в магазине
+ *        @key {String} buyUrl - Ссылка для покупки
+ *        @key {String} storeName - Название магазина
+ *        @key {String} storeUrl - Ссылка на магазин
  *     @key {Object} [yashare]
  *       @key {String} likesTitle
  *       @key {String} description
@@ -31,20 +31,32 @@ blocks['g-item'] = function (data, env) {
     assertHas(data, 'images', 'Should point images');
     assertHas(data, 'weight', 'Should point weight');
     assertHas(data, 'items', 'Should point items');
-    assertHas(data, 'url', 'Should point url');
 
     env = env || {};
     if (!data.yashare) {
         data.yashare = {};
     }
 
+    var heading = {
+        block: 'g-heading',
+        content: data.title
+    }
+
+    if (env.independent) {
+        heading.mods = { size: 'l' };
+    }
+
+    var params
+    if (data.url) {
+        params = { url: data.url },
+        heading["url"] = data.url
+    }
+
     var block = {
         block: 'g-item',
-        content: [{
-            block: 'g-heading',
-            content: data.title,
-            url: data.url
-        }, {
+        js: params || false,
+        content: [
+            heading, {
             block: 'g-item-category',
             title: data.category
         },
