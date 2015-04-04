@@ -50,6 +50,10 @@ modules.define('config', ['i-bem'], function (provide) {
             cutlery: {
                 url: '/cutlery',
                 priv: 'category.content'
+            },
+            item: {
+                url: '/id',
+                priv: 'item.content'
             }
         }
     })

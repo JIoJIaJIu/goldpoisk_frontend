@@ -33,6 +33,12 @@ modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'], function
                 logger.error('Should point key');
                 return function () {};
             }
+
+            if (key.search(/id[0-9]+/) != -1 ) {
+                console.log(key);
+                key = '/id';
+            }
+
             var controller = this._config[key];
             if (!controller) {
                 logger.error('There is no such controller for', key);
