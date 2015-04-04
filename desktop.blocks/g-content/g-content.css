@@ -10,6 +10,10 @@
     margin: 0 2%;
 }
 
+.g-content .g-item {
+    margin-top: 25px;
+}
+
 .g-content .g-section.g-section_type_slogan {
     margin: 47px 2% 57px;
 }
