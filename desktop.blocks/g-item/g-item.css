@@ -1,5 +1,14 @@
 .g-item {
-    padding: 10px 0;
+    padding: 10px 2%;
+}
+
+.g-item .g-heading_size_l, .g-item .g-heading_size_m {
+    display: block;
+}
+
+.g-item .g-heading_size_m {
+    display: block;
+    clear: both;
 }
 
 .g-item .g-item-heading_type_main {

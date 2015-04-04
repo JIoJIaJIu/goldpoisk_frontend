@@ -121,8 +121,8 @@
                     block: 'g-item',
                     content: [
                         {
-                            block: 'g-item-heading',
-                            mods: { type: 'main' },
+                            block: 'g-heading',
+                            mods: { size: 'l' },
                             content: 'Обручальное кольцо из белого золота с 21 бриллиантом'
                         }, {
                             block: 'g-item-gallery',
@@ -200,8 +200,8 @@
                                 },
                             ]
                         }, {
-                            block: 'g-item-heading',
-                            mods: { type: 'simple' },
+                            block: 'g-heading',
+                            mods: { size: 'm' },
                             content: 'Купить этот товар в магазинах'
                         }, {
                             block: 'g-available-in-stores',
