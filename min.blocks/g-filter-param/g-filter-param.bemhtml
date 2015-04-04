@@ -2,6 +2,7 @@ block('g-filter-param')(
     js()(true),
     tag()('section'),
     content()(function () {
+        var ctx = this.ctx;
         return [
             {
                 elem: 'title',
@@ -10,7 +11,7 @@ block('g-filter-param')(
                     {
                         elem: 'title_text',
                         tag: 'span',
-                        content: this.ctx.title
+                        content: ctx.title
                     }
                 ]
             }, {
@@ -24,12 +25,12 @@ block('g-filter-param')(
                                 content: [
                                     {
                                         block: 'g-input',
-                                        value: '2000'
+                                        value: ctx.min
                                     },
                                     '&#8212;',
                                     {
                                         block: 'g-input',
-                                        value: '322 000'
+                                        value: ctx.max
                                     }, {
                                         block: 'g-price',
                                         content: ''
@@ -37,13 +38,9 @@ block('g-filter-param')(
                                 ]
                             }, {
                                 block: 'g-range',
-                                width: 162,
-                                max: 15000,
-                                ticks: [
-                                    2100,
-                                    5300,
-                                    12000
-                                ]
+                                width: ctx.scale,
+                                max: ctx.max,
+                                ticks: ctx.ticks
                             }, {
                                 tag: 'hr'
                             }

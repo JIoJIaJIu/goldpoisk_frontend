@@ -131,6 +131,14 @@
                                 {
                                     block: 'g-filter-param',
                                     title: 'Цена',
+                                    min: 2000,
+                                    max: 15000,
+                                    scale: 162,
+                                    ticks: [
+                                        2100,
+                                        5300,
+                                        12000
+                                    ]
                                 }, {
                                     block: 'g-filter-param',
                                     mods: { 'list': true, 'state': 'open' },
