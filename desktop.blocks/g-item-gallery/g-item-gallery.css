@@ -42,8 +42,8 @@
 
 .g-item-gallery__main_image {
     position: relative;
-    width: 275px;
-    height: 263px;
+    max-width: 350px;
+    max-height: 290px;
     float: right;
     padding: 10px 0 0 25px;
 }
