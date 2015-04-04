@@ -52,6 +52,15 @@ app.get('/', function (req, res) {
     }
 });
 
+app.get('/id(:id([0-9]*))?', function (req, res) {
+    if (!req.xhr) {
+        res.send('req.params.id');
+    } else {
+        var data = fs.readFileSync('data/item/item.json');
+        res.json( JSON.parse(data) );
+    }
+});
+
 app.get('/success', function (req, res) {
     var productJSON = getProduct();
     fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
@@ -74,6 +83,8 @@ app.get('/sortparam', function (req, res) {
 app.get('/product/item', function (req, res) {
     var item = {
         'title': 'Some title',
+        'js': true,
+        'url': '/id1',
         'images': [
             'some/path.png'
         ],
@@ -102,7 +113,7 @@ app.get('/product/item', function (req, res) {
         var bemjson = privContext.blocks['g-item'](item);
         setTimeout(function () {
             res.json(bemjson);
-        }, 5000);
+        }, 1000);
     })
 });
 

@@ -1,0 +1,24 @@
+{
+    "title": "Обручальное кольцо из белого золота с 21 бриллиантом",
+    "js": true,
+    "number": "532936723",
+    "weight": "50 гр.",
+    "description": "Описание товара",
+    "images": [
+        "some/path.png"
+    ],
+    "gems": [
+        {
+            "name": "Бриллиант",
+            "carat": "45"
+        }
+    ],
+    "items": [
+        {
+            "price": 5200,
+            "buyUrl": "#",
+            "storeName": "Moscow",
+            "storeUrl": "#"
+        }
+    ]
+}
