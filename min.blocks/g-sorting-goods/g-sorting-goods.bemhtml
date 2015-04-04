@@ -10,7 +10,9 @@ block('g-sorting-goods')(
                     return {
                         elem: 'param',
                         tag: 'li',
-                        js: { url: param.url },
+                        js: {
+                            value: param.value
+                        },
                         content: param.name
                     };
                 })

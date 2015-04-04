@@ -141,7 +141,6 @@ pages['index.content'] = function (data, env) {
  * data.menu
  * {String} !data.products
  */
-
 pages['category'] = function (data, env) {
     env = env || {};
     env.headerJs = true;
@@ -153,6 +152,10 @@ pages['category'] = function (data, env) {
             content: pages['category.content'](data, env)
         }
     }, env);
+}
+
+pages['category.json'] = function (data, env) {
+    return pages['category'](JSON.parse(data), env)
 }
 
 pages['category.content'] = function (data, env) {

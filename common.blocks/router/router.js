@@ -18,7 +18,35 @@ modules.define('router', ['location', 'uri', 'controller', 'logger'],
         },
 
         route: function (url) {
+            this._params = {};
             location.change({ url: url });
+        },
+
+        setParams: function (params) {
+            _.assign(this._params, params);
+            location.change({params: this._params, forceParams: true});
+        },
+
+        delParam: function (key) {
+            if (!this._params[key])
+                return;
+
+            delete this._params[key];
+            location.change({params: this._params, forceParams: true});
+        },
+
+        getUri: function (url) {
+            var uri = new Uri(url);
+
+            _.forIn(this._params, function (value, key) {
+                uri.addParam(key, value)
+            });
+
+            return uri
+        },
+
+        getPath: function () {
+            return location.getUri().getPath()
         },
 
         _onChange: function (e, data) {
@@ -29,7 +57,9 @@ modules.define('router', ['location', 'uri', 'controller', 'logger'],
                 return;
             var path = uri.getPath();
             controller.get(path)();
-        }
+        },
+
+        _params: {}
     }
 
     provide(router);

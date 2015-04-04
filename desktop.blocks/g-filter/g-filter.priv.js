@@ -17,10 +17,12 @@
  *    @of {Integer} tick like 2100
  */
 blocks['g-filter'] = function (data, env) {
+    assertHas(data, 'params', 'Should point params');
     var params = [];
     data.params.map(function (param) {
-        params.push(blocks['g-filter-param'](param));
+        params.push(blocks['g-filter-param'](param, env));
     });
+
     return {
         block: 'g-filter',
         mods: { 'hidden': false, },
@@ -34,6 +36,10 @@ blocks['g-filter'] = function (data, env) {
                 content: params
             }, {
                 elem: 'button'
+            }, {
+                block: 'g-button',
+                mods: { type: 'gray' },
+                content: 'Искать'
             }
         ]
     }
