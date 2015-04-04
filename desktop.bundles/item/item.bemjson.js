@@ -8,11 +8,11 @@
         { elem: 'css', url: './item.css' }
     ],
     scripts: [
-                { elem: 'js', url: 'item.bemhtml.js' },
-                { elem: 'js', url: 'item.priv.js' },
-                { elem: 'js', url: '//vk.com/js/api/openapi.js?105' },
-                { elem: 'js', url: 'item.js' }
-            ],
+        { elem: 'js', url: 'item.bemhtml.js' },
+        { elem: 'js', url: 'item.priv.js' },
+        { elem: 'js', url: '//vk.com/js/api/openapi.js?105' },
+        { elem: 'js', url: 'item.js' }
+    ],
     mods: { theme: 'normal' },
     content: [
         { 
