@@ -36,6 +36,7 @@
 }
 
 .g-content {
+    position: relative;
     opacity: 1;
     transition: opacity 1s;
     -moz-transition: opacity 1s;
