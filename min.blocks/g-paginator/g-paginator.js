@@ -1,54 +1,20 @@
-modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], function(provide, BEMDOM, $, location, config) {
+modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], function(provide, BEMDOM, $, router, config) {
     BEMDOM.decl('g-paginator', {
         onSetMod: {
             js:  {
                 inited: function () {
-                    var that = this;
+                    this.setCurrentPage(this.params.currentPage);
+                    this._totalPages = parseInt(this.params.totalPages, 10);
+                    this._pending = false;
+
+                    var self = this;
                     var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                     var body = document.body;
-                    var pending = false;
-                    var config = this.params.config;
-                    var currentPage = parseInt(this.params.currentPage, 10);
-                    var totalPage = parseInt(this.params.totalPages, 10);
 
                     this.bindToWin('scroll', function(e) {
                         var bodyScrollTop = $(document).scrollTop();
                         if (body.scrollHeight - bodyScrollTop - $(window).height() <= 0) {
-                            if (totalPage > currentPage) {
-                                $('#down').css("display", "inline-block");
-                                if (pending) {
-                                    return;
-                                }
-                                pending = true;
-                                var nextPage = currentPage + 1;
-                                $.getJSON(config.HTTP.list, {
-                                    page: nextPage
-                                }, function success(data) {
-                                    goods.append(data);
-                                    pending = false;
-                                    $('#down').css("display", "none");
-                                    location.change({ params: { page: nextPage } });
-                                    currentPage = nextPage;
-                                });
-                            }
-                        } else if (body.scrollTop <= 0) {
-                            //TODO:
-                            return;
-                            $('#up').css("display", "inline-block");
-                            if (pending) {
-                                return;
-                            }
-                            pending = true;
-                            var prevPage = currentPage - 1 || 1;
-                            $.getJSON(config.HTTP.list, {
-                                page: prevPage
-                            }, function success (data) {
-                                    goods.prepend(data);
-                                    pending = false;
-                                    $('#up').css("display", "none");
-                                    location.change({ params: { page: prevPage }});
-                                    currentPage = prevPage;
-                            });
+                            self._scrollDown(goods);
                         }
                     });
                 },
@@ -57,10 +23,46 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'location', 'config'], fu
                     this.unbindFromWin('scroll');
 
                 }
-            }
+            },
         },
 
-        REST: null
+        setCurrentPage: function (page) {
+            this._currentPage = parseInt(page, 10);
+            if (this._currentPage === 1) {
+                router.delParam('page');
+                return;
+            }
+            router.setParams({page: this._currentPage});
+        },
+
+        _scrollDown: function (goods) {
+            if (this._totalPages <= this._currentPage)
+                return;
+
+            if (this._pending) {
+                return;
+            }
+            this._pending = true;
+
+            $('#down').css("display", "inline-block");
+            var self = this;
+            var config = this.params.config;
+            var nextPage = this._currentPage + 1;
+            var uri = router.getUri(config.HTTP.list);
+
+            $.getJSON(uri.toString(), {
+                page: nextPage
+            }, function success(data) {
+                goods.append(data);
+                self._pending = false;
+                self.setCurrentPage(nextPage);
+                $('#down').css("display", "none");
+            });
+        },
+
+        _totalPages: 0,
+        _currentPage: 1,
+        _pending: false
     }, {});
     provide(BEMDOM);
 })
