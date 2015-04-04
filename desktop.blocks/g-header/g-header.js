@@ -11,7 +11,6 @@ modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
                     }
                     var inner = this.findBlockInside('g-header_inner');
                     inner.bindTo('up', 'click', function(e) {
-                        console.log('click');
                         $("body,html").animate({scrollTop: 0}, 750, 'easeInQuart');
                     });
 
