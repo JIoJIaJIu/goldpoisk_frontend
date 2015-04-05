@@ -69,7 +69,12 @@ modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'], function
             self._blocks.menu.selectByUrl(config.url);
             self._blocks.content.setMod('loading', true);
             // disable header on main page
-            type == 'index' ?  header.setMod('js', '') : header.setMod('js', 'inited');
+            if (type == 'index') {
+                header.disable();
+                $(window).scrollTop(0);
+            } else {
+                header.enable();
+            }
 
             $.getJSON(config.url, function success(data) {
                 if (self._active != controller)

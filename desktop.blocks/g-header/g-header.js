@@ -1,4 +1,4 @@
-modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
+modules.define('g-header', ['i-bem__dom', 'jquery', 'router'], function(provide, BEMDOM, $, router) {
     BEMDOM.decl('g-header', {
         onSetMod: {
             js: {
@@ -13,38 +13,66 @@ modules.define('g-header', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
                     inner.bindTo('up', 'click', function(e) {
                         $("body,html").animate({scrollTop: 0}, 750, 'easeInQuart');
                     });
-
-                    var self = this;
-                    var support = this.findBlockInside('g-support');
-                    var desc = $('.g-logo__description');
-
-
-                    $(window).scroll(repos);
-
-                    function repos () {
-                        setTimeout(function () {
-                            if ($(window).scrollTop() > 0) {
-                                self.setMod('state', 'flow');
-                                support.setMod('dark', true);
-                                $('.g-header_inner__up').css('display', 'block');
-                                //desc.css('display', 'none');
-                            } else {
-                                self.delMod('state');
-                                support.delMod('dark');
-                                $('.g-header_inner__up').css('display', 'none');
-                                //desc.css('display', 'block');
-                            }
-                        });
-                    }
-
-                    repos();
                 },
 
                 '': function () {
-                    $(window).unbind('scroll');
+                    this.disable();
                 }
             }
-        }
+        },
+
+        enable: function () {
+            if (this._enabled)
+                return;
+
+            if (router.getPath() === '/')
+                return;
+
+            this._enabled = true;
+            var self = this;
+
+            $(window).scroll(repos);
+            repos();
+
+            function repos () {
+                setTimeout(function () {
+                    if ($(window).scrollTop() > 0) {
+                        self._flow()
+                    } else {
+                        self._unflow();
+                    }
+                });
+            }
+        },
+
+        disable: function () {
+            if (!this._enabled)
+                return;
+
+            $(window).unbind('scroll');
+            this._unflow();
+            this._enabled = false;
+        },
+
+        _flow: function () {
+            if (this.hasMod('state'))
+                return;
+
+            this.setMod('state', 'flow');
+            this.findBlockInside('g-support').setMod('dark', true);
+            $('.g-header_inner__up').css('display', 'block');
+        },
+
+        _unflow: function () {
+            if (!this.hasMod('state'))
+                return;
+
+            this.delMod('state');
+            this.findBlockInside('g-support').delMod('dark');
+            $('.g-header_inner__up').css('display', 'none');
+        },
+
+        _enabled: false
     }, {});
     provide(BEMDOM);
 });
