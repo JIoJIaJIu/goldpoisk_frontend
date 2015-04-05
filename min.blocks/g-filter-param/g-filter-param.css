@@ -32,7 +32,7 @@
     background: none;
 }
 
-.g-filter-param_state_open .g-filter-param__title_arrow, .g-filter-param_state_closed .g-filter-param__title_arrow {
+.g-filter-param_state_opened .g-filter-param__title_arrow, .g-filter-param_state_closed .g-filter-param__title_arrow {
     background-image: url('/images/sprite.png');
 }
 
@@ -44,7 +44,7 @@
     background-position: -58px -198px;
 }
 
-.g-filter-param_state_open .g-filter-param__title_arrow {
+.g-filter-param_state_opened .g-filter-param__title_arrow {
     top: 7px;
     left: 13px;
     width: 6px;
@@ -56,7 +56,7 @@
     display: none;
 }
 
-.g-filter-param_list.g-filter-param_state_open .g-filter-param__content {
+.g-filter-param_list.g-filter-param_state_opened .g-filter-param__content {
     display: block;
 }
 
