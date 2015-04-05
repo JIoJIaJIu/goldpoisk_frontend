@@ -13,6 +13,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                     var button = goods.findBlockInside('g-button');
 
                     button.bindTo('click', function (e) {
+                        button.domElem.css('display', 'none');
                         self._scrollUp(goods);
                     });
 
@@ -89,7 +90,6 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 that._pending = false;
                 that.setCurrentPage(prevPage);
                 $('#up').css('display', 'none');
-                $('.g-button_prev').css('display', 'none');
             });
         },
 
