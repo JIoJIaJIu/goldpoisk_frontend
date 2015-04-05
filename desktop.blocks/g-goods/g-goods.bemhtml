@@ -3,6 +3,10 @@ block('g-goods')(
         content()(function () {
             return [
                 {
+                    block: 'g-button',
+                    mods: { prev: true },
+                    content: 150
+                }, {
                     block: 'g-sorting-goods',
                     content: this.ctx.sortParams
                 }, {
