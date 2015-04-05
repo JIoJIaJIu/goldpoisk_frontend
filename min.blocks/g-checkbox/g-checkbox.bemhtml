@@ -1,4 +1,7 @@
 block('g-checkbox')(
+    js()(function () {
+        return this.ctx.js || true
+    }),
     tag()('div'),
     content()(function () {
         return [
@@ -8,18 +11,20 @@ block('g-checkbox')(
                     type: 'checkbox', 
                     id: this.generateId() 
                 }
-            },
-            {
+            }, {
                 tag: 'label',
+                elem: 'label',
                 attrs: {
                     for: this.generateId()
                 },
                 content: [
                     {
+                        elem: 'input',
                         tag: 'span'
                     },
                     {
-                        tag: '',
+                        elem: 'label',
+                        tag: 'span',
                         content: this.ctx.label 
                     }
                 ]

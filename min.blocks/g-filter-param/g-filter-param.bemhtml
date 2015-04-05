@@ -1,5 +1,9 @@
 block('g-filter-param')(
-    js()(true),
+    js()(function () {
+        return {
+            type: this.ctx.type
+        }
+    }),
     tag()('section'),
     content()(function () {
         var ctx = this.ctx;
@@ -72,6 +76,9 @@ block('g-filter-param')(
                         this.ctx.content.map(function (item) {
                             return {
                                 block: 'g-checkbox',
+                                js: {
+                                    ident: item.id,
+                                },
                                 label: item.name
                             }
                         }), {
