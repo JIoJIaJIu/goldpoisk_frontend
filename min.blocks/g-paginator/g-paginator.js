@@ -13,6 +13,12 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                     var body = document.body;
                     var button = goods.findBlockInside('g-button');
 
+                    if (this._currentPage == 1) {
+                        var spinup = goods.findElem('up-spin');
+                        debugger;
+                        spinup.css('display', 'none');
+                    }
+
                     button.bindTo('click', function (e) {
                         button.domElem.css('display', 'none');
                         self._scrollUp(goods);
