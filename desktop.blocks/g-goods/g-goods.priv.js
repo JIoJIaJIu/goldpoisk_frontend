@@ -23,11 +23,10 @@ blocks['g-goods'] = function (data, env) {
     return block;
 }
 
-//TODO;
-blocks['g-goods.str'] = function (data, env) {
-    list = JSON.parse(data)
-    for (var i = 0, length = list.length; i < length; i++) {
-        var item = list[i];
+blocks['g-goods.items'] = function (data, env) {
+    var list = [];
+    for (var i = 0, length = data.length; i < length; i++) {
+        var item = data[i];
         list.push(blocks['g-product'](item, env));
     }
 
