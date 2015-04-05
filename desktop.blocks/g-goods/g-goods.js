@@ -18,12 +18,25 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                 }
             }
         },
+
+        loading: function (isLoading) {
+            var sort = this.findBlockOutside('g-content').findBlockInside('g-sorting-goods');
+            if (!!isLoading) {
+                this.setMod(this.elem('content'), 'loading', true);
+                sort.setMod('loading', true);
+            } else {
+                this.setMod(this.elem('content'), 'loading', false);
+                sort.setMod('loading', false);
+            }
+        },
+
         append: function (products) {
             BEMDOM.append(
                 this.elem('content'),
                 BEMHTML.apply(products)
             );
         },
+
         prepend: function (products) {
             BEMDOM.prepend(
                 this.elem('content'),

@@ -1,4 +1,4 @@
-modules.define('g-filter-param', ['i-bem__dom', 'jquery', 'logger'], function(provide, BEMDOM, $, logger) {
+modules.define('g-filter-param', ['i-bem__dom', 'jquery', 'logger', 'router'], function(provide, BEMDOM, $, logger, router) {
     BEMDOM.decl({block: 'g-filter-param', modName: 'list'}, {
         onSetMod: {
             js: {
@@ -15,12 +15,33 @@ modules.define('g-filter-param', ['i-bem__dom', 'jquery', 'logger'], function(pr
                         this._onParamClick(e);
                     });
 
-                    _.forEach(this.findBlocksInside('g-checkbox'), function (item) {
+                    var checkboxes = this.findBlocksInside('g-checkbox');
+
+                    _.forEach(checkboxes, function (item) {
                         item.on({modName: 'checked', modVal: '*'}, function (e, obj) {
                             var id = this.params.ident;
                             !!obj.modVal ? self._addParam(id) : self._delParam(id);
 
                         })
+                    });
+
+                    // Разбор адресной строки для инициализации
+                    var enabled = router.getParam(this.params.type);
+                    if (!enabled)
+                        return;
+
+                    _.forEach(enabled.split('.'), function (id) {
+                        id = parseInt(id, 10);
+                        var checkbox = _.find(checkboxes, function (item) {
+                            return item.params.ident === id
+                        });
+
+                        if (!checkbox) {
+                            self._logger.debug('There is no item with id', id);
+                            return;
+                        }
+
+                        checkbox.setMod('checked');
                     });
                 },
                 '': function () {
@@ -51,7 +72,7 @@ modules.define('g-filter-param', ['i-bem__dom', 'jquery', 'logger'], function(pr
             if (!~index)
                 return;
 
-            _.remove(this._params, id);
+            this._params.splice(index, 1);
             this.emit('changed', {
                 type: this.params.type,
                 ids: this._params

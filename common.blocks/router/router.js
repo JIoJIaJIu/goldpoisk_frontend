@@ -7,6 +7,11 @@ modules.define('router', ['location', 'uri', 'controller', 'logger'],
             this.page = content.findBlockOutside('page');
             this.menu = this.page.findBlockInside('g-menu');
             this.activeController = null;
+            var self = this;
+            this._params = {}
+            _.forIn(location.getState().params, function (value, key) {
+                self._params[key] = value[0];
+            });
             controller.init(content);
 
             location.on('change', this._onChange);
@@ -33,6 +38,10 @@ modules.define('router', ['location', 'uri', 'controller', 'logger'],
 
             delete this._params[key];
             location.change({params: this._params, forceParams: true});
+        },
+
+        getParam: function (key) {
+            return this._params[key]
         },
 
         getUri: function (url) {

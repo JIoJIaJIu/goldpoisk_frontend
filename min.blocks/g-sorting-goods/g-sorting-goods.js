@@ -24,8 +24,7 @@ modules.define('g-sorting-goods', ['i-bem__dom', 'router', 'location'], function
 
             this.setMod(this.elem('param'), 'selected', false);
             this.setMod(target, 'selected', true);
-            this.setMod('loading', true);
-            goods.setMod(goods.elem('content'), 'loading', true);
+            goods.loading(true);
             var paginator = this.findBlockOutside('page').findBlockInside('g-paginator');
 
             var params = this.elemParams($(e.target));
@@ -38,11 +37,11 @@ modules.define('g-sorting-goods', ['i-bem__dom', 'router', 'location'], function
             $.getJSON(url, function sort (data) {
                 setTimeout(function () {
                     goods.update(data);
-                    goods.setMod(goods.elem('content'), 'loading', false);
-                    that.setMod('loading', false);
+                    goods.loading(false);
                 }, 3000);
             })
         }
+
     }, {});
     provide(BEMDOM)
 });

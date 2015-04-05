@@ -6,8 +6,10 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
                     var self = this;
                     this._logger = logger.Logger('g-filter').init();
                     this._data = {};
+                    var page = this.findBlockOutside('page');
                     this._blocks = {
-                        paginator: this.findBlockOutside('page').findBlockInside('g-paginator')
+                        paginator: page.findBlockInside('g-paginator'),
+                        goods: page.findBlockInside('g-goods')
                     };
 
                     this.bindTo(this.elem('button'), 'click', function (e) {
@@ -45,6 +47,7 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
 
             var self = this;
             this._pending = true;
+            this._blocks.goods.loading(true);
 
             this._blocks.paginator.setCurrentPage(1);
             router.setParams(this._data);
@@ -52,8 +55,10 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
             var url = uri.toString();
 
             this._logger.debug('Requesting', url);
-            $.getJSON(url, function () {
+            $.getJSON(url, function (data) {
                 self._pending = false;
+                self._blocks.goods.update(data);
+                self._blocks.goods.loading(false);
             });
         },
 
