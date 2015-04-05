@@ -43,12 +43,12 @@ blocks['g-product'] = function (data, env) {
         newPage: data.newPage || true
 	}
 
-    if (data.count == 1) {
-        block.price = data.minPrice;
-        block.storeUrl = data.shopUrl;
-        block.store = data.shopName;
-        block.buyUrl = data.buyUrl;
-    }
+    //TODO:
+    //if (data.count == 1) {
+    block.price = data.minPrice;
+    block.storeUrl = data.shopUrl;
+    block.store = data.shopName;
+    block.buyUrl = data.buyUrl;
 
     if (env && env.js) {
         assertHas(data, 'jsonUrl', 'Should be pointed json url');
