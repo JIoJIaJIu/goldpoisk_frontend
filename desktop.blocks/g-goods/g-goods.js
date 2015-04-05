@@ -9,6 +9,7 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
                 var body = document.body;
                 var pending = false;
             },
+            //TODO:
             'loading': {
                 true: function () {
                     console.log('loading start');
@@ -30,23 +31,30 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
             }
         },
 
-        append: function (products) {
+        append: function (data) {
+            var bemjson = blocks['g-goods.items'](data);
+            console.log('bemjson', bemjson);
+
             BEMDOM.append(
                 this.elem('content'),
-                BEMHTML.apply(products)
+                BEMHTML.apply(bemjson)
             );
         },
 
-        prepend: function (products) {
+        prepend: function (data) {
+            var bemjson = blocks['g-goods.items'](data);
+
             BEMDOM.prepend(
                 this.elem('content'),
-                BEMHTML.apply(products)
+                BEMHTML.apply(bemjson)
             );
         },
-        update: function (products) {
+        update: function (data) {
+            var bemjson = blocks['g-goods.items'](data);
+
             BEMDOM.update(
                 this.elem('content'),
-                BEMHTML.apply(products)
+                BEMHTML.apply(bemjson)
             );
         },
         selectProduct: function (product) {
@@ -62,24 +70,6 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
             } else {
                 product.setMod('active', true);
             }
-        },
-        _request: function (currentPage, cb) {
-            var list = [];
-            for (var i = 0; i < 8; i++) {
-                list.push({
-                    block: 'g-product',
-                    mods: { like: 'yes', action: 'yes' },
-                    url: '#',
-                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
-                    imageUrl: '/images/good.png',
-                    weight: '4.5 грамм',
-                    carat: '0,07 карат',
-                    price: 1000000,
-                    store: 'Sunlight',
-                    storeUrl: '#'
-                });
-            }
-            cb(list);
         }
     }, {});
     provide(BEMDOM);
