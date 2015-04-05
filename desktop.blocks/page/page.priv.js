@@ -165,7 +165,7 @@ pages['category.content'] = function (data, env) {
             title: data.category,
             count: data.count
         },
-        blocks['g-filter'](data.filters),
+        data.filters ? blocks['g-filter'](data.filters, env) : null,
         blocks['g-goods']({
             list: data.products,
             sortParams: data.sortParams
