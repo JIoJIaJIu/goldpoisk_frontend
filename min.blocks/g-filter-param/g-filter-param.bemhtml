@@ -76,7 +76,9 @@ block('g-filter-param')(
                         this.ctx.content.map(function (item) {
                             return {
                                 block: 'g-checkbox',
-                                id: item.id,
+                                js: {
+                                    ident: item.id,
+                                },
                                 label: item.name
                             }
                         }), {
