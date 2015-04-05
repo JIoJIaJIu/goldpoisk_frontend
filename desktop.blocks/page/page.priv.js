@@ -164,6 +164,9 @@ pages['category.content'] = function (data, env) {
             block: 'g-category-title',
             title: data.category,
             count: data.count
+        }, {
+            block: 'g-link',
+            mods: { type: 'display', state: 'hidden' }
         },
         blocks['g-filter'](data.filters),
         blocks['g-goods']({
