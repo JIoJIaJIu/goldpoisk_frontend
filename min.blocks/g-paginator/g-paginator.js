@@ -10,7 +10,11 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                     var self = this;
                     var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                     var body = document.body;
-                    var button = this.findBlockOutside('g-content').findBlockInside('g-goods').findBlockInside('g-button');
+                    var button = goods.findBlockInside('g-button');
+
+                    button.bindTo('click', function (e) {
+                        self._scrollUp(goods);
+                    });
 
                     this.bindToWin('scroll', function(e) {
                         var bodyScrollTop = $(document).scrollTop();
@@ -21,9 +25,6 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                             if (this._currentPage <= 1)
                                 return;
                             button.domElem.css('display', 'block');
-                            button.bindTo('click', function (e) {
-                                self._scrollUp(goods);
-                            });
                         }
                     });
                 },
@@ -70,6 +71,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
         },
 
         _scrollUp: function (goods) {
+            if (this._currentPage <= 1)
+                return;
             if (this._pending)
                 return;
 
