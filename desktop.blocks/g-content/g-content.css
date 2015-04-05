@@ -32,7 +32,8 @@
 }
 
 .g-content .g-category-title {
-    margin: 17px 2% 20px;
+    margin: 0 2% 20px;
+    padding-top: 17px;
 }
 
 .g-content_wide {
