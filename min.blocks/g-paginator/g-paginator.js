@@ -10,11 +10,20 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                     var self = this;
                     var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                     var body = document.body;
+                    var button = this.findBlockOutside('g-content').findBlockInside('g-goods').findBlockInside('g-button');
 
                     this.bindToWin('scroll', function(e) {
                         var bodyScrollTop = $(document).scrollTop();
                         if (body.scrollHeight - bodyScrollTop - $(window).height() <= 0) {
                             self._scrollDown(goods);
+                        }
+                        if (bodyScrollTop == 0) {
+                            if (this._currentPage <= 1)
+                                return;
+                            button.domElem.css('display', 'block');
+                            button.bindTo('click', function (e) {
+                                self._scrollUp(goods);
+                            });
                         }
                     });
                 },
@@ -44,7 +53,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             }
             this._pending = true;
 
-            $('#down').css("display", "inline-block");
+            $('#down').css('display', 'inline-block');
             var self = this;
             var config = this.params.config;
             var nextPage = this._currentPage + 1;
@@ -56,7 +65,28 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 goods.append(data);
                 self._pending = false;
                 self.setCurrentPage(nextPage);
-                $('#down').css("display", "none");
+                $('#down').css('display', 'none');
+            });
+        },
+
+        _scrollUp: function (goods) {
+            if (this._pending)
+                return;
+
+            $('#up').css('display', 'inline-block');
+            var that = this;
+            var config = this.params.config;
+            var prevPage = this._currentPage - 1;
+            var uri = router.getUri(config.HTTP.list);
+
+            $.getJSON(uri.toString(), {
+                page: prevPage
+            }, function success(data) {
+                goods.prepend(data);
+                that._pending = false;
+                that.setCurrentPage(prevPage);
+                $('#up').css('display', 'none');
+                $('.g-button_prev').css('display', 'none');
             });
         },
 
