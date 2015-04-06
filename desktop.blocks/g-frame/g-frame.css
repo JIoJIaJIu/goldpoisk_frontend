@@ -1,5 +1,6 @@
 .g-frame {
     position: relative;
+    overflow: hidden;
     display: none;
     width: 850px;
     border-style: solid;

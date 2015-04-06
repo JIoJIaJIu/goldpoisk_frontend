@@ -33,7 +33,11 @@ BEMDOM.decl('g-frame', {
     },
 
     _reposition: function (offset) {
-        var width = this.domElem.width();
+        var borderLeft = parseInt(this.domElem.css('borderLeft'), 10);
+        var borderRight = parseInt(this.domElem.css('borderRight'), 10);
+        var width = this.domElem.width() + borderLeft + borderRight;
+
+        var marginRight = 20;
         var SHIFT = 200;
 
         if (offset.left + SHIFT > width ) {
@@ -41,7 +45,8 @@ BEMDOM.decl('g-frame', {
             parentWidth = this.domElem.parent().width();
             if (parentWidth - width < offset.left) {
                 // move to right
-                this.domElem.css('left', (parentWidth - width) + 'px');
+                console.log(parentWidth, width);
+                this.domElem.css('left', (parentWidth - width - marginRight) + 'px');
             } else {
                 // move to mid
                 this.domElem.css('left', (offset.left - width / 2) + 'px');
