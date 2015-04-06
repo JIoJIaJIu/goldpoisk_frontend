@@ -6,6 +6,10 @@
             block: 'g-spin'
         }, {
             block: 'g-button'
+        }, {
+            block: 'g-filter'
+        }, {
+            block: 'clear'
         }
     ]
 })

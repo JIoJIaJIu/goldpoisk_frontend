@@ -3,6 +3,15 @@
     padding: 0;
 }
 
+.g-goods .g-filter {
+    float: left;
+    margin-left: -8px;
+}
+
+.g-goods .g-filter_hidden {
+    margin-left: -262px;
+}
+
 .g-goods__content {
     opacity: 1;
     transition: opacity 1s;
