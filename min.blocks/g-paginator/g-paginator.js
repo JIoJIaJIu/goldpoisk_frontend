@@ -66,7 +66,6 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             var config = this.params.config;
             var nextPage = this._currentPage + 1;
             var uri = router.getUri(config.HTTP.list);
-
             $.getJSON(uri.toString(), {
                 page: nextPage
             }, function success(data) {

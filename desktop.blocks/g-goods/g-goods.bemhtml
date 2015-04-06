@@ -7,29 +7,34 @@ block('g-goods')(
                     content: this.ctx.filters
                 } : null,
                 {
-                    block: 'g-sorting-goods',
-                    content: this.ctx.sortParams
-                }, {
-                    elem: 'up-spin',
-                    content: [{
-                        block: 'g-spin',
-                        mods: { theme : 'islands', size : 'xl', visible : true },
-                        attrs: { id: 'up' }
-                    }, {
-                    block: 'g-button',
-                    mods: { prev: true },
-                    content: 30
-                    }]
-                }, {
-                    elem: 'content',
-                    content: applyNext()
-                }, {
-                    elem: 'down-spin',
-                    content: [{
-                        block: 'g-spin',
-                        mods: { theme : 'islands', size : 'xl', visible : true },
-                        attrs: { id: 'down' }
-                    }]
+                    elem: 'container',
+                    content: [
+                        {
+                            block: 'g-sorting-goods',
+                            content: this.ctx.sortParams
+                        }, {
+                            elem: 'up-spin',
+                            content: [{
+                                block: 'g-spin',
+                                mods: { theme : 'islands', size : 'xl', visible : true },
+                                attrs: { id: 'up' }
+                            }, {
+                            block: 'g-button',
+                            mods: { prev: true },
+                            content: 30
+                            }]
+                        }, {
+                            elem: 'content',
+                            content: applyNext()
+                        }, {
+                            elem: 'down-spin',
+                            content: [{
+                                block: 'g-spin',
+                                mods: { theme : 'islands', size : 'xl', visible : true },
+                                attrs: { id: 'down' }
+                            }]
+                        }
+                    ]
                 }, {
                     block: 'clear'
                 }

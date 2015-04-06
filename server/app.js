@@ -69,7 +69,7 @@ app.get('/success', function (req, res) {
         vm.runInContext(data.toString(), privContext);
         bemjson = [];
         for (var i = 0, length = productJSON.length; i < length; i++) {
-            bemjson[i] = ( privContext.blocks['g-product'](productJSON[i]) );
+            bemjson[i] = productJSON[i];
         }
         res.json(bemjson);
     })
