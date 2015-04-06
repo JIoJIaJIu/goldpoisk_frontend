@@ -45,7 +45,6 @@ BEMDOM.decl('g-frame', {
             parentWidth = this.domElem.parent().width();
             if (parentWidth - width < offset.left) {
                 // move to right
-                console.log(parentWidth, width);
                 this.domElem.css('left', (parentWidth - width - marginRight) + 'px');
             } else {
                 // move to mid
