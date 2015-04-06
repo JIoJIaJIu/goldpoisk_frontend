@@ -15,7 +15,6 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
 
                     if (this._currentPage == 1) {
                         var spinup = goods.findElem('up-spin');
-                        debugger;
                         spinup.css('display', 'none');
                     }
 
