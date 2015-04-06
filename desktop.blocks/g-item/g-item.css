@@ -42,6 +42,7 @@
 
 .g-item .g-right-col {
     float: left;
+    overflow: hidden;
     padding: 35px 50px;
     width: 50%;
     min-height: 267px;
