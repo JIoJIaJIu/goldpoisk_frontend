@@ -50,7 +50,12 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
             );
         },
         update: function (data) {
-            var bemjson = blocks['g-goods.items'](data);
+            var bemjson = blocks['g-goods.items'](data.list);
+            var count = data.count
+            //TODO: govnokot
+            this.findBlockOutside('g-content')
+                .findBlockInside('g-category-title')
+                .elem('count').text('(' + count + ')');
 
             BEMDOM.update(
                 this.elem('content'),
