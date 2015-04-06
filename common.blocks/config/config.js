@@ -12,47 +12,47 @@ modules.define('config', ['i-bem'], function (provide) {
         },
         page: {
             index: {
-                url: '/',
+                url: '^/$',
                 priv: 'index.content'
             },
             necklaces: {
-                url: '/necklaces',
+                url: '^/necklaces$',
                 priv: 'category.content'
             },
             chains: {
-                url: '/chains',
+                url: '^/chains$',
                 priv: 'category.content'
             },
             pendants: {
-                url: '/pendants',
+                url: '^/pendants$',
                 priv: 'category.content'
             },
             bracelets: {
-                url: '/bracelets',
+                url: '^/bracelets$',
                 priv: 'category.content'
             },
             rings: {
-                url: '/rings',
+                url: '^/rings$',
                 priv: 'category.content'
             },
             earrings: {
-                url: '/earrings',
+                url: '^/earrings$',
                 priv: 'category.content'
             },
             brooches: {
-                url: '/brooches',
+                url: '^/brooches$',
                 priv: 'category.content'
             },
             watches: {
-                url: '/watches',
+                url: '^/watches$',
                 priv: 'category.content'
             },
             cutlery: {
-                url: '/cutlery',
+                url: '^/cutlery$',
                 priv: 'category.content'
             },
             item: {
-                url: '/id',
+                url: '^/id\\d+$',
                 priv: 'item.content'
             }
         }

@@ -34,17 +34,20 @@ modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'], function
                 return function () {};
             }
 
-            if (key.search(/id[0-9]+/) != -1 ) {
-                console.log(key);
-                key = '/id';
+            var controller;
+            for (var reg in this._config) {
+                if ((new RegExp(reg)).test(key)) {
+                    controller = this._config[reg]
+                    break;
+                }
             }
 
-            var controller = this._config[key];
             if (!controller) {
                 logger.error('There is no such controller for', key);
                 return function () {};
             }
-            return controller;
+
+            return _.partial(controller, key);
         },
 
         _active: null,
@@ -63,20 +66,20 @@ modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'], function
 
         var header = self._blocks.page.findBlockInside('g-header');
 
-        return function controller () {
-            self._logger.debug('Controller:', type);
+        return function controller (url) {
+            self._logger.debug('Controller:', type, url);
             self._active = controller;
-            self._blocks.menu.selectByUrl(config.url);
+            self._blocks.menu.selectByUrl(url);
             self._blocks.content.setMod('loading', true);
             // disable header on main page
-            if (type == 'index') {
+            if (~['index', 'item'].indexOf(type)) {
                 header.disable();
                 $(window).scrollTop(0);
             } else {
                 header.enable();
             }
 
-            $.getJSON(config.url, function success(data) {
+            $.getJSON(url, function success(data) {
                 if (self._active != controller)
                     return;
 
