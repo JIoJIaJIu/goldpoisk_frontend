@@ -12,7 +12,6 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
                         goods: page.findBlockInside('g-goods')
                     };
                     var goodsContainer = this._blocks.goods.findElem('container');
-                    debugger;
 
                     this.bindTo(this.elem('button'), 'click', function (e) {
                         this.toggleMod('hidden');
