@@ -1,3 +1,4 @@
 block('g-filter')(
-    js()(true)
+    js()(true),
+    tag()('section')
 )
