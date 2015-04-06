@@ -7,7 +7,6 @@
 }
 
 .g-content .g-goods {
-    margin: 0 2%;
 }
 
 .g-content .g-item {
@@ -23,7 +22,7 @@
 }
 
 .g-content .g-goods .g-product {
-    margin: 16px 35px 42px 0;
+    margin: 16px 1% 42px;
 }
 
 .g-content .g-bids {
