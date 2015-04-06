@@ -168,10 +168,10 @@ pages['category.content'] = function (data, env) {
             block: 'g-link',
             mods: { type: 'display', state: 'hidden' }
         },
-        data.filters ? blocks['g-filter'](data.filters, env) : null,
         blocks['g-goods']({
             list: data.products,
-            sortParams: data.sortParams
+            sortParams: data.sortParams,
+            filters: data.filters
         }, {js: true}),
         blocks['g-paginator'](data.paginator)
     ]

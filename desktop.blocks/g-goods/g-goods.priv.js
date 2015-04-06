@@ -12,12 +12,16 @@ blocks['g-goods'] = function (data, env) {
 
     var block = {
         block: 'g-goods',
-        content: list,
+        content: list
     }
 
     if (data.sortParams) {
         block.mods = { 'sorting': true };
         block.sortParams = data.sortParams;
+    }
+
+    if (data.filters) {
+        block.filters = blocks['g-filter'](data.filters, env);
     }
 
     return block;

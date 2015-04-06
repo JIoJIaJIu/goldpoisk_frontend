@@ -2,6 +2,10 @@ block('g-goods')(
     mod('sorting', true)(
         content()(function () {
             return [
+                this.ctx.filters ? {
+                    elem: 'aside',
+                    content: this.ctx.filters
+                } : null,
                 {
                     block: 'g-sorting-goods',
                     content: this.ctx.sortParams
@@ -14,7 +18,7 @@ block('g-goods')(
                     }, {
                     block: 'g-button',
                     mods: { prev: true },
-                    content: 150
+                    content: 30
                     }]
                 }, {
                     elem: 'content',
@@ -26,6 +30,8 @@ block('g-goods')(
                         mods: { theme : 'islands', size : 'xl', visible : true },
                         attrs: { id: 'down' }
                     }]
+                }, {
+                    block: 'clear'
                 }
             ]
         })

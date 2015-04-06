@@ -121,6 +121,94 @@
                     block: 'g-goods',
                     mods: { "sorting": true },
                     sortParams: ['Сначала дорогие', 'Сначала дешёвые', 'По алфавиту'],
+                    filters: {
+                        block: 'g-filter',
+                        mods: { 'hidden': false, },
+                        content: [{
+                                elem: 'title',
+                                tag: 'h1',
+                                content: 'Поиск по параметрам'
+                            }, {
+                                elem: 'list',
+                                content: [
+                                    {
+                                        block: 'g-filter-param',
+                                        title: 'Цена',
+                                        min: 2000,
+                                        max: 15000,
+                                        scale: 162,
+                                        ticks: [
+                                            2100,
+                                            5300,
+                                            12000
+                                        ]
+                                    }, {
+                                        block: 'g-filter-param',
+                                        mods: { 'list': true, 'state': 'open' },
+                                        title: 'Материал',
+                                        more: 'Еще 5 материалов',
+                                        content: [
+                                            'Золото',
+                                            'Серебро',
+                                            'Платина',
+                                            'Бижутерия'
+                                        ]
+                                    }, {
+                                        block: 'g-filter-param',
+                                        mods: { 'list': true, 'state': 'open' },
+                                        title: 'Камни',
+                                        more: 'Еще 9 видов камней',
+                                        content: [
+                                            'С бриллиантами',
+                                            'С сапфирами',
+                                            'С рубинами',
+                                            'С изумрудами'
+                                        ]
+                                    }, {
+                                        block: 'g-filter-param',
+                                        mods: { 'list': true, 'state': 'closed' },
+                                        title: 'Размер',
+                                        content: [
+                                            's',
+                                            'm',
+                                            'l',
+                                            'xl'
+                                        ]
+                                    }, {
+                                        block: 'g-filter-param',
+                                        mods: { 'list': true, 'state': 'closed' },
+                                        title: 'Вес',
+                                        content: [
+                                            '0г. - 50г.',
+                                            '50г. - 100г.',
+                                            '100г. - 150г.',
+                                            '150г. - 200г.'
+                                        ]
+                                    }, {
+                                        block: 'g-filter-param',
+                                        mods: { 'list': true, 'state': 'open' },
+                                        title: 'Магазин',
+                                        more: 'Еще 12 магазинов',
+                                        content: [
+                                            'Центрювелирторг',
+                                            'ЯкутАлмазЗолото',
+                                            'Адамант',
+                                            'Линии любви',
+                                            'Sun light',
+                                            'Русское золото',
+                                            'Изумруд'
+                                        ]
+                                    }, {
+                                        block: 'g-button',
+                                        mods: { type: 'gray' },
+                                        content: 'Искать'
+                                    }
+                                ]
+                            }, {
+                                elem: 'button'
+                            }
+                        ]
+                    },
                     totalPages: 34,
                     currentPage: 23,
                     js: {
