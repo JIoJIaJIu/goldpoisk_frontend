@@ -57,13 +57,13 @@ blocks['g-item'] = function (data, env) {
         js: params || false,
         content: [
             heading, {
-            block: 'g-item-category',
-            title: data.category
-        },
-        blocks['g-item-gallery']({ images: data.images }, env),
-        collumn(),
-        {
-            block: 'clear'
+                block: 'g-item-category',
+                title: data.category
+            },
+            blocks['g-item-gallery']({ images: data.images }, env),
+            collumn(),
+            {
+                block: 'clear'
         }]
     };
 
