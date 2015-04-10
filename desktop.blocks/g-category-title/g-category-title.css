@@ -1,13 +1,13 @@
 .g-category-title__title {
     display: inline-block;
-    font-family: Din-Text-Pro_Thin;
+    font-family: 'PFDinTextPro-Thin', Arial, sans-serif;
     font-size: 36px;
     color: #3c2424;
 }
 
 .g-category-title__count {
     display: inline-block;
-    font-family: Din-Text-Pro_ThinItalic;
+    font-family: 'PFDinTextPro-ThinItalic', Arial, sans-serif;
     font-size: 30px;
     color: #777;
     margin-left: 13px;

@@ -1,6 +1,6 @@
 .g-heading {
     display: inline-block;
-    font-family: 'Din-Text-Pro_Thin', 'Arial', sans-serif;
+    font-family: 'PFDinTextPro-Thin', 'Arial', sans-serif;
     font-size: 24px;
     font-weight: 100;
     color: #a07472;
@@ -9,7 +9,7 @@
 
 .g-heading a {
     text-decoration: none;
-    color: #a07472;;
+    color: #a07472;
 }
 
 .g-heading_type_simple {

@@ -13,7 +13,7 @@
 
 .g-footer__left p {
     font-size: 14px;
-    font-family: Din-Text-Pro_Thin, sans-serif;
+    font-family: 'PFDinTextPro-Thin', Arial, sans-serif;
     color: #564141;
     padding-left: 26px; padding-top: 38px;
     margin: 0;
@@ -39,8 +39,9 @@
 }
 
 .g-footer__middle section header h1 {
-    font-family: Din-Text-Pro_Thin;
+    font-family: 'PFDinTextPro-Thin', Arial, sans-serif;
     font-size: 18px;
+    font-weight: 100;
     color: #564141;
     padding-top: 38px;
     margin: 0;
@@ -69,7 +70,7 @@
 }
 
 .g-footer__right p {
-    font-family: Din-Text-Pro_Thin, sans-serif;
+    font-family: 'PFDinTextPro-Thin', Arial, sans-serif;
     font-size: 14px;
     color: #564141;
     padding-right: 75px; padding-top: 38px;

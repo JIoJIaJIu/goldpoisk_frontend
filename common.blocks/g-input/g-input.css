@@ -47,7 +47,7 @@
 
 .g-input__label {
     display: block;
-    font-family: Din-Text-Pro_Regular, Arial, sans-serif;
+    font-family: 'PFDinTextPro-Regular', Arial, sans-serif;
     color: #3c2424;
     font-size: 16px;
 }
@@ -57,7 +57,7 @@
     background-color: rgb( 255, 255, 255 );
     width: 236px;
     height: 31px;
-    font-family: Din-Text-Pro_Thin, Arial, sans-serif;
+    font-family: 'PFDinTextPro-Thin', Arial, sans-serif;
     font-size: 20px;
     color: #555;
     padding-left: 20px;

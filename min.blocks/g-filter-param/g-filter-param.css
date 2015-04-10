@@ -13,8 +13,9 @@
 }
 
 .g-filter-param__title_text {
-    font-family: 'Din-Text-Pro_Regular', 'Arial', sans-serif;
+    font-family: 'PFDinTextPro-Regular', Arial, sans-serif;
     font-size: 16px;
+    font-weight: 100;
     color: #3c2424;
     text-decoration: none;
     border-bottom: 2px dotted #3c2424;

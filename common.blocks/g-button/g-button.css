@@ -1,12 +1,12 @@
 .g-button {
     display: inline-block;
-    font-family: 'Din-Text-Pro_Regular', 'Arial', sans-serif;
+    font-family: 'PFDinTextPro-Regular', Arial, sans-serif;
     font-size: 18px;
     color: #3c2424;
     line-height: 31px;
     text-decoration: none;
     text-align: center;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.5px;
     height: 31px;
     border: 1px solid #bd9200;
     border-radius: 5px;
