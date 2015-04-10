@@ -8,7 +8,57 @@
     color: #999;
 }
 
+.g-input__wrapper {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+.g-input__icon {
+    display: inline-block;
+    position: absolute;
+    margin-right: -40px;
+    top: 11px;
+    right: 11px;
+    width: 19px;
+    height: 20px;
+    background: url('/images/sprite.png') -156px -170px;
+    cursor: pointer;
+}
+
 .g-input:hover, .g-input:focus {
     border: 1px solid #deac00;
     outline: none;
+}
+
+.g-input_type_search {
+    height: 41px;
+    border: 1px solid #845856;
+    font-family: 'Clear-Sans', 'Arial', sans-serif;
+    /*font-style: italic;*/
+    font-size: 18px;
+    color: #8d8f8e;
+    padding: 0 20px;
+}
+
+.g-input {
+    display: inline-block;
+}
+
+.g-input__label {
+    display: block;
+    font-family: Din-Text-Pro_Regular, Arial, sans-serif;
+    color: #3c2424;
+    font-size: 16px;
+}
+
+.g-input__edit {
+    border-style: solid 1px rgb( 172, 172, 172 );
+    background-color: rgb( 255, 255, 255 );
+    width: 236px;
+    height: 31px;
+    font-family: Din-Text-Pro_Thin, Arial, sans-serif;
+    font-size: 20px;
+    color: #555;
+    padding-left: 20px;
 }

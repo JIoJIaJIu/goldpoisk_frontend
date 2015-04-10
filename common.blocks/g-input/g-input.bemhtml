@@ -5,5 +5,46 @@ block('g-input')(
             type: 'text',
             placeholder: this.ctx.value
         };
+    }),
+    mod('type', 'search')(
+        def().match(!this.ctx._wrapped)(function () {
+            var ctx = this.ctx;
+            ctx._wrapped = true;
+            applyCtx({
+                elem: 'wrapper',
+                icon: true,
+                content: ctx
+            })
+        }),
+        elem('wrapper')(
+            tag()('span'),
+            match(this.ctx.icon)(
+                content()(function () {
+                    return [
+                        applyNext(),
+                        {
+                            elem: 'icon'
+                        }
+                    ]
+                })
+            )
+        )
+    )
+)
+/*
+block('g-input')(
+    content()(function () {
+        return [
+            {
+                elem: 'label',
+                tag: 'label',
+                content: this.ctx.label,
+            }, {
+                elem: 'edit',
+                tag: 'input',
+                attrs: { placeholder : this.ctx.content }
+            }
+        ]
     })
 )
+*/
