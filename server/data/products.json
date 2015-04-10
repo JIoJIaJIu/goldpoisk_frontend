@@ -54,4 +54,18 @@
         "shopName": "All Star",
         "shopUrl": "#",
         "buyUrl": "#'"
+    }, {
+        "title": "Silver Lips",
+        "number": 4352,
+        "url": "#",
+        "image": "../../desktop.blocks/g-goods/images/good4.jpg",
+        "weight": "0.55 грамм",
+        "carat": "0.15 карат",
+        "count": "1",
+        "buyUrl": "#",
+        "jsonUrl": "/product/item",
+        "minPrice": 15349,
+        "shopName": "All Star",
+        "shopUrl": "#",
+        "buyUrl": "#'"
 }]
