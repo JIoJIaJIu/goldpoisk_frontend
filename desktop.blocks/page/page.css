@@ -39,44 +39,66 @@
          url(clear-sans/ClearSans-Bold.ttf);
 }
 
-@font-face {
-    font-family: ALSRubl;
+/*@font-face {
+    font-family: 'ALSRubl';
     src: url(fonts/rouble.eot);
     src: local("ALS Rubl"),
          local("ALS Rubl Regular"),
          url(fonts/rouble.otf) format('opentype');
+}*/
+
+@font-face {
+    font-family: 'ALSRubl';
+    src: url('fonts/ALSRubl/ALSRubl.eot');
+    src: url('fonts/ALSRubl/ALSRubl.eot?#iefix') format('embedded-opentype'),
+    url('fonts/ALSRubl/ALSRubl.woff') format('woff'),
+    url('fonts/ALSRubl/ALSRubl.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Din-Text-Pro_Light;
-    src: url(din-text-pro/PFDinTextPro-Light.eot);
-    src: local("PFDinTextPro Light"),
-         local("PFDinTextPro-Light"),
-         url(din-text-pro/PFDinTextPro-Light.ttf);
+    font-family: 'PFDinTextPro-Light';
+    src: url('fonts/din-text-pro/Light/PFDinTextPro-Light.eot');
+    src: url('fonts/din-text-pro/Light/PFDinTextPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('fonts/din-text-pro/Light/PFDinTextPro-Light.svg#PFDinTextPro-Light') format('svg'),
+    url('fonts/din-text-pro/Light/PFDinTextPro-Light.woff') format('woff'),
+    url('fonts/din-text-pro/Light/PFDinTextPro-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Din-Text-Pro_Thin;
-    src: url(din-text-pro/PFDinTextPro-Thin.eot);
-    src: local("PFDinTextPro Thin"),
-         local("PFDinTextPro-Thin"),
-         url(din-text-pro/PFDinTextPro-Thin.ttf);
+    font-family: 'PFDinTextPro-Thin';
+    src: url('fonts/din-text-pro/Thin/PFDinTextPro-Thin.eot');
+    src: url('fonts/din-text-pro/Thin/PFDinTextPro-Thin.eot?#iefix') format('embedded-opentype'),
+    url('fonts/din-text-pro/Thin/PFDinTextPro-Thin.svg#PFDinTextPro-Thin') format('svg'),
+    url('fonts/din-text-pro/Thin/PFDinTextPro-Thin.woff') format('woff'),
+    url('fonts/din-text-pro/Thin/PFDinTextPro-Thin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Din-Text-Pro_ThinItalic;
-    src: url(din-text-pro/PFDinTextPro-ThinItalic.eot);
-    src: local("PFDinTextPro ThinItalic"),
-         local("PFDinTextPro-ThinItalic"),
-         url(din-text-pro/PFDinTextPro-ThinItalic.ttf);
+    font-family: 'PFDinTextPro-ThinItalic';
+    src: url('fonts/din-text-pro/ThinItalic/PFDinTextPro-ThinItalic.eot');
+    src: url('fonts/din-text-pro/ThinItalic/PFDinTextPro-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    url('fonts/din-text-pro/ThinItalic/PFDinTextPro-ThinItalic.svg#PFDinTextPro-ThinItalic') format('svg'),
+    url('fonts/din-text-pro/ThinItalic/PFDinTextPro-ThinItalic.woff') format('woff'),
+    url('fonts/din-text-pro/ThinItalic/PFDinTextPro-ThinItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: Din-Text-Pro_Regular;
-    src: url(din-text-pro/PFDinTextPro-Regular.eot);
-    src: local("PFDinTextPro Regular"),
-         local("PFDinTextPro-Regular"),
-         url(din-text-pro/PFDinTextPro-Regular.ttf);
+    font-family: 'PFDinTextPro-Regular';
+    src: url('fonts/din-text-pro/Regular/PFDinTextPro-Regular.eot');
+    src: url('fonts/din-text-pro/Regular/PFDinTextPro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/din-text-pro/Regular/PFDinTextPro-Regular.svg#PFDinTextPro-Regular') format('svg'),
+    url('fonts/din-text-pro/Regular/PFDinTextPro-Regular.woff') format('woff'),
+    url('fonts/din-text-pro/Regular/PFDinTextPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html {
