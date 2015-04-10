@@ -1,0 +1,47 @@
+block('g-search')(
+    js()(true),
+    content()(function () {
+        return {
+            elem: 'inner',
+            content: [{
+                elem: 'button',
+                content: [{
+                    elem: 'icon',
+                    tag: 'span'
+                }, {
+                    elem: 'title',
+                    tag: 'span',
+                    content: 'Поиск'
+                }, {
+                    elem: 'arrow'
+                }]
+            }, {
+                elem: 'content',
+                content: {
+                    elem: 'content-inner',
+                    content: {
+                        block: 'g-input',
+                        mods: { type: 'search' },
+                        value: 'Введите номер артикула'
+                    }
+                }
+            }]
+        };
+    }),
+    mod('wide', true)(
+        elem('title')(
+            content()(function () {
+                return 'Меню'
+            })
+        ),
+        elem('content')(
+            content()(function () {
+                return {
+                    block: 'g-input',
+                    mods: { type: 'search' },
+                    value: 'Введите номер артикула'
+                }
+            })
+        )
+    )
+)
