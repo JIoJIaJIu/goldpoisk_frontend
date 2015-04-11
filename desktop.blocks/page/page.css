@@ -39,14 +39,6 @@
          url(clear-sans/ClearSans-Bold.ttf);
 }
 
-/*@font-face {
-    font-family: 'ALSRubl';
-    src: url(fonts/rouble.eot);
-    src: local("ALS Rubl"),
-         local("ALS Rubl Regular"),
-         url(fonts/rouble.otf) format('opentype');
-}*/
-
 @font-face {
     font-family: 'ALSRubl';
     src: url('fonts/ALSRubl/ALSRubl.eot');
