@@ -32,7 +32,7 @@ modules.define('g-goods', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $)
         },
 
         append: function (data) {
-            var bemjson = blocks['g-goods.items'](data.list);
+            var bemjson = blocks['g-goods.items'](data);
 
             BEMDOM.append(
                 this.elem('content'),
