@@ -58,8 +58,7 @@
                     block: 'g-menu-item',
                     mods: { type: 'search' },
                     content: {
-                        block: 'g-search'//,
-                        //mods: { loading: 'right' }
+                        block: 'g-search'
                     }
                 }, {
                     block: 'g-menu-item',
