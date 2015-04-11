@@ -27,21 +27,5 @@ block('g-search')(
                 }
             }]
         };
-    }),
-    mod('wide', true)(
-        elem('title')(
-            content()(function () {
-                return 'Меню'
-            })
-        ),
-        elem('content')(
-            content()(function () {
-                return {
-                    block: 'g-input',
-                    mods: { type: 'search' },
-                    value: 'Введите номер артикула'
-                }
-            })
-        )
-    )
+    })
 )
