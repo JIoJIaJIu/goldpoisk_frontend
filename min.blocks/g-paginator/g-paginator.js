@@ -69,7 +69,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             $.getJSON(uri.toString(), {
                 page: nextPage
             }, function success(data) {
-                goods.append(data);
+                goods.append({list: data});
                 self._pending = false;
                 self.setCurrentPage(nextPage);
                 $('#down').css('display', 'none');
