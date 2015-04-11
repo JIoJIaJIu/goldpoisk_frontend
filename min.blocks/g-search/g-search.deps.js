@@ -1,5 +1,7 @@
 ({
-    shouldDeps: {
+    shouldDeps: [{
         block: 'g-input'
-    }
+    }, {
+        block: 'router'
+    }]
 })

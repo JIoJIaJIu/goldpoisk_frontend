@@ -56,10 +56,7 @@
                 {
 
                     block: 'g-menu-item',
-                    mods: { type: 'search' },
-                    content: {
-                        block: 'g-search'
-                    }
+                    mods: { type: 'search' }
                 }, {
                     block: 'g-menu-item',
                     mods: { type: 'necklaces', state: 'active' },

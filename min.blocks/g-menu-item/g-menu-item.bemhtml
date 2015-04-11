@@ -1,7 +1,7 @@
 block('g-menu-item')(
     js()(function () {
         return {
-            href: '/' + this.ctx.href
+            href: this.ctx.href ? '/' + this.ctx.href : undefined
         }
     }),
     tag()('li'),
@@ -27,7 +27,11 @@ block('g-menu-item')(
             }
         })
     ),
-    content()(function () {
-        return applyNext();
-    })
+    mod('type', 'search')(
+        content()(function () {
+            return {
+                block: 'g-search'
+            }
+        })
+    )
 )

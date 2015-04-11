@@ -1,9 +1,8 @@
-modules.define('g-search', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $) {
-
+modules.define('g-search', ['i-bem__dom', 'jquery', 'router'], function(provide, BEMDOM, $, router) {
+    var DELAY = 1000;
     BEMDOM.decl('g-search', {
         onSetMod: {
             js: function() {
-                var DELAY = 1000;
                 var that = this;
                 var title = this.findElem('title');
                 this.bindTo('button', 'click', function (e) {
@@ -23,7 +22,15 @@ modules.define('g-search', ['i-bem__dom', 'jquery'], function(provide, BEMDOM, $
                     setTimeout(function () {
                         that.delMod('loading');
                     }, DELAY);
-                })
+                });
+                var searchInput = this.findBlockInside('g-input');
+                var searchButton = this.findBlockInside('g-input__icon');
+                searchButton.bindTo('click', function (e) {
+                    $.getJSON('/search', searchInput.domElem[0].value, function success (data) {
+                        router.route('/id' + searchInput.domElem[0].value);
+                        console.log(data);
+                    })
+                });
             },
             '': function() {
                 this.unbindFrom('button', 'click');

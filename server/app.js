@@ -61,6 +61,11 @@ app.get('/id(:id([0-9]*))?', function (req, res) {
     }
 });
 
+app.get('/search', function (req, res) {
+    var product = fs.readFileSync('data/item/item.json');
+    res.json(JSON.parse(product));
+});
+
 app.get('/success', function (req, res) {
     var productJSON = getProduct();
     fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
