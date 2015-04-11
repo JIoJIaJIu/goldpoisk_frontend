@@ -26,9 +26,8 @@ modules.define('g-search', ['i-bem__dom', 'jquery', 'router'], function(provide,
                 var searchInput = this.findBlockInside('g-input');
                 var searchButton = this.findBlockInside('g-input__icon');
                 searchButton.bindTo('click', function (e) {
-                    $.getJSON('/search', searchInput.domElem[0].value, function success (data) {
-                        router.route('/id' + searchInput.domElem[0].value);
-                        console.log(data);
+                    $.getJSON('/search', searchInput.domElem.val(), function success (data) {
+                        router.route('/id' + searchInput.domElem.val());
                     })
                 });
             },

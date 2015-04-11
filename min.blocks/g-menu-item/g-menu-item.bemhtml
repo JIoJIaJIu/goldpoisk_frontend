@@ -1,7 +1,7 @@
 block('g-menu-item')(
     js()(function () {
         return {
-            href: this.ctx.href ? '/' + this.ctx.href : undefined
+            href: this.ctx.href ? this.ctx.href : null
         }
     }),
     tag()('li'),

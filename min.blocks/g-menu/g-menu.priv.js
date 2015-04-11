@@ -13,7 +13,7 @@ blocks['g-menu'] = function (data, env) {
             return {
                 block: 'g-menu-item',
                 mods: { type: item.type, state: (item.isActive) ? 'active' : null },
-                href: item.href ? item.href : undefined,
+                href: item.href || null,
                 label: item.label,
                 url: item.url
             }
