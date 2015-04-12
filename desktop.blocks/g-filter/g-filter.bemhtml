@@ -1,4 +1,31 @@
 block('g-filter')(
     js()(true),
-    tag()('section')
+    tag()('section'),
+    content()(function () {
+        return [
+            applyNext(),
+            {
+                elem: 'scroll',
+                mods: { hidden: true },
+                content: [
+                    {
+                        elem: 'scroll-text',
+                        tag: 'span',
+                        content: [
+                            {
+                                tag: 'span',
+                                content: 'Показать поиск'
+                            }, {
+                                tag: 'span',
+                                content: 'по параметрам'
+                            }
+                        ]
+                    }, {
+                        elem: 'scroll-arrow',
+                        tag: 'span'
+                    }
+                ]
+            }
+        ]
+    })
 )
