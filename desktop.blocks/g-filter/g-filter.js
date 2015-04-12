@@ -23,6 +23,8 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
                     var winHeight = $(window).outerHeight();
                     var filterHeight = this.domElem.outerHeight();
                     var filterBottom = this.domElem.offset().top + filterHeight;
+                    var startPosition = this.domElem.offset().top;
+                    var footer = this.findBlockOutside('page').findBlockInside('g-footer');
                     $(window).bind('scroll', function (e) {
                         if (($(window).scrollTop() - (self.domElem.offset().top + self.domElem.outerHeight()) > 2 * $(window).outerHeight())
                             || (self.domElem.offset().top - $(window).scrollTop() > 2 * $(window).outerHeight())) {
@@ -35,8 +37,13 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
                     });
 
                     scroll.bindTo('click', function (e) {
-                        console.log('click');
-                        self.domElem.animate({'top': $(window).scrollTop() - self.domElem.outerHeight()}, 1000);
+                        var animateTo = $(window).scrollTop() + 2 / $(window).outerHeight() - 2 / self.domElem.outerHeight();
+                        if (animateTo < startPosition)
+                            animateTo = 0;
+                        if (animateTo + self.domElem.outerHeight() > footer.domElem.offset().top) {
+                            animateTo = footer.domElem.offset().top - startPosition - self.domElem.outerHeight();
+                        }
+                        self.domElem.animate({'top': animateTo}, 1000);
                         this.setMod('hidden');
                     });
 
