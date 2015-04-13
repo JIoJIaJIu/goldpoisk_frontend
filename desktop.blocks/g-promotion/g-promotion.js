@@ -1,4 +1,4 @@
-modules.define('g-promotion', ['i-bem__dom', 'slider'], function (provide, BEMDOM) {
+modules.define('g-promotion', ['i-bem__dom'], function (provide, BEMDOM) {
 
 BEMDOM.decl('g-promotion', {
     onSetMod: {

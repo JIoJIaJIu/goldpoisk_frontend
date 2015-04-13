@@ -1,4 +1,4 @@
-modules.define('g-gallery', ['i-bem__dom', 'jquery', 'slider'], function (provide, BEMDOM, $) {
+modules.define('g-gallery', ['i-bem__dom', 'jquery'], function (provide, BEMDOM, $) {
 
     BEMDOM.decl('g-gallery', {
         onSetMod: {

@@ -4,7 +4,10 @@ block('g-menu').match()(
         return {
             elem: 'list',
             tag: 'ul',
-            content: applyNext()
+            content: [{
+                block: 'g-menu-item',
+                mods: { type: 'search' }
+            }].concat(applyNext())
         };
     })
 )
