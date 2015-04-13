@@ -53,7 +53,7 @@ modules.define('config', ['i-bem'], function (provide) {
                 priv: 'category.content'
             },
             item: {
-                url: '^/id\\d+$',
+                url: '^/item/[\\w\\d-]+$',
                 priv: 'item.content'
             }
         }

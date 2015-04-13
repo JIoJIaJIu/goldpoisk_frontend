@@ -8,15 +8,15 @@ blocks['page'] = function (data, env) {
         head: [
             { elem: 'meta', attrs: { name: 'description', content: '' } },
             { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
-            { elem: 'css', url:  'css/index.css' }
+            { elem: 'css', url:  '/css/index.css' }
         ],
         scripts: [
-            { elem: 'js', url: env.production ? 'http://yastatic.net/jquery/2.1.3/jquery.min.js' : 'js/third-parties/jquery.min.js' },
-            { elem: 'js', url: 'js/third-parties/jssor.slider.min.js' },
-            { elem: 'js', url: 'js/third-parties/lodash.min.js' },
-            { elem: 'js', url: 'js/index.bemhtml.js' },
-            { elem: 'js', url: 'js/index.priv.js' },
-            { elem: 'js', url: 'js/index.js' }
+            { elem: 'js', url: env.production ? 'http://yastatic.net/jquery/2.1.3/jquery.min.js' : '/js/third-parties/jquery.min.js' },
+            { elem: 'js', url: '/js/third-parties/jssor.slider.min.js' },
+            { elem: 'js', url: '/js/third-parties/lodash.min.js' },
+            { elem: 'js', url: '/js/index.bemhtml.js' },
+            { elem: 'js', url: '/js/index.priv.js' },
+            { elem: 'js', url: '/js/index.js' }
         ],
         mods: { theme: 'normal' },
 
