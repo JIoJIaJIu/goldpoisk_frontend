@@ -47,7 +47,7 @@ modules.define('logger', ['config'], function (provide, CONFIG) {
                 return;
 
             var args = Array.prototype.slice.call(arguments);
-            console.error.apply(console, ["ERROR:"].concat(args));
+            throw new Error(["ERROR:"].concat(args).join(" "));
         },
 
         Logger: LoggerFactory,

@@ -56,9 +56,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             if (this._totalPages <= this._currentPage)
                 return;
 
-            if (this._pending) {
+            if (this._pending)
                 return;
-            }
+
             this._pending = true;
 
             $('#down').css('display', 'inline-block');
@@ -66,10 +66,12 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             var config = this.params.config;
             var nextPage = this._currentPage + 1;
             var uri = router.getUri(config.HTTP.list);
+            uri.deleteParam('page');
+
             $.getJSON(uri.toString(), {
                 page: nextPage
             }, function success(data) {
-                goods.append({list: data});
+                goods.append(data.list);
                 self._pending = false;
                 self.setCurrentPage(nextPage);
                 $('#down').css('display', 'none');
@@ -87,11 +89,12 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             var config = this.params.config;
             var prevPage = this._currentPage - 1;
             var uri = router.getUri(config.HTTP.list);
+            uri.deleteParam('page');
 
             $.getJSON(uri.toString(), {
                 page: prevPage
             }, function success(data) {
-                goods.prepend(data);
+                goods.prepend(data.list);
                 that._pending = false;
                 that.setCurrentPage(prevPage);
                 $('#up').css('display', 'none');

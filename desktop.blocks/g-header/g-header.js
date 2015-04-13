@@ -13,6 +13,7 @@ modules.define('g-header', ['i-bem__dom', 'jquery', 'router'], function(provide,
                     inner.bindTo('up', 'click', function(e) {
                         $("body,html").animate({scrollTop: 0}, 750, 'easeInQuart');
                     });
+                    this.enable();
                 },
 
                 '': function () {
