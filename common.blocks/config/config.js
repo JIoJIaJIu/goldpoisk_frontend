@@ -8,7 +8,8 @@ modules.define('config', ['i-bem'], function (provide) {
         REST: {
             rings: {
                 list: 'http://localhost:3000/success'
-            }
+            },
+            searchUrl: '/search'
         },
         page: {
             index: {

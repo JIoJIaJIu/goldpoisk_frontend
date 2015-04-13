@@ -47,7 +47,7 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
          */
         append: function (list) {
             if (!_.isArray(list))
-                this._logger.error('Should point {Array} list');
+                this._logger.throw('Should point {Array} list');
 
             var bemjson = blocks['g-goods.items'](list, {js: true});
 
@@ -63,7 +63,7 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
          */
         prepend: function (list) {
             if (!_.isArray(list))
-                this._logger.error('Should point {Array} list');
+                this._logger.throw('Should point {Array} list');
 
             var bemjson = blocks['g-goods.items'](list, {js: true});
 
@@ -81,16 +81,16 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
          */
         update: function (data) {
             if (!_.isObject(data))
-                this._logger.error('Should point {Object} data');
+                this._logger.throw('Should point {Object} data');
 
             var count = data.count;
             var list = data.list;
 
             if (!_.isNumber(count))
-                this._logger.error('Should point {Number} count');
+                this._logger.throw('Should point {Number} count');
 
             if (!_.isArray(list))
-                this._logger.error('Should point {Array} list');
+                this._logger.throw('Should point {Array} list');
 
             var bemjson = blocks['g-goods.items'](list, {js: true});
             //TODO: govnokot

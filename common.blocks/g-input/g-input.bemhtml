@@ -31,20 +31,3 @@ block('g-input')(
         )
     )
 )
-/*
-block('g-input')(
-    content()(function () {
-        return [
-            {
-                elem: 'label',
-                tag: 'label',
-                content: this.ctx.label,
-            }, {
-                elem: 'edit',
-                tag: 'input',
-                attrs: { placeholder : this.ctx.content }
-            }
-        ]
-    })
-)
-*/
