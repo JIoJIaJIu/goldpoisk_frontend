@@ -30,7 +30,7 @@ urls.forEach(function (url) {
             var priv = initPriv();
             var json = JSON.parse(data);
             json.menu = getMenu();
-            var bemjson = priv.pages["category"](json);
+            var bemjson = priv.pages["category"](json, {production: false});
             var bemhtml = initBemhtml();
             var html = bemhtml.BEMHTML.apply(bemjson);
 
@@ -142,7 +142,7 @@ function renderIndex (cb) {
             'products': products,
             'count': 212
         }
-        var bemjson = privContext.pages['index'](data);
+        var bemjson = privContext.pages['index'](data, {production: false});
         fs.readFile('../desktop.bundles/merge/index.bemhtml.js', function (err, data) {
             if (err) throw err;
             var bemhtmlContext = vm.createContext();
