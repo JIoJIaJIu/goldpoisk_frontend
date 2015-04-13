@@ -3,29 +3,32 @@ block('g-search')(
     content()(function () {
         return {
             elem: 'inner',
-            content: [{
-                elem: 'button',
+            content: {
+                elem: 'row',
                 content: [{
-                    elem: 'icon',
-                    tag: 'span'
+                    elem: 'button',
+                    content: [{
+                        elem: 'icon',
+                        tag: 'span'
+                    }, {
+                        elem: 'title',
+                        tag: 'span',
+                        content: 'Поиск'
+                    }, {
+                        elem: 'arrow'
+                    }]
                 }, {
-                    elem: 'title',
-                    tag: 'span',
-                    content: 'Поиск'
-                }, {
-                    elem: 'arrow'
-                }]
-            }, {
-                elem: 'content',
-                content: {
-                    elem: 'content-inner',
+                    elem: 'content',
                     content: {
-                        block: 'g-input',
-                        mods: { type: 'search' },
-                        value: 'Введите номер артикула'
+                        elem: 'content-inner',
+                        content: {
+                            block: 'g-input',
+                            mods: { type: 'search' },
+                            value: 'Введите номер артикула'
+                        }
                     }
-                }
-            }]
+                }]
+            }
         };
     })
 )

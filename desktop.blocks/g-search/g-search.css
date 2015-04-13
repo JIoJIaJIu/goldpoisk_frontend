@@ -1,64 +1,47 @@
 .g-search {
     width: 100px;
 }
+
 .g-search__inner {
-    position: absolute;
-    z-index: 1;
-    margin-top: 3px;
     width: 100px;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.g-search__row {
+    width: 0px;
+    position: absolute;
     transition: width 1s;
     -moz-transition: width 1s;
     -webkit-transition: width 1s;
 }
 
-.g-search_loading_right .g-search__inner {
-    width: 100%;
-}
-
-.g-search_loading_left .g-search__inner {
-    width: 100px;
-}
-
-.g-search_loading_left .g-search__button {
-    right: 0;
-    background: #333;
-}
-
-.g-search_loading_left .g-search__arrow {
-    left: -21px;
-    background-position: -239px -244px;
-}
-
-.g-search_wide .g-search__inner {
-    width: 100%;
-}
-
 .g-search__content {
     padding: 26px 0 28px;
-    margin-right: 50px;
+    overflow: hidden;
     height: 41px;
     background: url('./images/background.png') repeat-x;
-    cursor: auto;
 }
 
 .g-search__content-inner {
     margin: 0px 200px 0 24px;
 }
 
-.g-search__content .g-input_type_search {
-    width: 100%;
-}
-
 .g-search__button {
     position: absolute;
     top: 0;
-    right: 21px;
+    right: -80px;
     width: 80px;
     height: 75px;
     padding: 20px 0 0;
     background: url('./images/background.png') repeat-x;
     cursor: pointer;
     z-index: 1;
+    transition: right 0.5s;
+    -moz-transition: right 0.5s;
+    -webkit-transition: right 0.5s;
 }
 
 .g-search__arrow {
@@ -88,6 +71,15 @@
     margin: 8px 0 0;
 }
 
+.g-search__content .g-input {
+    width: 100%;
+}
+
+.g-search_wide .g-search__inner,
+.g-search_wide .g-search__row {
+    width: 100%;
+}
+
 .g-search_wide .g-search__button {
     right: 0;
     background: #333;
@@ -98,8 +90,22 @@
     background-position: -239px -244px;
 }
 
-.g-search_wide .g-search__icon, .g-search_loading_left .g-search__icon {
-    width: 26px;
-    height: 32px;
-    background-position: -149px -58px;
+.g-search_loading_right .g-search__inner,
+.g-search_loading_left .g-search__inner,
+.g-search_loading_right .g-search__row {
+    width: 100%;
+}
+
+.g-search_loading_left .g-search__row {
+    width: 0px;
+}
+
+.g-search_loading_left .g-search__button {
+    right: 0;
+    background: #333;
+}
+
+.g-search_loading_left .g-search__arrow {
+    left: -21px;
+    background-position: -239px -244px;
 }
