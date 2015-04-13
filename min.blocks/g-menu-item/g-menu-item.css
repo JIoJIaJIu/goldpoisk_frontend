@@ -42,6 +42,10 @@
     color: #dead03;
 }
 
+.g-menu-item_type_search {
+    width: 0.1%;
+}
+
 .g-menu-item:hover.g-menu-item_type_necklaces .g-menu-item__logo, .g-menu-item.g-menu-item_state_active.g-menu-item_type_necklaces .g-menu-item__logo {
     background-image: url('/images/sprite.png');
     background-position: 0 -94px;
