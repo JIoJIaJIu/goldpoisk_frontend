@@ -13,15 +13,16 @@
 .g-search__row {
     width: 0px;
     position: absolute;
+    height: 102px;
     transition: width 1s;
     -moz-transition: width 1s;
     -webkit-transition: width 1s;
 }
 
 .g-search__content {
-    padding: 26px 0 28px;
+    padding: 28px 0 26px;
     overflow: hidden;
-    height: 41px;
+    height: 49px;
     background: url('./images/background.png') repeat-x;
 }
 
@@ -34,7 +35,7 @@
     top: 0;
     right: -80px;
     width: 80px;
-    height: 75px;
+    height: 83px;
     padding: 20px 0 0;
     background: url('./images/background.png') repeat-x;
     cursor: pointer;
@@ -49,7 +50,7 @@
     top: 0;
     right: -21px;
     width: 21px;
-    height: 95px;
+    height: 102px;
     background: url('/images/sprite.png') -218px -244px;
 }
 
