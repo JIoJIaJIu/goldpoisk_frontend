@@ -1,18 +1,31 @@
  block('g-available-in-stores')(
     content()(function() {
+        var theme = this.ctx.theme;
         return [
-            this.ctx.content.map(function(store) {
-                    return [
-                    {
-                        block: 'g-item-buy-in-shop',
-                        store: store.name,
-                        url: store.url,
-                        price: store.price
-                    }
-                ];
-            }),
             {
-                block: 'clear'
+                block: 'g-heading',
+                mods: {
+                    size: this.ctx.theme ? this.ctx.theme.size : null,
+                    dark: this.ctx.theme ? this.ctx.theme.color === 'dark' ? true : false : null
+                },
+                content: 'Купить этот товар в магазинах'
+            }, {
+                elem: 'content',
+                content: [
+                    this.ctx.content.map(function(store) {
+                        return [
+                            {
+                                block: 'g-item-buy-in-shop',
+                                store: store.name,
+                                url: store.url,
+                                price: store.price
+                            }
+                        ];
+                    }),
+                    {
+                        block: 'clear'
+                    }
+                ]
             }
         ]
     })

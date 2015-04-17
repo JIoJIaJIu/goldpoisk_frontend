@@ -3,3 +3,8 @@
     float: left;
     margin: 0;
 }
+
+.g-available-in-stores .g-heading {
+    margin: 0 !important;
+    padding-top: 40px;
+}

@@ -1,10 +1,9 @@
 ({
-    shouldDeps: [ 
-        {
-            block: 'g-item-buy-in-shop'
-        },
-        {
-            block: 'clear'
-        }
-    ]
+    shouldDeps: [{
+        block: 'g-item-buy-in-shop'
+    }, {
+        block: 'g-heading'
+    }, {
+        block: 'clear'
+    }]
 })
