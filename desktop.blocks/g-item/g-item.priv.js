@@ -42,6 +42,11 @@ blocks['g-item'] = function (data, env) {
         content: data.title
     }
 
+    var category = {
+        block: 'g-item-category',
+        title: data.category
+    }
+
     if (env.independent) {
         heading.mods = { size: 'l' };
     }
@@ -51,34 +56,15 @@ blocks['g-item'] = function (data, env) {
         params = { url: data.url },
         heading["url"] = data.url
     }
-    var modVal;
-    if (data.fix) {
-        modVal = {
-            '450': true
-        }
-    } else {
-        modVal = {
-            '50': true
-        }
-    }
+    
     var block = {
         block: 'g-item',
         js: params || false,
         content: [
-            heading, {
-                block: 'g-item-category',
-                title: data.category
-            }, {
-                block: 'g-row',
-                content: [
-                    {
-                        elem: 'col',
-                        mods: modVal,
-                        content: blocks['g-item-gallery']({ images: data.images }, env)
-                    },
-                    collumn()
-                ]
-            }
+            heading,
+            data.category ? category : null,
+            blocks['g-item-gallery']({ images: data.images }, env),
+            collumn()
         ]
     };
 
@@ -139,8 +125,7 @@ blocks['g-item'] = function (data, env) {
         };
 
         return {
-            elem: 'col',
-            mods: { '50': true },
+            block: 'g-right-col',
             content: [{
                 block: 'g-item-buy-in-shop',
                 store: item.storeName,
@@ -148,11 +133,11 @@ blocks['g-item'] = function (data, env) {
                 buyUrl: item.buyUrl,
                 price: item.price
             },
-            !env.big ? more : null,
             {
                 block: 'g-item-features',
                 content: features
             },
+            !env.big ? more : null,
             env.big ? description : null,
             {
                 block: 'yashare',

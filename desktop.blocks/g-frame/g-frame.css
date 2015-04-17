@@ -49,11 +49,12 @@
 }
 
 .g-frame .g-item .g-right-col {
-    padding: 35px 0 0 460px;
+    padding-left: 460px;
 }
 
 .g-frame .g-item .g-heading {
     margin-bottom: 15px;
+    display: block;
 }
 
 .g-frame .g-heading_type_main {

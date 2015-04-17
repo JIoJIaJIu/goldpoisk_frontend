@@ -125,90 +125,76 @@
                             mods: { size: 'l', dark: true },
                             content: 'Обручальное кольцо из белого золота с 21 бриллиантом'
                         }, {
-                            block: 'g-row',
+                            block: 'g-item-gallery',
+                            mods: { type: 'big' },
                             content: [
                                 {
-                                    elem: 'col',
-                                    mods: { '450': true },
-                                    content: {
-                                        block: 'g-item-gallery',
-                                        mods: { type: 'big' },
-                                        content: [
-                                            {
-                                                elem: 'title',
-                                                title: 'Фото',
-                                                current: 2,
-                                                count: 8
-                                            }, {
-                                                elem: 'preview_images',
-                                                images: ['../../desktop.blocks/g-item-gallery/images/preview01.jpg',
-                                                         '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
-                                                         '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
-                                                         '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
-                                                         '../../desktop.blocks/g-item-gallery/images/preview01.jpg']
-                                            }, {
-                                                elem: 'main_image',
-                                                image: '../../desktop.blocks/g-item-gallery/images/main02.jpg'
-                                            }
-                                        ]
-                                    }
+                                    elem: 'title',
+                                    title: 'Фото',
+                                    current: 2,
+                                    count: 8
                                 }, {
-                                    elem: 'col',
-                                    mods: { '50': true },
-                                    content: [
-                                        {
-                                            block: 'g-item-buy-in-shop',
-                                            store: 'Центрювелирторг',
-                                            url: '#',
-                                            price: 6169
-                                        }, {
-                                            block: 'g-item-features',
-                                            content: [
-                                                {
-                                                    'Артикул' : '51235654'
-                                                },
-                                                {
-                                                    'Металл' : 'Белое золото'
-                                                },
-                                                {
-                                                    'Проба' : '585'
-                                                },
-                                                {
-                                                    'Камень' : '21 бриллиант'
-                                                },
-                                                {
-                                                    'Карат' : '0,07'
-                                                }
-                                            ]
-                                        }, {
-                                            block: 'g-item-description',
-                                            content: 'Стильное и изящное обручальное кольцо с дорожкой из бриллиантов и основой из белого золота 585 пробы. В продаже есть модели из желтого и розового золота. Товар в наличии и под заказ.'
-                                        }, {
-                                            block: 'g-like',
-                                            mods: { type: 'extended' }
-                                        }, {
-                                            block : 'yashare',
-                                            quickServices : [
-                                                'vkontakte',
-                                                'facebook',
-                                                'twitter',
-                                                'odnoklassniki'
-                                            ],
-                                            theme : 'counter',
-                                            l10n : 'ru',
-                                            url : 'localhost:8080/desktop.bundles/item/item.html',
-                                            title : 'BEM Social Components Library',
-                                            description : 'Fork me on GitHub',
-                                            image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
-                                                    'master/desktop.bundles/index/blocks/page/image/bem.png'
-                                        }
-                                    ]
+                                    elem: 'preview_images',
+                                    images: ['../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg',
+                                             '../../desktop.blocks/g-item-gallery/images/preview01.jpg']
+                                }, {
+                                    elem: 'main_image',
+                                    image: '../../desktop.blocks/g-item-gallery/images/main02.jpg'
                                 }
                             ]
                         }, {
-                            block: 'g-heading',
-                            mods: { size: 'm', dark: true },
-                            content: 'Купить этот товар в магазинах'
+                            block: 'g-right-col',
+                            content: [
+                                {
+                                    block: 'g-item-buy-in-shop',
+                                    store: 'Центрювелирторг',
+                                    url: '#',
+                                    price: 6169
+                                }, {
+                                    block: 'g-item-features',
+                                    content: [
+                                        {
+                                            'Артикул' : '51235654'
+                                        },
+                                        {
+                                            'Металл' : 'Белое золото'
+                                        },
+                                        {
+                                            'Проба' : '585'
+                                        },
+                                        {
+                                            'Камень' : '21 бриллиант'
+                                        },
+                                        {
+                                            'Карат' : '0,07'
+                                        }
+                                    ]
+                                }, {
+                                    block: 'g-item-description',
+                                    content: 'Стильное и изящное обручальное кольцо с дорожкой из бриллиантов и основой из белого золота 585 пробы. В продаже есть модели из желтого и розового золота. Товар в наличии и под заказ.'
+                                }, {
+                                    block: 'g-like',
+                                    mods: { type: 'extended' }
+                                }, {
+                                    block : 'yashare',
+                                    quickServices : [
+                                        'vkontakte',
+                                        'facebook',
+                                        'twitter',
+                                        'odnoklassniki'
+                                    ],
+                                    theme : 'counter',
+                                    l10n : 'ru',
+                                    url : 'localhost:8080/desktop.bundles/item/item.html',
+                                    title : 'BEM Social Components Library',
+                                    description : 'Fork me on GitHub',
+                                    image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
+                                            'master/desktop.bundles/index/blocks/page/image/bem.png'
+                                }
+                            ]
                         }, {
                             block: 'g-available-in-stores',
                             theme: {

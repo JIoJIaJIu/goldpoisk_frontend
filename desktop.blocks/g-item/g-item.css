@@ -42,8 +42,7 @@
 }
 
 .g-item .g-right-col {
-    padding: 35px 0 0 460px;
-    min-height: 267px;
+    padding-left: 460px;
 }
 
 .g-item .g-item-heading_type_simple {
