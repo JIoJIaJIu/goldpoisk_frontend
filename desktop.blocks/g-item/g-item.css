@@ -41,8 +41,9 @@
     margin: 0 0 0 3px;
 }
 
-.g-item .g-row__col:nth-child(2) {
-    padding: 0 50px;
+.g-item .g-right-col {
+    padding: 35px 0 0 460px;
+    min-height: 267px;
 }
 
 .g-item .g-item-heading_type_simple {

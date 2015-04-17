@@ -48,9 +48,8 @@
     margin: 0;
 }
 
-.g-frame .g-item .g-row__col:nth-child(2) {
-    padding: 0;
-    padding-left: 20px;
+.g-frame .g-item .g-right-col {
+    padding: 35px 0 0 460px;
 }
 
 .g-frame .g-item .g-heading {
@@ -61,7 +60,12 @@
     font-size: 24px;
     font-weight: 100;
     color: #a07472;
-    text-decoration: underline;
+}
+
+.g-frame .g-item .g-heading_dark {
+    margin-left: 21px;
+    padding-top: 40px;
+    margin-bottom: 0;
 }
 
 .g-frame .g-item .g-available-in-stores {
