@@ -51,7 +51,16 @@ blocks['g-item'] = function (data, env) {
         params = { url: data.url },
         heading["url"] = data.url
     }
-
+    var modVal;
+    if (data.fix) {
+        modVal = {
+            '450': true
+        }
+    } else {
+        modVal = {
+            '50': true
+        }
+    }
     var block = {
         block: 'g-item',
         js: params || false,
@@ -59,12 +68,18 @@ blocks['g-item'] = function (data, env) {
             heading, {
                 block: 'g-item-category',
                 title: data.category
-            },
-            blocks['g-item-gallery']({ images: data.images }, env),
-            collumn(),
-            {
-                block: 'clear'
-        }]
+            }, {
+                block: 'g-row',
+                content: [
+                    {
+                        elem: 'col',
+                        mods: modVal,
+                        content: blocks['g-item-gallery']({ images: data.images }, env)
+                    },
+                    collumn()
+                ]
+            }
+        ]
     };
 
     return block;
@@ -124,7 +139,8 @@ blocks['g-item'] = function (data, env) {
         };
 
         return {
-            block: 'g-right-col',
+            elem: 'col',
+            mods: { '50': true },
             content: [{
                 block: 'g-item-buy-in-shop',
                 store: item.storeName,

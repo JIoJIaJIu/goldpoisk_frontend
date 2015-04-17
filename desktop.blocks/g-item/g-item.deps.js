@@ -18,6 +18,8 @@
             block: 'yashare'
         }, {
             block: 'g-available-in-stores'
+        }, {
+            block: 'g-row'
         }
     ]
 })

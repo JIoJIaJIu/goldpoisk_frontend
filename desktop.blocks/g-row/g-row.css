@@ -1,0 +1,35 @@
+.g-row {
+    overflow: hidden;
+}
+
+.g-row:after, .g-row:before {
+    display: table;
+    content: "";
+}
+
+.g-row:after {
+    clear: both;
+}
+
+.g-row__col {
+    float: left;
+    position: relative;
+    min-height: 1px;
+    box-sizing: border-box;
+}
+
+.g-row__col_50 {
+    width: 50%;
+}
+
+.g-row__col_450 {
+    width: 450px;
+}
+
+.g-row__col_70 {
+    width: 70%;
+}
+
+.g-row__col_xl {
+
+}

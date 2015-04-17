@@ -25,7 +25,8 @@
 }
 
 .g-item .g-item-features {
-    margin: 0 0 25px 3px;
+    margin-top: 25px;
+    margin-bottom: 15px;
 }
 
 .g-item .g-item-description {
@@ -33,19 +34,15 @@
 }
 
 .g-item .g-like {
-    margin: 0 0 30px 3px;
+    margin-bottom: 30px;
 }
 
 .g-item .g-social_follow {
     margin: 0 0 0 3px;
 }
 
-.g-item .g-right-col {
-    float: left;
-    overflow: hidden;
-    padding: 35px 50px;
-    width: 50%;
-    min-height: 267px;
+.g-item .g-row__col:nth-child(2) {
+    padding: 0 50px;
 }
 
 .g-item .g-item-heading_type_simple {
@@ -55,7 +52,7 @@
 }
 
 .g-item .g-item-buy-in-shop {
-    margin: 0 0 25px 0;
+    margin: 35px 0 25px 0;
 }
 
 .g-item .g-available-in-stores {
