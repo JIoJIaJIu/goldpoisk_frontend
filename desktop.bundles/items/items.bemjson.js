@@ -332,6 +332,10 @@
                                                 }
                                             ]
                                         }, {
+                                            block: 'g-heading',
+                                            mods: { dark: true },
+                                            content: 'Купить этот товар в магазинах'
+                                        }, {
                                             block: 'g-available-in-stores',
                                             theme: {
                                                 color: 'dark'
