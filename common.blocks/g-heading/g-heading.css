@@ -4,39 +4,26 @@
     font-size: 24px;
     font-weight: 100;
     color: #a07472;
-    border-bottom: 1px solid #e2d5d4;
 }
 
 .g-heading a {
     text-decoration: none;
     color: #a07472;
-}
-
-.g-heading_type_simple {
-    color: #3c2424;
-    text-decoration: none;
-}
-
-.g-heading_type_main {
-    color: #3c2424;
-    font-size: 36px;
-    text-decoration: none;
-    border-bottom: none;
-}
-
-.g-heading_size_m {
-    font-size: 30px;
-    text-decoration: none;
-    border-bottom: none;
-    color: #3c2424;
+    border-bottom: 1px solid #e2d5d4;
 }
 
 .g-heading_size_l {
     font-size: 36px;
-    border-bottom: none;
-    color: #3c2424;
+}
+
+.g-heading_size_m {
+    font-size: 30px;
 }
 
 .g-heading_light {
     color: #fff;
+}
+
+.g-heading_dark {
+    color: #3c2424;
 }

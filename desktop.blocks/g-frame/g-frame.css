@@ -49,9 +49,7 @@
 }
 
 .g-frame .g-item .g-right-col {
-    float: left;
-    padding: 35px 0 0 50px;
-    width: 300px;
+    padding: 35px 0 0 460px;
 }
 
 .g-frame .g-item .g-heading {
@@ -62,12 +60,12 @@
     font-size: 24px;
     font-weight: 100;
     color: #a07472;
-    text-decoration: underline;
 }
 
-.g-frame .g-item .g-heading_type_simple {
+.g-frame .g-item .g-heading_dark {
     margin-left: 21px;
     padding-top: 40px;
+    margin-bottom: 0;
 }
 
 .g-frame .g-item .g-available-in-stores {
