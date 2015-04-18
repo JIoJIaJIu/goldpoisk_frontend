@@ -1,4 +1,8 @@
 .g-input {
+    display: inline-block;
+}
+
+.g-input__control {
     height: 30px;
     border: 1px solid #fff;
     box-shadow: inset 0px 3px 10px -5px #B9B9B9;
@@ -8,16 +12,16 @@
     color: #999;
 }
 
-.g-input__wrapper {
+.g-input_type_search {
     display: inline-block;
     width: 100%;
+    min-width: 50px;
     position: relative;
 }
 
 .g-input__icon {
     display: inline-block;
     position: absolute;
-    margin-right: -40px;
     top: 11px;
     right: 11px;
     width: 19px;
@@ -26,12 +30,12 @@
     cursor: pointer;
 }
 
-.g-input:hover, .g-input:focus {
-    border: 1px solid #deac00;
+.g-input__control:hover, .g-input__control:focus {
+    border: 1px solid #deac00 !important;
     outline: none;
 }
 
-.g-input_type_search {
+.g-input_type_search .g-input__control {
     height: 41px;
     border: 1px solid #845856;
     font-family: 'Clear-Sans', 'Arial', sans-serif;
@@ -39,10 +43,6 @@
     font-size: 18px;
     color: #8d8f8e;
     padding: 0 20px;
-}
-
-.g-input {
-    display: inline-block;
 }
 
 .g-input__label {
