@@ -1,6 +1,7 @@
 blocks['g-header'] = function (data, env) {
     var block = {
         block: 'g-header',
+        mods: { theme: 'light' },
         content: [
             {
                 block: 'g-logo',

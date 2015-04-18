@@ -1,5 +1,5 @@
-[ 
-   {
-        "block": "g-logo"
-   }
-]
+({
+    shouldDeps: [{
+        block: 'g-logo'
+   }]
+})

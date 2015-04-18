@@ -12,7 +12,7 @@
     color: #000;
     margin: 0;
 }
-
+/* @TODO рассмотреть удаление модификатора dark */
 .g-support_dark .g-support__title {
     color: #fff;
 }

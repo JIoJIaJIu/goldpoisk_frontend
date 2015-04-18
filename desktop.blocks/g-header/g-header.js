@@ -60,7 +60,6 @@ modules.define('g-header', ['i-bem__dom', 'jquery', 'router'], function(provide,
                 return;
 
             this.setMod('state', 'flow');
-            this.findBlockInside('g-support').setMod('dark', true);
             $('.g-header_inner__up').css('display', 'block');
         },
 
@@ -69,7 +68,6 @@ modules.define('g-header', ['i-bem__dom', 'jquery', 'router'], function(provide,
                 return;
 
             this.delMod('state');
-            this.findBlockInside('g-support').delMod('dark');
             $('.g-header_inner__up').css('display', 'none');
         },
 
