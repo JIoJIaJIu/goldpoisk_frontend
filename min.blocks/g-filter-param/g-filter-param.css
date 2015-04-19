@@ -38,7 +38,7 @@
 }
 
 .g-filter-param.g-filter-param_state_closed .g-filter-param__title_arrow {
-    top: 5px;
+    top: 8px;
     left: 15px;
     width: 4px;
     height: 6px;
@@ -46,7 +46,7 @@
 }
 
 .g-filter-param.g-filter-param_state_opened .g-filter-param__title_arrow {
-    top: 7px;
+    top: 9px;
     left: 13px;
     width: 6px;
     height: 4px;
