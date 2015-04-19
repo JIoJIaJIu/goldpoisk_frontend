@@ -13,12 +13,73 @@
     }, {
         elem: 'js',
         url: '_items.priv.js'
+    }, {
+        elem: 'js',
+        url: '../../static/js/third-parties/lodash.min.js'
+    }, {
+        elem: 'js',
+        url: '../../static/js/third-parties/jquery.min.js'
     }],
     content: [
-        {
+        /*{
             block: 'g-modal',
-            mods: { type: 'desires' }
-        }, {
+            content: [{
+                block: 'g-heading',
+                mods: { dark: true, size: 'l' },
+                count: 11,
+                content: 'Список желаний'
+            }, {
+                elem: 'description',
+                tag: 'p',
+                content: 'Понравившиеся вам товары хранятся здесь, и ждут когда вы их купите. Мы пришлем вам весточку, если на выбранные товары появятся скидки.'
+            }, {
+                block: 'g-goods',
+                content: [{
+                    block: 'g-product',
+                    mods: { like: true, action: true },
+                    url: '#',
+                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                    weight: '4.5 грамм',
+                    carat: '0,07 карат',
+                    price: 1000000,
+                    store: 'Sunlight',
+                    storeUrl: '#'
+                }, {
+                    block: 'g-product',
+                    mods: { like: true, hit: true },
+                    url: '#',
+                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                    weight: '4.5 грамм',
+                    carat: '0,07 карат',
+                    price: 1000000,
+                    store: 'Sunlight',
+                    storeUrl: '#'
+                }, {
+                    block: 'g-product',
+                    url: '#',
+                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                    weight: '4.5 грамм',
+                    carat: '0,07 карат',
+                    price: 1000000,
+                    store: 'Sunlight',
+                    storeUrl: '#'
+                }, {
+                    block: 'g-product',
+                    mods: { like: false, action: true },
+                    url: '#',
+                    title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
+                    imageUrl: '../../desktop.blocks/g-goods/images/good.png',
+                    weight: '4.5 грамм',
+                    carat: '0,07 карат',
+                    price: 1000000,
+                    store: 'Sunlight',
+                    storeUrl: '#'
+                }]
+            }]
+        },*/ {
             block: 'g-header',
             js: true,
             content: [
@@ -29,20 +90,11 @@
                 {
                     block: 'g-basket',
                     amount: 0
-                }/*,
+                }*/,
                 {
-                    elem: 'desire',
-                    content: [
-                        {
-                            tag: 'img',
-                            attrs: {src: '../../desktop.blocks/g-header/heart.png'},
-                        },
-                        {
-                            tag: 'span',
-                            content: 'Нет товаров в списке желаний'
-                        }
-                    ] 
-                }*/, {
+                    block: 'g-desires',
+                    //mods: { empty: true }
+                }, {
                     elem: 'up',
                     js: true,
                     tag: 'p',

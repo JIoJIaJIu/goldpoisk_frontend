@@ -1,0 +1,36 @@
+block('g-desires')(
+    js()(true),
+    content()(function () {
+        return [{
+            elem: 'icon',
+            tag: 'span'
+        }, {
+            elem: 'content',
+            content: [{
+                elem: 'count',
+                tag: 'strong',
+                content: '11 '
+            }, {
+                elem: 'text',
+                tag: 'span',
+                content: 'товаров'
+            }, {
+                block: 'g-link',
+                url: '#',
+                content: 'в списке желаний'
+            }]
+        }]
+    }),
+    mod('empty', true)(
+        elem('count')(
+            content()(function () {
+                return null;
+            })
+        ),
+        elem('text')(
+            content()(function () {
+                return 'Нет товаров ';
+            })
+        )
+    )
+)

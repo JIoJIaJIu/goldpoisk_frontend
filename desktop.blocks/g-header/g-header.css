@@ -73,20 +73,20 @@
     color: #000;
 }
 
-/*--- revolution of dictator ---*/
-
-.g-header_inner__desire {
+.g-header .g-desires {
     position: absolute;
     right: 20%;
-    top: 29px;
+    top: 24px;
     text-align: center;
 }
 
-.g-header_inner__desire img, .g-header_inner__basket img {
+/*--- revolution of dictator ---*/
+
+.g-header_inner__basket img {
     vertical-align: middle;
 }
 
-.g-header_inner__desire span, .g-header_inner__basket span {
+.g-header_inner__basket span {
     margin-left: 14px;
     font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 12px;
@@ -103,9 +103,4 @@
 .g-header_inner__basket {
     float: left;
     width: 30%;
-}
-
-.g-header_inner__desire {
-    float: left;
-    width: 20%;
 }

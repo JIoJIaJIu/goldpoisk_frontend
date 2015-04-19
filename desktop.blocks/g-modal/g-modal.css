@@ -22,7 +22,7 @@
     right: 16px;
 }
 
-.g-modal_type_desires .g-modal__window {
+.g-modal__window {
     position: relative;
     border: 1px solid #bd9200;
     border-radius: 10px;
@@ -32,11 +32,11 @@
     padding: 40px 50px;
 }
 
-.g-modal_type_desires .g-goods {
+.g-modal__window .g-goods {
     margin-left: -15px;
     margin-right: -15px;
 }
 
-.g-modal_type_desires .g-goods .g-product {
+.g-modal__window .g-goods .g-product {
     margin: 20px 15px;
 }
