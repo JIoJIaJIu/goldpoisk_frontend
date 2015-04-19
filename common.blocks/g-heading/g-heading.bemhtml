@@ -9,5 +9,17 @@ block('g-heading')(
                 content: this.ctx.content
             };
         })
+    ),
+    match(this.ctx.count)(
+        content()(function () {
+            return [
+                applyNext(),
+                {
+                    elem: 'count',
+                    tag: 'em',
+                    content: '(' + this.ctx.count + ')'
+                }
+            ]
+        })
     )
 )

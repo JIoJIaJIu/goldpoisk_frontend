@@ -12,8 +12,20 @@
     border-bottom: 1px solid #e2d5d4;
 }
 
+.g-heading__count {
+    font-family: 'PFDinTextPro-ThinItalic', Arial, sans-serif;
+    color: #777;
+    margin-left: 5px;
+    font-style: normal;
+    vertical-align: bottom;
+}
+
 .g-heading_size_l {
     font-size: 36px;
+}
+
+.g-heading_size_l .g-heading__count {
+    font-size: 30px;
 }
 
 .g-heading_size_m {

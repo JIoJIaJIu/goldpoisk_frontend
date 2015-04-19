@@ -16,6 +16,9 @@
     }],
     content: [
         {
+            block: 'g-modal',
+            mods: { type: 'desires' }
+        }, {
             block: 'g-header',
             js: true,
             content: [
