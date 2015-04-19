@@ -31,8 +31,15 @@ modules.define('g-search', ['i-bem__dom', 'config', 'router', 'logger'],
                 });
 
                 var searchInput = this.findBlockInside('g-input');
-                //TODO: selectors are bad
-                this.domElem.find('.g-input__icon').bind('click', function () {
+
+                searchInput.bindTo('keypress', function (e) {
+                    if (e.keyCode == 13) {
+                        self._logger.debug('enter', searchInput.val());
+                        self.search(searchInput.val());
+                    }
+                });
+
+                searchInput.bindTo('icon', 'click', function (e) {
                     self._logger.debug('click', searchInput.val());
                     self.search(searchInput.val());
                 });
