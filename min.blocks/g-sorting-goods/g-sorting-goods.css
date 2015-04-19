@@ -1,5 +1,5 @@
 .g-sorting-goods {
-    font-family: 'Clear-Sans', Arial, sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 14px;
     color: #777;
     text-align: left;
@@ -25,7 +25,7 @@
 }
 
 .g-sorting-goods__param_selected {
-    font-family: 'Clear-Sans', Arial, sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     color: #c39800;
     border-bottom: none;
 }

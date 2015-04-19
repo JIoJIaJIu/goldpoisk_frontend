@@ -18,14 +18,14 @@
     margin-left: -26px;
     top: 0;
     display: inline-block;
-    font-family: 'Clear-Sans', 'Arial', sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 12px;
     color: #3c2424;
     height: 100%;
 }
 
 .g-range__left, .g-range__right {
-    font-family: 'Clear-Sans', 'Arial', sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 12px;
     color: #3c2424;
     position: absolute;

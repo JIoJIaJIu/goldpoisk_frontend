@@ -18,7 +18,7 @@
 }
 
 .g-menu-item_state_active .g-menu-item__title {
-    font-family: Clear-Sans_Medium, Arial, sans-serif;
+    font-family: 'ClearSans-Medium', Arial, sans-serif;
     color: #dead03;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .g-menu-item a {
-    font-family: 'Clear-Sans_Light', Arial, sans-serif;
+    font-family: 'ClearSans-Light', Arial, sans-serif;
     font-size: 14px;
     display: block;
     text-align: center;

@@ -7,7 +7,7 @@
     border: 1px solid #fff;
     box-shadow: inset 0px 3px 10px -5px #B9B9B9;
     padding: 0 5px;
-    font-family: 'Clear-Sans', 'Arial', sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 14px;
     color: #999;
 }
@@ -38,7 +38,7 @@
 .g-input_type_search .g-input__control {
     height: 41px;
     border: 1px solid #845856;
-    font-family: 'Clear-Sans', 'Arial', sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     /*font-style: italic;*/
     font-size: 18px;
     color: #8d8f8e;

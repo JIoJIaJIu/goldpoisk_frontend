@@ -20,12 +20,12 @@
     width: 100%;
     height: 100%;
     font-size: 10px;
-    font-family: 'Clear-Sans_Thin', Arial, sans-serif;
+    font-family: 'ClearSans-Thin', Arial, sans-serif;
 }
 
 .g-item-features__name {
     display: table-cell;
-    font-family: 'Clear-Sans_Bold', Arial, sans-serif;
+    font-family: 'ClearSans-Bold', Arial, sans-serif;
     color: #555;
     line-height: 23px;
     float: left;
@@ -33,7 +33,7 @@
 
 .g-item-features__value {
     display: table-cell;
-    font-family: 'Clear-Sans', Arial, sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 14px;
     color: #777;
     width: 135px;

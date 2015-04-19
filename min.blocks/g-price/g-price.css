@@ -1,10 +1,10 @@
 .g-price {
-    font-family: Clear-Sans_Regular, Arial, sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 24px;
     color: #000;
 }
 
 .g-price__rouble {
-    font-family: ALSRubl;
+    font-family: 'ALSRubl', Arial, sans-serif;
     margin-left: -5px;
 }

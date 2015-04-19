@@ -6,7 +6,7 @@
 }
 
 .g-support__title {
-    font-family: "Clear-Sans", Arial, sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 12px;
     font-weight: 100;
     color: #000;
@@ -18,7 +18,7 @@
 }
 
 .g-support__link {
-    font-family: "Clear-Sans", Arial, sans-serif;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 13px;
     color: #a07472;
 }
@@ -27,7 +27,7 @@
 
 .g-support section p
 {
-    font-family: Clear-Sans;
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 13px;
     color: #a07472;
     margin: 3px 0 0 0;
