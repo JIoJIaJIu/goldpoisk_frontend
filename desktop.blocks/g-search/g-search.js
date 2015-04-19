@@ -32,10 +32,23 @@ modules.define('g-search', ['i-bem__dom', 'config', 'router', 'logger'],
 
                 var searchInput = this.findBlockInside('g-input');
 
-                searchInput.bindTo('keypress', function (e) {
+                searchInput.bindTo('keydown', function (e) {
                     if (e.keyCode == 13) {
                         self._logger.debug('enter', searchInput.val());
                         self.search(searchInput.val());
+                    }
+                    if (e.keyCode == 27) {
+                        self._logger.debug('esc', searchInput.val());
+                        if (self.hasMod('wide')) {
+                            self.delMod('wide');
+                            self.setMod('loading', 'left');
+                            setTimeout(function () {
+                                title.text('Поиск');
+                            }, DELAY);
+                        }
+                        setTimeout(function () {
+                            self.delMod('loading');
+                        }, DELAY);
                     }
                 });
 
