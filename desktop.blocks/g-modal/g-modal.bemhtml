@@ -6,8 +6,11 @@ block('g-modal')(
             content: [{
                 block: 'g-button',
                 mods: { close: true }
-            },
-            applyNext()]
+            }, {
+                block: 'g-content',
+                js: false,
+                content: applyNext()
+            }]
         }
     })
 )

@@ -4,13 +4,13 @@ modules.define('g-modal', ['i-bem__dom'], function(provide, BEMDOM) {
         onSetMod: {
             js: {
                 'inited': function () {
-                    var modal = this;
-                    var close = modal.findBlockInside({ block: 'g-button', modName: 'close', modVal: true });
+                    var self = this;
+                    var close = self.findBlockInside({ block: 'g-button', modName: 'close', modVal: true });
                     close.bindTo('click', function (e) {
-                        BEMDOM.destruct(modal.domElem);
+                        BEMDOM.destruct(self.domElem);
                     });
-                    modal.bindTo('click', function (e) {
-                        BEMDOM.destruct(modal.domElem);
+                    self.bindTo('click', function (e) {
+                        BEMDOM.destruct(self.domElem);
                     });
                 },
                 '': function () {

@@ -19,21 +19,11 @@ blocks['g-header'] = function (data, env) {
                         content: 'Карзина пуста. Ищите товары в каталоге'
                     }
                 ]
-            },
-            {
-                elem: 'desire',
-                content: [
-                    {
-                        tag: 'img',
-                        attrs: {src: '../../desktop.blocks/g-header/heart.png'},
-                    },
-                    {
-                        tag: 'span',
-                        content: 'Нет товаров в списке желаний'
-                    }
-                ] 
             },*/
             {
+                block: 'g-desires',
+                mods: { empty: true }
+            }, {
                 elem: 'up',
                 js: true,
                 tag: 'p',

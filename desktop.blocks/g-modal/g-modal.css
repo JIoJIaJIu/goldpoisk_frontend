@@ -8,7 +8,7 @@
     z-index: 5;
 }
 
-.g-modal__description {
+.g-modal .g-description {
     font-family: 'ClearSans-Regular', Arial, sans-serif;
     font-size: 16px;
     color: #333;
@@ -37,6 +37,6 @@
     margin-right: -15px;
 }
 
-.g-modal__window .g-goods .g-product {
+.g-modal__window .g-content .g-goods .g-product {
     margin: 20px 15px;
 }
