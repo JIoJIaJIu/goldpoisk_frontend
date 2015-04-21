@@ -1,4 +1,5 @@
 block('g-like')(
+	js()(true),
 	content()(function() {
 		return {
 			tag: 'span',
