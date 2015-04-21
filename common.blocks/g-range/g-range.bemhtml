@@ -1,4 +1,5 @@
 block('g-range')(
+    js()(true),
     content()(function () {
         var ctx = this.ctx;
         return [
