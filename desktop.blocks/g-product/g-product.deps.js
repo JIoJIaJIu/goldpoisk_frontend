@@ -1,16 +1,13 @@
 ({
-    shouldDeps: [ 
-        {
-            block: 'g-button'
-        },
-        {
-        	block: 'g-price'
-        },
-        {
-        	block: 'g-like'
-        },
-        {
-            block: 'g-frame'
-        }
-    ]
+    shouldDeps: [{
+        block: 'g-button'
+    }, {
+        block: 'g-price'
+    }, {
+        block: 'g-like'
+    }, {
+        block: 'g-frame'
+    }, {
+        block: 'cookie'
+    }]
 })

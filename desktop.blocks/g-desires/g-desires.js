@@ -1,4 +1,4 @@
-modules.define('g-desires', ['i-bem__dom'], function(provide, BEMDOM) {
+modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, cookie) {
 
     BEMDOM.decl('g-desires', {
         onSetMod: {
@@ -79,6 +79,30 @@ modules.define('g-desires', ['i-bem__dom'], function(provide, BEMDOM) {
                     this.findBlockInside('g-link').unbindFrom('click');
                 }
             }
+        },
+        like: function (id) {
+            var desires = cookie.get('desires') || '';
+            desires = _.words(desires);
+            var ids = _.map(desires, function(desire) {
+                return parseInt(desire, 10);
+            });
+
+            ids.push(id);
+
+            cookie.set('desires', ids.join('.'), {expires: 1});
+        },
+        dislike: function (id) {
+            var desires = cookie.get('desires') || '';
+            desires = _.words(desires);
+            ids = _.map(desires, function(desire) {
+                return parseInt(desire, 10);
+            });
+
+            _.remove(ids, function(i) {
+                return i == id;
+            });
+
+            cookie.set('desires', ids.join('.'), {expires: 1});
         }
     }, {});
 

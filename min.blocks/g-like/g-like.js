@@ -7,8 +7,6 @@ modules.define('g-like', ['i-bem__dom'], function(provide, BEMDOM) {
                     this.bindTo('click', function (e) {
                         e.stopPropagation();
                         this.toggleMod('state', 'checked', '');
-                        var product = this.findBlockOutside('g-product');
-                        product.toggleMod('like', 'yes', '');
                     });
                 },
                 '': function () {

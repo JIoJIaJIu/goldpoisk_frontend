@@ -1,9 +1,10 @@
-modules.define('g-product', ['i-bem__dom', 'jquery'], function (provide, BEMDOM, $) {
+modules.define('g-product', ['i-bem__dom'], function (provide, BEMDOM) {
 
 BEMDOM.decl('g-product', {
     onSetMod: {
         js: function () {
             var expanded = this.__self.getFrame.call(this);
+            var desires = this.__self.getDesires.call(this);
             var that = this;
 
             var goods = this.findBlockOutside('g-goods');
@@ -40,6 +41,15 @@ BEMDOM.decl('g-product', {
                 if (requested) {
                     dimmer.setMod('show', true);
                 }
+            });
+
+            var like = this.findBlockInside('g-like');
+            like.on({modName: 'state', modVal: 'checked'}, function (e) {
+                desires.like(that.params.id);
+            });
+            like.on({modName: 'state', modVal: ''}, function (e) {
+                console.log('like unclicked');
+                desires.dislike(that.params.id);
             });
         }
     },
@@ -162,6 +172,14 @@ BEMDOM.decl('g-product', {
         var dom = BEMDOM.after(this.domElem, html);
         this.__self.expanded = this.findBlockOn(dom, 'g-frame');
         return this.__self.expanded;
+    },
+
+    getDesires: function () {
+        if (this.__self.desires)
+            return this.__self.desires;
+
+        this.__self.desires = this.findBlockOutside('page').findBlockInside('g-desires');
+        return this.__self.desires;
     },
 
     showExpanded: function (data) {

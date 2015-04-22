@@ -4,14 +4,15 @@ block('g-product')(
             return false;
 
         return {
-            url: this.ctx.jsonUrl
+            url: this.ctx.jsonUrl,
+            id: this.ctx.id
         }
     }),
     content()(function() {
         return [
             {
                 block: 'g-like',
-                mods: {state : this.ctx.mods.like ? 'checked' : null }
+                mods: {state : this.ctx.like ? 'checked' : null }
             }, {
                 elem: 'link',
                 tag: 'a',

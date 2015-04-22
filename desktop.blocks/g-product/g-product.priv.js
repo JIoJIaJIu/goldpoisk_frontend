@@ -1,5 +1,6 @@
 /**
  *  @param {Object} data
+ *    @key {Number} id
  *    @key {String} title
  *    @key {Number} number, article of item
  *    @key {Number} count, count of items
@@ -17,8 +18,8 @@
  *    @key {String} [tape]
  *    @key {Boolean} [like]
  *
- *	@param {Object} env
- *	  @key {Boolean} js, enable javascript on this node or not
+ *  @param {Object} env
+ *    @key {Boolean} js, enable javascript on this node or not
  **/
 blocks['g-product'] = function (data, env) {
     assertHas(data, 'title', 'Should be pointed title');
@@ -28,20 +29,21 @@ blocks['g-product'] = function (data, env) {
     assertHas(data, 'weight', 'Should be pointed weight');
     assertHas(data, 'count', 'Should be pointed count');
 
-	var block = {
-		block: 'g-product',
-		mods: {
-			action: data.action ? true : false,
-			hit: data.hit ? true : false,
-			like: data.like ? true : false
-		},
-		url: data.url,
-		title: data.title,
-		imageUrl: data.image,
-		weight: data.weight,
-		carat: data.carat,
+    var block = {
+        block: 'g-product',
+        mods: {
+            action: data.action ? true : false,
+            hit: data.hit ? true : false
+        },
+        like: data.like,
+        id: data.id,
+        url: data.url,
+        title: data.title,
+        imageUrl: data.image,
+        weight: data.weight,
+        carat: data.carat,
         newPage: data.newPage || true
-	}
+    }
 
     //TODO:
     //if (data.count == 1) {

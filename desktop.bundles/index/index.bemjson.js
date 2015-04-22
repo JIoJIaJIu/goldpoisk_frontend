@@ -178,7 +178,7 @@
                             content: [
                                 {
                                     block: 'g-product',
-                                    mods: { like: true, action: true },
+                                    mods: { action: true },
                                     url: '#',
                                     title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                                     imageUrl: '../../desktop.blocks/g-goods/images/good.png',
@@ -189,7 +189,8 @@
                                     storeUrl: '#'
                                 }, {
                                     block: 'g-product',
-                                    mods: { like: true, hit: true },
+                                    mods: { hit: true },
+                                    like: true,
                                     url: '#',
                                     title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                                     imageUrl: '../../desktop.blocks/g-goods/images/good.png',
@@ -210,7 +211,8 @@
                                     storeUrl: '#'
                                 }, {
                                     block: 'g-product',
-                                    mods: { like: false, action: true },
+                                    mods: { action: true },
+                                    like: true,
                                     url: '#',
                                     title: 'Золотое Кольцо с гранатами и фианитами. Очень красивое и неебически дорогое',
                                     imageUrl: '../../desktop.blocks/g-goods/images/good.png',
