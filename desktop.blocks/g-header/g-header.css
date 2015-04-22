@@ -23,7 +23,7 @@
 .g-header_state_flow  .g-header_inner {
     width: 100%;
     position: fixed;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.35);
 }
 
 .g-header.g-header_state_flow {
