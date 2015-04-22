@@ -9,11 +9,9 @@ block('g-desires')(
             content: [{
                 elem: 'count',
                 tag: 'strong',
-                content: '11 '
             }, {
                 elem: 'text',
                 tag: 'span',
-                content: 'товаров'
             }, {
                 block: 'g-link',
                 url: '#',

@@ -13,6 +13,13 @@ BEMDOM.decl('g-product', {
             var spin = expanded.findBlockInside('g-spin');
             var dimmer = expanded.findBlockInside('g-dimmer');
 
+            var isLiked = desires.isLiked(this.params.id);
+
+            var like = this.findBlockInside('g-like');
+            if (isLiked) {
+                like.setMod('state', 'checked');
+            }
+
             //TODO: memory leaks
             this.bindTo('click', function (e) {
                 //TODO: improve
@@ -48,7 +55,6 @@ BEMDOM.decl('g-product', {
                 desires.like(that.params.id);
             });
             like.on({modName: 'state', modVal: ''}, function (e) {
-                console.log('like unclicked');
                 desires.dislike(that.params.id);
             });
         }
