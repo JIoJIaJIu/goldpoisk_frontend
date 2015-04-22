@@ -226,3 +226,63 @@ function assertHas (obj, key, message) {
     if (!obj[key])
         throw new Error(message);
 }
+
+function declension(count, word) {
+    /**
+     *  @param {Integer} count
+     *  @param {String} word
+     *  @return {String} result = count + word
+     **/
+    count = count.toString();
+    var basis = word.substr(0, word.length - 2);
+    var ending = word.substr(-2);
+    var lastLetters = count.substr(-2);
+    if (ending == 'ие') {
+        if (["11", "12", "13", "14"].indexOf(lastLetters) != -1) {
+            return count + " " + basis + 'ий';
+        }
+        switch (lastLetters.substr(-1)) {
+            case '1':
+                return count + " " + basis + ending;
+                break;
+            case '2':
+            case '3':
+            case '4':
+                return count + " " + basis + 'ия';
+                break;
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '0':
+                return count + " " + basis + 'ий';
+                break;
+            default:
+                break;
+        }
+    } else if (ending == 'ар') {
+        if (['11', '12', '13', '14'].indexOf(lastLetters) != -1) {
+            return basis + ending + 'ов';
+        }
+        switch (lastLetters.substr(-1)) {
+            case '1':
+                return basis + ending;
+                break;
+            case '2':
+            case '3':
+            case '4':
+                return basis + ending + 'а';
+                break;
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '0':
+                return basis + ending + 'ов'
+        }
+    } else {
+        return 'Oops';
+    }
+}
