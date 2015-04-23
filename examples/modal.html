@@ -1,0 +1,205 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+<title></title>
+<style type="text/css">
+* {
+    padding: 0;
+    margin: 0;
+}
+.main {
+    position: relative;
+}
+
+.content {
+    width: 100%;
+}
+
+.modaled .main {
+    overflow-y: hidden;
+}
+.modaled .main .content {
+    position: absolute;
+}
+
+.text {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px solid blue;
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: gray;
+    right: 1px;
+    top: 1px;
+    cursor: pointer;
+}
+
+.modal {
+    left: 0;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.modal .dimmer {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+
+.modal .inner {
+    height: 1500px;
+    width: 500px;
+    z-index: 3;
+    position: relative;
+    background: white;
+    border: 1px solid blue;
+    left: 50%;
+    margin-left: -250px;
+}
+</style>
+
+<script src="http://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    $('.popup').click(function () {
+        build_modal();
+    });
+});
+
+function build_modal() {
+    var modal = $('<div class="modal"><div class="dimmer"></div><div class="inner">Modal</div> </div>');
+    $('.main').append(modal);
+
+    var y = $(window).scrollTop();
+    $(document.body).addClass('modaled');
+    $('.content').css('top', -y + 'px');
+    window.scrollTo(0, 0);
+
+    $('.dimmer').click(function () {
+        modal.remove();
+        $(document.body).removeClass('modaled')
+        console.log('scroll', 0, y);
+        window.scrollTo(0, y);
+    });
+}
+</script>
+</head>
+
+<body>
+<div class="main">
+<div class="content">
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+    <div class="text">text<span class="popup"></span></div>
+</div>
+</div>
+</body>
