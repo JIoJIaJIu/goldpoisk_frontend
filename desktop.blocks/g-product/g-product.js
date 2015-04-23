@@ -12,10 +12,10 @@ BEMDOM.decl('g-product', {
             var store = this.elem('store').get(0);
             var spin = expanded.findBlockInside('g-spin');
             var dimmer = expanded.findBlockInside('g-dimmer');
+            var like = this.findBlockInside('g-like');
 
             var isLiked = desires.isLiked(this.params.id);
 
-            var like = this.findBlockInside('g-like');
             if (isLiked) {
                 like.setMod('state', 'checked');
             }
@@ -51,7 +51,7 @@ BEMDOM.decl('g-product', {
             });
 
             var like = this.findBlockInside('g-like');
-            like.on({modName: 'state', modVal: 'checked'}, function (e) {
+            like.on({modName: 'state', modVal: '*'}, function (e) {
                 desires.like(that.params.id);
             });
             like.on({modName: 'state', modVal: ''}, function (e) {

@@ -5,28 +5,20 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
             js: {
                 'inited': function () {
                     var self = this;
-                    var link = self.findBlockInside('g-link');
+                    var link = this.findBlockInside('g-link');
                     var desires = cookie.get('desires') || '';
                     desires = _.words(desires);
                     this._list = _.map(desires, function(desire) {
                         return parseInt(desire, 10);
                     });
-                    if (this._list.length) {
-                        if (this.hasMod('empty'))
-                            this.delMod('empty');
-                        this.recount();
-                    } else {
-                        this.setMod('empty', true);
-                        this.elem('count').text('');
-                        this.elem('text').text('Нет товаров');
-                    }
+
+                    this.redraw();
 
                     link.bindTo('click', function (e) {
                         e.preventDefault();
                         var header = self.findBlockOutside('g-header');
                         var products;
                         $.getJSON('/sortparam', self._list.join('.'), function success(data) {
-                            debugger;
                             products = blocks['g-goods.items'](data);
                             var content = {
                                 block: 'g-modal',
@@ -58,20 +50,24 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
                 }
             }
         },
+
+        _list: null,
+
         like: function (id) {
             this._list.push(id);
             if (this.hasMod('empty'))
                 this.delMod('empty');
-            this.recount();
+            this.redraw();
 
             cookie.set('desires', this._list.join('.'), {expires: 1});
         },
+
         dislike: function (id) {
             _.remove(this._list, function(i) {
-                return i == id;
+              return id == i;
             });
             if (this._list.length) {
-                this.recount();
+                this.redraw();
             } else {
                 this.setMod('empty', true);
                 this.elem('count').text('');
@@ -80,16 +76,25 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
 
             cookie.set('desires', this._list.join('.'), {expires: 1});
         },
+
         isLiked: function (id) {
             return !!~this._list.indexOf(id);
         },
-        recount: function () {
+
+        redraw: function () {
             var count = this.elem('count');
             var text = this.elem('text');
-            text.text(' ' + declension(this._list.length, 'товар'));
-            count.text(this._list.length);
-        },
-        _list: null,
+            if (this._list.length) {
+                if (this.hasMod('empty'))
+                    this.delMod('empty');
+                count.text(this._list.length);
+                text.text(' ' + declension(this._list.length, 'товар'));
+            } else {
+                this.setMod('empty', true);
+                count.text('');
+                text.text('Нет товаров');
+            }
+        }
     }, {});
 
     provide(BEMDOM);
