@@ -50,11 +50,8 @@ BEMDOM.decl('g-product', {
             });
 
             var like = this.findBlockInside('g-like');
-            like.on({modName: 'state', modVal: 'checked'}, function (e) {
-                desires.like(that.params.id);
-            });
-            like.on({modName: 'state', modVal: ''}, function (e) {
-                desires.dislike(that.params.id);
+            like.on({modName: 'state', modVal: '*'}, function (e, obj) {
+                !!obj.modVal ? desires.like(that.params.id) : desires.dislike(that.params.id);
             });
         }
     },
