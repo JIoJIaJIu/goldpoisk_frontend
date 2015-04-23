@@ -45,6 +45,16 @@
     padding: 0 20px;
 }
 
+/* Скрыть кнопку отмены */
+.g-input_type_search .g-input__control::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+/* Скрыть лупу */
+.g-input_type_search .g-input__control::-webkit-search-results-button {
+    -webkit-appearance: none;
+}
+
 .g-input__label {
     display: block;
     font-family: 'PFDinTextPro-Regular', Arial, sans-serif;
