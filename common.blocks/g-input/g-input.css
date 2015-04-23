@@ -39,10 +39,10 @@
     height: 41px;
     border: 1px solid #845856;
     font-family: 'ClearSans-Regular', Arial, sans-serif;
-    /*font-style: italic;*/
     font-size: 18px;
     color: #8d8f8e;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
 /* Скрыть кнопку отмены */
