@@ -12,14 +12,13 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
                         return parseInt(desire, 10);
                     });
 
-                    this.redraw();
+                    this._redraw();
 
                     link.bindTo('click', function (e) {
                         e.preventDefault();
                         var header = self.findBlockOutside('g-header');
-                        var products;
                         $.getJSON('/sortparam', self._list.join('.'), function success(data) {
-                            products = blocks['g-goods.items'](data);
+                            var products = blocks['g-goods.items'](data);
                             var content = {
                                 block: 'g-modal',
                                 content: [{
@@ -55,9 +54,7 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
 
         like: function (id) {
             this._list.push(id);
-            if (this.hasMod('empty'))
-                this.delMod('empty');
-            this.redraw();
+            this._redraw();
 
             cookie.set('desires', this._list.join('.'), {expires: 1});
         },
@@ -66,13 +63,8 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
             _.remove(this._list, function(i) {
               return id == i;
             });
-            if (this._list.length) {
-                this.redraw();
-            } else {
-                this.setMod('empty', true);
-                this.elem('count').text('');
-                this.elem('text').text('Нет товаров');
-            }
+
+            this._redraw();
 
             cookie.set('desires', this._list.join('.'), {expires: 1});
         },
@@ -81,12 +73,11 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
             return !!~this._list.indexOf(id);
         },
 
-        redraw: function () {
+        _redraw: function () {
             var count = this.elem('count');
             var text = this.elem('text');
             if (this._list.length) {
-                if (this.hasMod('empty'))
-                    this.delMod('empty');
+                this.delMod('empty');
                 count.text(this._list.length);
                 text.text(' ' + declension(this._list.length, 'товар'));
             } else {
@@ -94,6 +85,7 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
                 count.text('');
                 text.text('Нет товаров');
             }
+            return;
         }
     }, {});
 
