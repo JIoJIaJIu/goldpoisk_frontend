@@ -80,12 +80,12 @@ modules.define('g-desires', ['i-bem__dom', 'cookie'], function(provide, BEMDOM, 
                 this.delMod('empty');
                 count.text(this._list.length);
                 text.text(' ' + declension(this._list.length, 'товар'));
-            } else {
-                this.setMod('empty', true);
-                count.text('');
-                text.text('Нет товаров');
+                return;
             }
-            return;
+
+            this.setMod('empty', true);
+            count.text('');
+            text.text('Нет товаров');
         }
     }, {});
 

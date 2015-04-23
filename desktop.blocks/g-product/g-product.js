@@ -13,8 +13,8 @@ BEMDOM.decl('g-product', {
             var spin = expanded.findBlockInside('g-spin');
             var dimmer = expanded.findBlockInside('g-dimmer');
             var like = this.findBlockInside('g-like');
+            
             var isLiked = desires.isLiked(this.params.id);
-
             if (isLiked) {
                 like.setMod('state', 'checked');
             }
