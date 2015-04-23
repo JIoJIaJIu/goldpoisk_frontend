@@ -81,7 +81,7 @@ modules.define('g-search', ['i-bem__dom', 'config', 'router', 'logger'],
             $.getJSON(CONFIG.REST.searchUrl, {
                 article: article
             }, function success (data) {
-                router.route(data.url);
+                router.route('/item/' + data.number);
                 self._pending = false;
             }).fail(function (e) {
                 self._logger.error(e.responseText);

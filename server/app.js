@@ -52,7 +52,7 @@ app.get('/', function (req, res) {
     }
 });
 
-app.get('/id(:id([0-9]*))?', function (req, res) {
+app.get('/item/(:id([0-9]*))?', function (req, res) {
     if (!req.xhr) {
         res.send('req.params.id');
     } else {
