@@ -49,6 +49,7 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
 
                     var button = this.findBlockInside('g-button');
                     button.bindTo('click', function (e) {
+                        $("body,html").animate({scrollTop: 0}, 750, 'easeInQuart');
                         self._filter();
                     });
 

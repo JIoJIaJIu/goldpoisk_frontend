@@ -11,7 +11,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                     var self = this;
                     var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                     var body = document.body;
-                    var button = goods.findBlockInside('g-button');
+                    var button = goods.findBlockInside({block: 'g-button', modName: 'prev', modVal: true});
 
                     if (this._currentPage == 1) {
                         var spinup = goods.findElem('up-spin');
