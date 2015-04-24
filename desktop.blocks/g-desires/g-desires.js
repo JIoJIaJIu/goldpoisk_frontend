@@ -42,7 +42,9 @@ modules.define('g-desires', ['i-bem__dom', 'cookie', 'config'], function(provide
             this._list.push(id);
             this._redraw();
 
-            cookie.set('desires', this._list.join('.'), {expires: 1});
+            var ids = this._list.join('.');
+            cookie.set('desires', ids, {expires: 1});
+            this.emit('change', ids);
         },
 
         dislike: function (id) {
@@ -55,7 +57,9 @@ modules.define('g-desires', ['i-bem__dom', 'cookie', 'config'], function(provide
 
             this._redraw();
 
-            cookie.set('desires', this._list.join('.'), {expires: 1});
+            var ids = this._list.join('.');
+            cookie.set('desires', ids, {expires: 1});
+            this.emit('change', ids);
         },
 
         isLiked: function (id) {
