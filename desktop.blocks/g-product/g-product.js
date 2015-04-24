@@ -83,8 +83,8 @@ BEMDOM.decl('g-product', {
         }
 
         $.getJSON(this.params.url, function (json) {
-            that.data = json;
-            cb(null, json);
+            that.data = blocks['g-item'](json, {js: true});
+            cb(null, that.data);
         })
 
         return true;

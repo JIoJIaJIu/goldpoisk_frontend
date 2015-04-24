@@ -13,6 +13,7 @@
     padding: 0 7px 3px 7px;
     line-height: 18px;
     vertical-align: bottom;
+    cursor: pointer;
 }
 
 .g-like_state_checked span:first-child {
