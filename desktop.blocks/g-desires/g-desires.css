@@ -14,10 +14,6 @@
     cursor: pointer;
 }
 
-.g-desires_empty .g-desires__icon {
-    background: url('/images/sprite.png') 0 -170px;
-}
-
 .g-desires__content {
     text-align: left;
     display: inline-block;
@@ -27,9 +23,18 @@
 .g-desires__count {
     font-size: 16px;
     color: #3c2424;
+    margin-right: 5px;
 }
 
 .g-desires .g-link {
     display: block;
     line-height: 1em;
+}
+
+.g-desires_empty .g-desires__icon {
+    background: url('/images/sprite.png') 0 -170px;
+}
+
+.g-desires_empty .g-desires__count {
+    display: none;
 }

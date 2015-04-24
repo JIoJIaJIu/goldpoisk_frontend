@@ -22,6 +22,7 @@
  *    @key {Boolean} js, enable javascript on this node or not
  **/
 blocks['g-product'] = function (data, env) {
+    assertHas(data, 'id', 'Should point id');
     assertHas(data, 'title', 'Should be pointed title');
     assertHas(data, 'number', 'Should be pointed number');
     assertHas(data, 'url', 'Should be pointed url');
