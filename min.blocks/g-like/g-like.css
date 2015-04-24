@@ -4,6 +4,7 @@
     vertical-align: top;
     width: 26px;
     height: 24px;
+    cursor: pointer;
 }
 
 .g-like_type_extended span:last-child {
