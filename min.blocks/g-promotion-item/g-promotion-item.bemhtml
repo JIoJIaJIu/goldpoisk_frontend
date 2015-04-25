@@ -1,15 +1,31 @@
 block('g-promotion-item')(
+    js()(function () {
+        return {
+            left: this.ctx.coord[0],
+            top: this.ctx.coord[1]
+        }
+    }),
 	elem('title')(
-		tag()('p'),
+        tag()('a'),
+        js()(function () {
+            return {
+                url: this.ctx.url
+            }
+        }),
+        attrs()(function () {
+            return {
+                href: this.ctx.url
+            }
+        }),
 		content()(function () {
-			return this.ctx.title;
+            return this.ctx.title
 		})
 	),
 
 	elem('price')(
 		tag()('p'),
 		content()(function () {
-			return this.ctx.price + ' &#8381;';
+			return this.ctx.price + ' i';
 		})
 	)
 )

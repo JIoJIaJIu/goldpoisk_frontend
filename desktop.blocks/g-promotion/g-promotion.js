@@ -32,6 +32,9 @@ BEMDOM.decl('g-promotion', {
     },
 
     selectItem: function (index) {
+        if (!this._length)
+            return;
+
         if (index < 0) {
             index = this._length + index;
             this.selectItem(index);
