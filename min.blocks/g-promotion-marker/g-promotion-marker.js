@@ -3,10 +3,9 @@ modules.define('g-promotion-marker', ['i-bem__dom', 'g-promotion'], function (pr
         onSetMod: {
             js: function (ok) {
                 var block = this.findBlockOutside('g-promotion');
+                var index = this.params.index;
                 this.bindTo('click', function () {
-                    block.slider.$PlayTo(this.params.index || 0);
-                    block.deselectMarkers();
-                    this.setMod('state', 'selected');
+                    block.selectItem(index);
                 });
             }
         }

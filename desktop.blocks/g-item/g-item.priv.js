@@ -53,15 +53,23 @@ blocks['g-item'] = function (data, env) {
         heading.mods = { size: 'l' };
     }
 
+//<<<<<<< HEAD
     var params = {};
     if (env.titleLink) {
         params = { url: data.url };
+/*=======
+    var params = {
+        id: data.id
+    };
+    if (data.url) {
+        params.url = data.url;
+>>>>>>> edb1e04b26f7d09752b962ca41aa70089286ed65*/
         heading["url"] = data.url;
     }
     
     var block = {
         block: 'g-item',
-        js: params || false,
+        js: params,
         content: [
             heading,
             data.category ? category : null,
@@ -142,6 +150,9 @@ blocks['g-item'] = function (data, env) {
             !env.big ? more : null,
             env.big ? description : null,
             {
+                block: 'g-like',
+                mods: { type: 'extended' }
+            }, {
                 block: 'yashare',
                 quickServices : data.yashare.quickServices || [
                     'vkontakte',

@@ -1,5 +1,4 @@
 modules.define('g-like', ['i-bem__dom'], function(provide, BEMDOM) {
-    
     BEMDOM.decl('g-like', {
         onSetMod: {
             js: {

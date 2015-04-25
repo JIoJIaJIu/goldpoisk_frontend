@@ -9,7 +9,8 @@ modules.define('config', ['i-bem'], function (provide) {
             rings: {
                 list: 'http://localhost:3000/success'
             },
-            searchUrl: '/search'
+            searchUrl: '/search',
+            products: '/products/json'
         },
         page: {
             index: {

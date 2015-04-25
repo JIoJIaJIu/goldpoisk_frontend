@@ -1,9 +1,14 @@
 block('g-modal')(
     js()(true),
     content()(function () {
-        return {
+        return [{
+            elem: 'dimmer'
+        }, {
             elem: 'window',
             content: [{
+                block: 'g-spin',
+                mods: { theme : 'islands', size : 'xl', visible: true}
+            }, {
                 block: 'g-button',
                 mods: { close: true }
             }, {
@@ -11,6 +16,6 @@ block('g-modal')(
                 js: false,
                 content: applyNext()
             }]
-        }
+        }]
     })
 )

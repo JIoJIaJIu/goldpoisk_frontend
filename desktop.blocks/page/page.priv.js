@@ -40,11 +40,8 @@ pages['index'] = function (data, env) {
             {
                 block: 'g-content',
                 content: [
+                    blocks['g-promotion'](data.promo, env),
                     {
-                        block: 'g-promotion',
-                        js: 'true',
-                        images: data.promo
-                    }, {
                         block: 'g-pride',
                         content: [
                             {
@@ -89,13 +86,14 @@ pages['index'] = function (data, env) {
     }, env)
 }
 
+pages['index.str'] = function (data, env) {
+    return pages['index'](JSON.parse(data), env);
+}
+
 pages['index.content'] = function (data, env) {
     return [
+        blocks['g-promotion'](data.promo, env),
         {
-            block: 'g-promotion',
-            js: 'true',
-            images: data.promo
-        }, {
             block: 'g-pride',
             content: [
                 {

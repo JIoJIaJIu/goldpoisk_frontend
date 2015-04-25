@@ -2,22 +2,45 @@ modules.define('g-product', ['i-bem__dom'], function (provide, BEMDOM) {
 
 BEMDOM.decl('g-product', {
     onSetMod: {
-        js: function () {
-            var expanded = this.__self.getFrame.call(this);
-            var desires = this.__self.getDesires.call(this);
-            var that = this;
+        js: {
+            'inited': function () {
+                var expanded = this.__self.getFrame.call(this);
+                var that = this;
 
-            var goods = this.findBlockOutside('g-goods');
-            var button = this.findBlockInside('g-button').domElem.get(0);
-            var store = this.elem('store').get(0);
-            var spin = expanded.findBlockInside('g-spin');
-            var dimmer = expanded.findBlockInside('g-dimmer');
-            var like = this.findBlockInside('g-like');
-            
-            var isLiked = desires.isLiked(this.params.id);
-            if (isLiked) {
-                like.setMod('state', 'checked');
-            }
+                var goods = this.findBlockOutside('g-goods');
+                var button = this.findBlockInside('g-button').domElem.get(0);
+                var store = this.elem('store').get(0);
+                var spin = expanded.findBlockInside('g-spin');
+                var dimmer = expanded.findBlockInside('g-dimmer');
+
+                this.bindTo('click', function (e) {
+                    //TODO: improve
+                    if (e.target === button)
+                        return;
+
+                    if (e.target === store)
+                        return;
+                    e.preventDefault();
+                    goods.selectProduct(that);
+                    if (expanded.openedOn(that.domElem)) {
+                        that.__self.hideExpanded.call(that);
+                        return;
+                    } else {
+                        BEMDOM.destruct(expanded.elem('content'), true);
+                        spin.setMod('visible', true);
+                        that.__self.showExpanded.call(that);
+                    }
+
+                    var requested = that._getData(function (err, data) {
+                        that.__self.insertData.call(that, data);
+                        spin.setMod('visible', false);
+                        dimmer.setMod('show', false);
+                    });
+
+                    if (requested) {
+                        dimmer.setMod('show', true);
+                    }
+                });
 
             //TODO: memory leaks
             this.bindTo('click', function (e) {
@@ -49,17 +72,31 @@ BEMDOM.decl('g-product', {
                     spin.setMod('visible', false);
                     dimmer.setMod('show', false);
                 });
-
-                if (requested) {
-                    dimmer.setMod('show', true);
-                }
-            });
-
-            var like = this.findBlockInside('g-like');
-            like.on({modName: 'state', modVal: '*'}, function (e, obj) {
-                !!obj.modVal ? desires.like(that.params.id) : desires.dislike(that.params.id);
-            });
+                this._bindLike();
+            },
+            '': function () {
+                var desires = this.__self.getDesires.call(this);
+                this.unbindFrom('click');
+                desires.un('change', this._checkLikeFn);
+            }
         }
+    },
+
+    _bindLike: function () {
+        var id = this.params.id;
+        var desires = this.__self.getDesires.call(this);
+        var like = this.findBlockInside('g-like');
+
+        like.on({modName: 'state', modVal: '*'}, function (e, obj) {
+            !!obj.modVal ? desires.like(id) : desires.dislike(id);
+        });
+
+        this._checkLikeFn = function () {
+            desires.isLiked(id) ? like.setMod('state', 'checked') : like.delMod('state');
+        }
+
+        desires.on('change', this._checkLikeFn);
+        this._checkLikeFn();
     },
 
     _getData: function (cb) {
@@ -76,8 +113,8 @@ BEMDOM.decl('g-product', {
         }
 
         $.getJSON(this.params.url, function (json) {
-            that.data = json;
-            cb(null, json);
+            that.data = blocks['g-item'](json, {js: true});
+            cb(null, that.data);
         })
 
         return true;
@@ -176,6 +213,7 @@ BEMDOM.decl('g-product', {
         return this.__self.__pendingId;
     }
 
+    _checkLikeFn: null
 }, {
     getFrame: function () {
         if (this.__self.expanded)
