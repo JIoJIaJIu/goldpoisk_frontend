@@ -20,6 +20,8 @@ BEMDOM.decl('g-product', {
 
                     if (e.target === store)
                         return;
+
+                    this._setPending(this.params.id);
                     e.preventDefault();
                     goods.selectProduct(that);
                     if (expanded.openedOn(that.domElem)) {
@@ -32,47 +34,20 @@ BEMDOM.decl('g-product', {
                     }
 
                     var requested = that._getData(function (err, data) {
+                        if (that.params.id != that._getPending())
+                            return;
+
                         that.__self.insertData.call(that, data);
                         spin.setMod('visible', false);
                         dimmer.setMod('show', false);
                     });
 
+                    this._bindLike();
+
                     if (requested) {
                         dimmer.setMod('show', true);
                     }
                 });
-
-            //TODO: memory leaks
-            this.bindTo('click', function (e) {
-                //TODO: improve
-                if (e.target === button)
-                    return;
-
-                if (e.target === store)
-                    return;
-
-                this._setPending(this.params.id);
-
-                e.preventDefault();
-                goods.selectProduct(that);
-                if (expanded.openedOn(that.domElem)) {
-                    that.__self.hideExpanded.call(that);
-                    return;
-                } else {
-                    BEMDOM.destruct(expanded.elem('content'), true);
-                    spin.setMod('visible', true);
-                    that.__self.showExpanded.call(that);
-                }
-
-                var requested = that._getData(function (err, data) {
-                    if (that.params.id != that._getPending())
-                        return;
-
-                    that.__self.insertData.call(that, data);
-                    spin.setMod('visible', false);
-                    dimmer.setMod('show', false);
-                });
-                this._bindLike();
             },
             '': function () {
                 var desires = this.__self.getDesires.call(this);
@@ -211,7 +186,7 @@ BEMDOM.decl('g-product', {
 
     _getPending: function () {
         return this.__self.__pendingId;
-    }
+    },
 
     _checkLikeFn: null
 }, {
