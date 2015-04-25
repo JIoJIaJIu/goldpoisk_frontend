@@ -11,40 +11,52 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
                         paginator: page.findBlockInside('g-paginator'),
                         goods: page.findBlockInside('g-goods')
                     };
-                    var scroll = this.findBlockInside('g-filter__scroll');
+                    var scrollButton = this.findBlockInside('g-filter__scroll');
                     var goodsContainer = this._blocks.goods.findElem('container');
+                    var footer = this.findBlockOutside('page').findBlockInside('g-footer');
 
                     this.bindTo(this.elem('button'), 'click', function (e) {
                         this.toggleMod('hidden');
                         this._blocks.goods.toggleMod('wide');
-                        scroll.toggleMod('narrow');
+                        scrollButton.toggleMod('narrow');
                     });
 
                     var winHeight = $(window).outerHeight();
                     var filterHeight = this.domElem.outerHeight();
                     var filterBottom = this.domElem.offset().top + filterHeight;
                     var startPosition = this.domElem.offset().top;
-                    var footer = this.findBlockOutside('page').findBlockInside('g-footer');
                     $(window).bind('scroll', function (e) {
                         if (($(window).scrollTop() - (self.domElem.offset().top + self.domElem.outerHeight()) > 2 * $(window).outerHeight())
                             || (self.domElem.offset().top - $(window).scrollTop() > 2 * $(window).outerHeight())) {
-                            if (scroll.hasMod('hidden'))
-                                scroll.delMod('hidden');
+                            if (scrollButton.hasMod('hidden'))
+                                scrollButton.delMod('hidden');
                         } else {
-                            if (!scroll.hasMod('hidden'))
-                                scroll.setMod('hidden');
+                            if (!scrollButton.hasMod('hidden'))
+                                scrollButton.setMod('hidden');
                         }
                     });
 
-                    scroll.bindTo('click', function (e) {
-                        var animateTo = $(window).scrollTop() + 2 / $(window).outerHeight() - 2 / self.domElem.outerHeight();
-                        if (animateTo < startPosition)
-                            animateTo = 0;
-                        if (animateTo + self.domElem.outerHeight() > footer.domElem.offset().top) {
-                            animateTo = footer.domElem.offset().top - startPosition - self.domElem.outerHeight();
+                    scrollButton.bindTo('click', function (e) {
+                        var wasHidden = self.hasMod('hidden');
+                        self.setMod('hidden', 'force');
+
+                        var goTo = $(window).scrollTop() - 150;
+                        if (goTo < startPosition)
+                            goTo = 0;
+                        if (goTo + self.domElem.outerHeight() > footer.domElem.offset().top) {
+                            goTo = footer.domElem.offset().top - startPosition - self.domElem.outerHeight();
                         }
-                        self.domElem.animate({'top': animateTo}, 1000);
+
+                        self.domElem.css('top', goTo + 'px');
+
+                        if (wasHidden) {
+                            self.setMod('hidden', true);
+                            self._blocks.goods.setMod('wide');
+                        }
+                        self.delMod('hidden');
+                        self._blocks.goods.delMod('wide');
                         this.setMod('hidden');
+                        this.delMod('narrow');
                     });
 
                     var button = this.findBlockInside('g-button');

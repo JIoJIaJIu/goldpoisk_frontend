@@ -76,7 +76,9 @@ app.get('/success', function (req, res) {
         for (var i = 0, length = productJSON.length; i < length; i++) {
             bemjson[i] = productJSON[i];
         }
-        res.json(bemjson);
+        var response = {}
+        response.list = bemjson;
+        res.json(response);
     })
 });
 

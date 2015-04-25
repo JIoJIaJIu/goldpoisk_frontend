@@ -3,7 +3,7 @@
  *    @key {String} title - Название товара
  *    @key {String} number - Артикул товара
  *    @key {String} weight - Вес товара
- *    @key {String} [url] - Ссылка на расширенную страницу товара
+ *    @key {String} url - Ссылка на расширенную страницу товара
  *    @key {String} [description] - Описание товара
  *    @key {Array} images
  *      @of {String} url
@@ -24,6 +24,8 @@
  *         @of {String} service
  *       @key {String} [theme] by default 'counter'
  *       @key {String} [l10n] by default 'ru'
+ *  @param {Object} env
+ *    @key {Boolean} [titleLink], кликабельный ли загаловок
  */
 blocks['g-item'] = function (data, env) {
     assertHas(data, 'title', 'Should point title');
@@ -51,10 +53,10 @@ blocks['g-item'] = function (data, env) {
         heading.mods = { size: 'l' };
     }
 
-    var params
-    if (data.url) {
-        params = { url: data.url },
-        heading["url"] = data.url
+    var params = {};
+    if (env.titleLink) {
+        params = { url: data.url };
+        heading["url"] = data.url;
     }
     
     var block = {

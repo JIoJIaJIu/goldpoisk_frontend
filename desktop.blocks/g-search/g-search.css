@@ -51,6 +51,7 @@
     width: 21px;
     height: 102px;
     background: url('/images/sprite.png') -218px -244px;
+    background-position: -261px -244px;
 }
 
 .g-search__icon {
@@ -88,6 +89,7 @@
 .g-search_wide .g-search__arrow {
     left: -21px;
     background-position: -239px -244px;
+    background-position: -283px -244px;
 }
 
 .g-search_loading_right .g-search__inner,

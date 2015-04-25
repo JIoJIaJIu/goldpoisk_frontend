@@ -27,6 +27,9 @@ BEMDOM.decl('g-product', {
 
                 if (e.target === store)
                     return;
+
+                this._setPending(this.params.id);
+
                 e.preventDefault();
                 goods.selectProduct(that);
                 if (expanded.openedOn(that.domElem)) {
@@ -39,6 +42,9 @@ BEMDOM.decl('g-product', {
                 }
 
                 var requested = that._getData(function (err, data) {
+                    if (that.params.id != that._getPending())
+                        return;
+
                     that.__self.insertData.call(that, data);
                     spin.setMod('visible', false);
                     dimmer.setMod('show', false);
@@ -160,6 +166,14 @@ BEMDOM.decl('g-product', {
         var difference = $(window).scrollTop() + offset;
         if (offset != 0)
             $(window).scrollTop(difference);
+    },
+
+    _setPending: function(id) {
+        this.__self.__pendingId = id;
+    },
+
+    _getPending: function () {
+        return this.__self.__pendingId;
     }
 
 }, {
@@ -198,7 +212,9 @@ BEMDOM.decl('g-product', {
     hideExpanded: function (expanded) {
         var expanded = this.__self.getFrame.call(this);
         expanded.hide();
-    }
+    },
+
+    __pendingId: null
 });
 
 provide(BEMDOM);

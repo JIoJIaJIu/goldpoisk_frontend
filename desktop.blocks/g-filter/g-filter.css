@@ -1,7 +1,7 @@
 .g-filter {
     z-index: 1;
     position: relative;
-    display: inline-block;
+    margin-left: -8px;
     width: 292px;
     padding: 10px 0 30px 10px;
     background: url('./images/top.png') 0 0 no-repeat, url('./images/bottom.png') 0 100% no-repeat, url('./images/arrow-left.png') 92% 50% no-repeat, url('./images/left.png') repeat-y;
@@ -10,25 +10,22 @@
     -webkit-transition: margin-left 1s;
 }
 
-.g-filter + .g-goods {
-    margin-left: 305px;
-    transition: margin-left 1s;
-    -moz-transition: margin-left 1s;
-    -webkit-transition: margin-left 1s;
+.g-filter_hidden {
+    margin-left: -262px;
+    background: url('./images/top.png') 0 0 no-repeat, url('./images/bottom.png') 0 100% no-repeat, url('./images/arrow-right.png') 92% 50% no-repeat, url('./images/left.png') repeat-y;
+}
+
+.g-filter_hidden_force {
+    margin-left: -262px;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
 }
 
 .g-filter__list {
     width: 253px;
     display: inline-block;
     cursor: auto;
-}
-
-.g-filter_hidden {
-    background: url('./images/top.png') 0 0 no-repeat, url('./images/bottom.png') 0 100% no-repeat, url('./images/arrow-right.png') 92% 50% no-repeat, url('./images/left.png') repeat-y;
-}
-
-.g-filter_hidden + .g-goods {
-    margin-left: 4%;
 }
 
 .g-filter__title {

@@ -3,13 +3,8 @@
     padding: 0;
 }
 
-.g-goods .g-filter {
+.g-goods__aside {
     float: left;
-    margin-left: -8px;
-}
-
-.g-goods .g-filter_hidden {
-    margin-left: -262px;
 }
 
 .g-goods__aside + .g-goods__container {
@@ -18,19 +13,13 @@
 
 .g-goods__container {
     margin-left: 10px;
-}
-
-.g-goods .g-goods__container {
     transition: margin-left 1s;
     -moz-transition: margin-left 1s;
     -webkit-transition: margin-left 1s;
 }
 
-.g-goods.g-goods_wide .g-goods__container {
+.g-goods_wide .g-goods__container {
     margin-left: 40px;
-    transition: margin-left 1s;
-    -moz-transition: margin-left 1s;
-    -webkit-transition: margin-left 1s;
 }
 
 .g-goods__content {

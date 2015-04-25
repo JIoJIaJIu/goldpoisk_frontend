@@ -7,6 +7,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                     this._totalPages = parseInt(this.params.totalPages, 10);
                     this._pending = false;
                     this._startPage = this._currentPage;
+                    this._lastUp = this._currentPage;
+                    this._lastDown = this._currentPage;
 
                     var self = this;
                     var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
@@ -29,7 +31,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                             self._scrollDown(goods);
                         }
                         if (bodyScrollTop == 0) {
-                            if (this._currentPage <= 1 || this._startPage == 1)
+                            if (this._lastUp <= 1 || this._startPage == 1)
                                 return;
                             button.domElem.css('display', 'block');
                         }
@@ -53,13 +55,16 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
         },
 
         _scrollDown: function (goods) {
-            if (this._totalPages <= this._currentPage)
+            if (this._totalPages <= this._lastDown)
                 return;
 
             if (this._pending)
                 return;
 
             this._pending = true;
+
+            if (this._lastDown < this._lastDown + 1)
+                this._lastDown++;
 
             $('#down').css('display', 'inline-block');
             var self = this;
@@ -79,10 +84,21 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
         },
 
         _scrollUp: function (goods) {
-            if (this._currentPage <= 1)
+            if (this._lastUp <= 1) {
+                this.
                 return;
+            }
+
             if (this._pending)
                 return;
+
+            this._pending = true;
+
+            if (this._lastUp > this._lastUp - 1)
+                this._lastUp--;
+
+            if (this._lastUp == 1)
+                goods.findElem('up-spin').css('display', 'none');
 
             $('#up').css('display', 'inline-block');
             var that = this;
@@ -103,7 +119,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
         _startPage: null,
         _totalPages: 0,
         _currentPage: 1,
-        _pending: false
+        _pending: false,
+        _lastUp: null,
+        _lastDown: null
     }, {});
     provide(BEMDOM);
 })
