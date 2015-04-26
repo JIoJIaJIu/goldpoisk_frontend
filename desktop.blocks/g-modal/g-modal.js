@@ -1,4 +1,4 @@
-modules.define('g-modal', ['i-bem__dom'], function(provide, BEMDOM) {
+modules.define('g-modal', ['i-bem__dom', 'keyboard__codes'], function(provide, BEMDOM, key) {
 
     BEMDOM.decl('g-modal', {
         onSetMod: {
@@ -23,6 +23,14 @@ modules.define('g-modal', ['i-bem__dom'], function(provide, BEMDOM) {
             this.setMod('showed');
             var top = $(window).scrollTop();
             this.elem('window').css('top', top + 'px');
+
+            var self = this;
+            this._controlKeyFn = function (e) {
+                if (e.keyCode === key.ESC)
+                    self.hide();
+            }
+
+            this.bindToWin('keyup', this._controlKeyFn);
         },
 
         update: function (html) {
@@ -35,7 +43,10 @@ modules.define('g-modal', ['i-bem__dom'], function(provide, BEMDOM) {
         hide: function () {
             this.delMod('showed');
             this.delMod('loading');
-        }
+            this.unbindFrom('keyup', this._controlKeyFn);
+        },
+
+        _controlKeyFn: null
     }, {});
 
     provide(BEMDOM);
