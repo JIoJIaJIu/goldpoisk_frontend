@@ -1,18 +1,31 @@
-modules.define('g-promotion', ['i-bem__dom'], function (provide, BEMDOM) {
+modules.define('g-promotion', ['i-bem__dom', 'keyboard__codes'], function (provide, BEMDOM, key) {
 
 var PLAY_INTERVAL = 5000;
+var ANIMATION_TIME = 300;
 
 BEMDOM.decl('g-promotion', {
     onSetMod: {
         js: {
             inited: function () {
-                var images = this.params.images;
-                this._length = images.length;
+                var self = this;
+                this._buildQueue();
+                this._length = this._queue.length;
                 this.selectItem(0);
+
+                this._controlKeyFn = function (e) {
+                    if (e.keyCode === key.LEFT) {
+                        self.selectItem(self._index - 1);
+                    } else if (e.keyCode === key.RIGHT) {
+                        self.selectItem(self._index + 1);
+                    }
+                }
+
+                this.bindToWin('keyup', this._controlKeyFn)
             }
         },
         '': function () {
-            this.slider = null;
+            this.stop();
+            this.unbindFromWin('keyup', this._controlKeyFn);
         }
     },
 
@@ -47,41 +60,70 @@ BEMDOM.decl('g-promotion', {
             return;
         }
 
-        var item = $(this.elem('item')[index]);
+        if (this._index == index)
+            return
+
+        var self = this;
+
+        var margin = 0;
+        for (var i = index; i >= 0; i--) {
+            item = this._queue[i];
+            var width = item.width;
+            margin = (i == index) ? -width / 2 : margin - width;
+
+            item.item.animate({
+                marginLeft: margin + 'px'
+            }, ANIMATION_TIME);
+        }
+
+        for (var i = index; i < this._length; i++) {
+            var item = this._queue[i];
+            var width = item.width;
+
+            if (i == index ) {
+                margin = width / 2;
+                continue;
+            }
+
+            item.item.animate({
+                marginLeft: margin + 'px'
+            }, ANIMATION_TIME);
+            margin += width;
+        }
+
+        _.forEach(this._queue, function (block, i) {
+            if (i == index) {
+                self.setMod(block.item, 'active');
+            } else {
+                self.delMod(block.item, 'active');
+            }
+        });
+
         this._index = index;
-
-        _.forEach(this.elem('item'), function (item) {
-            item = $(item);
-            this.delMod(item, 'active');
-            this.delMod(item, 'prev');
-            this.delMod(item, 'next');
-        }, this);
-
-        this.setMod(item, 'active');
-        this.setMod(this._getPrevItem(), 'prev');
-        this.setMod(this._getNextItem(), 'next');
 
         this._deselectMarkers();
         var markers = this.findBlocksInside('g-promotion-marker');
-        markers[index].setMod('state', 'selected');
+        markers[index].setMod('state', 'selected')
         this.play();
     },
 
-    _getPrevItem: function () {
-        var prevIndex = this._index - 1;
-        if (prevIndex < 0)
-            prevIndex = this._length - 1;
+    _buildQueue: function () {
+        var margin = 0;
+        this._queue = _.map(this.elem('item'), function (item, i) {
+            item = $(item);
+            var width = item.width();
 
-        return $(this.elem('item')[prevIndex]);
-    },
+            // position
+            margin = (i == 0) ? -width / 2 : margin;
+            item.css('margin-left', margin + 'px');
+            margin += width
 
-    _getNextItem: function () {
-        var nextIndex = this._index + 1;
-
-        if (nextIndex == this._length)
-            nextIndex = 0;
-
-        return $(this.elem('item')[nextIndex]);
+            return {
+                item: item,
+                width: width,
+                height: item.height()
+            }
+        });
     },
 
     _deselectMarkers: function () {
@@ -91,9 +133,11 @@ BEMDOM.decl('g-promotion', {
         });
     },
 
-    _index: 0,
+    _queue: [],
+    _index: null,
     _length: null,
-    _timeout: null
+    _interval: null,
+    _controlKeyFn: null
 }, {});
 
 provide(BEMDOM);
