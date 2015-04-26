@@ -64,13 +64,13 @@
     }],
     "sortParams": [{
         "name": "По алфавиту",
-        "url": "#"
+        "value": "name"
     }, {
         "name": "Сначала дорогие",
-        "url": "#"
+        "value": "tprice"
     }, {
         "name": "Сначала дешёвые",
-        "url": "#"
+        "value": "price"
     }],
     "paginator": {
         "totalPages": "8",

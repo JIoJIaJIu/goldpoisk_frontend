@@ -1,14 +1,40 @@
-modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, logger) {
+modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, BEMDOM, logger, router) {
     BEMDOM.decl('g-goods', {
         onSetMod: {
             js: {
                 'inited': function () {
                     this._selected = null;
-                    var that = this;
-                    var totalPages = that.params.totalPages;
-                    var currentPage = that.params.currentPage;
-                    var body = document.body;
+                    var self = this;
                     var pending = false;
+                    this._totalCount = this.params.count;
+
+                    this.findBlockOutside('g-content').findBlockInside('g-sorting-goods').on('sort', function (e, value) {
+                        console.log(value);
+
+                        self.loading(true);
+
+                        var paginator = self.findBlockOutside('page').findBlockInside('g-paginator');
+
+                        router.setParams({sort: value});
+                        paginator.setCurrentPage(1);
+
+                        var uri = router.getUri(router.getPath() + '/json');
+                        var url = uri.toString();
+
+                        if (self._products.length == self._totalCount) {
+                            console.log('1');
+                            self._products.sort();
+                            self.update(self._products);
+                            return;
+                        }
+                        console.log(url);
+                        $.getJSON(url, function sort (data) {
+                            setTimeout(function () {
+                                self.update(data);
+                                self.loading(false);
+                            }, 3000);
+                        })
+                    });
 
                     this._logger = logger.Logger('g-goods');
                 },
@@ -49,6 +75,8 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
             if (!_.isArray(list))
                 this._logger.throw('Should point {Array} list');
 
+            this._products = this._products.concat(list);
+
             var bemjson = blocks['g-goods.items'](list, {js: true});
 
             BEMDOM.append(
@@ -65,6 +93,8 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
             if (!_.isArray(list))
                 this._logger.throw('Should point {Array} list');
 
+            this._products = list.concat(this._products);
+
             var bemjson = blocks['g-goods.items'](list, {js: true});
 
             BEMDOM.prepend(
@@ -74,7 +104,7 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
         },
 
         /**
-         * There is method that replaces own content with new data
+         * There is method self replaces own content with new data
          * @param {Object} data
          *   @key {Array} list
          *   @key {Number} count
@@ -83,8 +113,8 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
             if (!_.isObject(data))
                 this._logger.throw('Should point {Object} data');
 
-            var count = data.count;
-            var list = data.list;
+            var count = this._totalCount = data.count;
+            var list = this._products = data.list;
 
             if (!_.isNumber(count))
                 this._logger.throw('Should point {Number} count');
@@ -117,7 +147,10 @@ modules.define('g-goods', ['i-bem__dom', 'logger'], function(provide, BEMDOM, lo
             } else {
                 product.setMod('active', true);
             }
-        }
+        },
+
+        _products: [],
+        _totalCount: null
     }, {});
     provide(BEMDOM);
 })

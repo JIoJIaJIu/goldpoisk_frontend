@@ -82,9 +82,13 @@ app.get('/success', function (req, res) {
     })
 });
 
-app.get('/sortparam', function (req, res) {
+app.get('/[a-z]*/json', function (req, res) {
     var product = getProduct();
-    res.json(product);
+    var o = {
+        count: 4,
+        list: product
+    };
+    res.json(o);
 });
 
 app.get('/product/item', function (req, res) {

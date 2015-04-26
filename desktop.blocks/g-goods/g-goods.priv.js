@@ -1,6 +1,7 @@
 /**
  * @params {Object} data
  *  @key {Array} list
+ *  @key {Number} count
  *  @key {Array} sortParams
  **/
 blocks['g-goods'] = function (data, env) {
@@ -12,6 +13,9 @@ blocks['g-goods'] = function (data, env) {
 
     var block = {
         block: 'g-goods',
+        js: {
+            count: data.count
+        },
         content: list
     }
 

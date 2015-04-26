@@ -167,6 +167,7 @@ pages['category.content'] = function (data, env) {
             mods: { type: 'display', state: 'hidden' }
         },
         blocks['g-goods']({
+            count: data.count,
             list: data.products,
             sortParams: data.sortParams,
             filters: data.filters

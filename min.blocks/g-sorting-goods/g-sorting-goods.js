@@ -24,23 +24,34 @@ modules.define('g-sorting-goods', ['i-bem__dom', 'router', 'location'], function
 
             this.setMod(this.elem('param'), 'selected', false);
             this.setMod(target, 'selected', true);
+            var params = this.elemParams($(e.target));
+            this.emit('sort', params.value);
+            /*
             goods.loading(true);
             var paginator = this.findBlockOutside('page').findBlockInside('g-paginator');
 
-            var params = this.elemParams($(e.target));
+            //var params = this.elemParams($(e.target));
             router.setParams({sort: params.value});
             paginator.setCurrentPage(1);
 
             var uri = router.getUri(router.getPath() + '/json');
             var url = uri.toString();
 
+            if (goods._products.length == goods._totalCount) {
+                goods._products.sort();
+                goods.update(goods._products);
+                return;
+            }
             $.getJSON(url, function sort (data) {
                 setTimeout(function () {
                     goods.update(data);
                     goods.loading(false);
                 }, 3000);
             })
+            */
         }
+
+
 
     }, {});
     provide(BEMDOM)
