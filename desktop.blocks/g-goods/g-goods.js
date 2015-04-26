@@ -9,8 +9,6 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
                     this._totalCount = this.params.count;
 
                     this.findBlockOutside('g-content').findBlockInside('g-sorting-goods').on('sort', function (e, value) {
-                        console.log(value);
-
                         self.loading(true);
 
                         var paginator = self.findBlockOutside('page').findBlockInside('g-paginator');
@@ -22,12 +20,35 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
                         var url = uri.toString();
 
                         if (self._products.length == self._totalCount) {
-                            console.log('1');
-                            self._products.sort();
-                            self.update(self._products);
+                            var sortFunc = {
+                                name: function (a, b) {
+                                    if (a.title > b.title)
+                                        return 1;
+                                    else
+                                        return -1;
+                                },
+                                price: function (a, b) {
+                                    if (a.minPrice > b.minPrice)
+                                        return 1;
+                                    else
+                                        return -1;
+                                },
+                                tprice: function (a, b) {
+                                    if (a.minPrice > b.minPrice)
+                                        return -1;
+                                    else
+                                        return 1;
+                                }
+                            }
+                            self._products.sort(sortFunc[value]);
+                            var data = {
+                                count: self._products.length,
+                                list: self._products
+                            };
+                            self.update(data);
+                            self.loading(false);
                             return;
                         }
-                        console.log(url);
                         $.getJSON(url, function sort (data) {
                             setTimeout(function () {
                                 self.update(data);

@@ -85,7 +85,7 @@ app.get('/success', function (req, res) {
 app.get('/[a-z]*/json', function (req, res) {
     var product = getProduct();
     var o = {
-        count: 4,
+        count: product.length,
         list: product
     };
     res.json(o);

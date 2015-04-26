@@ -1,5 +1,5 @@
 [{
-        "title": "Golden Earring",
+        "title": "Якорь",
         "number": 143532,
         "id": 1,
         "url": "#",
@@ -9,12 +9,12 @@
         "count": "1",
         "buyUrl": "#",
         "jsonUrl": "/product/item",
-        "minPrice": 15349,
+        "minPrice": 5,
         "shopName": "All Star",
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
-        "title": "Silver Lips",
+        "title": "Яась",
         "number": 4352,
         "id": 2,
         "url": "#",
@@ -24,12 +24,12 @@
         "count": "1",
         "buyUrl": "#",
         "jsonUrl": "/product/item",
-        "minPrice": 15349,
+        "minPrice": 2,
         "shopName": "All Star",
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
-        "title": "Silver Lips",
+        "title": "Букварь",
         "number": 4352,
         "id": 3,
         "url": "#",
@@ -39,12 +39,12 @@
         "count": "1",
         "buyUrl": "#",
         "jsonUrl": "/product/item",
-        "minPrice": 15349,
+        "minPrice": 4,
         "shopName": "All Star",
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
-        "title": "Silver Lips",
+        "title": "Слон",
         "number": 4352,
         "id": 4,
         "url": "#",
@@ -54,12 +54,12 @@
         "count": "1",
         "buyUrl": "#",
         "jsonUrl": "/product/item",
-        "minPrice": 15349,
+        "minPrice": 1,
         "shopName": "All Star",
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
-        "title": "Silver Lips",
+        "title": "Сова",
         "number": 4352,
         "id": 5,
         "url": "#",
@@ -69,7 +69,7 @@
         "count": "1",
         "buyUrl": "#",
         "jsonUrl": "/product/item",
-        "minPrice": 15349,
+        "minPrice": 3,
         "shopName": "All Star",
         "shopUrl": "#",
         "buyUrl": "#'"

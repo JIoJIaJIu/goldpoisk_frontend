@@ -42,12 +42,12 @@ BEMDOM.decl('g-product', {
                         dimmer.setMod('show', false);
                     });
 
-                    this._bindLike();
-
                     if (requested) {
                         dimmer.setMod('show', true);
                     }
                 });
+
+                this._bindLike();
             },
             '': function () {
                 var desires = this.__self.getDesires.call(this);
