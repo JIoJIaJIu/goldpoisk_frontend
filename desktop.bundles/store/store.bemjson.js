@@ -84,7 +84,6 @@
             ]
         }, {
             block: 'g-content',
-            mods: { wide: true },
             content: [
                 {
                     block: 'g-breadcrumbs',

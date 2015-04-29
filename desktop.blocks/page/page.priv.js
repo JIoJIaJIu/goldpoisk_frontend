@@ -67,7 +67,6 @@ pages['index'] = function (data, env) {
                         ]
                     }, {
                         block: 'g-section',
-                        mods: { type: 'slogan' },
                         title: 'Goldpoisk - самый большой каталог ювелирных изделий',
                         description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
                     },
@@ -119,7 +118,6 @@ pages['index.content'] = function (data, env) {
             ]
         }, {
             block: 'g-section',
-            mods: { type: 'slogan' },
             title: 'Goldpoisk - самый большой каталог ювелирных изделий',
             description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
         },

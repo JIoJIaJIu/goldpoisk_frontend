@@ -161,7 +161,6 @@
             content: [
                 {
                     block: 'g-section',
-                    mods: { type: 'slogan' },
                     title: 'Goldpoisk - самый большой каталог ювелирных изделий',
                     description: 'Все ювелирные изделия от лучших производителей собраны здесь.<br>Огромный выбор из 150000 товаров.'
                 }, {
@@ -169,7 +168,7 @@
                     content: [
                         {
                             block: 'g-heading',
-                            mods: { 'size': 'm' },
+                            mods: { size: 'm', dark: true },
                             content: 'Лучшие предложения от наших партнёров'
                         },/* {
                             block: 'g-subscribe',

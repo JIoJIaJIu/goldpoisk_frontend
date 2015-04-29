@@ -4,12 +4,11 @@ block('g-section')(
             {
                 elem: 'title',
                 tag: 'header',
-                content: [
-                    {
-                        tag: 'h1',
-                        content: this.ctx.title
-                    }
-                ]
+                content: [{
+                    block: 'g-heading',
+                    mods: { size: 'l', dark: true },
+                    content: this.ctx.title
+                }]
             }, {
                 elem: 'description',
                 tag: 'p',

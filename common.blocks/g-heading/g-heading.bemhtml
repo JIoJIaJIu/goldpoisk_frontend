@@ -1,7 +1,9 @@
 block('g-heading')(
     tag()('h1'),
+    attrs()(function () {
+        return { descrition: this.ctx.content };
+    }),
     match(this.ctx.url)(
-        tag()('h1'),
         content()(function () {
             return {
                 tag: 'a',

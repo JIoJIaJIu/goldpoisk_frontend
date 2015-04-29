@@ -12,7 +12,7 @@ blocks['g-bids'] = function (data, env) {
         content: [
             {
                 block: 'g-heading',
-                mods: { 'size': 'm' },
+                mods: { size: 'm', dark: true },
                 content: 'Лучшие предложения от наших партнёров'
             },
             blocks['g-goods']({
