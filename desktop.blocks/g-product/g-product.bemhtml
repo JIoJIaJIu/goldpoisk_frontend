@@ -1,10 +1,8 @@
 block('g-product')(
     js()(function () {
-        if (!this.ctx.js)
-            return false;
-
         return {
-            url: this.ctx.jsonUrl,
+            showFrame: this.ctx.showFrame,
+            url: this.ctx.showFrame ? this.ctx.jsonUrl : this.ctx.url,
             id: this.ctx.id
         }
     }),

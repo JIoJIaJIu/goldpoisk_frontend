@@ -6,7 +6,7 @@ block('g-footer')(
                 content: [
                     {
                         tag: 'p',
-                        content: '&copy GoldPoisk, 2014'
+                        content: '&copy GoldPoisk, 2014-2015'
                     }
                 ]
             },

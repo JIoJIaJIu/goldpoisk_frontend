@@ -1,5 +1,6 @@
 /**
  *  @param {Object} data
+ *    @key {Number} id
  *    @key {String} title - Название товара
  *    @key {String} number - Артикул товара
  *    @key {String} weight - Вес товара
@@ -28,6 +29,7 @@
  *    @key {Boolean} [titleLink], кликабельный ли загаловок
  */
 blocks['g-item'] = function (data, env) {
+    assertHas(data, 'id', 'Should point id');
     assertHas(data, 'title', 'Should point title');
     assertHas(data, 'number', 'Should point number');
     assertHas(data, 'images', 'Should point images');
@@ -53,17 +55,12 @@ blocks['g-item'] = function (data, env) {
         heading.mods = { size: 'l' };
     }
 
-//<<<<<<< HEAD
-    var params = {};
-    if (env.titleLink) {
-        params = { url: data.url };
-/*=======
     var params = {
         id: data.id
-    };
-    if (data.url) {
+    }
+
+    if (env.titleLink) {
         params.url = data.url;
->>>>>>> edb1e04b26f7d09752b962ca41aa70089286ed65*/
         heading["url"] = data.url;
     }
     

@@ -171,7 +171,7 @@ pages['category.content'] = function (data, env) {
             list: data.products,
             sortParams: data.sortParams,
             filters: data.filters
-        }, {js: true}),
+        }, {showFrame: true}),
         blocks['g-paginator'](data.paginator)
     ]
 }

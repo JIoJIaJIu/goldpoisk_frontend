@@ -1,5 +1,6 @@
 .g-item {
     padding: 10px 2%;
+    overflow: hidden;
 }
 
 .g-item .g-heading_size_l, .g-item .g-heading_size_m {

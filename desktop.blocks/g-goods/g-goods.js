@@ -93,7 +93,7 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
 
             this._products = this._products.concat(list);
 
-            var bemjson = blocks['g-goods.items'](list, {js: true});
+            var bemjson = blocks['g-goods.items'](list, {showFrame: true});
 
             BEMDOM.append(
                 this.elem('content'),
@@ -111,7 +111,7 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
 
             this._products = list.concat(this._products);
 
-            var bemjson = blocks['g-goods.items'](list, {js: true});
+            var bemjson = blocks['g-goods.items'](list, {showFrame: true});
 
             BEMDOM.prepend(
                 this.elem('content'),
@@ -138,7 +138,7 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
             if (!_.isArray(list))
                 this._logger.throw('Should point {Array} list');
 
-            var bemjson = blocks['g-goods.items'](list, {js: true});
+            var bemjson = blocks['g-goods.items'](list, {showFrame: true});
             //TODO: govnokot
             this.findBlockOutside('g-content')
                 .findBlockInside('g-category-title')

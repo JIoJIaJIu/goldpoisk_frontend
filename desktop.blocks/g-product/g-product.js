@@ -1,17 +1,15 @@
-modules.define('g-product', ['i-bem__dom'], function (provide, BEMDOM) {
+modules.define('g-product', ['i-bem__dom', 'router'], function (provide, BEMDOM, router) {
 
 BEMDOM.decl('g-product', {
     onSetMod: {
         js: {
             'inited': function () {
-                var expanded = this.__self.getFrame.call(this);
-                var that = this;
+                var showFrame = !!this.params.showFrame;
+                var url = this.params.url;
+                var self = this;
 
-                var goods = this.findBlockOutside('g-goods');
                 var button = this.findBlockInside('g-button').domElem.get(0);
                 var store = this.elem('store').get(0);
-                var spin = expanded.findBlockInside('g-spin');
-                var dimmer = expanded.findBlockInside('g-dimmer');
 
                 this.bindTo('click', function (e) {
                     //TODO: improve
@@ -21,30 +19,14 @@ BEMDOM.decl('g-product', {
                     if (e.target === store)
                         return;
 
-                    this._setPending(this.params.id);
                     e.preventDefault();
-                    goods.selectProduct(that);
-                    if (expanded.openedOn(that.domElem)) {
-                        that.__self.hideExpanded.call(that);
+
+                    if (showFrame) {
+                        self._showFrame();
                         return;
-                    } else {
-                        BEMDOM.destruct(expanded.elem('content'), true);
-                        spin.setMod('visible', true);
-                        that.__self.showExpanded.call(that);
                     }
 
-                    var requested = that._getData(function (err, data) {
-                        if (that.params.id != that._getPending())
-                            return;
-
-                        that.__self.insertData.call(that, data);
-                        spin.setMod('visible', false);
-                        dimmer.setMod('show', false);
-                    });
-
-                    if (requested) {
-                        dimmer.setMod('show', true);
-                    }
+                    router.route(url);
                 });
 
                 this._bindLike();
@@ -88,11 +70,43 @@ BEMDOM.decl('g-product', {
         }
 
         $.getJSON(this.params.url, function (json) {
-            that.data = blocks['g-item'](json, {js: true});
+            that.data = blocks['g-item'](json, {js: true, titleLink: true});
             cb(null, that.data);
         })
 
         return true;
+    },
+
+    _showFrame: function () {
+        var that = this;
+        var expanded = this.__self.getFrame.call(this);
+        var goods = this.findBlockOutside('g-goods');
+        var spin = expanded.findBlockInside('g-spin');
+        var dimmer = expanded.findBlockInside('g-dimmer');
+
+        this._setPending(this.params.id);
+        goods.selectProduct(that);
+        if (expanded.openedOn(that.domElem)) {
+            that.__self.hideExpanded.call(that);
+            return;
+        } else {
+            BEMDOM.destruct(expanded.elem('content'), true);
+            spin.setMod('visible', true);
+            that.__self.showExpanded.call(that);
+        }
+
+        var requested = that._getData(function (err, data) {
+            if (that.params.id != that._getPending())
+                return;
+
+            that.__self.insertData.call(that, data);
+            spin.setMod('visible', false);
+            dimmer.setMod('show', false);
+        });
+
+        if (requested) {
+            dimmer.setMod('show', true);
+        }
     },
 
     /**

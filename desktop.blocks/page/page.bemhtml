@@ -1,11 +1,10 @@
-block('page').match(!this._done)(
+block('page')(
     content()(function() {
-        this._done = true;
         return [
             this.ctx.scripts,
             {
                 elem: 'wrapper',
-                content: applyNext()
+                content: this.ctx.content
             }
         ]
     })

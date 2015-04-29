@@ -1,4 +1,6 @@
-modules.define('g-modal', ['i-bem__dom', 'keyboard__codes'], function(provide, BEMDOM, key) {
+modules.define('g-modal', ['i-bem__dom', 'keyboard__codes', 'router'], function(provide, BEMDOM, key, router) {
+
+    var PADDING = 70;
 
     BEMDOM.decl('g-modal', {
         onSetMod: {
@@ -22,7 +24,7 @@ modules.define('g-modal', ['i-bem__dom', 'keyboard__codes'], function(provide, B
 
             this.setMod('showed');
             var top = $(window).scrollTop();
-            this.elem('window').css('top', top + 'px');
+            this.elem('window').css('margin-top', top + PADDING + 'px');
 
             var self = this;
             this._controlKeyFn = function (e) {
@@ -31,6 +33,12 @@ modules.define('g-modal', ['i-bem__dom', 'keyboard__codes'], function(provide, B
             }
 
             this.bindToWin('keyup', this._controlKeyFn);
+
+            this._routerChangeFn = function () {
+                self.hide();
+            }
+            router.on('change', this._routerChangeFn);
+            this._lockScroll();
         },
 
         update: function (html) {
@@ -44,9 +52,38 @@ modules.define('g-modal', ['i-bem__dom', 'keyboard__codes'], function(provide, B
             this.delMod('showed');
             this.delMod('loading');
             this.unbindFrom('keyup', this._controlKeyFn);
+            router.un('change', this._routerChangeFn);
+            this._unlockScroll();
         },
 
-        _controlKeyFn: null
+        _lockScroll: function () {
+            var elem = this.elem('window');
+            var offsetTop = elem.offset().top;
+            var top = offsetTop - PADDING
+
+            this._lockScrollFn = function () {
+                var scrollTop = $(window).scrollTop();
+
+                if (scrollTop < top) {
+                    window.scrollTo(0, top);
+                    return;
+                }
+
+                var bottom = offsetTop + elem.outerHeight() - $(window).height() + PADDING;
+                if (scrollTop > bottom) {
+                    window.scrollTo(0, bottom);
+                }
+            };
+
+            this.bindToWin('scroll', this._lockScrollFn);
+        },
+
+        _unlockScroll: function () {
+            this.unbindFromWin('scroll', this._lockScrollFn);
+        },
+
+        _controlKeyFn: null,
+        _routerChangeFn: null
     }, {});
 
     provide(BEMDOM);

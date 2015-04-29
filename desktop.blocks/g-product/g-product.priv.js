@@ -19,7 +19,7 @@
  *    @key {Boolean} [like]
  *
  *  @param {Object} env
- *    @key {Boolean} js, enable javascript on this node or not
+ *    @key {Boolean} [showFrame], show frame on click or not
  **/
 blocks['g-product'] = function (data, env) {
     assertHas(data, 'id', 'Should point id');
@@ -53,10 +53,10 @@ blocks['g-product'] = function (data, env) {
     block.store = data.shopName;
     block.buyUrl = data.buyUrl;
 
-    if (env && env.js) {
+    if (env && env.showFrame) {
         assertHas(data, 'jsonUrl', 'Should be pointed json url');
-        block.js = true;
         block.jsonUrl = data.jsonUrl;
+        block.showFrame = true;
     }
 
     return block;

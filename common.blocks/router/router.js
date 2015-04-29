@@ -1,8 +1,13 @@
-modules.define('router', ['location', 'uri', 'controller', 'logger'],
-               function(provide, location, Uri, controller, logger) {
+modules.define('router', ['location', 'uri', 'inherit', 'events', 'controller', 'logger'],
+               function(provide, location, Uri, inherit, events, controller, logger) {
 
-    var router = {
+    var router = inherit(events.Emitter, {
+
+        __constructor: function () {console.log('init')},
+
         init: function (content) {
+            if (this._isInited)
+                return;
             this.content = content;
             this.page = content.findBlockOutside('page');
             this.menu = this.page.findBlockInside('g-menu');
@@ -14,12 +19,15 @@ modules.define('router', ['location', 'uri', 'controller', 'logger'],
             });
             controller.init(content);
 
+            this._onChange = _.callback(this._onChange, this);
             location.on('change', this._onChange);
+            this._isInited = true;
         },
 
         finalize: function () {
             location.un('change', this._onChange);
             controller.finalize();
+            this._isInited = false;
         },
 
         route: function (url) {
@@ -66,10 +74,12 @@ modules.define('router', ['location', 'uri', 'controller', 'logger'],
                 return;
             var path = uri.getPath();
             controller.get(path)();
+            this.emit('change', path);
         },
 
-        _params: {}
-    }
+        _params: {},
+        _isInited: false
+    })
 
-    provide(router);
+    provide(new router());
 });
