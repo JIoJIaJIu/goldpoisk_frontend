@@ -2,7 +2,7 @@
     "category": "Кольца",
     "count": "2003",
     "products": [{
-        "id": 1,
+        "id": 100,
         "title": "Golden Earring",
         "number": "143532",
         "url": "#",
@@ -17,7 +17,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
-        "id": 2,
+        "id": 200,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -32,7 +32,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
-        "id": 3,
+        "id": 300,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -47,7 +47,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
-        "id": 4,
+        "id": 400,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",

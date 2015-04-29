@@ -2,6 +2,7 @@
     "category": "Столовые приборы",
     "count": "547",
     "products": [{
+        "id": 31,
         "title": "Golden Earring",
         "number": "143532",
         "url": "#",
@@ -16,6 +17,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 32,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -30,6 +32,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 33,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -44,6 +47,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 34,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",

@@ -2,6 +2,7 @@
     "category": "Цепи",
     "count": "5673",
     "products": [{
+        "id": 21,
         "title": "Golden Earring",
         "number": "143532",
         "url": "#",
@@ -16,6 +17,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 22,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -30,6 +32,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 23,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -44,6 +47,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 24,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",

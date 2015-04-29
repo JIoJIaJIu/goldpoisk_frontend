@@ -31,7 +31,7 @@
     "type": "watches",
     "href": "watches"
 }, {
-    "label": "СТОЛОВЫЕ<br>ПРИБОРЫ",
-    "type": "cutlery",
-    "href": "cutlery"
+    "label": "ПИРСИНГ",
+    "type": "pirsing",
+    "href": "pirsing"
 }]

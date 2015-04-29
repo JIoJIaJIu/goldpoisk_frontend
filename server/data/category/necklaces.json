@@ -2,6 +2,7 @@
     "category": "Колье",
     "count": "67512",
     "products": [{
+        "id": 41,
         "title": "Golden Earring",
         "number": "143532",
         "url": "#",
@@ -16,6 +17,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 42,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -30,6 +32,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 43,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -44,6 +47,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 44,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",

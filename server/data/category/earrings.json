@@ -4,7 +4,7 @@
     "products": [{
         "title": "Golden Earring",
         "number": "143532",
-        "id": 1,
+        "id": 10,
         "url": "#",
         "image": "../../desktop.blocks/g-goods/images/good1.jpg",
         "weight": "0.35 грамм",
@@ -19,7 +19,7 @@
     }, {
         "title": "Silver Lips",
         "number": "4352",
-        "id": 2,
+        "id": 20,
         "url": "#",
         "image": "../../desktop.blocks/g-goods/images/good2.jpg",
         "weight": "0.55 грамм",
@@ -34,7 +34,7 @@
     }, {
         "title": "Silver Lips",
         "number": "4352",
-        "id": 3,
+        "id": 30,
         "url": "#",
         "image": "../../desktop.blocks/g-goods/images/good3.jpg",
         "weight": "0.55 грамм",
@@ -49,7 +49,7 @@
     }, {
         "title": "Silver Lips",
         "number": "4352",
-        "id": 4,
+        "id": 40,
         "url": "#",
         "image": "../../desktop.blocks/g-goods/images/good4.jpg",
         "weight": "0.55 грамм",

@@ -2,6 +2,7 @@
     "category": "Подвески",
     "count": "2003",
     "products": [{
+        "id": 51,
         "title": "Golden Earring",
         "number": "143532",
         "url": "#",
@@ -16,6 +17,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 52,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -30,6 +32,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 53,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -44,6 +47,7 @@
         "shopUrl": "#",
         "buyUrl": "#'"
     }, {
+        "id": 54,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
