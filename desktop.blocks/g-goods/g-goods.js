@@ -24,20 +24,17 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
                                 name: function (a, b) {
                                     if (a.title > b.title)
                                         return 1;
-                                    else
-                                        return -1;
+                                    return -1;
                                 },
                                 price: function (a, b) {
                                     if (a.minPrice > b.minPrice)
                                         return 1;
-                                    else
-                                        return -1;
+                                    return -1;
                                 },
                                 tprice: function (a, b) {
                                     if (a.minPrice > b.minPrice)
                                         return -1;
-                                    else
-                                        return 1;
+                                    return 1;
                                 }
                             }
                             self._products.sort(sortFunc[value]);
@@ -50,10 +47,8 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
                             return;
                         }
                         $.getJSON(url, function sort (data) {
-                            setTimeout(function () {
-                                self.update(data);
-                                self.loading(false);
-                            }, 3000);
+                            self.update(data);
+                            self.loading(false);
                         })
                     });
 

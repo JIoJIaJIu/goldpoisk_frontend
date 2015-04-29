@@ -30,7 +30,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                             self._scrollDown(goods);
                         }
                         if (bodyScrollTop == 0) {
-                            if (this._topPage <= 1)
+                            if (this._topPage == 1)
                                 return;
                             button.domElem.css('display', 'block');
                         }
@@ -54,7 +54,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
         },
 
         _scrollDown: function (goods) {
-            if (this._totalPages <= this._bottomPage)
+            if (this._totalPages == this._bottomPage)
                 return;
 
             if (this._pending)
@@ -62,7 +62,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
 
             this._pending = true;
 
-            if (this._bottomPage < this._bottomPage + 1)
+            if (this._bottomPage < this._totalPages)
                 this._bottomPage++;
 
             $('#down').css('display', 'inline-block');
@@ -91,7 +91,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
 
             this._pending = true;
 
-            if (this._topPage > this._topPage - 1)
+            if (this._topPage > 1)
                 this._topPage--;
 
             if (this._topPage == 1)
