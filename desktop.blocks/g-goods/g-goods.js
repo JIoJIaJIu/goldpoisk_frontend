@@ -1,4 +1,4 @@
-modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, BEMDOM, logger, router) {
+modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'], function(provide, BEMDOM, logger, router, key) {
     BEMDOM.decl('g-goods', {
         onSetMod: {
             js: {
@@ -7,6 +7,20 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
                     var self = this;
                     var pending = false;
                     this._totalCount = this.params.count;
+                    var currentProduct = null;
+
+                    this.on('select', function (e) {
+                        $(document).bind('keyup', function (e) {
+                            if (e.which == key.LEFT) {
+                                self._getLeftSibling(self._selected);
+                            } else if (e.which == key.RIGHT)
+                                self._getRightSibling(self._selected);
+                        });
+                    });
+
+                    this.on('unselect', function (e) {
+                        $(document).unbind('keyup');
+                    })
 
                     this.findBlockOutside('g-content').findBlockInside('g-sorting-goods').on('sort', function (e, value) {
                         self.loading(true);
@@ -152,7 +166,14 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
 
         selectProduct: function (product) {
             if (this._selected == product) {
-                product.toggleMod('active');
+                if (product.hasMod('active')) {
+                    product.delMod('active');
+                    this._selected = null;
+                    this.emit('unselect');
+                } else {
+                    product.setMod('active', true);
+                    this._selected = product;
+                }
                 return;
             }
             var oldProduct = this._selected;
@@ -162,11 +183,35 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router'], function(provide, 
                 oldProduct.delMod('active');
             } else {
                 product.setMod('active', true);
+                this.emit('select');
             }
         },
 
+        _getLeftSibling: function (product) {
+            console.log('left sibling');
+            var elemPrev = product.domElem.prev();
+            var blockPrev = this.findBlockOn(elemPrev, 'g-product');
+            if (!blockPrev)
+                return;
+            this.selectProduct(blockPrev);
+            //@TODO Подгружать и корректно отображать фрейм товара
+            blockPrev.__self.showExpanded.call(blockPrev);
+        },
+
+        _getRightSibling: function (product) {
+            console.log('right sibling');
+            var elemNext = product.domElem.next();
+            var blockNext = this.findBlockOn(elemNext, 'g-product');
+            if (!blockNext)
+                return;
+            this.selectProduct(blockNext);
+            //@TODO Подгружать и корректно отображать фрейм товара
+            blockNext.__self.showExpanded.call(blockNext);
+        },
+
         _products: [],
-        _totalCount: null
+        _totalCount: null,
+        _selected: null
     }, {});
     provide(BEMDOM);
 })

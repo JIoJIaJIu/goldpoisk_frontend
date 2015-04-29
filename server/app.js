@@ -93,6 +93,7 @@ app.get('/[a-z]*/json', function (req, res) {
 
 app.get('/product/item', function (req, res) {
     var item = {
+        'id': 1,
         'title': 'Some title',
         'js': true,
         'url': '/id1',
@@ -117,7 +118,8 @@ app.get('/product/item', function (req, res) {
             }
         ],
     };
-    fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
+    res.json(item);
+    /*fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
         if (err) throw err;
         var privContext = vm.createContext();
         vm.runInContext(data.toString(), privContext);
@@ -125,7 +127,7 @@ app.get('/product/item', function (req, res) {
         setTimeout(function () {
             res.json(bemjson);
         }, 1000);
-    })
+    })*/
 });
 
 var server = app.listen(3000, function () {
@@ -144,7 +146,27 @@ function renderIndex (cb) {
         menu = JSON.parse(fs.readFileSync('data/menu.json'));
         var data = {
             'menu': menu,
-            'promo': ['/media/promotion/promotion01.png', '/media/promotion/promotion02.png'],
+            'promo': [{
+                'src': '../desktop.blocks/g-promotion/images/promotion_02.jpg',
+                'title': 'Title',
+                'items': [{
+                    'title': 'Item title',
+                    'price': 5000,
+                    'url': '#',
+                    'x': 100,
+                    'y': 100
+                }]
+            }, {
+                'src': '../desktop.blocks/g-promotion/images/promotion_01.jpg',
+                'title': 'Title 2',
+                'items': [{
+                    'title': 'Item 2 title',
+                    'price': 7000,
+                    'url': '#',
+                    'x': 200,
+                    'y': 200
+                }]
+            }],
             'products': products,
             'count': 212
         }
