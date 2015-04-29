@@ -94,41 +94,42 @@
             ]
         },{
             block: 'g-promotion',
-            images: [
-                '/media/promotion/promotion01.png',
-                '/media/promotion/promotion02.png',
-                '/media/promotion/promotion03.png'
-            ],
-            content: [
-                {
+            items: [{
+                elem: 'item',
+                content: [{
+                    block: 'image',
+                    tag: 'img',
+                    attrs: {
+                        src: '/media/promotion/promotion01.png',
+                        alt: 'Promo1'
+                    }
+                }, {
                     block: 'g-promotion-item',
-                    content: [
-                        {
-                            elem: 'title',
-                            title: 'Серьги'
-                        },
-                        {
-                            elem: 'price',
-                            price: '6000'
-                        }
-                    ]
-                },
-                {
-                    block: 'g-promotion-markers-list',
-                    content: [
-                        {
-                            block: 'g-promotion-marker',
-                            mods: { state: 'selected' }
-                        },
-                        {
-                            block: 'g-promotion-marker'
-                        },
-                        {
-                            block: 'g-promotion-marker'
-                        }
-                    ]
-                }
-            ]
+                    coord: [0, 0],
+                    content: [{
+                        elem: 'title',
+                        title: 'Серьги'
+                    }, {
+                        elem: 'price',
+                        price: '6000'
+                    }]
+                }]
+            }],
+            content: [{
+                block: 'g-promotion-markers-list',
+                content: [
+                    {
+                        block: 'g-promotion-marker',
+                        mods: { state: 'selected' }
+                    },
+                    {
+                        block: 'g-promotion-marker'
+                    },
+                    {
+                        block: 'g-promotion-marker'
+                    }
+                ]
+            }]
         },
         {
             block: 'g-pride',
