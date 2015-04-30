@@ -22,49 +22,51 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                         self.unbindFromDoc('keyup');
                     })
 
-                    this.findBlockOutside('g-content').findBlockInside('g-sorting-goods').on('sort', function (e, value) {
-                        self.loading(true);
+                    var sorting = this.findBlockOutside('g-content').findBlockInside('g-sorting-goods');
+                    if (sorting)
+                        sorting.on('sort', function (e, value) {
+                            self.loading(true);
 
-                        var paginator = self.findBlockOutside('page').findBlockInside('g-paginator');
+                            var paginator = self.findBlockOutside('page').findBlockInside('g-paginator');
 
-                        router.setParams({sort: value});
-                        paginator.setCurrentPage(1);
+                            router.setParams({sort: value});
+                            paginator.setCurrentPage(1);
 
-                        var uri = router.getUri(router.getPath() + '/json');
-                        var url = uri.toString();
+                            var uri = router.getUri(router.getPath() + '/json');
+                            var url = uri.toString();
 
-                        if (self._products.length == self._totalCount) {
-                            var sortFunc = {
-                                name: function (a, b) {
-                                    if (a.title > b.title)
-                                        return 1;
-                                    return -1;
-                                },
-                                price: function (a, b) {
-                                    if (a.minPrice > b.minPrice)
-                                        return 1;
-                                    return -1;
-                                },
-                                tprice: function (a, b) {
-                                    if (a.minPrice > b.minPrice)
+                            if (self._products.length == self._totalCount) {
+                                var sortFunc = {
+                                    name: function (a, b) {
+                                        if (a.title > b.title)
+                                            return 1;
                                         return -1;
-                                    return 1;
+                                    },
+                                    price: function (a, b) {
+                                        if (a.minPrice > b.minPrice)
+                                            return 1;
+                                        return -1;
+                                    },
+                                    tprice: function (a, b) {
+                                        if (a.minPrice > b.minPrice)
+                                            return -1;
+                                        return 1;
+                                    }
                                 }
+                                self._products.sort(sortFunc[value]);
+                                var data = {
+                                    count: self._products.length,
+                                    list: self._products
+                                };
+                                self.update(data);
+                                self.loading(false);
+                                return;
                             }
-                            self._products.sort(sortFunc[value]);
-                            var data = {
-                                count: self._products.length,
-                                list: self._products
-                            };
-                            self.update(data);
-                            self.loading(false);
-                            return;
-                        }
-                        $.getJSON(url, function sort (data) {
-                            self.update(data);
-                            self.loading(false);
-                        })
-                    });
+                            $.getJSON(url, function sort (data) {
+                                self.update(data);
+                                self.loading(false);
+                            })
+                        });
 
                     this._logger = logger.Logger('g-goods');
                 },
@@ -74,6 +76,9 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                     this._logger = null;
                     this.un('select');
                     this.un('unselect');
+                    var sorting = this.findBlockOutside('g-content').findBlockInside('g-sorting-goods');
+                    if (sorting)
+                        sorting.un('sort');
                 }
             },
 
