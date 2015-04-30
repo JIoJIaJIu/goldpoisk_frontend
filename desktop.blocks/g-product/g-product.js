@@ -229,6 +229,10 @@ BEMDOM.decl('g-product', {
         var expanded = this.__self.getFrame.call(this);
         this._reposition(expanded);
         expanded.show(this.domElem);
+        expanded.on('close', function (e) {
+            var goods = this.findBlockOutside('g-goods');
+            goods.selectProduct(this);
+        });
     },
 
     insertData: function (data) {
@@ -239,6 +243,7 @@ BEMDOM.decl('g-product', {
     hideExpanded: function (expanded) {
         var expanded = this.__self.getFrame.call(this);
         expanded.hide();
+        expanded.un('close');
     },
 
     __pendingId: null
