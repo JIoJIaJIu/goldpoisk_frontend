@@ -10,16 +10,16 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                     var currentProduct = null;
 
                     this.on('select', function (e) {
-                        $(document).bind('keyup', function (e) {
+                        self.bindToDoc('keyup', function (e) {
                             if (e.which == key.LEFT) {
-                                self._getLeftSibling(self._selected);
+                                self._getPrev(self._selected);
                             } else if (e.which == key.RIGHT)
-                                self._getRightSibling(self._selected);
+                                self._getNext(self._selected);
                         });
                     });
 
                     this.on('unselect', function (e) {
-                        $(document).unbind('keyup');
+                        self.unbindFromDoc('keyup');
                     })
 
                     this.findBlockOutside('g-content').findBlockInside('g-sorting-goods').on('sort', function (e, value) {
@@ -72,6 +72,8 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                 '': function () {
                     this._logger.finalize();
                     this._logger = null;
+                    this.un('select');
+                    this.un('unselect');
                 }
             },
 
@@ -187,26 +189,32 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
             }
         },
 
-        _getLeftSibling: function (product) {
+        _getPrev: function (product) {
             console.log('left sibling');
             var elemPrev = product.domElem.prev();
             var blockPrev = this.findBlockOn(elemPrev, 'g-product');
+
             if (!blockPrev)
                 return;
-            this.selectProduct(blockPrev);
-            //@TODO Подгружать и корректно отображать фрейм товара
-            blockPrev.__self.showExpanded.call(blockPrev);
+
+            blockPrev.domElem.trigger('click');
         },
 
-        _getRightSibling: function (product) {
+        _getNext: function (product) {
             console.log('right sibling');
             var elemNext = product.domElem.next();
             var blockNext = this.findBlockOn(elemNext, 'g-product');
+
+            var frame = this.findBlockOn(elemNext, 'g-frame');
+            if (frame) {
+                elemNext = elemNext.next();
+                blockNext = this.findBlockOn(elemNext, 'g-product');
+            }
+
             if (!blockNext)
                 return;
-            this.selectProduct(blockNext);
-            //@TODO Подгружать и корректно отображать фрейм товара
-            blockNext.__self.showExpanded.call(blockNext);
+
+            blockNext.domElem.trigger('click');
         },
 
         _products: [],
