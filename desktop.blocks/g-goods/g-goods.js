@@ -76,9 +76,6 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                     this._logger = null;
                     this.un('select');
                     this.un('unselect');
-                    var sorting = this.findBlockOutside('g-content').findBlockInside('g-sorting-goods');
-                    if (sorting)
-                        sorting.un('sort');
                 }
             },
 
