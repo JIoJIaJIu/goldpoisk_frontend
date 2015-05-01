@@ -3,27 +3,15 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
         onSetMod: {
             js: {
                 'inited': function () {
-                    this._selected = null;
                     var self = this;
                     var pending = false;
-                    this._totalCount = this.params.count;
                     var currentProduct = null;
+
+                    this._totalCount = this.params.count;
+                    this._selected = null;
                     this._products = this.params.products;
 
-                    this._selectProduct = function(e, product) {
-                        var id = product.params.id;
-                        // unselect old product
-                        if (this._selected && this._selected !== id) {
-                            this._getProduct(this._selected).unselect();
-                        }
-                        this._selected = id;
-                        this.bindToDoc('keyup', this._controlKeyFn);
-                    };
                     this.on('select', _.callback(this._selectProduct, this));
-
-                    this._unselectProduct = function (e) {
-                        this.unbindFromDoc('keyup', this._controlKeyFn);
-                    };
                     this.on('unselect', _.callback(this._unselectProduct, this));
 
                     this._controlKeyFn = function (e) {
@@ -211,6 +199,20 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
         _getProduct: function (id) {
             var index = this._getCurrentIndex(id);
             return this.findBlocksInside('g-product')[index];
+        },
+
+        _selectProduct: function(e, product) {
+            var id = product.params.id;
+            // unselect old product
+            if (this._selected && this._selected !== id) {
+                this._getProduct(this._selected).unselect();
+            }
+            this._selected = id;
+            this.bindToDoc('keyup', this._controlKeyFn);
+        },
+
+        _unselectProduct: function (e) {
+            this.unbindFromDoc('keyup', this._controlKeyFn);
         },
 
         _products: [],
