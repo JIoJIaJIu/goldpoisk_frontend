@@ -11,6 +11,10 @@ BEMDOM.decl('g-product', {
                 var button = this.findBlockInside('g-button').domElem.get(0);
                 var store = this.elem('store').get(0);
 
+                this._blocks = {
+                    goods: this.findBlockOutside('g-goods')
+                }
+
                 this.bindTo('click', function (e) {
                     //TODO: improve
                     if (e.target === button)
@@ -20,13 +24,7 @@ BEMDOM.decl('g-product', {
                         return;
 
                     e.preventDefault();
-
-                    if (showFrame) {
-                        self._showFrame();
-                        return;
-                    }
-
-                    router.route(url);
+                    this.hasMod('active') ? this.unselect() : this.select();
                 });
 
                 this._bindLike();
@@ -35,7 +33,26 @@ BEMDOM.decl('g-product', {
                 var desires = this.__self.getDesires.call(this);
                 this.unbindFrom('click');
                 desires.un('change', this._checkLikeFn);
+                this._blocks = null;
             }
+        }
+    },
+
+    select: function () {
+        if (this.params.showFrame) {
+            this.setMod('active');
+            this._showFrame();
+            this._blocks.goods.emit('select', this);
+            return;
+        }
+        router.route(url);
+    },
+
+    unselect: function () {
+        if (this.params.showFrame) {
+            this.delMod('active');
+            this._hideFrame();
+            this._blocks.goods.emit('unselect', this);
         }
     },
 
@@ -80,20 +97,17 @@ BEMDOM.decl('g-product', {
     _showFrame: function () {
         var that = this;
         var expanded = this.__self.getFrame.call(this);
-        var goods = this.findBlockOutside('g-goods');
         var spin = expanded.findBlockInside('g-spin');
         var dimmer = expanded.findBlockInside('g-dimmer');
 
-        this._setPending(this.params.id);
-        goods.selectProduct(that);
-        if (expanded.openedOn(that.domElem)) {
-            that.__self.hideExpanded.call(that);
+        if (expanded.openedOn(that.domElem))
             return;
-        } else {
-            BEMDOM.destruct(expanded.elem('content'), true);
-            spin.setMod('visible', true);
-            that.__self.showExpanded.call(that);
-        }
+
+        this._setPending(this.params.id);
+
+        BEMDOM.destruct(expanded.elem('content'), true);
+        spin.setMod('visible', true);
+        that.__self.showExpanded.call(that);
 
         var requested = that._getData(function (err, data) {
             if (that.params.id != that._getPending())
@@ -107,6 +121,12 @@ BEMDOM.decl('g-product', {
         if (requested) {
             dimmer.setMod('show', true);
         }
+    },
+
+    _hideFrame: function () {
+        var frame = this.__self.getFrame.call(this);
+        if (frame.openedOn(this.domElem))
+            this.__self.hideExpanded.call(this);
     },
 
     /**
@@ -226,12 +246,12 @@ BEMDOM.decl('g-product', {
     },
 
     showExpanded: function (data) {
+        var self = this;
         var expanded = this.__self.getFrame.call(this);
         this._reposition(expanded);
         expanded.show(this.domElem);
         expanded.on('close', function (e) {
-            var goods = this.findBlockOutside('g-goods');
-            goods.selectProduct(this);
+            self.unselect();
         });
     },
 

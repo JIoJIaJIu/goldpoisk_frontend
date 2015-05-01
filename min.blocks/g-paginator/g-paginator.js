@@ -60,10 +60,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             if (this._pending)
                 return;
 
+            this._bottomPage++;
             this._pending = true;
-
-            if (this._bottomPage < this._totalPages)
-                this._bottomPage++;
 
             $('#down').css('display', 'inline-block');
             var self = this;
@@ -89,10 +87,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             if (this._pending)
                 return;
 
+            this._topPage--;
             this._pending = true;
-
-            if (this._topPage > 1)
-                this._topPage--;
 
             if (this._topPage == 1)
                 goods.findElem('up-spin').css('display', 'none');
