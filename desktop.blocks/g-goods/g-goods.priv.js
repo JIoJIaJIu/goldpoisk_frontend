@@ -14,7 +14,8 @@ blocks['g-goods'] = function (data, env) {
     var block = {
         block: 'g-goods',
         js: {
-            count: data.count
+            count: data.count,
+            products: data.list
         },
         content: list
     }

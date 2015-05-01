@@ -8,19 +8,33 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                     var pending = false;
                     this._totalCount = this.params.count;
                     var currentProduct = null;
+                    this._products = this.params.products;
 
-                    this.on('select', function (e) {
+                    this.on('select', function(e, data) {
+                        if (self._selected && self._selected != data.product.params.id) {
+                            var prevProduct = self._getProduct(self._selected);
+                            prevProduct.delMod('active');
+                        }
+                        self._selected = data.isSelected ? data.product.params.id : null;
+                        var prev, next;
                         self.bindToDoc('keyup', function (e) {
                             if (e.which == key.LEFT) {
-                                self._getPrev(self._selected);
-                            } else if (e.which == key.RIGHT)
-                                self._getNext(self._selected);
+                                prev = self._getPrevProduct(self._selected);
+                                if (!prev)
+                                    return;
+                                prev.showFrame();
+                            } else if (e.which == key.RIGHT) {
+                                next = self._getNextProduct(self._selected);
+                                if (!next)
+                                    return;
+                                next.showFrame();
+                            }
                         });
                     });
 
-                    this.on('unselect', function (e) {
+                    this.on('unselect', function (e, data) {
                         self.unbindFromDoc('keyup');
-                    })
+                    });
 
                     var sorting = this.findBlockOutside('g-content').findBlockInside('g-sorting-goods');
                     if (sorting)
@@ -168,55 +182,31 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
             );
         },
 
-        selectProduct: function (product) {
-            if (this._selected == product) {
-                if (product.hasMod('active')) {
-                    product.delMod('active');
-                    this._selected = null;
-                    this.emit('unselect');
-                } else {
-                    product.setMod('active', true);
-                    this._selected = product;
-                }
-                return;
-            }
-            var oldProduct = this._selected;
-            this._selected = product;
-            if (oldProduct) {
-                product.setMod('active', true);
-                oldProduct.delMod('active');
-            } else {
-                product.setMod('active', true);
-                this.emit('select');
-            }
+        _getPrevProduct: function (product) {
+            var currentIndex = this._getCurrentIndex(this._selected);
+            if (!currentIndex)
+                return null;
+            var prevIndex = currentIndex-- < 0 ? false : currentIndex;
+            return prevIndex >= 0 ? this.findBlocksInside('g-product')[prevIndex] : null;
         },
 
-        _getPrev: function (product) {
-            console.log('left sibling');
-            var elemPrev = product.domElem.prev();
-            var blockPrev = this.findBlockOn(elemPrev, 'g-product');
-
-            if (!blockPrev)
-                return;
-
-            blockPrev.domElem.trigger('click');
+        _getNextProduct: function (product) {
+            var currentIndex = this._getCurrentIndex(this._selected);
+            if (currentIndex > this._products.length)
+                return null;
+            var nextIndex = currentIndex++ > this._products.length ? false : currentIndex;
+            return nextIndex ? this.findBlocksInside('g-product')[nextIndex] : null;
         },
 
-        _getNext: function (product) {
-            console.log('right sibling');
-            var elemNext = product.domElem.next();
-            var blockNext = this.findBlockOn(elemNext, 'g-product');
+        _getCurrentIndex: function (id) {
+            return index = _.findIndex(this._products, function (product) {
+                return id == product.id;
+            });
+        },
 
-            var frame = this.findBlockOn(elemNext, 'g-frame');
-            if (frame) {
-                elemNext = elemNext.next();
-                blockNext = this.findBlockOn(elemNext, 'g-product');
-            }
-
-            if (!blockNext)
-                return;
-
-            blockNext.domElem.trigger('click');
+        _getProduct: function (id) {
+            var index = this._getCurrentIndex(id);
+            return this.findBlocksInside('g-product')[index];
         },
 
         _products: [],
