@@ -11,7 +11,9 @@ BEMDOM.decl('g-product', {
                 var button = this.findBlockInside('g-button').domElem.get(0);
                 var store = this.elem('store').get(0);
 
-                var goods = this.findBlockOutside('g-goods');
+                this._blocks = {
+                    goods: this.findBlockOutside('g-goods')
+                }
 
                 this.bindTo('click', function (e) {
                     //TODO: improve
@@ -36,8 +38,7 @@ BEMDOM.decl('g-product', {
         },
         active: {
             true: function () {
-                var goods = this.findBlockOutside('g-goods');
-                goods.emit('select', { product: this, isSelected: true });
+                this._blocks.goods.emit('select', { product: this, isSelected: true });
                 if (!!this.params.showFrame) {
                     this._showFrame();
                     return;
@@ -45,8 +46,7 @@ BEMDOM.decl('g-product', {
                 router.route(url);
             },
             '': function () {
-                var goods = this.findBlockOutside('g-goods');
-                goods.emit('unselect', { product: this, isSelected: false });
+                this._blocks.goods.emit('unselect', { product: this, isSelected: false });
                 if (!!this.params.showFrame) {
                     this._showFrame();
                 }
@@ -95,7 +95,6 @@ BEMDOM.decl('g-product', {
     _showFrame: function () {
         var that = this;
         var expanded = this.__self.getFrame.call(this);
-        var goods = this.findBlockOutside('g-goods');
         var spin = expanded.findBlockInside('g-spin');
         var dimmer = expanded.findBlockInside('g-dimmer');
 
@@ -245,7 +244,6 @@ BEMDOM.decl('g-product', {
         this._reposition(expanded);
         expanded.show(this.domElem);
         expanded.on('close', function (e) {
-            var goods = this.findBlockOutside('g-goods');
             self.delMod('active');
         });
     },

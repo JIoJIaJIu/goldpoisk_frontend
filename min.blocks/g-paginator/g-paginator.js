@@ -57,10 +57,10 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             if (this._totalPages == this._bottomPage)
                 return;
 
-            this._bottomPage++;
-
             if (this._pending)
                 return;
+
+            this._bottomPage++;
 
             this._pending = true;
 
@@ -85,10 +85,10 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             if (this._topPage == 1)
                 return;
 
-            this._topPage--;
-
             if (this._pending)
                 return;
+
+            this._topPage--;
 
             this._pending = true;
 

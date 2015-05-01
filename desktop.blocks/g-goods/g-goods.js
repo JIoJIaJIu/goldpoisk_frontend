@@ -12,29 +12,32 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
 
                     this.on('select', function(e, data) {
                         if (self._selected && self._selected != data.product.params.id) {
-                            var prevProduct = self._getProduct(self._selected);
-                            prevProduct.delMod('active');
+                            self.emit('unselect', {product: null, isSelected: false})
                         }
                         self._selected = data.isSelected ? data.product.params.id : null;
                         var prev, next;
-                        self.bindToDoc('keyup', function (e) {
-                            if (e.which == key.LEFT) {
-                                prev = self._getPrevProduct(self._selected);
-                                if (!prev)
-                                    return;
-                                prev.toggleMod('active');
-                            } else if (e.which == key.RIGHT) {
-                                next = self._getNextProduct(self._selected);
-                                if (!next)
-                                    return;
-                                next.toggleMod('active');
-                            }
-                        });
+                        self.bindToDoc('keyup', handler);
                     });
 
                     this.on('unselect', function (e, data) {
-                        self.unbindFromDoc('keyup');
+                        var prevProduct = self._getProduct(self._selected);
+                        prevProduct.delMod('active');
+                        self.unbindFromDoc('keyup', handler);
                     });
+
+                    var handler = function (e) {
+                        if (e.which == key.LEFT) {
+                            prev = self._getPrevProduct(self._selected);
+                            if (!prev)
+                                return;
+                            prev.setMod('active');
+                        } else if (e.which == key.RIGHT) {
+                            next = self._getNextProduct(self._selected);
+                            if (!next)
+                                return;
+                            next.setMod('active');
+                        }
+                    };
 
                     var sorting = this.findBlockOutside('g-content').findBlockInside('g-sorting-goods');
                     if (sorting)
@@ -186,7 +189,7 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
             var currentIndex = this._getCurrentIndex(this._selected);
             if (!currentIndex)
                 return null;
-            var prevIndex = (currentIndex === 0) ? -1 : currentIndex - 1;
+            var prevIndex = currentIndex - 1;
             return ~prevIndex ? this.findBlocksInside('g-product')[prevIndex] : null;
         },
 
