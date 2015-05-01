@@ -184,9 +184,9 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
 
         _getNextProduct: function (product) {
             var currentIndex = this._getCurrentIndex(this._selected);
-            if (currentIndex > this._products.length)
+            if (currentIndex === this._products.length - 1)
                 return null;
-            var nextIndex = (currentIndex === this._products.length - 1) ? -1 : currentIndex + 1;
+            var nextIndex = currentIndex + 1;
             return ~nextIndex ? this.findBlocksInside('g-product')[nextIndex] : null;
         },
 
