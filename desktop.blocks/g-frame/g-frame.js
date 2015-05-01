@@ -8,6 +8,7 @@ BEMDOM.decl('g-frame', {
             var that = this;
             this._root = null;
             this.bindTo('close', 'click', function () {
+                that.hide();
                 this.emit('close');
             })
         },

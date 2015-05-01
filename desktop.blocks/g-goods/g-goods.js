@@ -10,32 +10,33 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                     var currentProduct = null;
                     this._products = this.params.products;
 
-                    this.on('select', function(e, data) {
-                        if (self._selected && self._selected != data.product.params.id) {
-                            self.emit('unselect', {product: null, isSelected: false})
+                    this._selectProduct = function(e, product) {
+                        var id = product.params.id;
+                        // unselect old product
+                        if (this._selected && this._selected !== id) {
+                            this._getProduct(this._selected).unselect();
                         }
-                        self._selected = data.isSelected ? data.product.params.id : null;
-                        var prev, next;
-                        self.bindToDoc('keyup', handler);
-                    });
+                        this._selected = id;
+                        this.bindToDoc('keyup', this._controlKeyFn);
+                    };
+                    this.on('select', _.callback(this._selectProduct, this));
 
-                    this.on('unselect', function (e, data) {
-                        var prevProduct = self._getProduct(self._selected);
-                        prevProduct.delMod('active');
-                        self.unbindFromDoc('keyup', handler);
-                    });
+                    this._unselectProduct = function (e) {
+                        this.unbindFromDoc('keyup', this._controlKeyFn);
+                    };
+                    this.on('unselect', _.callback(this._unselectProduct, this));
 
-                    var handler = function (e) {
+                    this._controlKeyFn = function (e) {
                         if (e.which == key.LEFT) {
-                            prev = self._getPrevProduct(self._selected);
+                            var prev = self._getPrevProduct(self._selected);
                             if (!prev)
                                 return;
-                            prev.setMod('active');
+                            prev.select();
                         } else if (e.which == key.RIGHT) {
-                            next = self._getNextProduct(self._selected);
+                            var next = self._getNextProduct(self._selected);
                             if (!next)
                                 return;
-                            next.setMod('active');
+                            next.select();
                         }
                     };
 

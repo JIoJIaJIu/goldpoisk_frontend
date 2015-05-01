@@ -24,8 +24,7 @@ BEMDOM.decl('g-product', {
                         return;
 
                     e.preventDefault();
-
-                    this.toggleMod('active');
+                    this.hasMod('active') ? this.unselect() : this.select();
                 });
 
                 this._bindLike();
@@ -34,23 +33,26 @@ BEMDOM.decl('g-product', {
                 var desires = this.__self.getDesires.call(this);
                 this.unbindFrom('click');
                 desires.un('change', this._checkLikeFn);
+                this._blocks = null;
             }
-        },
-        active: {
-            true: function () {
-                this._blocks.goods.emit('select', { product: this, isSelected: true });
-                if (!!this.params.showFrame) {
-                    this._showFrame();
-                    return;
-                }
-                router.route(url);
-            },
-            '': function () {
-                this._blocks.goods.emit('unselect', { product: this, isSelected: false });
-                if (!!this.params.showFrame) {
-                    this._showFrame();
-                }
-            }
+        }
+    },
+
+    select: function () {
+        if (this.params.showFrame) {
+            this.setMod('active');
+            this._showFrame();
+            this._blocks.goods.emit('select', this);
+            return;
+        }
+        router.route(url);
+    },
+
+    unselect: function () {
+        if (this.params.showFrame) {
+            this.delMod('active');
+            this._hideFrame();
+            this._blocks.goods.emit('unselect', this);
         }
     },
 
@@ -98,15 +100,14 @@ BEMDOM.decl('g-product', {
         var spin = expanded.findBlockInside('g-spin');
         var dimmer = expanded.findBlockInside('g-dimmer');
 
-        this._setPending(this.params.id);
-        if (expanded.openedOn(that.domElem)) {
-            that.__self.hideExpanded.call(that);
+        if (expanded.openedOn(that.domElem))
             return;
-        } else {
-            BEMDOM.destruct(expanded.elem('content'), true);
-            spin.setMod('visible', true);
-            that.__self.showExpanded.call(that);
-        }
+
+        this._setPending(this.params.id);
+
+        BEMDOM.destruct(expanded.elem('content'), true);
+        spin.setMod('visible', true);
+        that.__self.showExpanded.call(that);
 
         var requested = that._getData(function (err, data) {
             if (that.params.id != that._getPending())
@@ -120,6 +121,12 @@ BEMDOM.decl('g-product', {
         if (requested) {
             dimmer.setMod('show', true);
         }
+    },
+
+    _hideFrame: function () {
+        var frame = this.__self.getFrame.call(this);
+        if (frame.openedOn(this.domElem))
+            this.__self.hideExpanded.call(this);
     },
 
     /**
@@ -244,7 +251,7 @@ BEMDOM.decl('g-product', {
         this._reposition(expanded);
         expanded.show(this.domElem);
         expanded.on('close', function (e) {
-            self.delMod('active');
+            self.unselect();
         });
     },
 

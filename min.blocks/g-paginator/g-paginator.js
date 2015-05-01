@@ -61,7 +61,6 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 return;
 
             this._bottomPage++;
-
             this._pending = true;
 
             $('#down').css('display', 'inline-block');
@@ -89,7 +88,6 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 return;
 
             this._topPage--;
-
             this._pending = true;
 
             if (this._topPage == 1)
