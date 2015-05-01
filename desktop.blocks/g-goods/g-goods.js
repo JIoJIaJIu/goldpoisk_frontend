@@ -22,12 +22,12 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
                                 prev = self._getPrevProduct(self._selected);
                                 if (!prev)
                                     return;
-                                prev.showFrame();
+                                prev.toggleMod('active');
                             } else if (e.which == key.RIGHT) {
                                 next = self._getNextProduct(self._selected);
                                 if (!next)
                                     return;
-                                next.showFrame();
+                                next.toggleMod('active');
                             }
                         });
                     });
@@ -186,20 +186,20 @@ modules.define('g-goods', ['i-bem__dom', 'logger', 'router', 'keyboard__codes'],
             var currentIndex = this._getCurrentIndex(this._selected);
             if (!currentIndex)
                 return null;
-            var prevIndex = currentIndex-- < 0 ? false : currentIndex;
-            return prevIndex >= 0 ? this.findBlocksInside('g-product')[prevIndex] : null;
+            var prevIndex = (currentIndex === 0) ? -1 : currentIndex - 1;
+            return ~prevIndex ? this.findBlocksInside('g-product')[prevIndex] : null;
         },
 
         _getNextProduct: function (product) {
             var currentIndex = this._getCurrentIndex(this._selected);
             if (currentIndex > this._products.length)
                 return null;
-            var nextIndex = currentIndex++ > this._products.length ? false : currentIndex;
-            return nextIndex ? this.findBlocksInside('g-product')[nextIndex] : null;
+            var nextIndex = (currentIndex === this._products.length - 1) ? -1 : currentIndex + 1;
+            return ~nextIndex ? this.findBlocksInside('g-product')[nextIndex] : null;
         },
 
         _getCurrentIndex: function (id) {
-            return index = _.findIndex(this._products, function (product) {
+            return _.findIndex(this._products, function (product) {
                 return id == product.id;
             });
         },

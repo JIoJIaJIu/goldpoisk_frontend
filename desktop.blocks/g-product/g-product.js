@@ -22,7 +22,8 @@ BEMDOM.decl('g-product', {
                         return;
 
                     e.preventDefault();
-                    this.showFrame();
+
+                    this.toggleMod('active');
                 });
 
                 this._bindLike();
@@ -37,10 +38,18 @@ BEMDOM.decl('g-product', {
             true: function () {
                 var goods = this.findBlockOutside('g-goods');
                 goods.emit('select', { product: this, isSelected: true });
+                if (!!this.params.showFrame) {
+                    this._showFrame();
+                    return;
+                }
+                router.route(url);
             },
             '': function () {
                 var goods = this.findBlockOutside('g-goods');
                 goods.emit('unselect', { product: this, isSelected: false });
+                if (!!this.params.showFrame) {
+                    this._showFrame();
+                }
             }
         }
     },
@@ -205,17 +214,6 @@ BEMDOM.decl('g-product', {
 
     _getPending: function () {
         return this.__self.__pendingId;
-    },
-
-    showFrame: function () {
-        this.toggleMod('active');
-
-        if (!!this.params.showFrame) {
-            this._showFrame();
-            return;
-        }
-
-        router.route(url);
     },
 
     _checkLikeFn: null
