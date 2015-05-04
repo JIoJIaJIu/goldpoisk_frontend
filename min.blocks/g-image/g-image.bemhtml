@@ -1,0 +1,29 @@
+block('g-image')(
+    tag()('img'),
+    attrs()(function () {
+        return {
+            src: this.ctx.url,
+            alt: this.ctx.alt
+        };
+    }),
+    mod('preload', true)(
+        js()(true),
+        tag()('span'),
+        attrs()(function () {
+            return {};
+        }),
+        content()(function () {
+            return [{
+                elem: 'icon',
+                tag: 'span'
+            }, {
+                elem: 'main',
+                tag: 'img',
+                attrs: {
+                    src: this.ctx.url,
+                    alt: this.ctx.alt
+                }
+            }]
+        })
+    )
+)
