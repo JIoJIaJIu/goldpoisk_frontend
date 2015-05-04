@@ -2,6 +2,8 @@ block('g-modal')(
     js()(true),
     content()(function () {
         return [{
+            elem: 'helper'
+        }, {
             elem: 'dimmer'
         }, {
             elem: 'window',

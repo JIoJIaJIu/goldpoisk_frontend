@@ -74,3 +74,7 @@
 .g-modal_loading .g-content {
     display: none;
 }
+
+.g-modal__helper {
+    position: fixed;
+}

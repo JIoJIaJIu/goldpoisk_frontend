@@ -24,7 +24,7 @@ modules.define('g-modal', ['i-bem__dom', 'keyboard__codes', 'router'], function(
 
             this.setMod('showed');
             var top = $(window).scrollTop();
-            this.elem('window').css('margin-top', top + PADDING + 'px');
+            this.domElem.css('padding-top', top +/* + PADDING + */'px');
 
             var self = this;
             this._controlKeyFn = function (e) {
@@ -68,7 +68,6 @@ modules.define('g-modal', ['i-bem__dom', 'keyboard__codes', 'router'], function(
                     window.scrollTo(0, top);
                     return;
                 }
-
                 var bottom = offsetTop + elem.outerHeight() - $(window).height() + PADDING;
                 if (scrollTop > bottom) {
                     window.scrollTo(0, bottom);
