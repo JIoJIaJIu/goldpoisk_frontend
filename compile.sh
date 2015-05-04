@@ -20,4 +20,11 @@ node compile.js
 
 echo "Borschik"
 mkdir -p desktop.bundles/merge/css
-./node_modules/borschik/bin/borschik --input=desktop.bundles/merge/index.css --minimize=no  --output=desktop.bundles/merge/css/index.css
+./node_modules/borschik/bin/borschik --input=desktop.bundles/merge/index.css --output=desktop.bundles/merge/css/index.css
+
+./node_modules/borschik/bin/borschik --input=desktop.bundles/merge/index.bemhtml.js --output=index.bemhtml.js
+mv index.bemhtml.js desktop.bundles/merge/index.bemhtml.js
+./node_modules/borschik/bin/borschik --input=desktop.bundles/merge/index.priv.js --output=index.priv.js
+mv index.priv.js desktop.bundles/merge/index.priv.js
+./node_modules/borschik/bin/borschik --input=desktop.bundles/merge/index.js --output=index.js
+mv index.js desktop.bundles/merge/index.js
