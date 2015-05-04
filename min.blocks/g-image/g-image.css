@@ -1,0 +1,25 @@
+.g-image__icon {
+    position: absolute;
+    display: block;
+    opacity: 1;
+    background: url('/images/sprite.png');
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -mox-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+}
+
+.g-image_done .g-image__icon {
+    opacity: 0;
+}
+
+.g-image__main {
+    max-width: 210px;
+    max-height: 180px;
+}
+
+.g-image_size_m .g-image__icon {
+    width: 210px;
+    height: 180px;
+    background-position: -290px -320px;
+}
