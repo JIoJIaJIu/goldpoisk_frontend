@@ -16,6 +16,7 @@ block('g-item-gallery')(
     ),
     elem('preview_images')(
         content()(function () {
+            var ctx = this.ctx;
             return {
                 tag: 'ul',
                 content: this.ctx.images.map(function(image, index) {
@@ -28,7 +29,10 @@ block('g-item-gallery')(
                         },
                         content: {
                             tag: 'img',
-                            attrs: { src: image }
+                            attrs: {
+                                src: image,
+                                alt: ctx.alt
+                            }
                         }
                     }
                 })
@@ -37,11 +41,16 @@ block('g-item-gallery')(
     ),
     elem('main_image')(
         content()(function () {
+            var ctx = this.ctx;
             return [
                 {
                     block: 'image',
                     tag: 'img',
-                    attrs: { src: this.ctx.image, u: 'image' }
+                    attrs: {
+                        src: this.ctx.image,
+                        alt: ctx.alt,
+                        u: 'image'
+                    }
                 }, {
                     elem: 'zoom'
                 }
