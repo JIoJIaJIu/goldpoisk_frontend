@@ -34,7 +34,7 @@
     height: 180px;
 }
 
-.g-product__image img {
+.g-product__image .g-image {
     max-width: 210px;
     max-height: 180px;
 }
