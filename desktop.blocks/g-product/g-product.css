@@ -114,6 +114,10 @@
     color: #cb3e3e;
 }
 
+.g-product__marker {
+    z-index: 1;
+}
+
 .g-product_action .g-product__marker {
     position: absolute;
     top: -1px;

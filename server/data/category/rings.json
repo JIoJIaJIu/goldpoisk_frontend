@@ -11,6 +11,7 @@
         "carat": "0.05 карат",
         "count": "1",
         "buyUrl": "#",
+        "action": true,
         "jsonUrl": "/product/item",
         "minPrice": 15349,
         "shopName": "All Star",
