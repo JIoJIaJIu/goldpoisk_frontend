@@ -10,7 +10,7 @@ modules.define('g-image', ['i-bem__dom'], function(provide, BEMDOM) {
                     });
                 },
                 '': function () {
-
+                    this.unbindFrom('main', 'load');
                 }
             }
         }
