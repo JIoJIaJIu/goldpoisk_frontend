@@ -96,7 +96,7 @@ app.get('/product/item', function (req, res) {
         'id': 1,
         'title': 'Some title',
         'js': true,
-        'url': '/id1',
+        'url': '/item/1',
         'images': [
             'some/path.png'
         ],

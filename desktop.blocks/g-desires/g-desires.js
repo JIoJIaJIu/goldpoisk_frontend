@@ -108,7 +108,7 @@ modules.define('g-desires', ['i-bem__dom', 'cookie', 'config'], function(provide
 
             var page = this.findBlockOutside('page');
             var bemjson = { block: 'g-modal', content: [] };
-            BEMDOM.prepend(page.domElem, BEMHTML.apply(bemjson));
+            BEMDOM.append(page.domElem, BEMHTML.apply(bemjson));
             this.__modal = page.findBlockInside('g-modal');
             return this.__modal;
         },

@@ -96,16 +96,16 @@ BEMDOM.decl('g-product', {
 
     _showFrame: function () {
         var that = this;
-        var expanded = this.__self.getFrame.call(this);
-        var spin = expanded.findBlockInside('g-spin');
-        var dimmer = expanded.findBlockInside('g-dimmer');
+        var frame = this.__self.getFrame.call(this);
+        var spin = frame.findBlockInside('g-spin');
+        var dimmer = frame.findBlockInside('g-dimmer');
 
-        if (expanded.openedOn(that.domElem))
+        if (frame.openedOn(that.domElem))
             return;
 
         this._setPending(this.params.id);
 
-        BEMDOM.destruct(expanded.elem('content'), true);
+        BEMDOM.destruct(frame.elem('content'), true);
         spin.setMod('visible', true);
         that.__self.showExpanded.call(that);
 
