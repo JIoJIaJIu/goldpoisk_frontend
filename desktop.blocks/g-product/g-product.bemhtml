@@ -24,7 +24,10 @@ block('g-product')(
                         tag: 'span',
                         content: {
                             tag: 'img',
-                            attrs: { src: this.ctx.imageUrl }
+                            attrs: {
+                                src: this.ctx.imageUrl,
+                                alt: this.ctx.title
+                            }
                         }
                     }, {
                         elem: 'title',
