@@ -3,6 +3,7 @@ blocks['g-item-gallery'] = function (data, env) {
      *  @param {Object} data
 	 *    @key {Array} images
 	 *    @key {Number} [index] default = 0
+     *    @key {String} alt
      *
      *  @param {Object} [env]
      *    @key {Boolean} big, set modificator 'big'
@@ -21,9 +22,11 @@ blocks['g-item-gallery'] = function (data, env) {
 	 			count: (data.images.length > MAX_IMG_COUNTS) ? MAX_IMG_COUNTS : data.images.length
 	 		}, {
 	 			elem: 'preview_images',
+                alt: data.alt,
 	 			images: (data.images.length > MAX_IMG_COUNTS) ? data.images.slice(0, MAX_IMG_COUNTS) : data.images
 	 		}, {
 	 			elem: 'main_image',
+                alt: data.alt,
 	 			image: data.images[index]
 	 		}
 	 	]

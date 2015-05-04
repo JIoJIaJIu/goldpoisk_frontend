@@ -23,8 +23,10 @@ block('g-product')(
                         elem: 'image',
                         tag: 'span',
                         content: {
-                            tag: 'img',
-                            attrs: { src: this.ctx.imageUrl }
+                            block: 'g-image',
+                            mods: { preload: true, size: 'm' },
+                            alt: this.ctx.title,
+                            url: this.ctx.imageUrl
                         }
                     }, {
                         elem: 'title',

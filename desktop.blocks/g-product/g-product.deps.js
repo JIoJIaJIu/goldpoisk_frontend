@@ -1,5 +1,7 @@
 ({
     shouldDeps: [{
+        block: 'g-image'
+    }, {
         block: 'g-button'
     }, {
         block: 'g-price'
