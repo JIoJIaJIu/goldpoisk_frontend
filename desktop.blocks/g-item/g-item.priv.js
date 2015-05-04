@@ -70,7 +70,10 @@ blocks['g-item'] = function (data, env) {
         content: [
             heading,
             data.category ? category : null,
-            blocks['g-item-gallery']({ images: data.images }, env),
+            blocks['g-item-gallery']({
+                images: data.images,
+                alt: data.title
+            }, env),
             collumn()
         ]
     };
