@@ -5,7 +5,6 @@ BEMDOM.decl('g-product', {
         js: {
             'inited': function () {
                 var showFrame = !!this.params.showFrame;
-                var url = this.params.url;
                 var self = this;
 
                 var button = this.findBlockInside('g-button').domElem.get(0);
@@ -45,7 +44,7 @@ BEMDOM.decl('g-product', {
             this._blocks.goods.emit('select', this);
             return;
         }
-        router.route(url);
+        router.route(this.params.url);
     },
 
     unselect: function () {
