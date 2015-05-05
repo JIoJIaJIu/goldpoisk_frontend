@@ -9,6 +9,7 @@ block('g-sorting-goods')(
                 content: this.ctx.content.map(function (param, i) {
                     return {
                         elem: 'param',
+                        mods: { type: param.value },
                         tag: 'li',
                         js: {
                             value: param.value
