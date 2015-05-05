@@ -10,49 +10,27 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                     var page = this.findBlockOutside('page');
                     this._blocks = {
                         paginator: page.findBlockInside('g-paginator'),
-                        goods: page.findBlockInside('g-goods')
+                        goods: page.findBlockInside('g-goods'),
+                        flowButton: self.findBlockInside('g-filter__scroll')
                     };
-                    var scrollButton = this.findBlockInside('g-filter__scroll');
-                    var state = cookie.get('filter');
-                    if (state === 'hidden') {
+                    var state = cookie.get('filter_hidden');
+                    if (state === 'true') {
                         this.setMod('hidden');
-                        this._blocks.goods.setMod('wide');
-                        scrollButton.setMod('narrow');
                     }
                     var goodsContainer = this._blocks.goods.findElem('container');
                     var footer = page.findBlockInside('g-footer');
 
                     this.bindTo(this.elem('button'), 'click', function (e) {
-                        if (state === 'hidden') {
-                            cookie.set('filter', 'visible', {
-                                expires: 1
-                            });
-                        } else {
-                            cookie.set('filter', 'hidden', {
-                                expires: 1
-                            });
-                        }
                         this.toggleMod('hidden');
-                        this._blocks.goods.toggleMod('wide');
-                        scrollButton.toggleMod('narrow');
                     });
 
                     var winHeight = $(window).outerHeight();
                     var filterHeight = this.domElem.outerHeight();
                     var filterBottom = this.domElem.offset().top + filterHeight;
                     var startPosition = this.domElem.offset().top;
-                    $(window).bind('scroll', function (e) {
-                        if (($(window).scrollTop() - (self.domElem.offset().top + self.domElem.outerHeight()) > 2 * $(window).outerHeight())
-                            || (self.domElem.offset().top - $(window).scrollTop() > 2 * $(window).outerHeight())) {
-                            if (scrollButton.hasMod('hidden'))
-                                scrollButton.delMod('hidden');
-                        } else {
-                            if (!scrollButton.hasMod('hidden'))
-                                scrollButton.setMod('hidden');
-                        }
-                    });
+                    this.bindToWin('scroll', this._watchFlowFn);
 
-                    scrollButton.bindTo('click', function (e) {
+                    this._blocks.flowButton.bindTo('click', function (e) {
                         var wasHidden = self.hasMod('hidden');
                         self.setMod('hidden', 'force');
 
@@ -67,12 +45,9 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
 
                         if (wasHidden) {
                             self.setMod('hidden', true);
-                            self._blocks.goods.setMod('wide');
                         }
                         self.delMod('hidden');
-                        self._blocks.goods.delMod('wide');
                         this.setMod('hidden');
-                        this.delMod('narrow');
                     });
 
                     var button = this.findBlockInside('g-button');
@@ -86,16 +61,34 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                             self._data[data.type] = data.ids.join('.');
                         });
                     });
+                },
+                '': function () {
+                    this.unbindFrom(this.elem('button'), 'click');
+                    this.findBlockInside('g-button').unbindFrom('click');
+                    this.unbindFromWin('scroll', this._watchFlowFn);
+
+                    this._logger.finalize();
+                    this._logger = null;
+                    this._data = null;
+                    this._blocks = null;
                 }
             },
-            '': function () {
-                this.unbindFrom(this.elem('button'), 'click');
-                this.findBlockInside('g-button').unbindFrom('click');
+            'hidden': {
+                true: function () {
+                    this._blocks.goods.setMod('wide');
+                    this._blocks.flowButton.setMod('narrow');
+                    cookie.set('filter_hidden', true, {
+                        expires: 1
+                    });
+                },
+                '': function () {
+                    this._blocks.goods.delMod('wide');
+                    this._blocks.flowButton.delMod('narrow');
+                    cookie.set('filter_hidden', false, {
+                        expires: 1
+                    });
+                }
 
-                this._logger.finalize();
-                this._logger = null;
-                this._data = null;
-                this._blocks = null;
             }
         },
 
@@ -120,6 +113,17 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                 self._blocks.goods.update(data);
                 self._blocks.goods.loading(false);
             });
+        },
+
+        _watchFlowFn: function (event) {
+            if (($(window).scrollTop() - (this.domElem.offset().top + this.domElem.outerHeight()) > 2 * $(window).outerHeight())
+                || (this.domElem.offset().top - $(window).scrollTop() > 2 * $(window).outerHeight())) {
+                if (this._blocks.flowButton.hasMod('hidden'))
+                    this._blocks.flowButton.delMod('hidden');
+            } else {
+                if (!this._blocks.flowButton.hasMod('hidden'))
+                    this._blocks.flowButton.setMod('hidden');
+            }
         },
 
         _pending: false,
