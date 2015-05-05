@@ -13,7 +13,7 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
                     };
                     var scrollButton = this.findBlockInside('g-filter__scroll');
                     var goodsContainer = this._blocks.goods.findElem('container');
-                    var footer = this.findBlockOutside('page').findBlockInside('g-footer');
+                    var footer = page.findBlockInside('g-footer');
 
                     this.bindTo(this.elem('button'), 'click', function (e) {
                         this.toggleMod('hidden');
