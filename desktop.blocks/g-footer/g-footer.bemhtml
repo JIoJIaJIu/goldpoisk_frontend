@@ -16,35 +16,53 @@ block('g-footer')(
                     {
                         tag: 'section',
                         content: [
+                            '<!--noindex-->',
                             {
                                 tag: 'header',
                                 content: [
                                     {
                                         tag: 'h1',
                                         content: 'Мы в социальных сетях'
-                                    },
+                                    }
                                 ]
                             },
                             {
                                 tag: 'a',
-                                attrs: { href: 'https://www.facebook.com/pages/GoldPoisk/316157391908401', target: '_blank' },
+                                attrs: {
+                                    href: 'https://www.facebook.com/pages/GoldPoisk/316157391908401',
+                                    target: '_blank',
+                                    rel: 'nofollow'
+                                },
                                 cls: 'fb'
                             },
                             {
                                 tag: 'a',
-                                attrs: { href: 'https://twitter.com/GoldPoisk', target: '_blank' },
+                                attrs: {
+                                    href: 'https://twitter.com/GoldPoisk',
+                                    target: '_blank',
+                                    rel: 'nofollow'
+                                },
                                 cls: 'tw'
                             },
                             {
                                 tag: 'a',
-                                attrs: { href: 'https://vk.com/goldpoisk', target: '_blank' },
+                                attrs: {
+                                    href: 'https://vk.com/goldpoisk',
+                                    target: '_blank',
+                                    rel: 'nofollow'
+                                },
                                 cls: 'vk'
                             },
                             {
                                 tag: 'a',
-                                attrs: { href: 'http://ok.ru/group/53327077638372', target: '_blank' },
+                                attrs: {
+                                    href: 'http://ok.ru/group/53327077638372',
+                                    target: '_blank',
+                                    rel: 'nofollow'
+                                },
                                 cls: 'ok'
-                            }
+                            },
+                            '<!--/noinex-->'
                         ]
                     }
                 ]

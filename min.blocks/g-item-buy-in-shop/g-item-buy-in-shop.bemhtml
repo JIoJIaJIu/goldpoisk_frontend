@@ -5,8 +5,10 @@ block('g-item-buy-in-shop')(
                 elem: 'title',
                 tag: 'h3',
                 content: {
-                    tag: 'a',
-                    attrs: {href: this.ctx.url, target: '_blank'},
+                    block: 'g-link',
+                    mods: { external: true },
+                    url: this.ctx.url,
+                    target: '_blank',
                     content: this.ctx.store
                 }
             },
@@ -15,10 +17,12 @@ block('g-item-buy-in-shop')(
                 content: this.ctx.price
             },
             {
-                block: 'g-button',
-                content: 'Купить',
-                newPage: 'true',
-                href: this.ctx.buyUrl
+                block: 'g-link',
+                mods: { external: true },
+                mix: { block: 'g-button' },
+                url: this.ctx.buyUrl,
+                target: '_blank',
+                content: 'Купить'
             }
         ]
     })
