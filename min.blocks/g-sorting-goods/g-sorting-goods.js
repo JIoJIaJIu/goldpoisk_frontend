@@ -3,26 +3,23 @@ modules.define('g-sorting-goods', ['i-bem__dom', 'router', 'location'], function
         onSetMod: {
             js: {
                 'inited': function () {
-                    var self = this;
-
                     this.bindTo('param', 'click', function (e) {
                         this._onParamClick(e);
                     });
 
                     // Разбор адресной строки для инициализации
-                    var sort = router.getParam('sort');
-                    if (!sort)
-                        return;
-                    switch (sort) {
+                    switch (router.getParam('sort')) {
                         case 'name':
-                            self.setMod(self.elem('param', 'type', 'name'), 'selected', true);
-                        break;
+                            this.setMod(this.elem('param', 'type', 'name'), 'selected', true);
+                            break;
                         case 'price':
-                            self.setMod(self.elem('param', 'type', 'price'), 'selected', true);
-                        break;
+                            this.setMod(this.elem('param', 'type', 'price'), 'selected', true);
+                            break;
                         case 'tprice':
-                            self.setMod(self.elem('param', 'type', 'tprice'), 'selected', true);
-                        break;
+                            this.setMod(this.elem('param', 'type', 'tprice'), 'selected', true);
+                            break;
+                        default:
+                            break;
                     }
                 },
 
