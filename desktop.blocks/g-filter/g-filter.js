@@ -1,4 +1,5 @@
-modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], function(provide, BEMDOM, $, logger, router) {
+modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'],
+               function(provide, BEMDOM, $, logger, router, cookie) {
     BEMDOM.decl('g-filter', {
         onSetMod: {
             js: {
@@ -12,10 +13,25 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router'], functio
                         goods: page.findBlockInside('g-goods')
                     };
                     var scrollButton = this.findBlockInside('g-filter__scroll');
+                    var state = cookie.get('filter');
+                    if (state === 'hidden') {
+                        this.setMod('hidden');
+                        this._blocks.goods.setMod('wide');
+                        scrollButton.setMod('narrow');
+                    }
                     var goodsContainer = this._blocks.goods.findElem('container');
                     var footer = page.findBlockInside('g-footer');
 
                     this.bindTo(this.elem('button'), 'click', function (e) {
+                        if (state === 'hidden') {
+                            cookie.set('filter', 'visible', {
+                                expires: 1
+                            });
+                        } else {
+                            cookie.set('filter', 'hidden', {
+                                expires: 1
+                            });
+                        }
                         this.toggleMod('hidden');
                         this._blocks.goods.toggleMod('wide');
                         scrollButton.toggleMod('narrow');
