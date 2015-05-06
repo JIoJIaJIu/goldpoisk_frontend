@@ -32,7 +32,15 @@
 }
 
 .g-button_type_gray:hover {
-    background: none;
+    color: #a07472;
+    background: #fff;
+    border-color: #a07472;
+}
+
+.g-button_type_gray:active {
+    color: #fff;
+    background: #a07472;
+    border-color: #a07472;
 }
 
 .g-button_close {
