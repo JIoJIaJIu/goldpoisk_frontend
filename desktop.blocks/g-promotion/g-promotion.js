@@ -113,7 +113,6 @@ BEMDOM.decl('g-promotion', {
         this._queue = _.map(this.elem('item'), function (item, i) {
             item = $(item);
             var width = item.width();
-            console.log('width' ,width);
 
             // position
             margin = (i == 0) ? -width / 2 : margin;
