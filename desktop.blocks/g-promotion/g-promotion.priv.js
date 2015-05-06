@@ -36,11 +36,11 @@ blocks['g-promotion'] = function (data, env) {
         promos.push({
             elem: 'item',
             content: [{
-                block: 'image',
-                tag: 'img',
+                block: 'g-image',
+                mods: {spin: true},
                 attrs: {
                     src: promo.src,
-                    alt: promo.title,
+                    alt: promo.title
                 }
             }].concat(items)
         });

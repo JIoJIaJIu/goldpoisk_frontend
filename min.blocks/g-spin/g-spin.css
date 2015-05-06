@@ -46,14 +46,9 @@
     }
 }
 
-.g-spin {
-    display: inline-block;
-}
-
 .g-spin_theme_islands {
     position: absolute;
     display: none;
-    visibility: hidden;
     color: transparent;
 }
 
@@ -75,7 +70,7 @@
 
 .g-spin_theme_islands.g-spin_visible {
     position: relative;
-    visibility: visible;
+    display: inline-block;
     -webkit-animation: 'g-spin_theme_islands' 1.5s infinite linear;
     -moz-animation: g-spin_theme_islands 1.5s infinite linear;
     animation: g-spin_theme_islands 1.5s infinite linear;

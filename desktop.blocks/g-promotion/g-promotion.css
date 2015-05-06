@@ -34,7 +34,6 @@
 /* new styles */
 .g-promotion__item {
     position: absolute;
-    _width: 990px;
     height: 498px;
     left: 50%;
     top: 0px;
@@ -42,8 +41,15 @@
     opacity: 0.7;
 }
 
-.g-promotion__item img {
-    _width: 990px;
+.g-promotion__item .g-image {
+    width: 990px;
+}
+
+.g-promotion__item .g-image_loaded {
+    width: auto;
+}
+
+.g-promotion__item .g-iamge img {
     height: 498px;
 }
 

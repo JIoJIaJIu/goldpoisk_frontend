@@ -7,20 +7,24 @@ BEMDOM.decl('g-promotion', {
     onSetMod: {
         js: {
             inited: function () {
-                var self = this;
                 this._buildQueue();
-                this._length = this._queue.length;
                 this.selectItem(0);
 
                 this._controlKeyFn = function (e) {
                     if (e.keyCode === key.LEFT) {
-                        self.selectItem(self._index - 1);
+                        this.selectItem(this._index - 1);
                     } else if (e.keyCode === key.RIGHT) {
-                        self.selectItem(self._index + 1);
+                        this.selectItem(this._index + 1);
                     }
-                }
+                };
+                this.bindToWin('keyup', this._controlKeyFn);
 
-                this.bindToWin('keyup', this._controlKeyFn)
+                var self = this;
+                _.forEach(this.findBlocksInside('g-image'), function (image) {
+                    image.on('load', function () {
+                        self.selectItem(self._index);
+                    });
+                })
             }
         },
         '': function () {
@@ -60,42 +64,39 @@ BEMDOM.decl('g-promotion', {
             return;
         }
 
-        if (this._index == index)
-            return
-
         var self = this;
 
         var margin = 0;
         for (var i = index; i >= 0; i--) {
             item = this._queue[i];
-            var width = item.width;
+            var width = item.width();
             margin = (i == index) ? -width / 2 : margin - width;
 
-            item.item.animate({
+            item.animate({
                 marginLeft: margin + 'px'
             }, ANIMATION_TIME);
         }
 
         for (var i = index; i < this._length; i++) {
             var item = this._queue[i];
-            var width = item.width;
+            var width = item.width();
 
             if (i == index ) {
                 margin = width / 2;
                 continue;
             }
 
-            item.item.animate({
+            item.animate({
                 marginLeft: margin + 'px'
             }, ANIMATION_TIME);
             margin += width;
         }
 
-        _.forEach(this._queue, function (block, i) {
+        _.forEach(this._queue, function (item, i) {
             if (i == index) {
-                self.setMod(block.item, 'active');
+                self.setMod(item, 'active');
             } else {
-                self.delMod(block.item, 'active');
+                self.delMod(item, 'active');
             }
         });
 
@@ -112,18 +113,16 @@ BEMDOM.decl('g-promotion', {
         this._queue = _.map(this.elem('item'), function (item, i) {
             item = $(item);
             var width = item.width();
+            console.log('width' ,width);
 
             // position
             margin = (i == 0) ? -width / 2 : margin;
             item.css('margin-left', margin + 'px');
             margin += width
 
-            return {
-                item: item,
-                width: width,
-                height: item.height()
-            }
+            return item
         });
+        this._length = this._queue.length;
     },
 
     _deselectMarkers: function () {

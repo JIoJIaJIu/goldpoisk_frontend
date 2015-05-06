@@ -25,5 +25,23 @@ block('g-image')(
                 }
             }]
         })
+    ),
+    mod('spin', true)(
+        js()(true),
+        tag()('div'),
+        content()(function () {
+            var attrs = this.ctx.attrs || {};
+            return [{
+                block: 'g-spin',
+                mods: { theme : 'islands', size : 'xl', visible: true}
+            }, {
+                elem: 'main',
+                tag: 'img',
+                attrs: {
+                    src: attrs.src,
+                    alt: attrs.alt
+                }
+            }]
+        })
     )
 )
