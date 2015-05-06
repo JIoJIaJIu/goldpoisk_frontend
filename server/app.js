@@ -61,7 +61,7 @@ app.get('/item/(:id([0-9]*))?', function (req, res) {
     }
 });
 
-app.get('/search', function (req, res) {
+app.get('/searchs', function (req, res) {
     var product = fs.readFileSync('data/item/item.json');
     res.json(JSON.parse(product));
 });
@@ -129,6 +129,11 @@ app.get('/product/item', function (req, res) {
         }, 1000);
     })*/
 });
+
+app.get('/not-found', function (req, res) {
+    var bids = fs.readFileSync('data/404/notfound.json');
+    res.json(JSON.parse(bids));
+})
 
 var server = app.listen(3000, function () {
     var host = server.address().address;

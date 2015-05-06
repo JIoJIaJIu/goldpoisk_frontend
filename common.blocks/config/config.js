@@ -10,6 +10,7 @@ modules.define('config', ['i-bem'], function (provide) {
                 list: 'http://localhost:3000/success'
             },
             searchUrl: '/search',
+            notFoundUrl: '/not-found',
             products: '/products/json'
         },
         page: {
@@ -56,6 +57,10 @@ modules.define('config', ['i-bem'], function (provide) {
             item: {
                 url: '^/item/[\\w\\d-]+$',
                 priv: 'item.content'
+            },
+            notfound: {
+                url: '^/not-found$',
+                priv: 'notfound.content'
             }
         }
     })

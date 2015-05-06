@@ -77,7 +77,6 @@ modules.define('g-search', ['i-bem__dom', 'config', 'router', 'logger'],
 
             var self = this;
             this._pending = true;
-
             $.getJSON(CONFIG.REST.searchUrl, {
                 article: article
             }, function success (data) {
@@ -85,6 +84,7 @@ modules.define('g-search', ['i-bem__dom', 'config', 'router', 'logger'],
                 self._pending = false;
             }).fail(function (e) {
                 self._logger.error(e.responseText);
+                router.route('/not-found');
                 self._pending = false;
             })
         },

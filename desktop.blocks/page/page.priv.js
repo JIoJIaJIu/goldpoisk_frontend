@@ -133,6 +133,16 @@ pages['index.content'] = function (data, env) {
     ]
 }
 
+pages['notfound.content'] = function (data, env) {
+    return blocks['g-bids']({
+        count: data.count || 0, //TODO:
+        products: data.products,
+        url: '#'
+    }, {
+        error404: true
+    });
+}
+
 /**
  * data.menu
  * {String} !data.products
