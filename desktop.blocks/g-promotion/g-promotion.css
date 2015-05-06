@@ -1,26 +1,27 @@
 .g-promotion {
-	position: relative;
+    position: relative;
     height: 498px;
     background-color: #160f10;
 }
 
 .g-promotion__inner {
     overflow: hidden;
-	position: relative;
+    position: relative;
     height: 100%;
 }
 
 .g-promotion .g-promotion-markers-list {
-	position: absolute;
-	width: 100%;
-	bottom: 25px;
+    position: absolute;
+    width: 100%;
+    bottom: 25px;
     z-index: 2;
 }
 
 .g-promotion .g-promotion-item {
-	position: absolute;
-	left: 40%;
-	top: 50%;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    max-width: 300px;
 }
 
 .g-promotion__fotorama {
