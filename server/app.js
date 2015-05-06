@@ -150,7 +150,7 @@ function renderIndex (cb) {
                 'src': '../desktop.blocks/g-promotion/images/promotion_02.jpg',
                 'title': 'Title',
                 'items': [{
-                    'title': 'Item title',
+                    'title': 'Здесь пиздец какой длинный текст, ну нереально длинный текст иммитирующий название товара',
                     'price': 5000,
                     'url': '#',
                     'x': 100,
