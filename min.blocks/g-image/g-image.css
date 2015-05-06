@@ -13,7 +13,7 @@
     opacity: 0;
 }
 
-.g-image__preload .g-image__main {
+.g-image .g-image__main {
     max-width: 210px;
     max-height: 180px;
 }
@@ -26,6 +26,11 @@
 
 .g-image_spin {
     position: relative;
+}
+
+.g-image_spin .g-image__main {
+    max-width: none;
+    max-height: none;
 }
 
 .g-image_spin .g-spin_size_xl {
