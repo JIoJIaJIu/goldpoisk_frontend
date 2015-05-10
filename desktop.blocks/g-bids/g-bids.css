@@ -13,3 +13,10 @@
 .g-bids .g-goods .g-product {
     margin: 0 35px 0 0;
 }
+
+.g-bids__description {
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
+    font-size: 14px;
+    color: #8f8f8f;
+    margin-top: 20px;
+}

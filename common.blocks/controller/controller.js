@@ -1,4 +1,5 @@
-modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'], function (provide, BEMDOM, Uri, CONFIG, logger) {
+modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'],
+    function (provide, BEMDOM, Uri, CONFIG, logger) {
     var controller = {
         init: function (content) {
             if (this._isInited) {
