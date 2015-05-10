@@ -51,6 +51,61 @@
     background: url('/images/sprite.png') -41px -194px;
 }
 
+.g-button_up {
+    display: block;
+    background-image: url('/images/sprite.png');
+    width: 53px;
+    height: 12px;
+}
+
+.g-button_simple-light-up {
+    background-position: 0 -373px;
+}
+
+.g-button_simple-light-up:hover {
+    background-position: -54px -386px;
+}
+
+.g-button_simple-light-up:active {
+    background-position: -107px -386px;
+}
+
+.g-button_text-light-up {
+    background-position: 0 -373px;
+}
+
+.g-button_text-light-up:hover {
+    background-position: -54px -373px;
+}
+
+.g-button_text-light-up:active {
+    background-position: -107px -373px;
+}
+
+.g-button_simple-dark-up {
+    background-position: 0 -398px;
+}
+
+.g-button_simple-dark-up:hover {
+    background-position: -54px -398px;
+}
+
+.g-button_simple-dark-up:active {
+    background-position: -107px -398px;
+}
+
+.g-button_text-dark-up {
+    background-position: 0 -398px;
+}
+
+.g-button_text-dark-up:hover {
+    background-position: -54px -373px;
+}
+
+.g-button_text-dark-up:active {
+    background-position: -107px -373px;
+}
+
 .g-button_prev {
     display: none;
     position: absolute;
