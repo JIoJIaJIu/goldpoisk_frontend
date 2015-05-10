@@ -16,7 +16,7 @@ block('g-goods')(
                             elem: 'up-spin',
                             content: [{
                                 block: 'g-spin',
-                                mods: { theme : 'islands', size : 'xl', visible : true },
+                                mods: { theme : 'islands', size : 'xl' },
                                 attrs: { id: 'up' }
                             }, {
                             block: 'g-button',
@@ -32,7 +32,7 @@ block('g-goods')(
                     elem: 'down-spin',
                     content: [{
                         block: 'g-spin',
-                        mods: { theme : 'islands', size : 'xl', visible : true },
+                        mods: { theme : 'islands', size : 'xl' },
                         attrs: { id: 'down' }
                     }]
                 }, {
