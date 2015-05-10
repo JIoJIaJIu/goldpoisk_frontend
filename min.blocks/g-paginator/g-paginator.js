@@ -13,8 +13,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                     var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
                     var spins = goods.findBlocksInside('g-spin');
                     this._blocks = {
-                        spin_up: spins[0],
-                        spin_down: spins[1]
+                        spinUp: spins[0],
+                        spinDown: spins[1]
                     }
 
                     var body = document.body;
@@ -69,7 +69,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             this._bottomPage++;
             this._pending = true;
 
-            this._blocks.spin_down.setMod('visible', true);
+            this._blocks.spinDown.setMod('visible', true);
 
             var self = this;
             var config = this.params.config;
@@ -83,7 +83,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 goods.append(data.list);
                 self._pending = false;
                 self.setCurrentPage(nextPage);
-                self._blocks.spin_down.delMod('visible');
+                self._blocks.spinDown.delMod('visible');
             });
         },
 
@@ -100,7 +100,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             if (this._topPage == 1)
                 goods.findElem('up-spin').css('display', 'none');
 
-            this._blocks.spin_up.setMod('visible', true);
+            this._blocks.spinUp.setMod('visible', true);
 
             var self = this;
             var config = this.params.config;
@@ -114,7 +114,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 goods.prepend(data.list);
                 self._pending = false;
                 self.setCurrentPage(prevPage);
-                self._blocks.spin_up.delMod('visible');
+                self._blocks.spinUp.delMod('visible');
             });
         },
 
