@@ -41,16 +41,14 @@
     -webkit-transition: height 1s, opacity 0.5s;
 }
 
-.g-header_inner__up {
-    font-family: 'PFDinTextPro-Thin', Arial, sans-serif;
-    font-size: 18px;
-    color: gray;
+.g-header_inner__up.g-button_up {
     display: none;
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    margin-top: -11.5px;
-    right: 175px;
+    top: 100%;
+    margin-top: -17px;
+    left: 50%;
+    margin-left: -27px;
 }
 
 .g-header_inner__up:hover {

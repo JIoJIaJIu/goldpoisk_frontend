@@ -25,9 +25,11 @@ blocks['g-header'] = function (data, env) {
                 mods: { empty: true }
             }, {
                 elem: 'up',
-                js: true,
-                tag: 'p',
-                content: 'В начало'
+                mix: [
+                    { block: 'g-button_up' },
+                    { block: 'g-button_text-light-up' }
+                ],
+                js: true
             }, {
                 block: 'g-support',
                 content: []
