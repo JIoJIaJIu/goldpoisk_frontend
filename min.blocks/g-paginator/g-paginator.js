@@ -11,6 +11,12 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
 
                     var self = this;
                     var goods = this.findBlockOutside('g-content').findBlockInside('g-goods');
+                    var spins = goods.findBlocksInside('g-spin');
+                    this._blocks = {
+                        spin_up: spins[0],
+                        spin_down: spins[1]
+                    }
+
                     var body = document.body;
                     var button = goods.findBlockInside({block: 'g-button', modName: 'prev', modVal: true});
 
@@ -63,7 +69,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             this._bottomPage++;
             this._pending = true;
 
-            $('#down').css('display', 'inline-block');
+            this._blocks.spin_down.setMod('visible', true);
+
             var self = this;
             var config = this.params.config;
             var nextPage = this._bottomPage;
@@ -76,7 +83,7 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 goods.append(data.list);
                 self._pending = false;
                 self.setCurrentPage(nextPage);
-                $('#down').css('display', 'none');
+                self._blocks.spin_down.delMod('visible');
             });
         },
 
@@ -93,8 +100,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
             if (this._topPage == 1)
                 goods.findElem('up-spin').css('display', 'none');
 
-            $('#up').css('display', 'inline-block');
-            var that = this;
+            this._blocks.spin_up.setMod('visible', true);
+
+            var self = this;
             var config = this.params.config;
             var prevPage = this._topPage;
             var uri = router.getUri(config.HTTP.list);
@@ -104,9 +112,9 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
                 page: prevPage
             }, function success(data) {
                 goods.prepend(data.list);
-                that._pending = false;
-                that.setCurrentPage(prevPage);
-                $('#up').css('display', 'none');
+                self._pending = false;
+                self.setCurrentPage(prevPage);
+                self._blocks.spin_up.delMod('visible');
             });
         },
 
@@ -114,7 +122,8 @@ modules.define('g-paginator', ['i-bem__dom', 'jquery', 'router', 'config'], func
         _currentPage: 1,
         _pending: false,
         _topPage: null,
-        _bottomPage: null
+        _bottomPage: null,
+        _blocks: null
     }, {});
     provide(BEMDOM);
 })
