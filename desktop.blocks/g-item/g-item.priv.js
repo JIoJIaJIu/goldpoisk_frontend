@@ -63,6 +63,33 @@ blocks['g-item'] = function (data, env) {
         params.url = data.url;
         heading["url"] = data.url;
     }
+
+    if (data.items.length > 1) {
+        var inStores = _.map(data.items, function (item) {
+            return {
+                name: item.storeName,
+                url: item.storeUrl,
+                buyUrl: item.buyUrl,
+                price: item.price
+            }
+        });
+        var stores = {
+            block: 'g-available-in-stores',
+            theme: {
+                color: 'dark'
+            },
+            content: inStores
+        };
+    } else {
+        var item = data.items[0];
+        var store = {
+            block: 'g-item-buy-in-shop',
+            store: item.storeName,
+            url: item.storeUrl,
+            buyUrl: item.buyUrl,
+            price: item.price
+        }
+    }
     
     var block = {
         block: 'g-item',
@@ -74,13 +101,22 @@ blocks['g-item'] = function (data, env) {
                 images: data.images,
                 alt: data.title
             }, env),
-            collumn()
+            collumn(store || null),
+            stores
         ]
     };
 
     return block;
 
-    function collumn() {
+    function collumn(store) {
+        /**
+         *  @param {Object} store || null
+         *      @key {String} block
+         *      @key {String} store
+         *      @key {String} url
+         *      @key {String} buyUrl
+         *      @key {Number} price
+         **/
         //TODO:
         var item = data.items[0];
         //TODO: !sic
@@ -136,38 +172,33 @@ blocks['g-item'] = function (data, env) {
 
         return {
             block: 'g-right-col',
-            content: [{
-                block: 'g-item-buy-in-shop',
-                store: item.storeName,
-                url: item.storeUrl,
-                buyUrl: item.buyUrl,
-                price: item.price
-            },
-            {
-                block: 'g-item-features',
-                content: features
-            },
-            !env.big ? more : null,
-            env.big ? description : null,
-            {
-                block: 'g-like',
-                mods: { type: 'extended' }
-            }, {
-                block: 'yashare',
-                quickServices : data.yashare.quickServices || [
-                    'vkontakte',
-                    'facebook',
-                    'twitter',
-                    'odnoklassniki'
-                ],
-                theme: data.yashare.theme || 'counter',
-                l10n: data.yashare.l10n || 'ru',
-                url: data.url,
-                title: data.yashare.likesTitle,
-                description: data.yashare.likesDescription,
-                image: 'https://raw.githubusercontent.com/voischev/bem-social/' +
-                       'master/desktop.bundles/index/blocks/page/image/bem.png'
-            }]
+            content: [
+                store,
+                {
+                    block: 'g-item-features',
+                    content: features
+                },
+                !env.big ? more : null,
+                env.big ? description : null,
+                {
+                    block: 'g-like',
+                    mods: { type: 'extended' }
+                }, {
+                    block: 'yashare',
+                    quickServices : data.yashare.quickServices || [
+                        'vkontakte',
+                        'facebook',
+                        'twitter',
+                        'odnoklassniki'
+                    ],
+                    theme: data.yashare.theme || 'counter',
+                    l10n: data.yashare.l10n || 'ru',
+                    url: data.url,
+                    title: data.yashare.likesTitle,
+                    description: data.yashare.likesDescription,
+                    image: 'https://raw.githubusercontent.com/voischev/bem-social/' +
+                           'master/desktop.bundles/index/blocks/page/image/bem.png'
+                }]
         };
     }
 }

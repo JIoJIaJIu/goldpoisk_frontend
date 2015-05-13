@@ -58,4 +58,5 @@
 
 .g-item .g-available-in-stores {
     margin-bottom: 60px;
+    clear: both;
 }
