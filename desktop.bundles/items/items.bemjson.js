@@ -391,18 +391,22 @@
                                                 {
                                                     name: 'Линии любви',
                                                     url: '#',
+                                                    buyUrl: '#',
                                                     price: 6100
                                                 }, {
                                                     name: 'Линии любви',
                                                     url: '#',
+                                                    buyUrl: '#',
                                                     price: 6100
                                                 }, {
                                                     name: 'Линии любви',
                                                     url: '#',
+                                                    buyUrl: '#',
                                                     price: 6100
                                                 }, {
                                                     name: 'Линии любви',
                                                     url: '#',
+                                                    buyUrl: '#',
                                                     price: 6100
                                                 }
                                             ]
