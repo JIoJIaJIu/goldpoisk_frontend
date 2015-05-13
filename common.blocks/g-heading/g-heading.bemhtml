@@ -1,7 +1,10 @@
 block('g-heading')(
     tag()('h1'),
     attrs()(function () {
-        return { descrition: this.ctx.content };
+        return {
+            descrition: this.ctx.content,
+            title: this.ctx.content
+        };
     }),
     match(this.ctx.url)(
         content()(function () {
