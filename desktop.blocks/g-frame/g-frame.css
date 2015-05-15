@@ -49,12 +49,16 @@
 }
 
 .g-frame .g-item .g-right-col {
-    padding-left: 460px;
+    padding-left: 435px;
 }
 
 .g-frame .g-item .g-heading {
     margin-bottom: 15px;
     display: block;
+}
+
+.g-frame .g-item .g-subscribe {
+    margin-top: 35px;
 }
 
 .g-frame .g-heading_type_main {
@@ -72,10 +76,6 @@
 .g-frame .g-item .g-available-in-stores {
     margin-left: 21px;
     margin-bottom: 0;
-}
-
-.g-frame .g-button {
-    margin-bottom: 35px;
 }
 
 .g-frame .g-spin {

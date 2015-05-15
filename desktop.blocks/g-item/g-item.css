@@ -38,6 +38,14 @@
     margin-bottom: 30px;
 }
 
+.g-item .g-button_type_gray {
+    margin-bottom: 35px;
+}
+
+.g-item_missing .g-item-gallery__marker {
+    background: url('/images/sprite.png') -261px -244px;
+}
+
 .g-item .g-social_follow {
     margin: 0 0 0 3px;
 }

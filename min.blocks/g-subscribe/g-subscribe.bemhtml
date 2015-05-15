@@ -1,15 +1,27 @@
 block('g-subscribe')(
-    tag()('form'),
     content()(function () {
-        return [
-            {
-                block: 'g-input',
-                label: 'Ваш e-mail',
-                content: 'support@goldpoisk.ru'
-            }, {
+        return [{
+                elem: 'info',
+                tag: 'p',
+                content: this.ctx.content
+            }/*, {
                 block: 'g-button',
                 content: 'Подписаться'
-            }
-        ]
-    })
+        }*/]
+    }),
+    mod('some', 'mod')(
+        tag()('form'),
+        content()(function () {
+            return [
+                {
+                    block: 'g-input',
+                    label: 'Ваш e-mail',
+                    content: 'support@goldpoisk.ru'
+                }, {
+                    block: 'g-button',
+                    content: 'Подписаться'
+                }
+            ]
+        })
+    )
 )

@@ -53,6 +53,8 @@ block('g-item-gallery')(
                     }
                 }, {
                     elem: 'zoom'
+                }, {
+                    elem: 'marker'
                 }
             ]
         })

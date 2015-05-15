@@ -15,10 +15,6 @@
     box-shadow: 0px 0px 10px 0px rgba(0,0,1,0.5);
 }
 
-.g-product:hover .g-button {
-    display: block;
-}
-
 .g-product .g-like {
     position: absolute;
     left: 8px;
@@ -99,12 +95,22 @@
 }
 
 
-.g-product .g-button {
+.g-product__button .g-button {
     position: absolute;
     right: 9px;
     bottom: 9px;
     width: 66px;
 }
+
+.g-product__button .g-button {
+    display: block;
+}
+
+.g-product .g-subscribe {
+    padding: 0 16px;
+    text-align: center;
+}
+
 .g-product .g-price {
    position: absolute;
    left: 16px; bottom: 8px;
@@ -115,23 +121,25 @@
 }
 
 .g-product__marker {
+    position: absolute;
     z-index: 1;
+    top: -1px;
+    right: -1px;
+    width: 89px;
+    height: 73px;
 }
 
 .g-product_action .g-product__marker {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    width: 89px;
-    height: 73px;
-    background-image: url('./images/redang.png');
+    background-image: url('/images/sprite.png');
+    background-position: 0px -244px;
 }
 
 .g-product_hit .g-product__marker {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    width: 89px;
-    height: 73px;
-    background-image: url('./images/blueang.png');
+    background-image: url('/images/sprite.png');
+    background-position: -91px -244px;
+}
+
+.g-product_missing .g-product__marker {
+    background-image: url('/images/sprite.png');
+    background-position: -261px -244px !important;
 }

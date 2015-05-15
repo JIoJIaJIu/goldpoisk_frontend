@@ -7,16 +7,14 @@ block('g-product')(
         }
     }),
     content()(function() {
-        return [
-            {
+        return [{
                 block: 'g-like',
                 mods: {state : this.ctx.like ? 'checked' : null }
             }, {
                 elem: 'link',
                 tag: 'a',
                 attrs: { href: this.ctx.url },
-                content: [
-                    {
+                content: [{
                         elem: 'marker',
                         tag: 'span'
                     }, {
@@ -59,12 +57,57 @@ block('g-product')(
                 block: 'g-price',
                 content: this.ctx.price
             }, {
-                block: 'g-button',
-                content: 'Купить',
-                mods: { display: ( (typeof(this.ctx.price) == 'object') || (this.ctx.price > 9999) ) ? 'none' : null },
-                href: this.ctx.buyUrl,
-                newPage: true
-            }
-        ]
-    })
+                elem: 'button',
+                content: {
+                    block: 'g-button',
+                    content: 'Купить',
+                    mods: { display: ( (typeof(this.ctx.price) == 'object') || (this.ctx.price > 9999) ) ? 'none' : null },
+                    href: this.ctx.buyUrl,
+                    newPage: true
+                }
+        }]
+    }),
+    mod('missing', true)(
+        content()(function () {
+            return [{
+                    block: 'g-like',
+                    mods: {state : this.ctx.like ? 'checked' : null }
+                }, {
+                    elem: 'link',
+                    tag: 'a',
+                    attrs: { href: this.ctx.url },
+                    content: [{
+                            elem: 'marker',
+                            tag: 'span'
+                        }, {
+                            elem: 'image',
+                            tag: 'span',
+                            content: {
+                                block: 'g-image',
+                                mods: { preload: true, size: 'm' },
+                                alt: this.ctx.title,
+                                url: this.ctx.imageUrl
+                            }
+                        }, {
+                            elem: 'title',
+                            tag: 'p',
+                            content: [
+                                this.ctx.title, {
+                                    elem: 'title-gradient',
+                                    tag: 'span'
+                                }
+                            ]
+                        }
+                    ]
+                }, {
+                    elem: 'store',
+                    tag: 'a',
+                    attrs: { "href": this.ctx.storeUrl, "target": "_blank" },
+                    content: this.ctx.store
+                }, {
+                    block: 'g-subscribe',
+                    content: 'К сожалению данный товар сейчас отсутсвует у нашего партнёра.'//'Подпишитесь на новости о появлении.'
+            }]
+        })
+    )
 )
