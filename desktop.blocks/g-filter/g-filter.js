@@ -11,7 +11,8 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                     this._blocks = {
                         paginator: page.findBlockInside('g-paginator'),
                         goods: page.findBlockInside('g-goods'),
-                        scrollButton: self.findBlockInside('g-filter__scroll')
+                        scrollButton: self.findBlockInside('g-filter__scroll'),
+                        header: page.findBlockInside('g-header')
                     };
                     cookie.get('filter_hidden') === 'true' ? this.setMod('hidden') : this.delMod('hidden');
                     var goodsContainer = this._blocks.goods.findElem('container');
@@ -25,7 +26,7 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                     var filterHeight = this.domElem.outerHeight();
                     var filterBottom = this.domElem.offset().top + filterHeight;
                     var startPosition = this.domElem.offset().top;
-                    this.bindToWin('scroll', this._scrollFn);
+                    this.bindToWin('scroll', window._scrollFn);
 
                     this._blocks.scrollButton.bindTo('click', function (e) {
                         var isHidden = self.hasMod('hidden');
@@ -112,21 +113,39 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
             });
         },
 
-        _scrollFn: function (event) {
-            var scrollButton = this._blocks.scrollButton;
-            var offset = this.domElem.offset();
-            var height = this.domElem.outerHeight();
-            var window_top = $(window).scrollTop();
-            var window_height = $(window).outerHeight();
-            if ((window_top - (offset.top + height) > 2 * window_height)
-                || (offset.top - window_top > 2 * window_height)) {
-                if (scrollButton.hasMod('hidden'))
-                    scrollButton.delMod('hidden');
-            } else {
-                if (!scrollButton.hasMod('hidden'))
-                    scrollButton.setMod('hidden');
+        _scrollFn: function () {
+            var top = 0;
+            console.log('2');
+            this._scrollFn = function (e) {
+                console.log('1');
+                var currentTop = $(window).scrollTop();
+                var TOPSPACE = 30 + this._blocks.header.domElem.height();
+                var scrollButton = this._blocks.scrollButton;
+                var offset = this.domElem.offset();
+                var height = this.domElem.outerHeight();
+                var window_top = $(window).scrollTop();
+                var window_height = $(window).outerHeight();
+                if (top - currentTop > 0) {
+                    // scrollTop
+                    if (window_top + TOPSPACE < offset.top) {
+                        var val = offset.top - 30 - (offset.top - window_top + TOPSPACE);
+                        this._top = val > 0 ? val : 0;
+                        this.domElem.css('top', this._top + 'px');
+                    }
+                } else {
+                    // scrollBottom
+                }
+                if ((window_top - (offset.top + height) > 2 * window_height)
+                    || (offset.top - window_top > 2 * window_height)) {
+                    if (scrollButton.hasMod('hidden'))
+                        scrollButton.delMod('hidden');
+                } else {
+                    if (!scrollButton.hasMod('hidden'))
+                        scrollButton.setMod('hidden');
+                }
+                top = currentTop;
             }
-        },
+        }(),
 
         _pending: false,
         _data: null,
