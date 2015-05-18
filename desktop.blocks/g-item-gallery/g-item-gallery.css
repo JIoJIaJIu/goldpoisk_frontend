@@ -73,3 +73,11 @@
 .g-item-gallery_type_big .g-item-gallery__title {
     padding-left: 30px;
 }
+
+.g-item-gallery__marker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 89px;
+    height: 73px;
+}

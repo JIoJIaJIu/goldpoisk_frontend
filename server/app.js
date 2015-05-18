@@ -109,7 +109,7 @@ app.get('/product/item', function (req, res) {
             }
         ],
         'description': 'Описание товара',
-        'items': [
+        'items': [/*
             {
                 'price': 3500,
                 'buyUrl': '#',
@@ -120,7 +120,7 @@ app.get('/product/item', function (req, res) {
                 'buyUrl': '#',
                 'storeName': 'Sega',
                 'storeUrl': '#'
-            }
+            }*/
         ],
     };
     res.json(item);

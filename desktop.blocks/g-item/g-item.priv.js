@@ -64,6 +64,17 @@ blocks['g-item'] = function (data, env) {
         heading["url"] = data.url;
     }
 
+    if (data.items.length == 1) {
+        var item = data.items[0];
+        var store = {
+            block: 'g-item-buy-in-shop',
+            store: item.storeName,
+            url: item.storeUrl,
+            buyUrl: item.buyUrl,
+            price: item.price
+        }
+    }
+
     if (data.items.length > 1) {
         var inStores = _.map(data.items, function (item) {
             return {
@@ -81,19 +92,16 @@ blocks['g-item'] = function (data, env) {
             content: inStores
         };
     } else {
-        var item = data.items[0];
-        var store = {
-            block: 'g-item-buy-in-shop',
-            store: item.storeName,
-            url: item.storeUrl,
-            buyUrl: item.buyUrl,
-            price: item.price
+        var subscribe = {
+            block: 'g-subscribe',
+            content: 'К сожалению данный товар сейчас отсутсвует у нашего партнёра.'//'Товара нет в наличии. Подпишитесь на новости о появлении.'
         }
     }
     
     var block = {
         block: 'g-item',
         js: params,
+        mods: { missing: !data.items.length },
         content: [
             heading,
             data.category ? category : null,
@@ -101,14 +109,14 @@ blocks['g-item'] = function (data, env) {
                 images: data.images,
                 alt: data.title
             }, env),
-            collumn(store || null),
+            collumn(store, subscribe),
             stores
         ]
     };
 
     return block;
 
-    function collumn(store) {
+    function collumn(store, subscribe) {
         /**
          *  @param {Object} store || null
          *      @key {String} block
@@ -173,7 +181,7 @@ blocks['g-item'] = function (data, env) {
         return {
             block: 'g-right-col',
             content: [
-                store,
+                store || subscribe,
                 {
                     block: 'g-item-features',
                     content: features

@@ -1,5 +1,13 @@
-.g-subscribe .g-button {
+.g-subscribe_some_mod .g-button {
     margin-left: 20px;
     padding: 0 13px;
     letter-sapcing: 1.25px;
+}
+
+.g-subscribe__info {
+    font-family: 'ClearSans-Regular', Arial, sans-serif;
+    font-size: 14px;
+    color: #8f8f8f;
+    margin: 5px 0 10px;
+    text-align: left;
 }

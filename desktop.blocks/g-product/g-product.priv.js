@@ -34,7 +34,8 @@ blocks['g-product'] = function (data, env) {
         block: 'g-product',
         mods: {
             action: data.action ? true : false,
-            hit: data.hit ? true : false
+            hit: data.hit ? true : false,
+            missing: data.count == 0 ? true : false
         },
         like: data.like,
         id: data.id,

@@ -7,17 +7,19 @@ BEMDOM.decl('g-product', {
                 var showFrame = !!this.params.showFrame;
                 var self = this;
 
-                var button = this.findBlockInside('g-button').domElem.get(0);
                 var store = this.elem('store').get(0);
 
                 this._blocks = {
-                    goods: this.findBlockOutside('g-goods')
+                    goods: this.findBlockOutside('g-goods'),
+                    button: this.findBlockInside('g-button')
                 }
 
                 this.bindTo('click', function (e) {
                     //TODO: improve
-                    if (e.target === button)
-                        return;
+                    if (!this.hasMod('missing')) {
+                        if (e.target === this._blocks.button.domElem.get(0))
+                            return;
+                    }
 
                     if (e.target === store)
                         return;
@@ -113,8 +115,8 @@ BEMDOM.decl('g-product', {
                 return;
 
             that.__self.insertData.call(that, data);
-            spin.setMod('visible', false);
-            dimmer.setMod('show', false);
+            spin.delMod('visible');
+            dimmer.delMod('show');
         });
 
         if (requested) {
@@ -170,9 +172,9 @@ BEMDOM.decl('g-product', {
         var borderBottom = parseInt(frame.css('borderBottom'), 10) || 0;
 
         var height = frame.height() + paddingBottom + paddingTop + marginTop + marginBottom
-                        + borderTop + borderBottom;
-        var oldTop = this.domElem.offset().top;
+                     + borderTop + borderBottom;
 
+        var oldTop = this.domElem.offset().top;
         BEMDOM.after(lastBlock.domElem, expanded.domElem);
 
         var offset = oldTop == this.domElem.offset().top ? 0 : -height;
@@ -246,17 +248,17 @@ BEMDOM.decl('g-product', {
 
     showExpanded: function (data) {
         var self = this;
-        var expanded = this.__self.getFrame.call(this);
-        this._reposition(expanded);
-        expanded.show(this.domElem);
-        expanded.on('close', function (e) {
+        var frame = this.__self.getFrame.call(this);
+        this._reposition(frame);
+        frame.show(this.domElem);
+        frame.on('close', function (e) {
             self.unselect();
         });
     },
 
     insertData: function (data) {
-        var expanded = this.__self.getFrame.call(this);
-        BEMDOM.update(expanded.elem('content'), BEMHTML.apply(data));
+        var frame = this.__self.getFrame.call(this);
+        BEMDOM.update(frame.elem('content'), BEMHTML.apply(data));
     },
 
     hideExpanded: function (expanded) {
