@@ -11,26 +11,30 @@ modules.define('g-search', ['i-bem__dom', 'config', 'router', 'logger'],
 
                 var self = this;
                 var title = this.findElem('title');
+                var searchInput = this.findBlockInside('g-input');
+
                 this.bindTo('button', 'click', function (e) {
                     if (this.hasMod('wide')) {
                         this.delMod('wide');
                         this.setMod('loading', 'left');
+
                         setTimeout(function () {
                             title.text('Поиск');
                         }, DELAY);
                     } else {
+                        searchInput.focus();
                         this.setMod('loading', 'right');
+
                         setTimeout(function () {
                             self.setMod('wide');
                             title.text('Меню');
                         }, DELAY);
                     }
+
                     setTimeout(function () {
                         self.delMod('loading');
                     }, DELAY);
                 });
-
-                var searchInput = this.findBlockInside('g-input');
 
                 searchInput.bindTo('keydown', function (e) {
                     if (e.keyCode == 13) {
