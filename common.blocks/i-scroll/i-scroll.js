@@ -1,4 +1,4 @@
-modules.define('scroll', ['i-bem__dom', 'inherit', 'events'], function (provide, BEMDOM, inherit, events) {
+modules.define('i-scroll', ['i-bem__dom', 'inherit', 'events'], function (provide, BEMDOM, inherit, events) {
     
     var scroll = inherit(events.Emitter, {
         __constructor: function () {
