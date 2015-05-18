@@ -1,4 +1,4 @@
-modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'],
+modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger', 'page'],
     function (provide, BEMDOM, Uri, CONFIG, logger) {
     var controller = {
         init: function (content) {
@@ -83,6 +83,9 @@ modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger'],
             $.getJSON(url, function success(data) {
                 if (self._active != controller)
                     return;
+
+                self._blocks.page.setTitle(data.title);
+                self._blocks.page.setDescription(data.description);
 
                 var bemjson = pages[config.priv](data);
                 self._blocks.content.update(bemjson);
