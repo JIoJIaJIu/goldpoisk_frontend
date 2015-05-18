@@ -1,5 +1,5 @@
-modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'],
-               function(provide, BEMDOM, $, logger, router, cookie) {
+modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie', 'i-scroll'],
+               function(provide, BEMDOM, $, logger, router, cookie, scroll) {
     BEMDOM.decl('g-filter', {
         onSetMod: {
             js: {
@@ -16,13 +16,41 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                         footer: page.findBlockInside('g-footer')
                     };
 
+                    var TOPSPACE = 30;
+
                     cookie.get('filter_hidden') === 'true' ? this.setMod('hidden') : this.delMod('hidden');
 
                     this.bindTo(this.elem('button'), 'click', function (e) {
                         this.toggleMod('hidden');
                     });
+                    scroll.on('scrollTop', function (e) {
+                        console.log('Scroll to top');
+                        var currentTop = $(window).scrollTop();
+                        var offset = self.domElem.offset();
 
-                    this.bindToWin('scroll', window._scrollFn);
+                        if (currentTop + (self._blocks.header.domElem.height() + TOPSPACE) <= offset.top) {
+                            var val = offset.top - TOPSPACE - (offset.top - currentTop + (self._blocks.header.domElem.height() + TOPSPACE));
+                            val = val > 0 ? val : 0;
+                            self.domElem.css('top', val + 'px');
+                        }
+                    });
+
+                    scroll.on('scrollBottom', function (e) {
+                        console.log('Scroll to bottom');
+                        var currentTop = $(window).scrollTop();
+                        var scrollButton = self._blocks.scrollButton;
+                        var offset = self.domElem.offset();
+                        var height = self.domElem.outerHeight();
+                        var window_height = $(window).outerHeight();
+                        if ((currentTop - (offset.top + height) > 2 * window_height)
+                            || (offset.top - currentTop > 2 * window_height)) {
+                            if (scrollButton.hasMod('hidden'))
+                                scrollButton.delMod('hidden');
+                        } else {
+                            if (!scrollButton.hasMod('hidden'))
+                                scrollButton.setMod('hidden');
+                        }
+                    });
 
                     var button = this.findBlockInside('g-button');
                     button.bindTo('click', function (e) {
@@ -38,7 +66,6 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
 
                     var startPosition = this.domElem.offset().top;
                     this._moveFn = function (e) {
-                        console.log('3');
                         var isHidden = self.hasMod('hidden');
                         self.setMod('hidden', 'force');
 
@@ -57,12 +84,12 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                         self.delMod('hidden');
                         this.setMod('hidden');
                     };
-
                     this._blocks.scrollButton.bindTo('click', this._moveFn);
                 },
                 '': function () {
                     this.unbindFrom(this.elem('button'), 'click');
                     this.findBlockInside('g-button').unbindFrom('click');
+                    scroll.finalize();
                     this.unbindFromWin('scroll', this._scrollFn);
 
                     this._logger.finalize();
@@ -112,37 +139,6 @@ modules.define('g-filter', ['i-bem__dom', 'jquery', 'logger', 'router', 'cookie'
                 self._blocks.goods.loading(false);
             });
         },
-
-        _scrollFn: function () {
-            var top = 0;
-            this._scrollFn = function (e) {
-                var currentTop = $(window).scrollTop();
-                var TOPSPACE = 30 + this._blocks.header.domElem.height();
-                var scrollButton = this._blocks.scrollButton;
-                var offset = this.domElem.offset();
-                var height = this.domElem.outerHeight();
-                var window_height = $(window).outerHeight();
-                if (top - currentTop > 0) {
-                    // scrollTop
-                    if (currentTop + TOPSPACE < offset.top) {
-                        var val = offset.top - 30 - (offset.top - currentTop + TOPSPACE);
-                        this._top = val > 0 ? val : 0;
-                        this.domElem.css('top', this._top + 'px');
-                    }
-                } else {
-                    // scrollBottom
-                }
-                if ((currentTop - (offset.top + height) > 2 * window_height)
-                    || (offset.top - currentTop > 2 * window_height)) {
-                    if (scrollButton.hasMod('hidden'))
-                        scrollButton.delMod('hidden');
-                } else {
-                    if (!scrollButton.hasMod('hidden'))
-                        scrollButton.setMod('hidden');
-                }
-                top = currentTop;
-            }
-        }(),
 
         _pending: false,
         _data: null,
