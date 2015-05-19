@@ -84,8 +84,17 @@ modules.define('controller', ['i-bem__dom', 'uri', 'config', 'logger', 'page'],
                 if (self._active != controller)
                     return;
 
-                self._blocks.page.setTitle(data.title);
-                self._blocks.page.setDescription(data.description);
+                var title = data.title;
+                var description = data.description;
+                var capitalize = true;
+                if (type == 'item') {
+                    title = self._blocks.page.genTitle(data.title);
+                    description = self._blocks.page.genDescription(data.title, data.category);
+                    capitalize = false;
+                }
+
+                self._blocks.page.setTitle(title);
+                self._blocks.page.setDescription(description, capitalize);
 
                 var bemjson = pages[config.priv](data);
                 self._blocks.content.update(bemjson);

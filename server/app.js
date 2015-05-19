@@ -54,7 +54,26 @@ app.get('/', function (req, res) {
 
 app.get('/item/(:id([0-9]*))?', function (req, res) {
     if (!req.xhr) {
-        res.send('req.params.id');
+        var item = fs.readFileSync('data/item/item.json');
+        item = JSON.parse(item.toString());
+        var menu = getMenu();
+        fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
+            if (err) throw err;
+            var privContext = vm.createContext();
+            vm.runInContext(data.toString(), privContext);
+            console.log(item);
+            var bemjson = privContext.pages['item']({menu: menu, item: item}, {production: false});
+
+            fs.readFile('../desktop.bundles/merge/index.bemhtml.js', function (err, data) {
+                if (err) throw err;
+                var bemhtmlContext = vm.createContext();
+                vm.runInContext(data.toString(), bemhtmlContext);
+                var html = bemhtmlContext.BEMHTML.apply(bemjson);
+                console.log
+                res.send(html);
+            })
+        })
+
     } else {
         var data = fs.readFileSync('data/item/item.json');
         res.json( JSON.parse(data) );

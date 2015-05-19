@@ -52,7 +52,7 @@ blocks['g-item'] = function (data, env) {
     }
 
     if (env.independent) {
-        heading.mods.size = 'l';
+        heading.mods = { size: 'l' };
     }
 
     var params = {
