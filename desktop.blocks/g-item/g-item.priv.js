@@ -43,6 +43,7 @@ blocks['g-item'] = function (data, env) {
 
     var heading = {
         block: 'g-heading',
+        mods: { 'normalize': 'register' },
         content: data.title
     }
 
@@ -52,7 +53,7 @@ blocks['g-item'] = function (data, env) {
     }
 
     if (env.independent) {
-        heading.mods = { size: 'l' };
+        heading.mods.size = 'l';
     }
 
     var params = {

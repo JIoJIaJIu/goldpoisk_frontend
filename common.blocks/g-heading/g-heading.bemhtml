@@ -6,6 +6,21 @@ block('g-heading')(
             title: this.ctx.content
         };
     }),
+    mod('normalize', 'register')(
+        attrs()(function () {
+            var content = this.ctx.content.toLowerCase();
+            content = content.charAt(0).toUpperCase() + content.substr(1);
+            return {
+                descrition: content,
+                title: content
+            };
+        }),
+        content()(function () {
+            var content = this.ctx.content.toLowerCase();
+            content = content.charAt(0).toUpperCase() + content.substr(1);
+            return content;
+        })
+    ),
     match(this.ctx.url)(
         content()(function () {
             return {
@@ -13,7 +28,26 @@ block('g-heading')(
                 attrs: { href: this.ctx.url },
                 content: this.ctx.content
             };
-        })
+        }),
+        mod('normalize', 'register')(
+            attrs()(function () {
+                var content = this.ctx.content.toLowerCase();
+                content = content.charAt(0).toUpperCase() + content.substr(1);
+                return {
+                    descrition: content,
+                    title: content
+                };
+            }),
+            content()(function () {
+                var content = this.ctx.content.toLowerCase();
+                content = content.charAt(0).toUpperCase() + content.substr(1);
+                return {
+                    tag: 'a',
+                    attrs: { href: this.ctx.url },
+                    content: content
+                };
+            })
+        )
     ),
     match(this.ctx.count)(
         content()(function () {
