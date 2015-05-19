@@ -2,31 +2,34 @@ modules.define('page', ['i-bem__dom'], function (provide, BEMDOM) {
 
     BEMDOM.decl('page', {
         setTitle: function (title) {
-            title = title.toLowerCase();
-            title = title.charAt(0).toUpperCase() + title.substr(1);
             $(document.documentElement)
                 .find('title')
-                .text(title);
+                .text(this._capitalize(title));
         },
 
-        setDescription: function (description) {
-            description = description.toLowerCase();
-            description = description.charAt(0).toUpperCase() + description.substr(1);
+        setDescription: function (description, capitalize) {
+            if (capitalize)
+                description = this._capitalize(description)
             $(document.documentElement)
                 .find('head meta[name=description]')
                 .attr('content', description);
         },
 
         genTitle: function (title) {
-            title = 'купить ' + title;
-            this.setTitle(title);
+            return "Купить %title%".replace("%title%", title);
         },
 
         genDescription: function (title, category) {
-            var description = 'Предлагаем не только купить ' + title.toLowerCase() + ', но и взглянуть на все ' + category + ', которые у нас есть. Отсортируйте по цене для поиска более выгодного предложения.';
-            $(document.documentElement)
-                .find('head meta[name=description]')
-                .attr('content', description);
+            return "Предлагаем не только купить %title%, но и взглянуть на все %category% , которые у нас есть. Отсортируйте по цене для поиска более выгодного предложения."
+                .replace("%title%", title.toLowerCase())
+                .replace("%category%", category);
+        },
+
+        _capitalize: function (word) {
+            word = word || "";
+            word = word.toLowerCase();
+            word = word.charAt(0).toUpperCase() + word.substr(1);
+            return word;
         }
     }, {});
 
