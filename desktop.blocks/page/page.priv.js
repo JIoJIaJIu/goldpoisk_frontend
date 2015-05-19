@@ -192,7 +192,11 @@ pages['category.content'] = function (data, env) {
  * data.item
  */
 pages['item'] = function (data, env) {
+    var title = 'Купить ' + data.item.title;
+    var description = 'Предлагаем не только купить ' + data.item.title.toLowerCase() + ', но и взглянуть на все ' + data.item.category + ', которые у нас есть. Отсортируйте по цене для поиска более выгодного предложения.';;
     return blocks['page']({
+        title: title,
+        description: description,
         menu: data.menu,
         content: {
             block: 'g-content',
