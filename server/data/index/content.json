@@ -1,13 +1,29 @@
 {
-    "promo": [
-        "../desktop.blocks/g-promotion/images/promotion01.png",
-        "../desktop.blocks/g-promotion/images/promotion02.png",
-        "../desktop.blocks/g-promotion/images/promotion03.png",
-        "../desktop.blocks/g-promotion/images/promotion04.png",
-        "../desktop.blocks/g-promotion/images/promotion05.png",
-        "../desktop.blocks/g-promotion/images/promotion06.png"
-    ],
+    "title": "Самый большой каталог ювелирных изделий",
+    "description": "Goldpoisk - это все ювелирные изделия от лучших производителей на одном сайте. Огромный выбор из 150 000 товаров. Удобный, бесплатный поиск и фильтр по подбору нужного ювелирного изделия.",
+    "promo": [{
+        "src": "../desktop.blocks/g-promotion/images/promotion_02.jpg",
+        "title": "Title",
+        "items": [{
+            "title": "Здесь пиздец какой длинный текст, ну нереально длинный текст иммитирующий название товара",
+            "price": 5000,
+            "url": "#",
+            "x": 100,
+            "y": 100
+        }]
+    }, {
+        "src": "../desktop.blocks/g-promotion/images/promotion_01.jpg",
+        "title": "Title 2",
+        "items": [{
+            "title": "Item 2 title",
+            "price": 7000,
+            "url": "#",
+            "x": 200,
+            "y": 200
+        }]
+    }],
     "products": [{
+        "id": 1,
         "title": "Golden Earring",
         "number": "143532",
         "url": "#",
@@ -20,8 +36,9 @@
         "minPrice": 15349,
         "shopName": "All Star",
         "shopUrl": "#",
-        "buyUrl": "#'"
+        "buyUrl": "#"
     }, {
+        "id": 2,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -34,8 +51,9 @@
         "minPrice": 15349,
         "shopName": "All Star",
         "shopUrl": "#",
-        "buyUrl": "#'"
+        "buyUrl": "#"
     }, {
+        "id": 3,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -48,8 +66,9 @@
         "minPrice": 15349,
         "shopName": "All Star",
         "shopUrl": "#",
-        "buyUrl": "#'"
+        "buyUrl": "#"
     }, {
+        "id": 4,
         "title": "Silver Lips",
         "number": "4352",
         "url": "#",
@@ -62,7 +81,7 @@
         "minPrice": 15349,
         "shopName": "All Star",
         "shopUrl": "#",
-        "buyUrl": "#'"
+        "buyUrl": "#"
     }],
     "count": 14
 }

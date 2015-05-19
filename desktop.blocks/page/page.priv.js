@@ -3,10 +3,10 @@ var pages = {};
 blocks['page'] = function (data, env) {
     return {
         block: 'page',
-        title: 'GoldPoisk',
+        title: data.title,
         favicon: '/media/favicon.ico',
         head: [
-            { elem: 'meta', attrs: { name: 'description', content: '' } },
+            { elem: 'meta', attrs: { name: 'description', content: data.description } },
             { elem: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' } },
             { elem: 'css', url:  '/css/index.css' }
         ],
@@ -19,7 +19,6 @@ blocks['page'] = function (data, env) {
             { elem: 'js', url: '/js/index.js' }
         ],
         mods: { theme: 'normal' },
-
         content: [
             blocks['g-header'](null, env),
             blocks['g-menu'](data.menu, env),
@@ -35,6 +34,8 @@ blocks['page'] = function (data, env) {
 
 pages['index'] = function (data, env) {
     return blocks['page']({
+        title: 'Самый большой каталог ювелирных изделий',
+        description: 'Goldpoisk - это все ювелирные изделия от лучших производителей на одном сайте. Огромный выбор из 150 000 товаров. Удобный, бесплатный поиск и фильтр по подбору нужного ювелирного изделия.',
         menu: data.menu,
         content: [
             {
@@ -152,6 +153,8 @@ pages['category'] = function (data, env) {
     env.headerJs = true;
 
     return blocks['page']({
+        title: data.title,
+        description: data.description,
         menu: data.menu,
         content: {
             block: 'g-content',
