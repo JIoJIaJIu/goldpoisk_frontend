@@ -43,7 +43,7 @@ blocks['g-item'] = function (data, env) {
 
     var heading = {
         block: 'g-heading',
-        content: data.title
+        content: capitalize(data.title)
     }
 
     var category = {
@@ -52,7 +52,7 @@ blocks['g-item'] = function (data, env) {
     }
 
     if (env.independent) {
-        heading.mods = { size: 'l' };
+        heading.mods.size = 'l';
     }
 
     var params = {

@@ -94,7 +94,7 @@ app.get('/[a-z]*/json', function (req, res) {
 app.get('/product/item', function (req, res) {
     var item = {
         'id': 1,
-        'title': 'Some title',
+        'title': 'Some Title',
         'js': true,
         'url': '/item/1',
         'images': [
