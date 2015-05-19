@@ -102,7 +102,7 @@
     width: 66px;
 }
 
-.g-product__button .g-button {
+.g-product:hover .g-product__button .g-button {
     display: block;
 }
 

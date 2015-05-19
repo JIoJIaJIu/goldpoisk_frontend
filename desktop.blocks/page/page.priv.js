@@ -296,3 +296,10 @@ function declension(count, word) {
         return 'Oops';
     }
 }
+
+function capitalize (word) {
+    word = word || "";
+    word = word.toLowerCase();
+    word = word.charAt(0).toUpperCase() + word.substr(1);
+    return word;
+}
