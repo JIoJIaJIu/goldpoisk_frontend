@@ -2,6 +2,7 @@
  *  @param {Object} data
  *    @key {Number} id
  *    @key {String} title - Название товара
+ *    @key {String} category - Категория товара
  *    @key {String} number - Артикул товара
  *    @key {String} weight - Вес товара
  *    @key {String} url - Ссылка на расширенную страницу товара
@@ -43,6 +44,7 @@ blocks['g-item'] = function (data, env) {
 
     var heading = {
         block: 'g-heading',
+        mods: {},
         content: capitalize(data.title)
     }
 

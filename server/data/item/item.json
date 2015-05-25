@@ -1,5 +1,7 @@
 {
     "title": "Обручальное Кольцо из белого золота с 21 бриллиантом",
+    "category": "Кольца",
+    "categoryUrl": "/rings",
     "fix": true,
     "id": 1,
     "js": true,
@@ -10,18 +12,14 @@
     "images": [
         "some/path.png"
     ],
-    "gems": [
-        {
+    "gems": [{
             "name": "Бриллиант",
             "carat": "45"
-        }
-    ],
-    "items": [
-        {
+    }],
+    "items": [{
             "price": 5200,
             "buyUrl": "#",
             "storeName": "Moscow",
             "storeUrl": "#"
-        }
-    ]
+    }]
 }
