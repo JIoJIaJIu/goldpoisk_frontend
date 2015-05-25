@@ -6,6 +6,7 @@ block('g-image')(
             alt: this.ctx.alt
         };
     }),
+
     mod('preload', true)(
         js()(true),
         tag()('span'),
@@ -13,19 +14,17 @@ block('g-image')(
             return {};
         }),
         content()(function () {
-            return [{
-                elem: 'icon',
-                tag: 'span'
-            }, {
-                elem: 'main',
+            return {
+                elem: 'pic',
                 tag: 'img',
                 attrs: {
                     src: this.ctx.url,
                     alt: this.ctx.alt
                 }
-            }]
+            };
         })
     ),
+
     mod('spin', true)(
         js()(true),
         tag()('div'),
