@@ -192,11 +192,26 @@ pages['category.content'] = function (data, env) {
  * data.item
  */
 pages['item'] = function (data, env) {
+    assertHas(data, 'category', 'Should point category');
+    assertHas(data, 'categoryUrl', 'Should point categoryUrl');
     return blocks['page']({
         menu: data.menu,
         content: {
             block: 'g-content',
-            content: [
+            content: [{
+                    block: 'g-breadcrumbs',
+                    root: {
+                        title: 'Главная',
+                        url: '/'
+                    },
+                    path: [{
+                            title: data.category,
+                            url: data.categoryUrl
+                        }, {
+                            title: data.title,
+                            url: data.url
+                    }]
+            }],
                 {
                     block: 'g-item',
                     content: [
@@ -209,7 +224,22 @@ pages['item'] = function (data, env) {
 }
 
 pages['item.content'] = function (data, env) {
-    return [
+    assertHas(data, 'category', 'Should point category');
+    assertHas(data, 'categoryUrl', 'Should point categoryUrl');
+    return [{
+            block: 'g-breadcrumbs',
+            root: {
+                title: 'Главная',
+                url: '/'
+            },
+            path: [{
+                    title: data.category,
+                    url: data.categoryUrl
+                }, {
+                    title: data.title,
+                    url: data.url
+            }]
+        },
         blocks['g-item'](data, {big: true, independent: true})
     ]
 }
