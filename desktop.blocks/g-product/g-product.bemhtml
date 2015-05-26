@@ -22,6 +22,7 @@ block('g-product')(
                         tag: 'span',
                         content: {
                             block: 'g-image',
+                            js: true,
                             mods: { preload: true, size: 'm' },
                             alt: this.ctx.title,
                             url: this.ctx.imageUrl
@@ -84,6 +85,7 @@ block('g-product')(
                             tag: 'span',
                             content: {
                                 block: 'g-image',
+                                js: true,
                                 mods: { preload: true, size: 'm' },
                                 alt: this.ctx.title,
                                 url: this.ctx.imageUrl

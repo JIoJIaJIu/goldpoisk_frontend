@@ -1,5 +1,6 @@
 .g-image {
     display: inline-block;
+    background: none;
 }
 
 .g-image_size_m {
@@ -7,31 +8,31 @@
     height: 180px;
 }
 
-.g-image_preload {
+.g-image_loading {
     background: url('/images/sprite.png');
 }
 
-.g-image_preload.g-image_size_m {
+.g-image_loading.g-image_size_m {
     background-position: -290px -320px;
 }
 
-.g-image_done {
-    background: none;
-}
-
-.g-image__pic {
-    opacity: 0;
+.g-image__picture {
+    opacity: 1;
     transition: opacity 0.5s;
     -webkit-transition: opacity 0.5s;
-    -mox-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
     -ms-transition: opacity 0.5s;
 }
 
-.g-image_done .g-image__pic {
-    opacity: 1;
+.g-image_loading .g-image__picture {
+    opacity: 0;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
 }
 
-.g-image_size_m .g-image__pic {
+.g-image_size_m .g-image__picture {
     max-width: 210px;
     max-height: 180px;
 }

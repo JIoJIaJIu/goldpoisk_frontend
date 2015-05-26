@@ -15,7 +15,7 @@ block('g-image')(
         }),
         content()(function () {
             return {
-                elem: 'pic',
+                elem: 'picture',
                 tag: 'img',
                 attrs: {
                     src: this.ctx.url,
