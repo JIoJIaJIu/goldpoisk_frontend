@@ -1,27 +1,40 @@
-.g-image__icon {
-    position: absolute;
-    display: block;
-    opacity: 1;
-    background: url('/images/sprite.png');
-    transition: opacity 1s;
-    -webkit-transition: opacity 1s;
-    -mox-transition: opacity 1s;
-    -ms-transition: opacity 1s;
+.g-image {
+    display: inline-block;
+    background: none;
 }
 
-.g-image_done .g-image__icon {
-    opacity: 0;
-}
-
-.g-image .g-image__main {
-    max-width: 210px;
-    max-height: 180px;
-}
-
-.g-image_size_m .g-image__icon {
+.g-image_size_m {
     width: 210px;
     height: 180px;
+}
+
+.g-image_loading {
+    background: url('/images/sprite.png');
+}
+
+.g-image_loading.g-image_size_m {
     background-position: -290px -320px;
+}
+
+.g-image__picture {
+    opacity: 1;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+}
+
+.g-image_loading .g-image__picture {
+    opacity: 0;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+}
+
+.g-image_size_m .g-image__picture {
+    max-width: 210px;
+    max-height: 180px;
 }
 
 .g-image_spin {

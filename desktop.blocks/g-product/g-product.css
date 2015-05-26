@@ -33,6 +33,8 @@
 .g-product__image .g-image {
     max-width: 210px;
     max-height: 180px;
+    min-width: 210px;
+    min-height: 180px;
 }
 
 .g-product__title {

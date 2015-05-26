@@ -1,16 +1,22 @@
 modules.define('g-image', ['i-bem__dom'], function(provide, BEMDOM) {
-    
+
     BEMDOM.decl({block: 'g-image', modName: 'preload'}, {
         onSetMod: {
             js: {
                 'inited': function () {
-                    var self = this;
-                    this.bindTo('main', 'load', function (e) {
-                        self.setMod('done', true);
+                    var img = this.elem('picture')[0];
+                    if (img.complete)
+                        return;
+
+                    this.setMod('loading', true);
+                    this.bindTo('picture', 'load', function (e) {
+                        this.delMod('loading');
+                        this.unbindFrom('picture', 'load');
                     });
                 },
+
                 '': function () {
-                    this.unbindFrom('main', 'load');
+                    this.unbindFrom('picture', 'load');
                 }
             }
         }
