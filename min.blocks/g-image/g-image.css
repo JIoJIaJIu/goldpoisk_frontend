@@ -8,12 +8,23 @@
     height: 180px;
 }
 
-.g-image_loading {
-    background: url('/images/sprite.png');
+.g-image_size_s {
+    width: 62px;
+    height: 46px;
 }
 
-.g-image_loading.g-image_size_m {
-    background-position: -290px -320px;
+.g-image_size_l {
+    width: 300px;
+    height: 250px;
+}
+
+.g-image_size_xl {
+    width: 320px;
+    height: 290px;
+}
+
+.g-image_loading {
+    background: url('./images/g-item.svg') 50% 50% no-repeat;
 }
 
 .g-image__picture {
