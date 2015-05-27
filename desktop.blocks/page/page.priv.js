@@ -211,14 +211,12 @@ pages['item'] = function (data, env) {
                             title: data.title,
                             url: data.url
                     }]
-            }],
-                {
-                    block: 'g-item',
-                    content: [
-                        blocks['g-item'](data.item, {big: true})
-                    ]
-                }
-            ]
+            }, {
+                block: 'g-item',
+                content: [
+                    blocks['g-item'](data.item, {big: true})
+                ]
+            }]
         }
     }, env)
 }
