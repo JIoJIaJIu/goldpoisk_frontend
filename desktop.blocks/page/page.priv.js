@@ -195,30 +195,30 @@ pages['item'] = function (data, env) {
     assertHas(data, 'category', 'Should point category');
     assertHas(data, 'categoryUrl', 'Should point categoryUrl');
     return blocks['page']({
+        title: data.title,
+        description: data.description,
         menu: data.menu,
         content: {
             block: 'g-content',
             content: [{
-                    block: 'g-breadcrumbs',
-                    root: {
-                        title: 'Главная',
-                        url: '/'
-                    },
-                    path: [{
-                            title: data.category,
-                            url: data.categoryUrl
-                        }, {
-                            title: data.title,
-                            url: data.url
-                    }]
-            }],
-                {
-                    block: 'g-item',
-                    content: [
-                        blocks['g-item'](data.item, {big: true})
-                    ]
-                }
-            ]
+                block: 'g-breadcrumbs',
+                root: {
+                    title: 'Главная',
+                    url: '/'
+                },
+                path: [{
+                        title: data.category,
+                        url: data.categoryUrl
+                    }, {
+                        title: data.title,
+                        url: data.url
+                }]
+            }, {
+                block: 'g-item',
+                content: [
+                    blocks['g-item'](data.item, {big: true})
+                ]
+            }]
         }
     }, env)
 }
@@ -247,6 +247,8 @@ pages['item.content'] = function (data, env) {
 //TODO:
 pages['item.json'] = function (data, env) {
     return blocks['page']({
+        title: data.title,
+        description: data.description,
         menu: data.menu,
         content: {
             block: 'g-content',
