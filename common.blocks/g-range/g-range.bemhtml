@@ -1,7 +1,21 @@
 block('g-range')(
-    js()(true),
+    js()(function () {
+        var ctx = this.ctx;
+        var js = typeof(ctx.ticks) == 'number' ?
+            {
+                ticks: ctx.ticks,
+                min: ctx.min,
+                max: ctx.max,
+                width: ctx.width
+            } :
+            true;
+        return js;
+    }),
     content()(function () {
         var ctx = this.ctx;
+        if (typeof(ctx.ticks) == 'number') {
+            ctx.ticks = []
+        }
         return [
             {
                 elem: 'left',

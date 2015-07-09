@@ -42,7 +42,11 @@ block('g-filter-param')(
                                 ]
                             }, {
                                 block: 'g-range',
+                                attrs: {
+                                    style: 'width:' + ctx.scale + 'px;'
+                                },
                                 width: ctx.scale,
+                                min: ctx.min,
                                 max: ctx.max,
                                 ticks: ctx.ticks
                             }, {
