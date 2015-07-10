@@ -209,7 +209,7 @@ pages['item'] = function (data, env) {
                     url: data.categoryUrl
                 }, {
                     title: data.title,
-                    url: data.url
+                    url: '#'
                 }]
             }, {
                 block: 'g-item',
@@ -233,7 +233,7 @@ pages['item.content'] = function (data, env) {
                     url: data.categoryUrl
                 }, {
                     title: data.title,
-                    url: data.url
+                    url: '#'
             }]
         },
         blocks['g-item'](data, {big: true, independent: true})
