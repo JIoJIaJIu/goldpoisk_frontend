@@ -9,6 +9,7 @@ bem-core/*
 bem-social/*
 bem-history/*
 .bem/cache
+desktop.bundles/test/**
 
 node_modules/**
 desktop.bundles/index/**

@@ -8,6 +8,8 @@ var levels = [
     'bem-core/common.blocks',
     'bem-core/desktop.blocks',
     'bem-history/common.blocks',
+    'bem-social/desktop.blocks',
+    'bem-social/design/common.blocks',
     'common.blocks',
     'lib.blocks',
     'min.blocks',

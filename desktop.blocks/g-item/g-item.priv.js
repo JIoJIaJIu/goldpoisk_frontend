@@ -195,20 +195,15 @@ blocks['g-item'] = function (data, env) {
                     mods: { type: 'extended' }
                 }, {
                     block: 'yashare',
-                    quickServices : data.yashare.quickServices || [
+                    quickServices: [
                         'vkontakte',
                         'facebook',
                         'twitter',
                         'odnoklassniki'
                     ],
-                    theme: data.yashare.theme || 'counter',
-                    l10n: data.yashare.l10n || 'ru',
-                    url: data.url,
-                    title: data.yashare.likesTitle,
-                    description: data.yashare.likesDescription,
-                    image: 'https://raw.githubusercontent.com/voischev/bem-social/' +
-                           'master/desktop.bundles/index/blocks/page/image/bem.png'
-                }]
+                    theme: 'counter',
+                    l10n: 'ru'
+            }]
         };
     }
 }
