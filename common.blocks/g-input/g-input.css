@@ -72,3 +72,14 @@
     color: #555;
     padding-left: 20px;
 }
+
+/* input type number */
+.g-input_type_number .g-input__control::-webkit-inner-spin-button,
+.g-input_type_number .g-input__control::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.g-input_type_number .g-input__control {
+    -moz-appearance: textfield;
+}

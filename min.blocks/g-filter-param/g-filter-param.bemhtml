@@ -23,17 +23,26 @@ block('g-filter-param')(
                 content: [
                     {
                         block: 'g-price-control',
+                        js: true,
                         content: [
                             {
                                 elem: 'input',
                                 content: [
                                     {
                                         block: 'g-input',
+                                        mods: {
+                                            type: 'number',
+                                            min: true
+                                        },
                                         value: ctx.min
                                     },
                                     '&#8212;',
                                     {
                                         block: 'g-input',
+                                        mods: {
+                                            type: 'number',
+                                            max: true
+                                        },
                                         value: ctx.max
                                     }, {
                                         block: 'g-price',
