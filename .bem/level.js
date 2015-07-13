@@ -26,6 +26,7 @@ exports.getConfig = function () {
             '../../bem-core/desktop.blocks',
             '../../bem-social/common.blocks',
             '../../bem-social/desktop.blocks',
+            '../../bem-social/design/common.blocks',
             '../../bem-history/common.blocks',
             '../../common.blocks',
             '../../min.blocks',

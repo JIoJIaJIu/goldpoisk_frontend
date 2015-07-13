@@ -54,7 +54,29 @@ app.get('/', function (req, res) {
 
 app.get('/item/(:id([0-9]*))?', function (req, res) {
     if (!req.xhr) {
-        res.send('req.params.id');
+        fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
+            if (err) throw err;
+            var privContext = vm.createContext();
+            vm.runInContext(data.toString(), privContext);
+            var menu = getMenu();
+            var item = getItem();
+            var data = {
+                'menu': menu,
+                'title': 'Title товара',
+                'description': 'Description товара',
+                'category': 'Кольца',
+                'categoryUrl': '/rings',
+                'item': item
+            };
+            var bemjson = privContext.pages['item'](data, {production: false});
+            fs.readFile('../desktop.bundles/merge/index.bemhtml.js', function (err, data) {
+                if (err) throw err;
+                var bemhtmlContext = vm.createContext();
+                vm.runInContext(data.toString(), bemhtmlContext);
+                var html = bemhtmlContext.BEMHTML.apply(bemjson);
+                res.send(html);
+            });
+        });
     } else {
         var data = fs.readFileSync('data/item/item.json');
         res.json( JSON.parse(data) );
@@ -211,4 +233,25 @@ function getMenu() {
 
 function getProduct() {
     return JSON.parse(fs.readFileSync('data/products.json'));//[0]
+}
+
+function getItem() {
+    return {
+        "title": "Title товара",
+        "category": "Кольца",
+        "id": 1,
+        "url": "#",
+        "number": "123123",
+        "weight": "5 гр.",
+        "items": [{
+            "storeName": "Название магазина",
+            "storeUrl": "#",
+            "buyUrl": "#",
+            "price": 5000
+        }],
+        "images": [
+            "img1",
+            "img2"
+        ]
+    }
 }

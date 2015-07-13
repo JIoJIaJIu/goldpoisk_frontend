@@ -11,7 +11,8 @@
         { elem: 'js', url: 'item.bemhtml.js' },
         { elem: 'js', url: 'item.priv.js' },
         { elem: 'js', url: '//vk.com/js/api/openapi.js?105' },
-        { elem: 'js', url: 'item.js' }
+        { elem: 'js', url: 'item.js' },
+        { elem: 'js', url: '../../static/js/third-parties/lodash.min.js' }
     ],
     mods: { theme: 'normal' },
     content: [
@@ -187,12 +188,7 @@
                                         'odnoklassniki'
                                     ],
                                     theme : 'counter',
-                                    l10n : 'ru',
-                                    url : 'localhost:8080/desktop.bundles/item/item.html',
-                                    title : 'BEM Social Components Library',
-                                    description : 'Fork me on GitHub',
-                                    image : 'https://raw.githubusercontent.com/voischev/bem-social/' +
-                                            'master/desktop.bundles/index/blocks/page/image/bem.png'
+                                    l10n : 'ru'
                                 }
                             ]
                         }, {
