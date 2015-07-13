@@ -12,7 +12,8 @@
         { elem: 'js', url: 'item.priv.js' },
         { elem: 'js', url: '//vk.com/js/api/openapi.js?105' },
         { elem: 'js', url: 'item.js' },
-        { elem: 'js', url: '../../static/js/third-parties/lodash.min.js' }
+        { elem: 'js', url: '../../static/js/third-parties/lodash.min.js' },
+        { elem: 'js', url: '../../static/js/third-parties/jquery.min.js'}
     ],
     mods: { theme: 'normal' },
     content: [
@@ -113,8 +114,7 @@
                             url: '/'
                         },
                         {
-                            title: 'Красивые',
-                            url: '/'
+                            title: 'Красивые'
                         }
                     ]
                 },

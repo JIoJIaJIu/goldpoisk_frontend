@@ -193,7 +193,7 @@ blocks['g-item'] = function (data, env) {
                 {
                     block: 'g-like',
                     mods: { type: 'extended' }
-                }, {
+                }/*, {
                     block: 'yashare',
                     quickServices: [
                         'vkontakte',
@@ -203,7 +203,7 @@ blocks['g-item'] = function (data, env) {
                     ],
                     theme: 'counter',
                     l10n: 'ru'
-            }]
+            }*/]
         };
     }
 }

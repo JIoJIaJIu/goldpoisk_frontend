@@ -5,33 +5,25 @@ modules.define('g-breadcrumbs', ['i-bem__dom', 'router'],
             js: {
                 'inited': function () {
                     var self = this;
-                    this._rootNode = this.findBlockInside('g-breadcrumbs__root-node');
-                    this._levelNodes = this.findBlocksInside('g-breadcrumbs__top-level-node');
 
-                    this._rootNode.bindTo('click', { partUrl: this._rootNode.params.url }, this._onNodeClick);
-                    _.forEach(this._levelNodes, function (part) {
-                        if (part.params.url)
-                            part.bindTo('click', function (e) {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                router.route(part.params.url);
-                            });
+                    this.bindTo('click', function (e) {
+                        this._onCrumbsClick(e);
                     });
                 },
 
                 '': function () {
-                    this._rootNode.unbindFrom('click', this._onNodeClick);
-                    _.forEach(this._levelNodes, function (part) {
-                        part.unbindFrom('click');
-                    });
+                    this.unbindFrom('click');
                 }
             }
         },
 
-        _onNodeClick: function (e) {
+        _onCrumbsClick: function (e) {
             e.stopPropagation();
             e.preventDefault();
-            router.route(e.data.partUrl);
+
+            var params = this.elemParams($(e.target));
+
+            router.route(params.url);
         }
 
     }, {});
