@@ -1,5 +1,5 @@
 .g-like span:first-child {
-    background-image: url(images/empty_heart.png);
+    background: url("/images/sprite.png") -26px -170px;
     display: inline-block;
     vertical-align: top;
     width: 26px;
@@ -8,7 +8,7 @@
 }
 
 .g-like_type_extended span:last-child {
-    font-family: Clear_Sans, Arial, sans-serif;
+    font-family: "Clear_Sans", Arial, sans-serif;
     font-size: 12px;
     color: #777;
     padding: 0 7px 3px 7px;
@@ -18,7 +18,7 @@
 }
 
 .g-like_state_checked span:first-child {
-    background-image: url(images/heart.png);
+    background: url("/images/sprite.png") -52px -170px;
     display: inline-block;
     vertical-align: top;
     width: 26px;
