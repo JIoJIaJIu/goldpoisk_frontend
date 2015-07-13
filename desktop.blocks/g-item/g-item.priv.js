@@ -202,7 +202,11 @@ blocks['g-item'] = function (data, env) {
                         'odnoklassniki'
                     ],
                     theme: 'counter',
-                    l10n: 'ru'
+                    l10n: 'ru',
+                    url: data.url,
+                    title: data.title,
+                    description: data.description || "Описание отсутствует",
+                    image: data.images[0]
             }]
         };
     }
