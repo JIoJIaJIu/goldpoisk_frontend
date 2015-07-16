@@ -131,13 +131,13 @@ app.get('/product/item', function (req, res) {
             }
         ],
         'description': 'Описание товара',
-        'items': [/*
+        'items': [
             {
                 'price': 3500,
                 'buyUrl': '#',
                 'storeName': 'Saksoniya',
                 'storeUrl': '#'
-            }, {
+            }/*, {
                 'price': 4000,
                 'buyUrl': '#',
                 'storeName': 'Sega',
