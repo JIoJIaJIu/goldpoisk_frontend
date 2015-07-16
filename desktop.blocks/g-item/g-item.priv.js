@@ -109,7 +109,7 @@ blocks['g-item'] = function (data, env) {
             data.category ? category : null,
             blocks['g-item-gallery']({
                 images: data.images,
-                alt: data.title
+                alt: data.title.toLowerCase()
             }, env),
             collumn(store, subscribe),
             stores
