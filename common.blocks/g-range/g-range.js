@@ -40,13 +40,29 @@ modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
                     this.bindTo(this._blocks.leftThumb, 'mousedown', this._onThumbMousedown);
                 },
                 '': function () {
-                    this._blocks = null;
                     this.undindFrom(this._blocks.handlebar, 'click', this._onHandlebarClick);
+                    this.undindFrom(this._blocks.rightThumb, 'click', this._onThumbClick);
+                    this.undindFrom(this._blocks.leftThumb, 'click', this._onThumbClick);
                     this.unbindFrom(this._blocks.rightThumb, 'mousedown', this._onThumbMousedown);
                     this.unbindFrom(this._blocks.leftThumb, 'mousedown', this._onThumbMousedown);
                     this.unbindFromDoc('mouseup', this._onMouseUp);
+                    this._blocks = null;
+                    this._handlebarCoords = null;
+                    this._updateFillCoords = null;
                 }
             }
+        },
+
+        getLowerBound: function () {
+            return this.params.min;
+        },
+
+        getUpperBound: function () {
+            return this.params.max;
+        },
+
+        getWidth: function () {
+            return this.params.width;
         },
 
         _calcTicks: function (params) {
@@ -76,22 +92,16 @@ modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
             var rightThumb = this._fillCoords.right - this._handlebarCoords.left;
             var clickPoint = e.pageX - this._handlebarCoords.left;
             var value;
-            var data = {};
 
-            if ( this._isLeftCloser(clickPoint, leftThumb, rightThumb) ) {
+            if (this._isLeftCloser(clickPoint, leftThumb, rightThumb)) {
                 clickPoint = (rightThumb - clickPoint) < MIN_RANGE && (rightThumb - MIN_RANGE) || clickPoint;
                 value = clickPoint;
-                this.setMinValue(value);
-                data.thumb = 'left';
+                this.setMinValue(value, true);
             } else {
                 clickPoint = (clickPoint - leftThumb) < MIN_RANGE && (leftThumb + MIN_RANGE) || clickPoint;
                 value = this._handlebarCoords.right - this._handlebarCoords.left - clickPoint;
-                this.setMaxValue(value);
-                data.thumb = 'right';
+                this.setMaxValue(value, true);
             }
-
-            data.unit = value;
-            this.emit('changeInput', data);
         },
 
         _onThumbMousedown: function (e) {
@@ -108,27 +118,25 @@ modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
             return false;
         },
 
+        _onMouseUp: function (e) {
+            this.unbindFromDoc('mousemove', this._onMouseMoveFn);
+        },
+
         _onMouseMove: function (thumb, e) {
             var targetPoint = e.pageX - this._handlebarCoords.left;
             var rightBound = this._fillCoords.right - this._handlebarCoords.left;
             var leftBound = this._fillCoords.left - this._handlebarCoords.left;
             var handlebarWidth = this._handlebarCoords.right - this._handlebarCoords.left;
             var val;
-            var data = {}
             if (thumb == 'right') {
                 val = this._handlebarCoords.right - this._handlebarCoords.left - targetPoint;
                 val = this._getValInRange(val, handlebarWidth - leftBound - MIN_RANGE);
-                this.setMaxValue(val);
-                data.thumb = 'right';
+                this.setMaxValue(val, true);
             } else if (thumb == 'left') {
                 val = targetPoint;
                 val = this._getValInRange(val, rightBound - MIN_RANGE);
-                this.setMinValue(val);
-                data.thumb = 'left';
+                this.setMinValue(val, true);
             }
-
-            data.unit = val;
-            this.emit('changeInput', data);
         },
 
         _onThumbClick: function (e) {
@@ -142,10 +150,6 @@ modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
             if (val > bound)
                 return bound;
             return val;
-        },
-
-        _onMouseUp: function (e) {
-            this.unbindFromDoc('mousemove', this._onMouseMoveFn);
         },
 
         _isLeftCloser: function (clickPoint, leftThumb, rightThumb) {
@@ -168,26 +172,16 @@ modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
             };
         },
 
-        setMinValue: function (val) {
+        setMinValue: function (val, emit) {
             this._blocks.fill.css('margin-left', val + 'px');
             this._updateFillCoords();
+            emit && this.emit('changeInput', { min: val });
         },
 
-        setMaxValue: function (val) {
+        setMaxValue: function (val, emit) {
             this._blocks.fill.css('margin-right', val + 'px');
             this._updateFillCoords();
-        },
-
-        getLowerBound: function () {
-            return this.params.min;
-        },
-
-        getUpperBound: function () {
-            return this.params.max;
-        },
-
-        getWidth: function () {
-            return this.params.width;
+            emit && this.emit('changeInput', { max: val });
         },
 
         _blocks: null

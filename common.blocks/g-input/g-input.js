@@ -13,14 +13,11 @@ modules.define('g-input', ['i-bem__dom'], function (provide, BEMDOM) {
         },
 
         _onInput: function (e) {
-            var data = {
-                value: this.val() || 0
-            }
-            this.emit('change', data);
+            this.emit('change', this.val());
         },
 
         val: function () {
-            return parseInt(this.elem('control').val());
+            return parseInt(this.elem('control').val()) || 0;
         },
 
         focus: function () {
@@ -28,7 +25,8 @@ modules.define('g-input', ['i-bem__dom'], function (provide, BEMDOM) {
         },
 
         setVal: function (val) {
-            this.elem('control').val(Math.round(val));
+            val = Math.round(val);
+            this.elem('control').val(val);
             this._onInput();
             return true;
         }
