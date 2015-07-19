@@ -51,20 +51,28 @@ block('g-product')(
             } : null,
             {
                 elem: 'store',
-                tag: 'a',
-                attrs: { "href": this.ctx.storeUrl, "target": "_blank" },
-                content: this.ctx.store
+                content: {
+                    block: 'g-link',
+                    url: this.ctx.storeUrl,
+                    target: '_blank',
+                    rel: 'nofollow',
+                    content: this.ctx.store
+                }
             }, {
                 block: 'g-price',
                 content: this.ctx.price
             }, {
                 elem: 'button',
                 content: {
-                    block: 'g-button',
-                    content: 'Купить',
+                    block: 'g-link',
+                    mix: {
+                        block: 'g-button'
+                    },
                     mods: { display: ( (typeof(this.ctx.price) == 'object') || (this.ctx.price > 9999) ) ? 'none' : null },
-                    href: this.ctx.buyUrl,
-                    newPage: true
+                    url: this.ctx.buyUrl,
+                    target: '_blank',
+                    rel: 'nofollow',
+                    content: 'Купить'
                 }
         }]
     }),

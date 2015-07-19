@@ -2,6 +2,11 @@
     color: #a07472;
 }
 
+.g-link_display_none,
+.g-link_display_none.g-button {
+    display: none;
+}
+
 .g-link_more {
     font-family: 'ClearSans-Thin', Arial, sans-serif;
     font-size: 16px;
