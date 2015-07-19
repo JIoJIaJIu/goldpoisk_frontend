@@ -31,7 +31,7 @@ block('g-item-gallery')(
                             tag: 'img',
                             attrs: {
                                 src: image,
-                                alt: ctx.alt
+                                alt: 'Купить ' + ctx.alt + ' ' + index
                             }
                         }
                     }
@@ -48,7 +48,7 @@ block('g-item-gallery')(
                     tag: 'img',
                     attrs: {
                         src: this.ctx.image,
-                        alt: ctx.alt,
+                        alt: 'Купить ' + ctx.alt + ' 0',
                         u: 'image'
                     }
                 }, {
