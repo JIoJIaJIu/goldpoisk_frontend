@@ -1,13 +1,13 @@
-.g-breadcrumbs__root-node, .g-breadcrumbs__top-level-node {
+.g-breadcrumbs__node_root, .g-breadcrumbs__node_level {
 	font-family: 'ClearSans-Regular', Arial, Sans-serif;
 	font-size: 12px;
 }
 
-.g-breadcrumbs__root-node {
+.g-breadcrumbs__node_root {
 	color: #777;
 }
 
-.g-breadcrumbs__top-level-node {
+.g-breadcrumbs__node_level {
 	color: #3c2424;
 	text-decoration: none;
 }
