@@ -45,7 +45,7 @@ blocks['g-item'] = function (data, env) {
     var heading = {
         block: 'g-heading',
         mods: {},
-        content: capitalize(data.title)
+        content: capitalize('Купить ' + data.title)
     }
 
     var category = {
