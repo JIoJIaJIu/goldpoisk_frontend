@@ -1,26 +1,23 @@
 modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
 
-    /**
-     *  px - минимальное расстояние между ползунками (для того чтобы не
-     *  наезжали друг на друга)ю
-     *  Note: При маленьких значениях - левый ползунок
-     *  перекрывает правый
-     **/
-    var MIN_RANGE = 10;
-
     BEMDOM.decl('g-range', {
+
         onSetMod: {
             js: {
-                'inited': function () {
+                "inited": function () {
+                    var handlebar = this.elem('handlebar');
+                    var leftThumb = this.elem('thumb', 'left', true);
+                    var rightThumb = this.elem('thumb', 'right', true);
                     this._blocks = {
-                        rightThumb: this.elem('thumb', 'right', true),
-                        leftThumb: this.elem('thumb', 'left', true),
-                        handlebar: this.elem('handlebar'),
+                        handlebar: handlebar,
+                        leftThumb: leftThumb,
+                        rightThumb: rightThumb,
                         fill: this.elem('fill')
-                    };
-
-                    this._handlebarCoords = this.getCoords(this._blocks.handlebar[0]);
-                    this._updateFillCoords();
+                    }
+                    this._scale = this.params.width / (this.params.max - this.params.min);
+                    this._minValue = this.params.min;
+                    this._maxValue = this.params.max;
+                    this._step = this.params.step;
 
                     var points = this._calcTicks(this.params);
 
@@ -29,40 +26,62 @@ modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
                         BEMHTML.apply(this._createTicks(points))
                     );
 
-                    this.bindTo(this._blocks.handlebar, 'click', this._onHandlebarClick);
-                    this.bindTo(this._blocks.rightThumb, 'click', this._onThumbClick);
-                    this.bindTo(this._blocks.leftThumb, 'click', this._onThumbClick);
-
-                    var self = this;
-                    var blocks = this._blocks;
-
-                    this.bindTo(this._blocks.rightThumb, 'mousedown', this._onThumbMousedown);
-                    this.bindTo(this._blocks.leftThumb, 'mousedown', this._onThumbMousedown);
+                    this.bindTo(handlebar, 'click', this._clickFn);
+                    this.bindTo(leftThumb, 'mousedown', this._thumbMouseDownFn);
+                    this.bindTo(rightThumb, 'mousedown', this._thumbMouseDownFn);
                 },
-                '': function () {
-                    this.undindFrom(this._blocks.handlebar, 'click', this._onHandlebarClick);
-                    this.undindFrom(this._blocks.rightThumb, 'click', this._onThumbClick);
-                    this.undindFrom(this._blocks.leftThumb, 'click', this._onThumbClick);
-                    this.unbindFrom(this._blocks.rightThumb, 'mousedown', this._onThumbMousedown);
-                    this.unbindFrom(this._blocks.leftThumb, 'mousedown', this._onThumbMousedown);
-                    this.unbindFromDoc('mouseup', this._onMouseUp);
+
+                "": function () {
+                    this.unbindFrom('handlebar', 'click', this._clickFn);
                     this._blocks = null;
-                    this._handlebarCoords = null;
-                    this._updateFillCoords = null;
                 }
             }
         },
 
-        getLowerBound: function () {
-            return this.params.min;
+        /**
+         *
+         *  @param {Number} unit
+         **/
+        setMinValue: function (value) {
+            if (this._minValue == value)
+                return;
+
+            if (this.params.min > value)
+                value = this.params.min;
+
+            if (value + this._step >= this._maxValue)
+                value = this._maxValue - this._step;
+
+            var px = (value * this._scale) - (this.params.min * this._scale);
+            this._blocks.fill.css('marginLeft', px + 'px');
+
+            this._minValue = value;
+
+            this.emit('change', {
+                min: this._minValue,
+                max: this._maxValue
+            });
         },
 
-        getUpperBound: function () {
-            return this.params.max;
-        },
+        setMaxValue: function (value) {
+            if (this._maxValue == value)
+                return;
 
-        getWidth: function () {
-            return this.params.width;
+            if (this.params.max < value)
+                value =  this.params.max;
+
+            if (value - this._step <= this._minValue)
+                value = this._minValue + this._step;
+
+            var px = (value * this._scale) - (this.params.min * this._scale);
+            this._blocks.fill.css('marginRight', this.params.width - px + 'px');
+
+            this._maxValue = value;
+
+            this.emit('change', {
+                min: this._minValue,
+                max: this._maxValue
+            });
         },
 
         _calcTicks: function (params) {
@@ -87,101 +106,54 @@ modules.define('g-range', ['i-bem__dom'], function(provide, BEMDOM) {
             });
         },
 
-        _onHandlebarClick: function (e) {
-            var leftThumb = this._fillCoords.left - this._handlebarCoords.left;
-            var rightThumb = this._fillCoords.right - this._handlebarCoords.left;
-            var clickPoint = e.pageX - this._handlebarCoords.left;
-            var value;
+        _clickFn: function (e) {
+            var point = e.pageX - this._blocks.handlebar.offset().left;
 
-            if (this._isLeftCloser(clickPoint, leftThumb, rightThumb)) {
-                clickPoint = (rightThumb - clickPoint) < MIN_RANGE && (rightThumb - MIN_RANGE) || clickPoint;
-                value = clickPoint;
-                this.setMinValue(value, true);
+            var fillLeft = parseInt(this._blocks.fill.css('marginLeft'), 10);
+            var left = this._blocks.leftThumb.position().left + fillLeft + (this._blocks.leftThumb.width() / 2);
+            var right = this._blocks.rightThumb.position().left + fillLeft + (this._blocks.rightThumb.width() / 2);
+
+            var value = point / this._scale + this.params.min;
+
+            if (this._isLeftCloser(point, left, right)) {
+                this.setMinValue(value);
             } else {
-                clickPoint = (clickPoint - leftThumb) < MIN_RANGE && (leftThumb + MIN_RANGE) || clickPoint;
-                value = this._handlebarCoords.right - this._handlebarCoords.left - clickPoint;
-                this.setMaxValue(value, true);
+                this.setMaxValue(value);
             }
         },
 
-        _onThumbMousedown: function (e) {
+        _thumbMouseDownFn: function (e) {
             e.stopPropagation();
 
-            var targetElem = $(e.target).bem('g-range__thumb');
-
-            var thumb = (targetElem.hasMod('right') && 'right') || (targetElem.hasMod('left') && 'left');
-
-            this._mouseMoveFn = _.bind(this._onMouseMove, this, thumb);
-            this.bindToDoc('mousemove',this._mouseMoveFn);
-            this.bindToDoc('mouseup', this._onMouseUp);
+            this._thumbMouseMoveFn = _.bind(this._thumbMouseMove, this, $(e.target));
+            this.bindToDoc('mousemove',this._thumbMouseMoveFn);
+            this.bindToDoc('mouseup', this._thumbMouseUpFn);
 
             return false;
         },
 
-        _onMouseUp: function (e) {
-            this.unbindFromDoc('mousemove', this._onMouseMoveFn);
+        _thumbMouseUpFn: function (e) {
+            this.unbindFromDoc('mousemove', this._thumbMouseMoveFn);
         },
 
-        _onMouseMove: function (thumb, e) {
-            var targetPoint = e.pageX - this._handlebarCoords.left;
-            var rightBound = this._fillCoords.right - this._handlebarCoords.left;
-            var leftBound = this._fillCoords.left - this._handlebarCoords.left;
-            var handlebarWidth = this._handlebarCoords.right - this._handlebarCoords.left;
-            var val;
-            if (thumb == 'right') {
-                val = this._handlebarCoords.right - this._handlebarCoords.left - targetPoint;
-                val = this._getValInRange(val, handlebarWidth - leftBound - MIN_RANGE);
-                this.setMaxValue(val, true);
-            } else if (thumb == 'left') {
-                val = targetPoint;
-                val = this._getValInRange(val, rightBound - MIN_RANGE);
-                this.setMinValue(val, true);
+        _thumbMouseMove: function (thumb, e) {
+            var point = e.pageX - this._blocks.handlebar.offset().left;
+
+            var fillLeft = parseInt(this._blocks.fill.css('marginLeft'), 10);
+            var left = this._blocks.leftThumb.position().left + fillLeft + (this._blocks.leftThumb.width() / 2);
+            var right = this._blocks.rightThumb.position().left + fillLeft + (this._blocks.rightThumb.width() / 2);
+
+            var value = point / this._scale + this.params.min;
+
+            if (this.hasMod(thumb, 'left')) {
+                this.setMinValue(value);
+            } else {
+                this.setMaxValue(value);
             }
         },
 
-        _onThumbClick: function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-        },
-
-        _getValInRange: function (val, bound) {
-            if (val < 0)
-                return 0;
-            if (val > bound)
-                return bound;
-            return val;
-        },
-
-        _isLeftCloser: function (clickPoint, leftThumb, rightThumb) {
-            return Math.abs(clickPoint - leftThumb) < Math.abs(clickPoint - rightThumb)
-        },
-
-        _updateFillCoords: function () {
-            this._fillCoords = this.getCoords(this._blocks.fill[0]);
-        },
-
-        //@Вынести в JS блок утилит
-        getCoords: function (elem) {
-            var box = elem.getBoundingClientRect();
-
-            return {
-                top: box.top + pageYOffset,
-                left: box.left + pageXOffset,
-                right: box.right + pageXOffset,
-                bottom: box.bottom + pageYOffset
-            };
-        },
-
-        setMinValue: function (val, emit) {
-            this._blocks.fill.css('margin-left', val + 'px');
-            this._updateFillCoords();
-            emit && this.emit('changeInput', { min: val });
-        },
-
-        setMaxValue: function (val, emit) {
-            this._blocks.fill.css('margin-right', val + 'px');
-            this._updateFillCoords();
-            emit && this.emit('changeInput', { max: val });
+        _isLeftCloser: function (x, left, right) {
+            return Math.abs(x - left) < Math.abs(x - right)
         },
 
         _blocks: null

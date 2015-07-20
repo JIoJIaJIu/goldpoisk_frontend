@@ -4,6 +4,35 @@ modules.define('g-price-control', ['i-bem__dom'], function (provide, BEMDOM) {
         onSetMod: {
             js: {
                 "inited": function () {
+                    var self = this;
+                    var minInput = this.findBlockInside({ block: 'g-input', modName: 'min', modVal: true });
+                    var maxInput = this.findBlockInside({ block: 'g-input', modName: 'max', modVal: true });
+                    var range = this.findBlockInside('g-range');
+
+                    this._blocks = {
+                        minInput: minInput,
+                        maxInput: maxInput,
+                        range: range
+                    };
+
+                    minInput.on('change', function (e, value) {
+                        range.setMinValue(value);
+                    });
+
+                    maxInput.on('change', function (e, value) {
+                        range.setMaxValue(value);
+                    });
+
+                    range.on('change', function (e, data) {
+                        minInput.setVal(data.min);
+                        maxInput.setVal(data.max);
+                    });
+                }
+            }
+        }
+/*        onSetMod: {
+            js: {
+                "inited": function () {
                     this._blocks = {
                         minInput: this.findBlockInside({ block: 'g-input', modName: 'min', modVal: true }),
                         maxInput: this.findBlockInside({ block: 'g-input', modName: 'max', modVal: true }),
@@ -12,14 +41,18 @@ modules.define('g-price-control', ['i-bem__dom'], function (provide, BEMDOM) {
 
                     this._blocks.minInput.on('change', _.bind(this._setMinOnRange, this));
                     this._blocks.maxInput.on('change', _.bind(this._setMaxOnRange, this));
-                    this._blocks.range.on('changeInput', _.bind(this._setInputValue, this));
+                    this._blocks.range.on('update', _.bind(this._setInputValue, this));
                 },
                 "": function () {
+                    this._blocks.minInput.un('change');
+                    this._blocks.maxInput.un('change');
+                    this._blocks.range.un('update');
                     this._blocks = null;
+
                 }
             }
         },
-
+/*
         _setMinOnRange: function (e, value) {
             var val = value;
 
@@ -80,7 +113,7 @@ modules.define('g-price-control', ['i-bem__dom'], function (provide, BEMDOM) {
          *  @param {Number} totlaWidth - ширина ползунка в условных единицах
          *  @param {Number} border - толщина границы ползунка
          *  @returns {Number} условные единицы соответствующие цене
-         **/
+         **
         _calcRightMargin: function (val, bottomBound, upperBound, totlaWidth, border) {
              return totlaWidth - (totlaWidth * (val - bottomBound) / (upperBound - bottomBound)) - border;
         },
@@ -94,7 +127,7 @@ modules.define('g-price-control', ['i-bem__dom'], function (provide, BEMDOM) {
          *  @param {Number} totlaWidth - ширина ползунка в условных единицах
          *  @param {Number} border - толщина границы ползунка
          *  @returns {Number} условные единицы соответствующие цене
-         **/
+         **
         _calcLeftMargin: function (val, bottomBound, upperBound, totalWidth, border) {
              return ((val - bottomBound) * totalWidth / (upperBound - bottomBound)) - border;
         },
@@ -131,7 +164,7 @@ modules.define('g-price-control', ['i-bem__dom'], function (provide, BEMDOM) {
         },
 
         _blocks: null
-
+*/
     }, {});
 
     provide(BEMDOM);

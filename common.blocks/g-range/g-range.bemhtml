@@ -5,7 +5,8 @@ block('g-range')(
             ticks: ctx.ticks,
             min: ctx.min,
             max: ctx.max,
-            width: ctx.width
+            width: ctx.width,
+            step: ctx.step
         };
     }),
     content()(function () {

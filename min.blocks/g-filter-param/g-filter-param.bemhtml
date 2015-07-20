@@ -57,7 +57,8 @@ block('g-filter-param')(
                                 width: ctx.scale,
                                 min: ctx.min,
                                 max: ctx.max,
-                                ticks: ctx.ticks
+                                ticks: ctx.ticks,
+                                step: ctx.step
                             }, {
                                 tag: 'hr'
                             }

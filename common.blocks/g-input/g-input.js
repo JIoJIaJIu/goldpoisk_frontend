@@ -4,24 +4,15 @@ modules.define('g-input', ['i-bem__dom'], function (provide, BEMDOM) {
         onSetMod: {
             js: {
                 "inited": function () {
-                    this.bindTo(this.elem('control'), 'input', this._onInput);
+                    this.bindTo(this.elem('control'), 'input', _.debounce(this._onInput, 1000));
                 },
-                "": function () {
 
-                }
+                "": function () {}
             }
         },
 
-        _onInput: function (e) {
-            this.emit('change', this.val());
-        },
-
-        val: function () {
-            return parseInt(this.elem('control').val()) || 0;
-        },
-
-        focus: function () {
-            this.elem('control').focus();
+        getVal: function () {
+            return parseInt(this.elem('control').val(), 10) || 0;
         },
 
         setVal: function (val) {
@@ -29,6 +20,14 @@ modules.define('g-input', ['i-bem__dom'], function (provide, BEMDOM) {
             this.elem('control').val(val);
             this._onInput();
             return true;
+        },
+
+        focus: function () {
+            this.elem('control').focus();
+        },
+
+        _onInput: function (e) {
+            this.emit('change', this.getVal());
         }
 
     }, {});
