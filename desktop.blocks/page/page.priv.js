@@ -190,6 +190,10 @@ pages['category.content'] = function (data, env) {
 /**
  * data.menu
  * data.item
+ *
+ * {String} data.name
+ * {String} data.category
+ * {String} data.categoryUrl
  */
 pages['item'] = function (data, env) {
     return blocks['page']({
@@ -198,45 +202,22 @@ pages['item'] = function (data, env) {
         menu: data.menu,
         content: {
             block: 'g-content',
-            content: [{
-                block: 'g-breadcrumbs',
-                root: {
-                    title: 'Главная',
-                    url: '/'
-                },
-                path: [{
-                    title: data.category,
-                    url: data.categoryUrl
-                }, {
-                    title: data.title,
-                    url: data.url
-                }]
-            }, {
-                block: 'g-item',
-                content: [
-                    blocks['g-item'](data.item, {big: true})
-                ]
+            content: [
+                blocks['g-breadcrumbs'](data.category, data.categoryUrl, data.name),
+                {
+                    block: 'g-item',
+                    content: [
+                        blocks['g-item'](data.item, {big: true})
+                    ]
             }]
         }
     }, env)
 }
 
 pages['item.content'] = function (data, env) {
-    return [{
-            block: 'g-breadcrumbs',
-            root: {
-                title: 'Главная',
-                url: '/'
-            },
-            path: [{
-                    title: data.category,
-                    url: data.categoryUrl
-                }, {
-                    title: data.title,
-                    url: data.url
-            }]
-        },
-        blocks['g-item'](data, {big: true, independent: true})
+    return [
+        blocks['g-breadcrumbs'](data.category, data.categoryUrl, data.name),
+        blocks['g-item'](data.item, {big: true, independent: true})
     ]
 }
 
@@ -249,6 +230,7 @@ pages['item.json'] = function (data, env) {
         content: {
             block: 'g-content',
             content: [
+                blocks['g-breadcrumbs'](data.category, data.categoryUrl, data.name),
                 {
                     block: 'g-item',
                     content: [
