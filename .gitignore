@@ -21,3 +21,5 @@ desktop.bundles/item/**
 desktop.bundles/merge/**
 desktop.bundles/store/**
 !desktop.bundles/store/store.bemjson.js
+desktop.bundles/error/**
+!desktop.bundles/error/error.bemjson.js
