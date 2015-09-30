@@ -1,6 +1,6 @@
 ({
     shouldDeps: [{
-        block: 'metrika'
+        block: 'ymetrika'
     }, {
         block: 'i-bem',
         elem: 'dom',
