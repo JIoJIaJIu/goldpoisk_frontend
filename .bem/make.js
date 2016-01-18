@@ -9,17 +9,17 @@ MAKE.decl('Arch', {
         return {
             'bem-core': {
                 type: 'git',
-                url: 'git@github.com:JIoJIaJIu/bem-core.git',
+                url: 'https://github.com/JIoJIaJIu/bem-core.git',
                 treeish: 'v2'
             },
             'bem-social': {
                 type: 'git',
-                url: 'git@github.com:voischev/bem-social.git',
+                url: 'https://github.com/bem-incubator/bem-social.git',
                 treeish: 'master'
             },
             'bem-history': {
                 type: 'git',
-                url: 'git@github.com:bem/bem-history.git',
+                url: 'https://github.com/bem/bem-history.git',
                 treeish: 'v2'
             }
         }
