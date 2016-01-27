@@ -25,5 +25,19 @@ block('g-input')(
                 tag: 'span'
             }]
         })
+    ),
+    mod('type', 'number')(
+        content()(function () {
+            return {
+                elem: 'control',
+                tag: 'input',
+                attrs: {
+                    type: 'number',
+                    min: this.ctx.min || null,
+                    max: this.ctx.max || null,
+                    placeholder: this.ctx.value
+                }
+            }
+        })
     )
 )

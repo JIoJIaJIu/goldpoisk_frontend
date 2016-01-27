@@ -23,17 +23,26 @@ block('g-filter-param')(
                 content: [
                     {
                         block: 'g-price-control',
+                        js: true,
                         content: [
                             {
                                 elem: 'input',
                                 content: [
                                     {
                                         block: 'g-input',
+                                        mods: {
+                                            type: 'number',
+                                            min: true
+                                        },
                                         value: ctx.min
                                     },
                                     '&#8212;',
                                     {
                                         block: 'g-input',
+                                        mods: {
+                                            type: 'number',
+                                            max: true
+                                        },
                                         value: ctx.max
                                     }, {
                                         block: 'g-price',
@@ -42,9 +51,14 @@ block('g-filter-param')(
                                 ]
                             }, {
                                 block: 'g-range',
+                                attrs: {
+                                    style: 'width:' + ctx.scale + 'px;'
+                                },
                                 width: ctx.scale,
+                                min: ctx.min,
                                 max: ctx.max,
-                                ticks: ctx.ticks
+                                ticks: ctx.ticks,
+                                step: ctx.step
                             }, {
                                 tag: 'hr'
                             }

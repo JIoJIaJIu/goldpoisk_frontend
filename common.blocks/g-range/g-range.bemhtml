@@ -1,9 +1,17 @@
 block('g-range')(
-    js()(true),
+    js()(function () {
+        var ctx = this.ctx;
+        return {
+            ticks: ctx.ticks,
+            min: ctx.min,
+            max: ctx.max,
+            width: ctx.width,
+            step: ctx.step
+        };
+    }),
     content()(function () {
         var ctx = this.ctx;
-        return [
-            {
+        return [{
                 elem: 'left',
                 content: [
                     '<',
@@ -13,41 +21,29 @@ block('g-range')(
                 ]
             }, {
                 elem: 'content',
-                content: [
-                    {
+                content: [{
                         elem: 'ticks',
-                        attrs: { style: 'width: ' + ctx.width + 'px;' },
-                        content: [
-                            ctx.ticks.map(function (tick) {
-                                return {
-                                    elem: 'tick',
-                                    attrs: { style: 'left: ' + (tick * 100 / ctx.max) * ctx.width / 100 + 'px;'},
-                                    content: [
-                                        tick,
-                                        {
-                                            tag: 'span'
-                                        }
-                                    ]
-                                }
-                            }),
-                            {
+                        attrs: {
+                            style: 'width: ' + ctx.width + 'px;'
+                        },
+                        content: [{
                                 elem: 'handlebar',
                                 content: {
                                     elem: 'fill',
-                                    content: [
-                                        {
+                                    content: [{
                                             elem: 'thumb',
-                                            mods: { 'right': true }
+                                            mods: {
+                                                'right': true
+                                            }
                                         }, {
                                             elem: 'thumb',
-                                            mods: { 'left': true }
-                                        }
-                                    ]
+                                            mods: {
+                                                'left': true
+                                            }
+                                    }]
                                 }
-                            }
-                        ]
-                    }
-                ]
+                        }]
+                }]
             }, {
                 elem: 'right',
                 content: [
@@ -56,7 +52,6 @@ block('g-range')(
                         tag: 'span'
                     }
                 ]
-            }
-        ]
+        }]
     })
 )
