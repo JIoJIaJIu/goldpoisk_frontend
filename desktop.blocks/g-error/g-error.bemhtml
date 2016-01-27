@@ -1,0 +1,20 @@
+block('g-error')(
+    content()(function () {
+        var ctx = this.ctx;
+        var code = ctx.code;
+        return [{
+            elem: 'title',
+            content: {
+                block: 'g-heading',
+                content: 'Oh, my Gold!'
+            }
+        }, {
+            elem: 'code',
+            mods: { 'status': code },
+            content: code
+        }, {
+            elem: 'description',
+            content: ctx.content
+        }]
+    })
+)

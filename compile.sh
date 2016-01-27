@@ -13,6 +13,7 @@ bem decl merge \
     -d desktop.bundles/index/index.deps.js \
     -d desktop.bundles/items/items.deps.js \
     -d desktop.bundles/item/item.deps.js \
+    -d desktop.bundles/error/error.deps.js \
     -o desktop.bundles/merge/merge.deps.js
 
 echo "Compiling techs.."

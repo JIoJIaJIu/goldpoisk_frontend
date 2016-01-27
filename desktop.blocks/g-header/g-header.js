@@ -26,7 +26,8 @@ modules.define('g-header', ['i-bem__dom', 'jquery', 'router'], function(provide,
             if (this._enabled)
                 return;
 
-            if (router.getPath() === '/')
+            if (router.getPath() === '/' ||
+                router.getPath() === '/error')
                 return;
 
             this._enabled = true;

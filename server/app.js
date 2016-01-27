@@ -168,6 +168,29 @@ var server = app.listen(3000, function () {
     console.log('Example app listening at http://%s:%s', host, port);
 });
 
+app.get('/error', function (req, res) {
+    var products = getProduct();
+    fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {
+        if (err) throw err;
+        var privContext = vm.createContext();
+        vm.runInContext(data.toString(), privContext);
+        var data = {
+            'title': 'Страница не нейдена 404',
+            'description': 'Страницу похитили, но оставили кое-что взамен',
+            'code': 404,
+            'count': 218,
+            'products': products
+        };
+        var bemjson = privContext.pages['error'](data, {});
+        fs.readFile('../desktop.bundles/merge/index.bemhtml.js', function (err, data) {
+            if (err) throw err;
+            var bemhtmlContext = vm.createContext();
+            vm.runInContext(data.toString(), bemhtmlContext);
+            var html = bemhtmlContext.BEMHTML.apply(bemjson);
+            res.send(html);
+        });
+    });
+});
 
 function renderIndex (cb) {
     fs.readFile('../desktop.bundles/merge/index.priv.js', function (err, data) {

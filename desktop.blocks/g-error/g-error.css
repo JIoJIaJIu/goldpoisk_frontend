@@ -1,0 +1,54 @@
+.g-error {
+    border-top: 1px solid #aaa  ;
+    padding: 50px 0 0;
+    text-align: center;
+    font-family: 'PFDinTextPro-Regular', Arial, sans-serif;
+    color: gray;
+}
+
+.g-error__code {
+    display: inline-block;
+    font-size: 150px;
+    color: #dead03;
+}
+
+.g-error__code:before,
+.g-error__code:after {
+    content: "";
+    display: inline-block;
+    width: 341px;
+    margin-bottom: -20px;
+    background-repeat: no-repeat;
+}
+
+.g-error__code_status_404:before {
+    background-image: url("images/footprints.png");
+    margin-right: 10px;
+    height: 34px;
+}
+
+.g-error__code_status_404:after {
+    background-image: url("images/thief.png");
+    margin-left: 10px;
+    height: 157px;
+}
+
+.g-error__code_status_502:before {
+    background-image: url("images/left_UFO.png");
+    background-position: top right;
+    margin-right: 10px;
+    margin-top: -50%;
+    margin-bottom: 0;
+    height: 179px;
+}
+
+.g-error__code_status_502:after {
+    background-image: url("images/right_UFO.png");
+    background-position: top left;
+    margin-left: 10px;
+    height: 125px;
+}
+
+.g-error__title .g-heading {
+    color: #aaa;
+}

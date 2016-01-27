@@ -1,6 +1,7 @@
 var blocks = {};
 var pages = {};
 blocks['page'] = function (data, env) {
+    var menu = data.menu && blocks['g-menu'](data.menu, env) || {};
     return {
         block: 'page',
         title: data.title,
@@ -21,7 +22,7 @@ blocks['page'] = function (data, env) {
         mods: { theme: 'normal' },
         content: [
             blocks['g-header'](null, env),
-            blocks['g-menu'](data.menu, env),
+            menu,
             data.content,
 
             {
@@ -240,6 +241,34 @@ pages['item.json'] = function (data, env) {
             ]
         }
     }, env)
+}
+/**
+ *  @param {Object} data
+ *      @key {String} title
+ *      @key {String} description
+ *      @key {Number} code
+ *      @key {Number} count
+ *      @key {Array} products
+ **/
+pages['error'] = function (data, env) {
+    return blocks['page']({
+        title: data.title,
+        description: data.description,
+        content: {
+            block: 'g-content',
+            content: [
+                blocks['g-error']({
+                    code: data.code,
+                    description: data.description
+                }),
+                blocks['g-bids']({
+                    count: data.count || 0, //TODO:
+                    products: data.products,
+                    url: '#'
+                })
+            ]
+        }
+    }, env);
 }
 
 function assertHas (obj, key, message) {
